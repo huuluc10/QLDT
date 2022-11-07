@@ -34,26 +34,12 @@ namespace QLDT
             txtNhapLaiMK.MaxLength = 15;
             txthoten.MaxLength = 30;
 
-            txtReMKGV.MaxLength = 15;
             txtReMKSV.MaxLength = 15;
             txtMKSV.MaxLength = 15;
-            txtMKGV.MaxLength = 15;
 
 
 
 
-        }
-        private String GetMD5(string txt)
-        {
-            String str = "";
-            Byte[] buffer = System.Text.Encoding.UTF8.GetBytes(txt);
-            System.Security.Cryptography.MD5CryptoServiceProvider md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
-            buffer = md5.ComputeHash(buffer);
-            foreach (Byte b in buffer)
-            {
-                str += b.ToString("X2");
-            }
-            return str;
         }
 
         private void cbboxkhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -218,54 +204,6 @@ namespace QLDT
             
         }
 
-        private void btnThemTKGV_Click(object sender, EventArgs e)
-        {
-            if (txtMGV.Text == "")
-            {
-                MessageBox.Show("Vui lòng Chọn SV,điền đầy đủ User và Pass/Nhập Lại Pass");
-            }
-            else
-            {
-
-                if (txtMKGV.Text == txtReMKGV.Text)
-                {
-                    //GiangVien b = new GiangVien();
-                    //Admin a = new Admin();
-                    //if (a.check(txtMGV.Text) == true)
-                    //{
-                    //    a.addadmin(txtHoTenGV.Text, txtMGV.Text, GetMD5(txtMKGV.Text), "Giảng Viên");
-                    //    MessageBox.Show("Tạo Tài Khoản Thành Công");
-                    //    dataGridView1.DataSource = a.taikhoan("Giảng Viên");
-                    //    if (trangthai == "Sinh Viên")
-                    //    {
-                    //        dataGridView2.DataSource = b.DanhSachTatCaSVThemTaiKhoan(Lop);
-                    //        for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                    //        {
-                    //            DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
-                    //            dataGridView1[5, i] = linkCell;
-                    //        }
-                    //    }
-                    //    else if (trangthai == "Giảng Viên")
-                    //    {
-                    //        dataGridView2.DataSource = b.DanhSachTatCaGVThemTaiKhoan(khoa);
-                    //        for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                    //        {
-                    //            DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
-                    //            dataGridView1[5, i] = linkCell;
-                    //        }
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Đã tồn tại User này");
-                    //}
-                }
-                else
-                {
-                    MessageBox.Show("Password nhập lại ko đúng, vui lòng kiểm tra lại");
-                }
-            }
-        }
 
         private void cbboxLocKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -325,12 +263,12 @@ namespace QLDT
                 if(trangthai=="Sinh Viên")
                 {
                     txtMSV.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
-                    txtHoTenSV.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+                    //txtHoTenSV.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
                 }
                 else if(trangthai=="Giảng Viên")
                 {
-                    txtMGV.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
-                    txtHoTenGV.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+                    //txtMGV.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+                    //txtHoTenGV.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
                 }
             }
         }

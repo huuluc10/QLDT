@@ -122,6 +122,5 @@ namespace QLDT
                 e.Handled = true;
             }
         }
-
     }
 }

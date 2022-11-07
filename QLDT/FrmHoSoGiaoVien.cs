@@ -15,7 +15,6 @@ namespace QLDT
 {
     public partial class FrmHoSoGiaoVien : Form
     {
-        static String imgLoc = "";
         SqlConnection con = new SqlConnection(ConnectionString.connectionString);
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataSet ds = new DataSet();
@@ -293,7 +292,6 @@ namespace QLDT
                 }
                 else
                 {
-                    imgLoc = "";
                     //Lop a = new Lop();
                     //Diachi b = new Diachi();
                     //txtMSV1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
