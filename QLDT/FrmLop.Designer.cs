@@ -79,7 +79,7 @@
             // btThemLop
             // 
             this.btThemLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btThemLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btThemLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.btThemLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btThemLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btThemLop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -219,7 +219,7 @@
             // btXoaLop
             // 
             this.btXoaLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btXoaLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.btXoaLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.btXoaLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btXoaLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btXoaLop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -237,7 +237,7 @@
             // btsuaLop
             // 
             this.btsuaLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btsuaLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btsuaLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.btsuaLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btsuaLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btsuaLop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -255,7 +255,7 @@
             // btLoadLop
             // 
             this.btLoadLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btLoadLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btLoadLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.btLoadLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLoadLop.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btLoadLop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;

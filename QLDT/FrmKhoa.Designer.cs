@@ -34,19 +34,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Makhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tenkhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtTenkhoa = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.TruongKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Website = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSoTien = new System.Windows.Forms.TextBox();
             this.btThemkhoa = new System.Windows.Forms.Button();
-            this.txtMakhoa1 = new System.Windows.Forms.TextBox();
-            this.txtTenkhoa1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSoTien2 = new System.Windows.Forms.TextBox();
             this.btXoakhoa = new System.Windows.Forms.Button();
@@ -62,9 +63,9 @@
             this.cbboxKhoa = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.txtTenChuyenNganh = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.txtMaChuyenNganh = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -95,8 +96,13 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Makhoa,
-            this.Tenkhoa});
+            this.MaKhoa,
+            this.Tenkhoa,
+            this.TruongKhoa,
+            this.Email,
+            this.DiaChi,
+            this.DienThoai,
+            this.Website});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -113,83 +119,74 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(824, 592);
+            this.dataGridView1.Size = new System.Drawing.Size(881, 592);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
-            // Makhoa
+            // MaKhoa
             // 
-            this.Makhoa.DataPropertyName = "Makhoa";
-            this.Makhoa.HeaderText = "Mã Khoa";
-            this.Makhoa.MinimumWidth = 6;
-            this.Makhoa.Name = "Makhoa";
+            this.MaKhoa.FillWeight = 49.15783F;
+            this.MaKhoa.HeaderText = "Mã Khoa";
+            this.MaKhoa.MinimumWidth = 6;
+            this.MaKhoa.Name = "MaKhoa";
             // 
             // Tenkhoa
             // 
             this.Tenkhoa.DataPropertyName = "Tenkhoa";
+            this.Tenkhoa.FillWeight = 91.56049F;
             this.Tenkhoa.HeaderText = "Tên Khoa";
             this.Tenkhoa.MinimumWidth = 6;
             this.Tenkhoa.Name = "Tenkhoa";
             // 
-            // txtTenkhoa
+            // TruongKhoa
             // 
-            this.txtTenkhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenkhoa.Location = new System.Drawing.Point(113, 42);
-            this.txtTenkhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtTenkhoa.Name = "txtTenkhoa";
-            this.txtTenkhoa.Size = new System.Drawing.Size(279, 27);
-            this.txtTenkhoa.TabIndex = 4;
+            this.TruongKhoa.FillWeight = 79.2026F;
+            this.TruongKhoa.HeaderText = "Trưởng Khoa";
+            this.TruongKhoa.MinimumWidth = 6;
+            this.TruongKhoa.Name = "TruongKhoa";
             // 
-            // label2
+            // Email
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(8, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "TÊN KHOA :";
+            this.Email.FillWeight = 73.24736F;
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.FillWeight = 153.9597F;
+            this.DiaChi.HeaderText = "Địa Chỉ";
+            this.DiaChi.MinimumWidth = 6;
+            this.DiaChi.Name = "DiaChi";
+            // 
+            // DienThoai
+            // 
+            this.DienThoai.FillWeight = 50.9568F;
+            this.DienThoai.HeaderText = "Điện Thoại";
+            this.DienThoai.MinimumWidth = 6;
+            this.DienThoai.Name = "DienThoai";
+            // 
+            // Website
+            // 
+            this.Website.FillWeight = 114.7494F;
+            this.Website.HeaderText = "Website";
+            this.Website.MinimumWidth = 6;
+            this.Website.Name = "Website";
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtSoTien);
             this.groupBox1.Controls.Add(this.btThemkhoa);
-            this.groupBox1.Controls.Add(this.txtTenkhoa);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox1.Location = new System.Drawing.Point(874, 87);
+            this.groupBox1.Location = new System.Drawing.Point(930, 130);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Size = new System.Drawing.Size(406, 207);
+            this.groupBox1.Size = new System.Drawing.Size(350, 89);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÊM MỚI";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(6, 95);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 20);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "SỐ TIỀN/1TC :";
-            // 
-            // txtSoTien
-            // 
-            this.txtSoTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSoTien.Location = new System.Drawing.Point(113, 91);
-            this.txtSoTien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtSoTien.Name = "txtSoTien";
-            this.txtSoTien.Size = new System.Drawing.Size(279, 27);
-            this.txtSoTien.TabIndex = 7;
-            this.txtSoTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTien_KeyPress);
             // 
             // btThemkhoa
             // 
@@ -200,96 +197,95 @@
             this.btThemkhoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btThemkhoa.Image = global::QLDT.Properties.Resources.icons8_add_30;
             this.btThemkhoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btThemkhoa.Location = new System.Drawing.Point(111, 135);
+            this.btThemkhoa.Location = new System.Drawing.Point(15, 24);
             this.btThemkhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btThemkhoa.Name = "btThemkhoa";
             this.btThemkhoa.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btThemkhoa.Size = new System.Drawing.Size(259, 49);
+            this.btThemkhoa.Size = new System.Drawing.Size(321, 49);
             this.btThemkhoa.TabIndex = 5;
             this.btThemkhoa.Text = "THÊM MỚI";
             this.btThemkhoa.UseVisualStyleBackColor = false;
             this.btThemkhoa.Click += new System.EventHandler(this.btThemkhoa_Click);
             // 
-            // txtMakhoa1
-            // 
-            this.txtMakhoa1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMakhoa1.Location = new System.Drawing.Point(113, 34);
-            this.txtMakhoa1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtMakhoa1.Name = "txtMakhoa1";
-            this.txtMakhoa1.ReadOnly = true;
-            this.txtMakhoa1.Size = new System.Drawing.Size(279, 27);
-            this.txtMakhoa1.TabIndex = 6;
-            // 
-            // txtTenkhoa1
-            // 
-            this.txtTenkhoa1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenkhoa1.Location = new System.Drawing.Point(113, 82);
-            this.txtTenkhoa1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtTenkhoa1.Name = "txtTenkhoa1";
-            this.txtTenkhoa1.Size = new System.Drawing.Size(279, 27);
-            this.txtTenkhoa1.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(9, 86);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "TÊN KHOA :";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(14, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "MÃ KHOA :";
-            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtSoTien2);
             this.groupBox2.Controls.Add(this.btXoakhoa);
             this.groupBox2.Controls.Add(this.btsuakhoa);
-            this.groupBox2.Controls.Add(this.txtMakhoa1);
-            this.groupBox2.Controls.Add(this.txtTenkhoa1);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox2.Location = new System.Drawing.Point(874, 302);
+            this.groupBox2.Location = new System.Drawing.Point(930, 227);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox2.Size = new System.Drawing.Size(406, 254);
+            this.groupBox2.Size = new System.Drawing.Size(350, 265);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SỬA-XÓA";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox4.Location = new System.Drawing.Point(146, 134);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(190, 27);
+            this.textBox4.TabIndex = 18;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(146, 86);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(190, 27);
+            this.textBox2.TabIndex = 16;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(15, 137);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 20);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "WEBSITE:";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(15, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 20);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "ĐỊA CHỈ :";
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(6, 135);
+            this.label5.Location = new System.Drawing.Point(15, 41);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 20);
+            this.label5.Size = new System.Drawing.Size(121, 20);
             this.label5.TabIndex = 10;
-            this.label5.Text = "SỐ TIỀN/1TC :";
+            this.label5.Text = "TRƯỞNG KHOA :";
             // 
             // txtSoTien2
             // 
             this.txtSoTien2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSoTien2.Location = new System.Drawing.Point(113, 131);
+            this.txtSoTien2.Location = new System.Drawing.Point(146, 38);
             this.txtSoTien2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSoTien2.Name = "txtSoTien2";
-            this.txtSoTien2.Size = new System.Drawing.Size(279, 27);
+            this.txtSoTien2.Size = new System.Drawing.Size(190, 27);
             this.txtSoTien2.TabIndex = 9;
             this.txtSoTien2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTien2_KeyPress);
             // 
@@ -302,10 +298,10 @@
             this.btXoakhoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btXoakhoa.Image = global::QLDT.Properties.Resources.icons8_delete_bin_30;
             this.btXoakhoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btXoakhoa.Location = new System.Drawing.Point(215, 184);
+            this.btXoakhoa.Location = new System.Drawing.Point(221, 183);
             this.btXoakhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btXoakhoa.Name = "btXoakhoa";
-            this.btXoakhoa.Size = new System.Drawing.Size(155, 49);
+            this.btXoakhoa.Size = new System.Drawing.Size(115, 49);
             this.btXoakhoa.TabIndex = 9;
             this.btXoakhoa.Text = "XÓA";
             this.btXoakhoa.UseVisualStyleBackColor = false;
@@ -320,10 +316,10 @@
             this.btsuakhoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btsuakhoa.Image = global::QLDT.Properties.Resources.icons8_pencil_drawing_30;
             this.btsuakhoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btsuakhoa.Location = new System.Drawing.Point(59, 184);
+            this.btsuakhoa.Location = new System.Drawing.Point(59, 183);
             this.btsuakhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btsuakhoa.Name = "btsuakhoa";
-            this.btsuakhoa.Size = new System.Drawing.Size(150, 49);
+            this.btsuakhoa.Size = new System.Drawing.Size(115, 49);
             this.btsuakhoa.TabIndex = 8;
             this.btsuakhoa.Text = "SỬA";
             this.btsuakhoa.UseVisualStyleBackColor = false;
@@ -338,10 +334,10 @@
             this.btLoadkhoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btLoadkhoa.Image = global::QLDT.Properties.Resources.icons8_update_301;
             this.btLoadkhoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btLoadkhoa.Location = new System.Drawing.Point(874, 22);
+            this.btLoadkhoa.Location = new System.Drawing.Point(930, 52);
             this.btLoadkhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btLoadkhoa.Name = "btLoadkhoa";
-            this.btLoadkhoa.Size = new System.Drawing.Size(406, 57);
+            this.btLoadkhoa.Size = new System.Drawing.Size(350, 57);
             this.btLoadkhoa.TabIndex = 13;
             this.btLoadkhoa.Text = "CẬP NHẬT";
             this.btLoadkhoa.UseVisualStyleBackColor = false;
@@ -393,7 +389,7 @@
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(824, 389);
+            this.dataGridView2.Size = new System.Drawing.Size(881, 389);
             this.dataGridView2.TabIndex = 15;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             this.dataGridView2.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView2_DataBindingComplete);
@@ -428,10 +424,10 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Image = global::QLDT.Properties.Resources.icons8_update_301;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(874, 576);
+            this.button1.Location = new System.Drawing.Point(930, 576);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(406, 62);
+            this.button1.Size = new System.Drawing.Size(350, 62);
             this.button1.TabIndex = 17;
             this.button1.Text = "CẬP NHẬT TẤT CẢ CHUYÊN NGÀNH";
             this.button1.UseVisualStyleBackColor = false;
@@ -444,17 +440,17 @@
             this.groupBox3.Controls.Add(this.cbboxKhoa);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Controls.Add(this.txtTenChuyenNganh);
-            this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.txtMaChuyenNganh);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox3.Location = new System.Drawing.Point(874, 707);
+            this.groupBox3.Location = new System.Drawing.Point(930, 707);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox3.Size = new System.Drawing.Size(406, 232);
+            this.groupBox3.Size = new System.Drawing.Size(350, 232);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             // 
@@ -463,7 +459,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(20, 136);
+            this.label8.Location = new System.Drawing.Point(18, 135);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 20);
             this.label8.TabIndex = 14;
@@ -472,10 +468,10 @@
             // cbboxKhoa
             // 
             this.cbboxKhoa.FormattingEnabled = true;
-            this.cbboxKhoa.Location = new System.Drawing.Point(98, 136);
+            this.cbboxKhoa.Location = new System.Drawing.Point(202, 136);
             this.cbboxKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxKhoa.Name = "cbboxKhoa";
-            this.cbboxKhoa.Size = new System.Drawing.Size(279, 28);
+            this.cbboxKhoa.Size = new System.Drawing.Size(175, 28);
             this.cbboxKhoa.TabIndex = 13;
             this.cbboxKhoa.UseWaitCursor = true;
             // 
@@ -489,10 +485,10 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button3.Image = global::QLDT.Properties.Resources.icons8_delete_bin_30;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(265, 172);
+            this.button3.Location = new System.Drawing.Point(242, 172);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(131, 47);
+            this.button3.Size = new System.Drawing.Size(94, 47);
             this.button3.TabIndex = 12;
             this.button3.Text = "XÓA";
             this.button3.UseVisualStyleBackColor = false;
@@ -503,41 +499,11 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(17, 87);
+            this.label6.Location = new System.Drawing.Point(15, 86);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 20);
             this.label6.TabIndex = 9;
             this.label6.Text = "TÊN CN:";
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Image = global::QLDT.Properties.Resources.icons8_pencil_drawing_30;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(136, 172);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(130, 47);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "SỬA";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // txtTenChuyenNganh
-            // 
-            this.txtTenChuyenNganh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenChuyenNganh.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTenChuyenNganh.Location = new System.Drawing.Point(101, 83);
-            this.txtTenChuyenNganh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtTenChuyenNganh.MaxLength = 60;
-            this.txtTenChuyenNganh.Name = "txtTenChuyenNganh";
-            this.txtTenChuyenNganh.Size = new System.Drawing.Size(279, 27);
-            this.txtTenChuyenNganh.TabIndex = 7;
             // 
             // button2
             // 
@@ -549,25 +515,55 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button2.Image = global::QLDT.Properties.Resources.icons8_add_30;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(9, 172);
+            this.button2.Location = new System.Drawing.Point(46, 172);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(130, 47);
+            this.button2.Size = new System.Drawing.Size(104, 47);
             this.button2.TabIndex = 5;
             this.button2.Text = "THÊM";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.Image = global::QLDT.Properties.Resources.icons8_pencil_drawing_30;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(149, 172);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(94, 47);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "SỬA";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // txtTenChuyenNganh
+            // 
+            this.txtTenChuyenNganh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTenChuyenNganh.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTenChuyenNganh.Location = new System.Drawing.Point(149, 83);
+            this.txtTenChuyenNganh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTenChuyenNganh.MaxLength = 60;
+            this.txtTenChuyenNganh.Name = "txtTenChuyenNganh";
+            this.txtTenChuyenNganh.Size = new System.Drawing.Size(175, 27);
+            this.txtTenChuyenNganh.TabIndex = 7;
+            // 
             // txtMaChuyenNganh
             // 
             this.txtMaChuyenNganh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMaChuyenNganh.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMaChuyenNganh.Location = new System.Drawing.Point(101, 34);
+            this.txtMaChuyenNganh.Location = new System.Drawing.Point(149, 34);
             this.txtMaChuyenNganh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaChuyenNganh.MaxLength = 15;
             this.txtMaChuyenNganh.Name = "txtMaChuyenNganh";
-            this.txtMaChuyenNganh.Size = new System.Drawing.Size(279, 27);
+            this.txtMaChuyenNganh.Size = new System.Drawing.Size(175, 27);
             this.txtMaChuyenNganh.TabIndex = 4;
             // 
             // label7
@@ -575,7 +571,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(19, 38);
+            this.label7.Location = new System.Drawing.Point(17, 37);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 20);
             this.label7.TabIndex = 2;
@@ -586,20 +582,20 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(869, 670);
+            this.label9.Location = new System.Drawing.Point(930, 669);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 20);
+            this.label9.Size = new System.Drawing.Size(84, 20);
             this.label9.TabIndex = 17;
-            this.label9.Text = "KHOA :";
+            this.label9.Text = "MÃ KHOA :";
             // 
             // cbboxChonKhoaCapNhat
             // 
             this.cbboxChonKhoaCapNhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbboxChonKhoaCapNhat.FormattingEnabled = true;
-            this.cbboxChonKhoaCapNhat.Location = new System.Drawing.Point(930, 666);
+            this.cbboxChonKhoaCapNhat.Location = new System.Drawing.Point(1020, 666);
             this.cbboxChonKhoaCapNhat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxChonKhoaCapNhat.Name = "cbboxChonKhoaCapNhat";
-            this.cbboxChonKhoaCapNhat.Size = new System.Drawing.Size(174, 28);
+            this.cbboxChonKhoaCapNhat.Size = new System.Drawing.Size(120, 28);
             this.cbboxChonKhoaCapNhat.TabIndex = 16;
             this.cbboxChonKhoaCapNhat.UseWaitCursor = true;
             // 
@@ -612,10 +608,10 @@
             this.btnCapNhatCNTheoKhoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCapNhatCNTheoKhoa.Image = global::QLDT.Properties.Resources.icons8_update_301;
             this.btnCapNhatCNTheoKhoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhatCNTheoKhoa.Location = new System.Drawing.Point(1110, 661);
+            this.btnCapNhatCNTheoKhoa.Location = new System.Drawing.Point(1146, 661);
             this.btnCapNhatCNTheoKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCapNhatCNTheoKhoa.Name = "btnCapNhatCNTheoKhoa";
-            this.btnCapNhatCNTheoKhoa.Size = new System.Drawing.Size(160, 38);
+            this.btnCapNhatCNTheoKhoa.Size = new System.Drawing.Size(134, 38);
             this.btnCapNhatCNTheoKhoa.TabIndex = 18;
             this.btnCapNhatCNTheoKhoa.Text = "         CẬP NHẬT";
             this.btnCapNhatCNTheoKhoa.UseVisualStyleBackColor = false;
@@ -644,7 +640,6 @@
             this.Load += new System.EventHandler(this.Khoa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -658,22 +653,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Makhoa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tenkhoa;
         private System.Windows.Forms.Button btThemkhoa;
-        private System.Windows.Forms.TextBox txtTenkhoa;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btLoadkhoa;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btXoakhoa;
         private System.Windows.Forms.Button btsuakhoa;
-        private System.Windows.Forms.TextBox txtMakhoa1;
-        private System.Windows.Forms.TextBox txtTenkhoa1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSoTien;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSoTien2;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -694,5 +679,16 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbboxChonKhoaCapNhat;
         private System.Windows.Forms.Button btnCapNhatCNTheoKhoa;
+        private DataGridViewTextBoxColumn MaKhoa;
+        private DataGridViewTextBoxColumn Tenkhoa;
+        private DataGridViewTextBoxColumn TruongKhoa;
+        private DataGridViewTextBoxColumn Email;
+        private DataGridViewTextBoxColumn DiaChi;
+        private DataGridViewTextBoxColumn DienThoai;
+        private DataGridViewTextBoxColumn Website;
+        private TextBox textBox4;
+        private TextBox textBox2;
+        private Label label11;
+        private Label label2;
     }
 }

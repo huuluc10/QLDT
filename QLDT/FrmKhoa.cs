@@ -29,74 +29,76 @@ namespace QLDT
 
         private void btThemkhoa_Click(object sender, EventArgs e)
         {
-            if (txtTenkhoa.Text != "")
-            {
-                //KhoaDT k = new KhoaDT();
-                //k.Them(txtTenkhoa.Text,txtSoTien.Text);
-                //MessageBox.Show("Thêm thành Công");
-                //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                //dataGridView1.DataSource = k.Loadkhoa();
-                //txtTenkhoa.Clear();
-                //txtTenkhoa.Clear();
-                //txtSoTien2.Clear();
-            }
-            else
-            {
-                MessageBox.Show("Tên Khoa không thể bỏ trống");
-            }
+            var f = new FrmAddKhoa();
+            f.Show();
+            //if(txtTenkhoa.Text != "")
+            //{
+            //    //KhoaDT k = new KhoaDT();
+            //    //k.Them(txtTenkhoa.Text,txtSoTien.Text);
+            //    //MessageBox.Show("Thêm thành Công");
+            //    //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //    //dataGridView1.DataSource = k.Loadkhoa();
+            //    //txtTenkhoa.Clear();
+            //    //txtTenkhoa.Clear();
+            //    //txtSoTien2.Clear();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Tên Khoa không thể bỏ trống");
+            //}
         }
 
         private void btsuakhoa_Click(object sender, EventArgs e)
         {
-            if (txtMakhoa1.Text != "")
-            {
-                DialogResult thongbao;
-                thongbao = MessageBox.Show("Xác Nhận Chỉnh Sửa?", "Edit Liền Là Edit Liền", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (thongbao == DialogResult.OK)
-                {
-                    //KhoaDT k = new KhoaDT();
-                    //k.update(txtMakhoa1.Text, txtTenkhoa1.Text,txtSoTien2.Text);
-                    //MessageBox.Show("Sửa thành công");
-                    //txtMakhoa1.Clear();
-                    //txtTenkhoa1.Clear();
-                    //txtSoTien2.Clear();
-                    //dataGridView1.DataSource = k.Loadkhoa().Tables[0];
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn đối tượng");
-            }
+            //if (txtMakhoa1.Text != "")
+            //{
+            //    DialogResult thongbao;
+            //    thongbao = MessageBox.Show("Xác Nhận Chỉnh Sửa?", "Edit Liền Là Edit Liền", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            //    if (thongbao == DialogResult.OK)
+            //    {
+            //        //KhoaDT k = new KhoaDT();
+            //        //k.update(txtMakhoa1.Text, txtTenkhoa1.Text,txtSoTien2.Text);
+            //        //MessageBox.Show("Sửa thành công");
+            //        //txtMakhoa1.Clear();
+            //        //txtTenkhoa1.Clear();
+            //        //txtSoTien2.Clear();
+            //        //dataGridView1.DataSource = k.Loadkhoa().Tables[0];
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Vui lòng chọn đối tượng");
+            //}
         }
 
         private void btXoakhoa_Click(object sender, EventArgs e)
         {
-            if (txtMakhoa1.Text != "")
-            {
-                //DialogResult thongbao;
-                //thongbao = MessageBox.Show("Delete Khoa", "Bạn thực sự Muốn Xóa Khoa này ?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                //if (thongbao == DialogResult.OK)
-                //{
-                //    KhoaDT k = new KhoaDT();
-                //    if (k.check(int.Parse(txtMakhoa1.Text)) == false)
-                //    {
-                //        k.delete(txtMakhoa1.Text);
-                //        MessageBox.Show("Xóa thành công");
-                //        dataGridView1.DataSource = k.Loadkhoa().Tables[0];
-                //        txtMakhoa1.Clear();
-                //        txtTenkhoa1.Clear();
-                //        txtSoTien2.Clear();
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Tồn Tại Lớp Học Thuộc Khoa Này");
-                //    }
-                //}
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn đối tượng");
-            }
+            //if (txtMakhoa1.Text != "")
+            //{
+            //    //DialogResult thongbao;
+            //    //thongbao = MessageBox.Show("Delete Khoa", "Bạn thực sự Muốn Xóa Khoa này ?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            //    //if (thongbao == DialogResult.OK)
+            //    //{
+            //    //    KhoaDT k = new KhoaDT();
+            //    //    if (k.check(int.Parse(txtMakhoa1.Text)) == false)
+            //    //    {
+            //    //        k.delete(txtMakhoa1.Text);
+            //    //        MessageBox.Show("Xóa thành công");
+            //    //        dataGridView1.DataSource = k.Loadkhoa().Tables[0];
+            //    //        txtMakhoa1.Clear();
+            //    //        txtTenkhoa1.Clear();
+            //    //        txtSoTien2.Clear();
+            //    //    }
+            //    //    else
+            //    //    {
+            //    //        MessageBox.Show("Tồn Tại Lớp Học Thuộc Khoa Này");
+            //    //    }
+            //    //}
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Vui lòng chọn đối tượng");
+            //}
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

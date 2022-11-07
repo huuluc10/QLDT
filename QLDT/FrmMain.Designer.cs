@@ -53,7 +53,7 @@
             this.btnQLGiangVien = new System.Windows.Forms.Button();
             this.btnQLTaiKhoan = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnHoSoTamTru = new System.Windows.Forms.Button();
+            this.btnHoSoGiaoVien = new System.Windows.Forms.Button();
             this.btnHoSoSinhVien = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelLogo = new System.Windows.Forms.FlowLayoutPanel();
@@ -178,7 +178,7 @@
             this.panelMenu.Controls.Add(this.btnQLGiangVien);
             this.panelMenu.Controls.Add(this.btnQLTaiKhoan);
             this.panelMenu.Controls.Add(this.panel3);
-            this.panelMenu.Controls.Add(this.btnHoSoTamTru);
+            this.panelMenu.Controls.Add(this.btnHoSoGiaoVien);
             this.panelMenu.Controls.Add(this.btnHoSoSinhVien);
             this.panelMenu.Controls.Add(this.panel2);
             this.panelMenu.Controls.Add(this.panelLogo);
@@ -230,6 +230,7 @@
             this.btnThongKe.TabIndex = 23;
             this.btnThongKe.Text = "THỐNG KÊ";
             this.btnThongKe.UseVisualStyleBackColor = false;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click_1);
             // 
             // btnXetHocBong
             // 
@@ -251,6 +252,7 @@
             this.btnXetHocBong.TabIndex = 22;
             this.btnXetHocBong.Text = "  XÉT HỌC BỔNG";
             this.btnXetHocBong.UseVisualStyleBackColor = false;
+            this.btnXetHocBong.Click += new System.EventHandler(this.btnXetHocBong_Click_1);
             // 
             // btnHocPhi
             // 
@@ -272,6 +274,7 @@
             this.btnHocPhi.TabIndex = 21;
             this.btnHocPhi.Text = "HỌC PHÍ";
             this.btnHocPhi.UseVisualStyleBackColor = false;
+            this.btnHocPhi.Click += new System.EventHandler(this.btnHocPhi_Click_1);
             // 
             // btnQLMonHoc
             // 
@@ -293,6 +296,7 @@
             this.btnQLMonHoc.TabIndex = 20;
             this.btnQLMonHoc.Text = "QL MÔN HỌC";
             this.btnQLMonHoc.UseVisualStyleBackColor = false;
+            this.btnQLMonHoc.Click += new System.EventHandler(this.btnQLMonHoc_Click_1);
             // 
             // btnXemDiem
             // 
@@ -358,6 +362,7 @@
             this.btnDiemRenLuyen.TabIndex = 6;
             this.btnDiemRenLuyen.Text = "      ĐIỂM RÈN LUYỆN";
             this.btnDiemRenLuyen.UseVisualStyleBackColor = false;
+            this.btnDiemRenLuyen.Click += new System.EventHandler(this.btnDiemRenLuyen_Click_1);
             // 
             // btnTBTL
             // 
@@ -503,26 +508,27 @@
             this.panel3.Size = new System.Drawing.Size(277, 24);
             this.panel3.TabIndex = 3;
             // 
-            // btnHoSoTamTru
+            // btnHoSoGiaoVien
             // 
-            this.btnHoSoTamTru.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
-            this.btnHoSoTamTru.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
-            this.btnHoSoTamTru.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHoSoTamTru.Enabled = false;
-            this.btnHoSoTamTru.FlatAppearance.BorderSize = 0;
-            this.btnHoSoTamTru.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHoSoTamTru.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnHoSoTamTru.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnHoSoTamTru.Image = ((System.Drawing.Image)(resources.GetObject("btnHoSoTamTru.Image")));
-            this.btnHoSoTamTru.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHoSoTamTru.Location = new System.Drawing.Point(0, 158);
-            this.btnHoSoTamTru.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnHoSoTamTru.Name = "btnHoSoTamTru";
-            this.btnHoSoTamTru.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
-            this.btnHoSoTamTru.Size = new System.Drawing.Size(277, 64);
-            this.btnHoSoTamTru.TabIndex = 2;
-            this.btnHoSoTamTru.Text = "    HỒ SƠ TẠM TRÚ";
-            this.btnHoSoTamTru.UseVisualStyleBackColor = false;
+            this.btnHoSoGiaoVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
+            this.btnHoSoGiaoVien.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnHoSoGiaoVien.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHoSoGiaoVien.Enabled = false;
+            this.btnHoSoGiaoVien.FlatAppearance.BorderSize = 0;
+            this.btnHoSoGiaoVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoSoGiaoVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHoSoGiaoVien.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnHoSoGiaoVien.Image = global::QLDT.Properties.Resources._2346941;
+            this.btnHoSoGiaoVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHoSoGiaoVien.Location = new System.Drawing.Point(0, 158);
+            this.btnHoSoGiaoVien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHoSoGiaoVien.Name = "btnHoSoGiaoVien";
+            this.btnHoSoGiaoVien.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
+            this.btnHoSoGiaoVien.Size = new System.Drawing.Size(277, 64);
+            this.btnHoSoGiaoVien.TabIndex = 2;
+            this.btnHoSoGiaoVien.Text = "    HỒ SƠ GIÁO VIÊN";
+            this.btnHoSoGiaoVien.UseVisualStyleBackColor = false;
+            this.btnHoSoGiaoVien.Click += new System.EventHandler(this.btnHoSoGiaoVien_Click);
             // 
             // btnHoSoSinhVien
             // 
@@ -544,6 +550,7 @@
             this.btnHoSoSinhVien.TabIndex = 1;
             this.btnHoSoSinhVien.Text = "     HỒ SƠ SINH VIÊN";
             this.btnHoSoSinhVien.UseVisualStyleBackColor = false;
+            this.btnHoSoSinhVien.Click += new System.EventHandler(this.btnHoSoSinhVien_Click_1);
             // 
             // panel2
             // 
@@ -683,7 +690,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDanhSachLop;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnHoSoTamTru;
+        private System.Windows.Forms.Button btnHoSoGiaoVien;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnHoSoSinhVien;

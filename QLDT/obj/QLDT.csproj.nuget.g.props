@@ -13,4 +13,8 @@
     <SourceRoot Include="C:\Users\lucng\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgNetOfficeFw_Core Condition=" '$(PkgNetOfficeFw_Core)' == '' ">C:\Users\lucng\.nuget\packages\netofficefw.core\1.8.1</PkgNetOfficeFw_Core>
+    <PkgNetOfficeFw_MSProject Condition=" '$(PkgNetOfficeFw_MSProject)' == '' ">C:\Users\lucng\.nuget\packages\netofficefw.msproject\1.8.1</PkgNetOfficeFw_MSProject>
+  </PropertyGroup>
 </Project>

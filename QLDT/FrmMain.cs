@@ -44,7 +44,7 @@ namespace QLDT
         public void EnableMenuAdmin()
         {
             btnHoSoSinhVien.Enabled = true;
-            btnHoSoTamTru.Enabled = true;
+            btnHoSoGiaoVien.Enabled = true;
             btnDiemRenLuyen.Enabled = true;
             btnDanhSachLop.Enabled = true;
             btnDanhSachKhoa.Enabled = true;
@@ -62,7 +62,7 @@ namespace QLDT
         public void DisableMenuAdmin()
         {
             btnHoSoSinhVien.Enabled = false;
-            btnHoSoTamTru.Enabled = false;
+            btnHoSoGiaoVien.Enabled = false;
             btnDiemRenLuyen.Enabled = false;
             btnDanhSachLop.Enabled = false;
             btnDanhSachKhoa.Enabled = false;
@@ -77,7 +77,7 @@ namespace QLDT
         public void EnableMenuSV()
         {
             btnHoSoSinhVien.Enabled = true;
-            btnHoSoTamTru.Enabled = true;
+            btnHoSoGiaoVien.Enabled = true;
             btnDiemRenLuyen.Enabled = true;
             btnNhapDiem.Enabled = false;
             btnQLMonHoc.Enabled = false;
@@ -264,45 +264,6 @@ namespace QLDT
             }
         }
 
-        //private void btnHoSoSinhVien_Click(object sender, EventArgs e)
-        //{
-        //    OpenChildForm(new QuanLyDaoTao_Luc.HoSoSinhVien(quyenhan, username), sender);
-        //}
-
-        
-        
-        //private void btnHoSoTamTru_Click(object sender, EventArgs e)
-        //{
-        //    OpenChildForm(new QuanLyDaoTao_Luc.HoSoTamTru(username,quyenhan), sender);
-        //}
-
-        //private void btnDiemRenLuyen_Click(object sender, EventArgs e)
-        //{
-        //    if (btnNhapDiem.Visible == false)
-        //    {
-        //        btnXemDiem.Visible = true;
-        //        btnNhapDiem.Visible = true;
-        //    }
-        //    else
-        //    {
-        //        btnNhapDiem.Visible = false;
-        //        btnXemDiem.Visible = false;
-        //    }
-        //}
-
-        //private void btnThongKe_Click(object sender, EventArgs e)
-        //{
-        //    OpenChildForm(new QuanLyDaoTao_Luc.ThongKe(), sender);
-        //}
-
-        //private void btnCloseChildForm_Click(object sender, EventArgs e)
-        //{
-        //    if (activeForm != null)
-        //    {
-        //        activeForm.Close();
-        //    }
-        //    Reset();
-        //}
 
         private void thoatLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -335,26 +296,26 @@ namespace QLDT
             }
             else if(btnDangNhap.Text == "MỞ LỚP HỌC")
             {
-                //OpenChildFormLogin(new QuanLyDaoTao_Luc.FrmTaoLopDangKyHoc(), sender);
+                OpenChildFormLogin(new QLDT.FrmTaoLopDangKyHoc(), sender);
             }
             else if(btnDangNhap.Text == "ĐĂNG KÝ HỌC")
             {
-                //OpenChildFormLogin(new QuanLyDaoTao_Luc.FrmSinhVienDangKyHoc(username), sender);
+                OpenChildFormLogin(new QLDT.FrmSinhVienDangKyHoc(username), sender);
             }
             else if(btnDangNhap.Text == "ĐIỂM SV")
             {
-                //OpenChildFormLogin(new QuanLyDaoTao_Luc.FrmGiangVienNhapDiemMonHoc(username), sender);
+                //OpenChildFormLogin(new QLDT.FrmGiangVienNhapDiemMonHoc(username), sender);
             }
         }
 
         private void btnNhapDiem_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new QuanLyDaoTao_Luc.FrmNhapDiemRL(), sender);
+            OpenChildForm(new QLDT.FrmNhapDiemRL(), sender);
         }
 
         private void btnXemDiem_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new QuanLyDaoTao_Luc.FrmXemDiemRL(quyenhan,username), sender);
+            OpenChildForm(new QLDT.FrmXemDiemRL(quyenhan, username), sender);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -364,43 +325,33 @@ namespace QLDT
 
         private void btnQLGiangVien_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new QuanLyDaoTao_Luc.FrmQLTaiKhoan(), sender);
+            OpenChildForm(new QLDT.FrmQLTaiKhoan(), sender);
         }
 
         private void btnQLGiangVien_Click_1(object sender, EventArgs e)
         {
-            //OpenChildForm(new QuanLyDaoTao_Luc.FrmQLGiangVien(username,quyenhan), sender);
-        }
-
-        private void btnQLMonHoc_Click(object sender, EventArgs e)
-        {
-            //OpenChildForm(new QuanLyDaoTao_Luc.FrmMonHoc(), sender);
+            OpenChildForm(new QLDT.FrmQLGiangVien(username, quyenhan), sender);
         }
 
         private void btnQLDiem_Click(object sender, EventArgs e)
         {
             if(quyenhan == "3" || quyenhan == "4")
             {
-                //OpenChildForm(new QuanLyDaoTao_Luc.FrmXemDiem(username), sender);
+                OpenChildForm(new QLDT.FrmXemDiem(username), sender);
             }
             else if(quyenhan == "2")
             {
-                //OpenChildForm(new QuanLyDaoTao_Luc.FrmQLDiem(), sender);
+                OpenChildForm(new QLDT.FrmQLDiem(), sender);
             }
             else if(quyenhan == "1")
             {
-                //OpenChildForm(new QuanLyDaoTao_Luc.FrmQLDiem(), sender);
+                OpenChildForm(new QLDT.FrmQLDiem(), sender);
             }
         }
 
         private void btnTBTL_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new QuanLyDaoTao_Luc.FrmTBTL(), sender);
-        }
-
-        private void btnXetHocBong_Click(object sender, EventArgs e)
-        {
-            //OpenChildForm(new QuanLyDaoTao_Luc.FrmXetHocBong(), sender);
+            OpenChildForm(new QLDT.FrmTBTL(), sender);
         }
 
         private void linkdoimatkhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -416,11 +367,6 @@ namespace QLDT
                 activeForm.Close();
             }
             Reset();
-        }
-
-        private void btnHocPhi_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -443,6 +389,50 @@ namespace QLDT
         private void btnDanhSachKhoa_Click(object sender, EventArgs e)
         {
             OpenChildForm(new QLDT.FrmKhoa(), sender);
+        }
+
+        private void btnQLMonHoc_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new QLDT.FrmMonHoc(), sender);
+        }
+
+        private void btnHoSoSinhVien_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new QLDT.FrmHoSoSinhVien(quyenhan, username), sender);
+        }
+
+        private void btnDiemRenLuyen_Click_1(object sender, EventArgs e)
+        {
+            if (btnNhapDiem.Visible == false)
+            {
+                btnXemDiem.Visible = true;
+                btnNhapDiem.Visible = true;
+            }
+            else
+            {
+                btnNhapDiem.Visible = false;
+                btnXemDiem.Visible = false;
+            }
+        }
+
+        private void btnHocPhi_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXetHocBong_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new QLDT.FrmXetHocBong(), sender);
+        }
+
+        private void btnThongKe_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new QLDT.FrmThongKe(), sender);
+        }
+
+        private void btnHoSoGiaoVien_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new QLDT.FrmHoSoGiaoVien(quyenhan, username), sender);
         }
     }
 }
