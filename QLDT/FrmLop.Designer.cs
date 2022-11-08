@@ -80,7 +80,8 @@
             // 
             this.btThemLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btThemLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btThemLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btThemLop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btThemLop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btThemLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btThemLop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btThemLop.Image = global::QLDT.Properties.Resources.icons8_add_30;
@@ -220,7 +221,8 @@
             // 
             this.btXoaLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btXoaLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btXoaLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btXoaLop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btXoaLop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btXoaLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btXoaLop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btXoaLop.Image = global::QLDT.Properties.Resources.icons8_delete_bin_30;
@@ -238,7 +240,8 @@
             // 
             this.btsuaLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btsuaLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btsuaLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btsuaLop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btsuaLop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btsuaLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btsuaLop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btsuaLop.Image = global::QLDT.Properties.Resources.icons8_pencil_drawing_30;
@@ -256,7 +259,8 @@
             // 
             this.btLoadLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btLoadLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btLoadLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btLoadLop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btLoadLop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btLoadLop.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btLoadLop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btLoadLop.Image = global::QLDT.Properties.Resources.icons8_class_40;

@@ -120,7 +120,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(159, 92);
+            this.label3.Location = new System.Drawing.Point(10, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 20);
             this.label3.TabIndex = 18;
@@ -130,7 +130,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(335, 35);
+            this.label2.Location = new System.Drawing.Point(10, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 20);
             this.label2.TabIndex = 17;
@@ -140,7 +140,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(10, 35);
+            this.label1.Location = new System.Drawing.Point(10, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 16;
@@ -151,10 +151,10 @@
             this.cbboxchonlop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxchonlop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbboxchonlop.FormattingEnabled = true;
-            this.cbboxchonlop.Location = new System.Drawing.Point(390, 31);
+            this.cbboxchonlop.Location = new System.Drawing.Point(127, 71);
             this.cbboxchonlop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxchonlop.Name = "cbboxchonlop";
-            this.cbboxchonlop.Size = new System.Drawing.Size(220, 28);
+            this.cbboxchonlop.Size = new System.Drawing.Size(117, 28);
             this.cbboxchonlop.TabIndex = 15;
             this.cbboxchonlop.SelectedIndexChanged += new System.EventHandler(this.cbboxchonlop_SelectedIndexChanged);
             // 
@@ -163,10 +163,10 @@
             this.cbboxChonkhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxChonkhoa.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbboxChonkhoa.FormattingEnabled = true;
-            this.cbboxChonkhoa.Location = new System.Drawing.Point(71, 31);
+            this.cbboxChonkhoa.Location = new System.Drawing.Point(127, 35);
             this.cbboxChonkhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxChonkhoa.Name = "cbboxChonkhoa";
-            this.cbboxChonkhoa.Size = new System.Drawing.Size(247, 28);
+            this.cbboxChonkhoa.Size = new System.Drawing.Size(253, 28);
             this.cbboxChonkhoa.TabIndex = 14;
             this.cbboxChonkhoa.SelectedIndexChanged += new System.EventHandler(this.cbboxChonkhoa_SelectedIndexChanged);
             // 
@@ -174,10 +174,10 @@
             // 
             this.cbboxNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxNamHoc.FormattingEnabled = true;
-            this.cbboxNamHoc.Location = new System.Drawing.Point(269, 89);
+            this.cbboxNamHoc.Location = new System.Drawing.Point(127, 107);
             this.cbboxNamHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxNamHoc.Name = "cbboxNamHoc";
-            this.cbboxNamHoc.Size = new System.Drawing.Size(193, 28);
+            this.cbboxNamHoc.Size = new System.Drawing.Size(147, 28);
             this.cbboxNamHoc.TabIndex = 13;
             this.cbboxNamHoc.SelectedIndexChanged += new System.EventHandler(this.cbboxNamHoc_SelectedIndexChanged);
             // 

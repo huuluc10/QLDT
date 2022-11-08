@@ -239,8 +239,10 @@
             // 
             this.btThemTKSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btThemTKSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
+            this.btThemTKSV.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btThemTKSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btThemTKSV.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btThemTKSV.Image = global::QLDT.Properties.Resources.icons8_pencil_drawing_30;
             this.btThemTKSV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btThemTKSV.Location = new System.Drawing.Point(114, 207);
             this.btThemTKSV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -255,8 +257,10 @@
             // 
             this.btncapnhattaikhoan.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btncapnhattaikhoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
+            this.btncapnhattaikhoan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btncapnhattaikhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncapnhattaikhoan.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btncapnhattaikhoan.Image = global::QLDT.Properties.Resources.icons8_update_30;
             this.btncapnhattaikhoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncapnhattaikhoan.Location = new System.Drawing.Point(417, 22);
             this.btncapnhattaikhoan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -308,8 +312,10 @@
             // 
             this.btnThemTKQL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThemTKQL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
+            this.btnThemTKQL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnThemTKQL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemTKQL.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnThemTKQL.Image = global::QLDT.Properties.Resources.icons8_add_30;
             this.btnThemTKQL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnThemTKQL.Location = new System.Drawing.Point(114, 236);
             this.btnThemTKQL.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

@@ -138,6 +138,7 @@
             // linkdoimatkhau
             // 
             this.linkdoimatkhau.AutoSize = true;
+            this.linkdoimatkhau.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkdoimatkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.linkdoimatkhau.LinkColor = System.Drawing.Color.Red;
             this.linkdoimatkhau.Location = new System.Drawing.Point(-1, 7);
@@ -193,6 +194,7 @@
             // 
             this.btnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnHelp.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHelp.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHelp.FlatAppearance.BorderSize = 0;
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -214,6 +216,7 @@
             // 
             this.btnThongKe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnThongKe.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnThongKe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnThongKe.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnThongKe.Enabled = false;
             this.btnThongKe.FlatAppearance.BorderSize = 0;
@@ -236,6 +239,7 @@
             // 
             this.btnXetHocBong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnXetHocBong.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnXetHocBong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnXetHocBong.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnXetHocBong.Enabled = false;
             this.btnXetHocBong.FlatAppearance.BorderSize = 0;
@@ -258,6 +262,7 @@
             // 
             this.btnHocPhi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnHocPhi.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnHocPhi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHocPhi.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHocPhi.Enabled = false;
             this.btnHocPhi.FlatAppearance.BorderSize = 0;
@@ -280,6 +285,7 @@
             // 
             this.btnQLMonHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnQLMonHoc.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnQLMonHoc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLMonHoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQLMonHoc.Enabled = false;
             this.btnQLMonHoc.FlatAppearance.BorderSize = 0;
@@ -302,6 +308,7 @@
             // 
             this.btnXemDiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnXemDiem.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnXemDiem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnXemDiem.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnXemDiem.FlatAppearance.BorderSize = 0;
             this.btnXemDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -324,6 +331,7 @@
             // 
             this.btnNhapDiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnNhapDiem.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnNhapDiem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNhapDiem.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNhapDiem.FlatAppearance.BorderSize = 0;
             this.btnNhapDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -346,6 +354,7 @@
             // 
             this.btnDiemRenLuyen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnDiemRenLuyen.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnDiemRenLuyen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDiemRenLuyen.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDiemRenLuyen.Enabled = false;
             this.btnDiemRenLuyen.FlatAppearance.BorderSize = 0;
@@ -368,6 +377,7 @@
             // 
             this.btnTBTL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnTBTL.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnTBTL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTBTL.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnTBTL.Enabled = false;
             this.btnTBTL.FlatAppearance.BorderSize = 0;
@@ -390,6 +400,7 @@
             // 
             this.btnQLDiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnQLDiem.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnQLDiem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLDiem.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQLDiem.Enabled = false;
             this.btnQLDiem.FlatAppearance.BorderSize = 0;
@@ -412,6 +423,7 @@
             // 
             this.btnDanhSachKhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnDanhSachKhoa.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnDanhSachKhoa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDanhSachKhoa.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDanhSachKhoa.Enabled = false;
             this.btnDanhSachKhoa.FlatAppearance.BorderSize = 0;
@@ -434,6 +446,7 @@
             // 
             this.btnDanhSachLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnDanhSachLop.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnDanhSachLop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDanhSachLop.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDanhSachLop.Enabled = false;
             this.btnDanhSachLop.FlatAppearance.BorderSize = 0;
@@ -456,6 +469,7 @@
             // 
             this.btnQLGiangVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnQLGiangVien.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnQLGiangVien.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLGiangVien.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQLGiangVien.Enabled = false;
             this.btnQLGiangVien.FlatAppearance.BorderSize = 0;
@@ -478,6 +492,7 @@
             // 
             this.btnQLTaiKhoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnQLTaiKhoan.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnQLTaiKhoan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLTaiKhoan.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnQLTaiKhoan.Enabled = false;
             this.btnQLTaiKhoan.FlatAppearance.BorderSize = 0;
@@ -512,6 +527,7 @@
             // 
             this.btnHoSoGiaoVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnHoSoGiaoVien.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnHoSoGiaoVien.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHoSoGiaoVien.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHoSoGiaoVien.Enabled = false;
             this.btnHoSoGiaoVien.FlatAppearance.BorderSize = 0;
@@ -534,6 +550,7 @@
             // 
             this.btnHoSoSinhVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.btnHoSoSinhVien.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnHoSoSinhVien.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHoSoSinhVien.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHoSoSinhVien.Enabled = false;
             this.btnHoSoSinhVien.FlatAppearance.BorderSize = 0;
@@ -580,8 +597,9 @@
             // btnDangNhap
             // 
             this.btnDangNhap.BackColor = System.Drawing.Color.Lime;
+            this.btnDangNhap.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDangNhap.FlatAppearance.BorderSize = 0;
-            this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDangNhap.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnDangNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnDangNhap.Image")));

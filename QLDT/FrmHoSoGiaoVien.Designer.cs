@@ -655,6 +655,7 @@
             this.btLoadSV.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btLoadSV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btLoadSV.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btLoadSV.Image = global::QLDT.Properties.Resources._2346941;
             this.btLoadSV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btLoadSV.Location = new System.Drawing.Point(57, 145);
             this.btLoadSV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -711,6 +712,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Image = global::QLDT.Properties.Resources._2346941;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(57, 263);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -739,8 +741,9 @@
             // btnnext
             // 
             this.btnnext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
+            this.btnnext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnnext.Enabled = false;
-            this.btnnext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnnext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnnext.Location = new System.Drawing.Point(547, 24);
             this.btnnext.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnnext.Name = "btnnext";

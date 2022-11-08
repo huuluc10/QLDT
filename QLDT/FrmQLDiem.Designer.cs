@@ -48,7 +48,6 @@
             this.radioButtonHK1 = new System.Windows.Forms.RadioButton();
             this.label14 = new System.Windows.Forms.Label();
             this.cbboxMonHoc = new System.Windows.Forms.ComboBox();
-            this.btnLoadDanhSach = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.cbboxNamHoc = new System.Windows.Forms.ComboBox();
             this.cbboxChonlop = new System.Windows.Forms.ComboBox();
@@ -56,6 +55,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnLoadDanhSach = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -64,7 +64,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnXoaDiem = new System.Windows.Forms.Button();
             this.btnNhapDiem = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -74,7 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -111,7 +109,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1719, 745);
+            this.dataGridView1.Size = new System.Drawing.Size(1589, 745);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
@@ -121,7 +119,7 @@
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.btnCanCel);
             this.groupBox2.Controls.Add(this.btnOK);
-            this.groupBox2.Location = new System.Drawing.Point(1145, 15);
+            this.groupBox2.Location = new System.Drawing.Point(1187, 16);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -154,7 +152,8 @@
             // btnCanCel
             // 
             this.btnCanCel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btnCanCel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCanCel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCanCel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCanCel.Image = global::QLDT.Properties.Resources.icons8_cancel_20;
             this.btnCanCel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCanCel.Location = new System.Drawing.Point(220, 101);
@@ -169,7 +168,8 @@
             // btnOK
             // 
             this.btnOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOK.Image = global::QLDT.Properties.Resources.icons8_ok_20;
             this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOK.Location = new System.Drawing.Point(60, 101);
@@ -188,7 +188,6 @@
             this.groupBox3.Controls.Add(this.radioButtonHK1);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.cbboxMonHoc);
-            this.groupBox3.Controls.Add(this.btnLoadDanhSach);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.cbboxNamHoc);
             this.groupBox3.Controls.Add(this.cbboxChonlop);
@@ -200,7 +199,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Size = new System.Drawing.Size(850, 248);
+            this.groupBox3.Size = new System.Drawing.Size(874, 248);
             this.groupBox3.TabIndex = 126;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "LỌC";
@@ -211,24 +210,25 @@
             this.groupBox6.Controls.Add(this.btnDuongDan);
             this.groupBox6.Controls.Add(this.lblDuongDanFile);
             this.groupBox6.Controls.Add(this.lblDuongDan);
-            this.groupBox6.Location = new System.Drawing.Point(419, 131);
+            this.groupBox6.Location = new System.Drawing.Point(12, 125);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox6.Size = new System.Drawing.Size(431, 115);
+            this.groupBox6.Size = new System.Drawing.Size(847, 115);
             this.groupBox6.TabIndex = 107;
             this.groupBox6.TabStop = false;
             // 
             // btnXuatExcel
             // 
             this.btnXuatExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btnXuatExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXuatExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXuatExcel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnXuatExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnXuatExcel.Image")));
             this.btnXuatExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXuatExcel.Location = new System.Drawing.Point(237, 25);
+            this.btnXuatExcel.Location = new System.Drawing.Point(460, 25);
             this.btnXuatExcel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnXuatExcel.Name = "btnXuatExcel";
-            this.btnXuatExcel.Size = new System.Drawing.Size(174, 41);
+            this.btnXuatExcel.Size = new System.Drawing.Size(355, 41);
             this.btnXuatExcel.TabIndex = 126;
             this.btnXuatExcel.Text = "XUẤT EXCEL";
             this.btnXuatExcel.UseVisualStyleBackColor = false;
@@ -238,13 +238,13 @@
             // 
             this.btnDuongDan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.btnDuongDan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDuongDan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDuongDan.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDuongDan.Image = global::QLDT.Properties.Resources.icons8_add_link_30;
             this.btnDuongDan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDuongDan.Location = new System.Drawing.Point(22, 25);
+            this.btnDuongDan.Location = new System.Drawing.Point(52, 25);
             this.btnDuongDan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDuongDan.Name = "btnDuongDan";
-            this.btnDuongDan.Size = new System.Drawing.Size(209, 41);
+            this.btnDuongDan.Size = new System.Drawing.Size(392, 41);
             this.btnDuongDan.TabIndex = 125;
             this.btnDuongDan.Text = "CHỌN ĐƯỜNG DẪN";
             this.btnDuongDan.UseVisualStyleBackColor = false;
@@ -273,7 +273,7 @@
             // 
             this.radioButtonHK2.AutoSize = true;
             this.radioButtonHK2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.radioButtonHK2.Location = new System.Drawing.Point(499, 104);
+            this.radioButtonHK2.Location = new System.Drawing.Point(238, 99);
             this.radioButtonHK2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonHK2.Name = "radioButtonHK2";
             this.radioButtonHK2.Size = new System.Drawing.Size(88, 24);
@@ -287,7 +287,7 @@
             // 
             this.radioButtonHK1.AutoSize = true;
             this.radioButtonHK1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.radioButtonHK1.Location = new System.Drawing.Point(382, 104);
+            this.radioButtonHK1.Location = new System.Drawing.Point(121, 99);
             this.radioButtonHK1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonHK1.Name = "radioButtonHK1";
             this.radioButtonHK1.Size = new System.Drawing.Size(84, 24);
@@ -301,7 +301,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(293, 106);
+            this.label14.Location = new System.Drawing.Point(32, 101);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(68, 20);
             this.label14.TabIndex = 19;
@@ -311,32 +311,17 @@
             // 
             this.cbboxMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxMonHoc.FormattingEnabled = true;
-            this.cbboxMonHoc.Location = new System.Drawing.Point(97, 169);
+            this.cbboxMonHoc.Location = new System.Drawing.Point(498, 98);
             this.cbboxMonHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxMonHoc.Name = "cbboxMonHoc";
             this.cbboxMonHoc.Size = new System.Drawing.Size(284, 28);
             this.cbboxMonHoc.TabIndex = 9;
             // 
-            // btnLoadDanhSach
-            // 
-            this.btnLoadDanhSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btnLoadDanhSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadDanhSach.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLoadDanhSach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoadDanhSach.Location = new System.Drawing.Point(625, 41);
-            this.btnLoadDanhSach.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnLoadDanhSach.Name = "btnLoadDanhSach";
-            this.btnLoadDanhSach.Size = new System.Drawing.Size(199, 69);
-            this.btnLoadDanhSach.TabIndex = 18;
-            this.btnLoadDanhSach.Text = "      CẬP NHẬT";
-            this.btnLoadDanhSach.UseVisualStyleBackColor = false;
-            this.btnLoadDanhSach.Click += new System.EventHandler(this.btnLoadDanhSach_Click);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(9, 171);
+            this.label10.Location = new System.Drawing.Point(406, 101);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 20);
             this.label10.TabIndex = 8;
@@ -346,10 +331,10 @@
             // 
             this.cbboxNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxNamHoc.FormattingEnabled = true;
-            this.cbboxNamHoc.Location = new System.Drawing.Point(97, 102);
+            this.cbboxNamHoc.Location = new System.Drawing.Point(472, 44);
             this.cbboxNamHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxNamHoc.Name = "cbboxNamHoc";
-            this.cbboxNamHoc.Size = new System.Drawing.Size(150, 28);
+            this.cbboxNamHoc.Size = new System.Drawing.Size(141, 28);
             this.cbboxNamHoc.TabIndex = 7;
             this.cbboxNamHoc.SelectedIndexChanged += new System.EventHandler(this.cbboxNamHoc_SelectedIndexChanged);
             // 
@@ -357,10 +342,10 @@
             // 
             this.cbboxChonlop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxChonlop.FormattingEnabled = true;
-            this.cbboxChonlop.Location = new System.Drawing.Point(419, 45);
+            this.cbboxChonlop.Location = new System.Drawing.Point(732, 43);
             this.cbboxChonlop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxChonlop.Name = "cbboxChonlop";
-            this.cbboxChonlop.Size = new System.Drawing.Size(164, 28);
+            this.cbboxChonlop.Size = new System.Drawing.Size(106, 28);
             this.cbboxChonlop.TabIndex = 6;
             this.cbboxChonlop.SelectedIndexChanged += new System.EventHandler(this.cbboxChonlop_SelectedIndexChanged);
             // 
@@ -368,7 +353,7 @@
             // 
             this.cbboxChonkhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxChonkhoa.FormattingEnabled = true;
-            this.cbboxChonkhoa.Location = new System.Drawing.Point(97, 45);
+            this.cbboxChonkhoa.Location = new System.Drawing.Point(104, 45);
             this.cbboxChonkhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxChonkhoa.Name = "cbboxChonkhoa";
             this.cbboxChonkhoa.Size = new System.Drawing.Size(247, 28);
@@ -379,7 +364,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(17, 108);
+            this.label11.Location = new System.Drawing.Point(381, 48);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(85, 20);
             this.label11.TabIndex = 3;
@@ -389,7 +374,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(364, 49);
+            this.label12.Location = new System.Drawing.Point(674, 46);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(42, 20);
             this.label12.TabIndex = 2;
@@ -399,11 +384,28 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(36, 49);
+            this.label13.Location = new System.Drawing.Point(32, 48);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 20);
             this.label13.TabIndex = 1;
             this.label13.Text = "KHOA :";
+            // 
+            // btnLoadDanhSach
+            // 
+            this.btnLoadDanhSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
+            this.btnLoadDanhSach.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLoadDanhSach.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLoadDanhSach.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLoadDanhSach.Image = global::QLDT.Properties.Resources.icons8_update_30;
+            this.btnLoadDanhSach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLoadDanhSach.Location = new System.Drawing.Point(49, 171);
+            this.btnLoadDanhSach.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLoadDanhSach.Name = "btnLoadDanhSach";
+            this.btnLoadDanhSach.Size = new System.Drawing.Size(199, 69);
+            this.btnLoadDanhSach.TabIndex = 18;
+            this.btnLoadDanhSach.Text = "      CẬP NHẬT";
+            this.btnLoadDanhSach.UseVisualStyleBackColor = false;
+            this.btnLoadDanhSach.Click += new System.EventHandler(this.btnLoadDanhSach_Click);
             // 
             // groupBox5
             // 
@@ -415,27 +417,30 @@
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(254, 248);
+            this.groupBox5.Size = new System.Drawing.Size(236, 142);
             this.groupBox5.TabIndex = 130;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "CHẾ ĐỘ";
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(35, 146);
+            this.pictureBox2.Image = global::QLDT.Properties.Resources.icons8_opera_glasses_30;
+            this.pictureBox2.InitialImage = global::QLDT.Properties.Resources.icons8_pencil_drawing_301;
+            this.pictureBox2.Location = new System.Drawing.Point(20, 88);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(45, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(36, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(35, 60);
+            this.pictureBox1.Image = global::QLDT.Properties.Resources.icons8_pencil_drawing_301;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 35);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(36, 36);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -443,7 +448,7 @@
             // radioButtonXEMDIEM
             // 
             this.radioButtonXEMDIEM.AutoSize = true;
-            this.radioButtonXEMDIEM.Location = new System.Drawing.Point(95, 161);
+            this.radioButtonXEMDIEM.Location = new System.Drawing.Point(80, 94);
             this.radioButtonXEMDIEM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonXEMDIEM.Name = "radioButtonXEMDIEM";
             this.radioButtonXEMDIEM.Size = new System.Drawing.Size(100, 24);
@@ -454,7 +459,7 @@
             // radioButtonNHAPDIEM
             // 
             this.radioButtonNHAPDIEM.AutoSize = true;
-            this.radioButtonNHAPDIEM.Location = new System.Drawing.Point(95, 72);
+            this.radioButtonNHAPDIEM.Location = new System.Drawing.Point(80, 39);
             this.radioButtonNHAPDIEM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonNHAPDIEM.Name = "radioButtonNHAPDIEM";
             this.radioButtonNHAPDIEM.Size = new System.Drawing.Size(149, 24);
@@ -468,7 +473,7 @@
             // 
             this.groupBox1.Controls.Add(this.btnXoaDiem);
             this.groupBox1.Controls.Add(this.btnNhapDiem);
-            this.groupBox1.Location = new System.Drawing.Point(1145, 176);
+            this.groupBox1.Location = new System.Drawing.Point(1187, 177);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -479,7 +484,8 @@
             // btnXoaDiem
             // 
             this.btnXoaDiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btnXoaDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoaDiem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXoaDiem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnXoaDiem.Image = global::QLDT.Properties.Resources.icons8_delete_bin_30;
             this.btnXoaDiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnXoaDiem.Location = new System.Drawing.Point(230, 14);
@@ -495,7 +501,8 @@
             // 
             this.btnNhapDiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNhapDiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btnNhapDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhapDiem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNhapDiem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNhapDiem.Image = global::QLDT.Properties.Resources.icons8_pencil_drawing_30;
             this.btnNhapDiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNhapDiem.Location = new System.Drawing.Point(20, 14);
@@ -507,29 +514,18 @@
             this.btnNhapDiem.UseVisualStyleBackColor = false;
             this.btnNhapDiem.Click += new System.EventHandler(this.btnNhapDiem_Click);
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::QLDT.Properties.Resources.cartoon_programmer_laptop_working_writing_code_vector_17992033;
-            this.pictureBox3.Location = new System.Drawing.Point(1580, 21);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(167, 241);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 132;
-            this.pictureBox3.TabStop = false;
-            // 
             // FrmQLDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
-            this.ClientSize = new System.Drawing.Size(1608, 1070);
-            this.Controls.Add(this.pictureBox3);
+            this.ClientSize = new System.Drawing.Size(1729, 1070);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnLoadDanhSach);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmQLDiem";
@@ -548,7 +544,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -583,7 +578,6 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnXuatExcel;
         private System.Windows.Forms.Button btnDuongDan;
         private Label lblDuongDan;

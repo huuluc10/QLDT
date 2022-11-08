@@ -77,7 +77,6 @@ namespace QLDT
         public void EnableMenuSV()
         {
             btnHoSoSinhVien.Enabled = true;
-            btnHoSoGiaoVien.Enabled = true;
             btnDiemRenLuyen.Enabled = true;
             btnNhapDiem.Enabled = false;
             btnQLMonHoc.Enabled = false;
@@ -86,6 +85,7 @@ namespace QLDT
         }
         public void EnableMenuGV()
         {
+            btnHoSoGiaoVien.Enabled = true;
             btnDiemRenLuyen.Enabled = true;
             btnNhapDiem.Enabled = true;
             btnXemDiem.Enabled = true;
@@ -239,7 +239,7 @@ namespace QLDT
                     EnableMenuAdmin();
                     btnDangNhap.Text = "MỞ LỚP HỌC";
                     btnQLDiem.Text = " QUẢN LÝ ĐIỂM";
-                    btnQLGiangVien.Text = "  QL GIẢNG VIÊN";
+                    btnQLGiangVien.Text = "  QUẢN LÝ GIẢNG VIÊN";
                     linkdoimatkhau.Visible = true;
                     panel4.Visible = true;
                 }
@@ -247,10 +247,10 @@ namespace QLDT
                 {
                     btnDangNhap.Text = "";
                     EnableMenuGV();
-                    btnQLDiem.Text = "QL ĐIỂM";
+                    btnQLDiem.Text = "QUẢN LÝ ĐIỂM";
                     linkdoimatkhau.Visible = true;
                     panel4.Visible = true;
-                    btnDangNhap.Text = "ĐIỂM SV";
+                    btnDangNhap.Text = "ĐIỂM SINH VIÊN";
                 }
                 else
                 {

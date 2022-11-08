@@ -483,9 +483,29 @@ namespace QLDT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_opera_glasses_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-opera-glasses-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_pencil_drawing_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-pencil-drawing-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_pencil_drawing_301 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-pencil-drawing-301", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

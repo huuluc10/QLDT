@@ -178,7 +178,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btThemkhoa);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.Location = new System.Drawing.Point(930, 130);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
@@ -192,7 +192,8 @@
             // 
             this.btThemkhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btThemkhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btThemkhoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btThemkhoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btThemkhoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btThemkhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btThemkhoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btThemkhoa.Image = global::QLDT.Properties.Resources.icons8_add_30;
@@ -218,7 +219,7 @@
             this.groupBox2.Controls.Add(this.txtSoTien2);
             this.groupBox2.Controls.Add(this.btXoakhoa);
             this.groupBox2.Controls.Add(this.btsuakhoa);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox2.Location = new System.Drawing.Point(930, 227);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
@@ -250,7 +251,7 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label11.Location = new System.Drawing.Point(15, 137);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(71, 20);
@@ -261,7 +262,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Location = new System.Drawing.Point(15, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 20);
@@ -272,7 +273,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label5.Location = new System.Drawing.Point(15, 41);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 20);
@@ -293,7 +294,8 @@
             // 
             this.btXoakhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btXoakhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btXoakhoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btXoakhoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btXoakhoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btXoakhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btXoakhoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btXoakhoa.Image = global::QLDT.Properties.Resources.icons8_delete_bin_30;
@@ -311,7 +313,8 @@
             // 
             this.btsuakhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btsuakhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btsuakhoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btsuakhoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btsuakhoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btsuakhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btsuakhoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btsuakhoa.Image = global::QLDT.Properties.Resources.icons8_pencil_drawing_30;
@@ -329,7 +332,8 @@
             // 
             this.btLoadkhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btLoadkhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btLoadkhoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btLoadkhoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btLoadkhoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btLoadkhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btLoadkhoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btLoadkhoa.Image = global::QLDT.Properties.Resources.icons8_update_301;
@@ -419,6 +423,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -458,7 +463,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label8.Location = new System.Drawing.Point(18, 135);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 20);
@@ -498,7 +503,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Location = new System.Drawing.Point(15, 86);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 20);
@@ -570,7 +575,7 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label7.Location = new System.Drawing.Point(17, 37);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 20);
@@ -581,7 +586,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label9.Location = new System.Drawing.Point(930, 669);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 20);
@@ -603,6 +608,7 @@
             // 
             this.btnCapNhatCNTheoKhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCapNhatCNTheoKhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
+            this.btnCapNhatCNTheoKhoa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCapNhatCNTheoKhoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCapNhatCNTheoKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCapNhatCNTheoKhoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
