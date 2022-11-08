@@ -71,6 +71,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cbboxChonKhoaCapNhat = new System.Windows.Forms.ComboBox();
             this.btnCapNhatCNTheoKhoa = new System.Windows.Forms.Button();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -179,7 +180,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btThemkhoa);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Location = new System.Drawing.Point(930, 130);
+            this.groupBox1.Location = new System.Drawing.Point(930, 91);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
@@ -220,7 +221,7 @@
             this.groupBox2.Controls.Add(this.btXoakhoa);
             this.groupBox2.Controls.Add(this.btsuakhoa);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox2.Location = new System.Drawing.Point(930, 227);
+            this.groupBox2.Location = new System.Drawing.Point(930, 188);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
@@ -338,7 +339,7 @@
             this.btLoadkhoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btLoadkhoa.Image = global::QLDT.Properties.Resources.icons8_update_301;
             this.btLoadkhoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btLoadkhoa.Location = new System.Drawing.Point(930, 52);
+            this.btLoadkhoa.Location = new System.Drawing.Point(930, 13);
             this.btLoadkhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btLoadkhoa.Name = "btLoadkhoa";
             this.btLoadkhoa.Size = new System.Drawing.Size(350, 57);
@@ -429,7 +430,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Image = global::QLDT.Properties.Resources.icons8_update_301;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(930, 576);
+            this.button1.Location = new System.Drawing.Point(930, 539);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(350, 62);
@@ -441,6 +442,7 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.simpleButton1);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.cbboxKhoa);
             this.groupBox3.Controls.Add(this.button3);
@@ -451,11 +453,11 @@
             this.groupBox3.Controls.Add(this.txtMaChuyenNganh);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox3.Location = new System.Drawing.Point(930, 707);
+            this.groupBox3.Location = new System.Drawing.Point(930, 670);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox3.Size = new System.Drawing.Size(350, 232);
+            this.groupBox3.Size = new System.Drawing.Size(350, 269);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             // 
@@ -473,7 +475,7 @@
             // cbboxKhoa
             // 
             this.cbboxKhoa.FormattingEnabled = true;
-            this.cbboxKhoa.Location = new System.Drawing.Point(202, 136);
+            this.cbboxKhoa.Location = new System.Drawing.Point(146, 136);
             this.cbboxKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxKhoa.Name = "cbboxKhoa";
             this.cbboxKhoa.Size = new System.Drawing.Size(175, 28);
@@ -490,7 +492,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button3.Image = global::QLDT.Properties.Resources.icons8_delete_bin_30;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(242, 172);
+            this.button3.Location = new System.Drawing.Point(242, 204);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 47);
@@ -520,7 +522,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button2.Image = global::QLDT.Properties.Resources.icons8_add_30;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(46, 172);
+            this.button2.Location = new System.Drawing.Point(46, 204);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -540,7 +542,7 @@
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button4.Image = global::QLDT.Properties.Resources.icons8_pencil_drawing_30;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(149, 172);
+            this.button4.Location = new System.Drawing.Point(149, 204);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 47);
@@ -587,7 +589,7 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(930, 669);
+            this.label9.Location = new System.Drawing.Point(930, 632);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 20);
             this.label9.TabIndex = 17;
@@ -597,7 +599,7 @@
             // 
             this.cbboxChonKhoaCapNhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbboxChonKhoaCapNhat.FormattingEnabled = true;
-            this.cbboxChonKhoaCapNhat.Location = new System.Drawing.Point(1020, 666);
+            this.cbboxChonKhoaCapNhat.Location = new System.Drawing.Point(1020, 629);
             this.cbboxChonKhoaCapNhat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxChonKhoaCapNhat.Name = "cbboxChonKhoaCapNhat";
             this.cbboxChonKhoaCapNhat.Size = new System.Drawing.Size(120, 28);
@@ -614,7 +616,7 @@
             this.btnCapNhatCNTheoKhoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCapNhatCNTheoKhoa.Image = global::QLDT.Properties.Resources.icons8_update_301;
             this.btnCapNhatCNTheoKhoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhatCNTheoKhoa.Location = new System.Drawing.Point(1146, 661);
+            this.btnCapNhatCNTheoKhoa.Location = new System.Drawing.Point(1146, 624);
             this.btnCapNhatCNTheoKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCapNhatCNTheoKhoa.Name = "btnCapNhatCNTheoKhoa";
             this.btnCapNhatCNTheoKhoa.Size = new System.Drawing.Size(134, 38);
@@ -622,6 +624,16 @@
             this.btnCapNhatCNTheoKhoa.Text = "         CẬP NHẬT";
             this.btnCapNhatCNTheoKhoa.UseVisualStyleBackColor = false;
             this.btnCapNhatCNTheoKhoa.Click += new System.EventHandler(this.btnCapNhatCNTheoKhoa_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.simpleButton1.Location = new System.Drawing.Point(176, 171);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(67, 27);
+            this.simpleButton1.TabIndex = 15;
+            this.simpleButton1.Text = "RESET";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
             // 
             // FrmKhoa
             // 
@@ -696,5 +708,6 @@
         private TextBox textBox2;
         private Label label11;
         private Label label2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

@@ -33,7 +33,7 @@ namespace QLDT
 
             btnOK.Enabled = false;
             btnCanCel.Enabled = false;
-            //simpleButton1.Enabled = false;
+            simpleButton1.Enabled = false;
             Trangthai = null;
             duongdan = null;
         }
@@ -309,8 +309,8 @@ namespace QLDT
                     }
                     else
                     {
-                        //FrmLoad a = new FrmLoad(dataGridView1, duongdan);
-                        //a.Show();
+                        FrmLoad a = new FrmLoad(dataGridView1, duongdan);
+                        a.Show();
                         duongdan = null;
                         lblDuongDanFile.Text = "";
                     }

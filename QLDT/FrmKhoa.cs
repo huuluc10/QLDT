@@ -153,12 +153,6 @@ namespace QLDT
             }
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            txtMaChuyenNganh.Clear();
-            txtTenChuyenNganh.Clear();
-        }
-
         private void themchuyennganh(String machuyennganh,String tenchuyennganh,String makhoa)
         {
             using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
@@ -322,6 +316,12 @@ namespace QLDT
         private void dataGridView2_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dataGridView2.ClearSelection();
+        }
+
+        private void simpleButton1_Click_1(object sender, EventArgs e)
+        {
+            txtMaChuyenNganh.Clear();
+            txtTenChuyenNganh.Clear();
         }
     }
 }

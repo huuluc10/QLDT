@@ -67,6 +67,7 @@
             this.cbboxLocLop = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -513,6 +514,15 @@
             this.label18.TabIndex = 58;
             this.label18.Text = "LỚP :";
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(80, 132);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(162, 29);
+            this.simpleButton1.TabIndex = 59;
+            this.simpleButton1.Text = "OK";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -602,6 +612,7 @@
         private ComboBox cbboxLocLop;
         private Label label17;
         private Label label18;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private GroupBox groupBox4;
     }
 }

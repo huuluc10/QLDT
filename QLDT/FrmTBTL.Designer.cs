@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -95,26 +96,38 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1482, 734);
+            this.dataGridView1.Size = new System.Drawing.Size(1453, 734);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.simpleButton1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbboxchonlop);
             this.groupBox1.Controls.Add(this.cbboxChonkhoa);
             this.groupBox1.Controls.Add(this.cbboxNamHoc);
-            this.groupBox1.Location = new System.Drawing.Point(261, 39);
+            this.groupBox1.Location = new System.Drawing.Point(218, 39);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(618, 199);
+            this.groupBox1.Size = new System.Drawing.Size(427, 199);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.simpleButton1.Appearance.Options.UseForeColor = true;
+            this.simpleButton1.Location = new System.Drawing.Point(80, 142);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(300, 36);
+            this.simpleButton1.TabIndex = 19;
+            this.simpleButton1.Text = "...";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // label3
             // 
@@ -177,7 +190,7 @@
             this.cbboxNamHoc.Location = new System.Drawing.Point(127, 107);
             this.cbboxNamHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxNamHoc.Name = "cbboxNamHoc";
-            this.cbboxNamHoc.Size = new System.Drawing.Size(147, 28);
+            this.cbboxNamHoc.Size = new System.Drawing.Size(163, 28);
             this.cbboxNamHoc.TabIndex = 13;
             this.cbboxNamHoc.SelectedIndexChanged += new System.EventHandler(this.cbboxNamHoc_SelectedIndexChanged);
             // 
@@ -187,10 +200,10 @@
             this.btnNhapSuaDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhapSuaDiem.Image = global::QLDT.Properties.Resources.icons8_pencil_drawing_30;
             this.btnNhapSuaDiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhapSuaDiem.Location = new System.Drawing.Point(24, 111);
+            this.btnNhapSuaDiem.Location = new System.Drawing.Point(24, 112);
             this.btnNhapSuaDiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNhapSuaDiem.Name = "btnNhapSuaDiem";
-            this.btnNhapSuaDiem.Size = new System.Drawing.Size(182, 62);
+            this.btnNhapSuaDiem.Size = new System.Drawing.Size(145, 62);
             this.btnNhapSuaDiem.TabIndex = 27;
             this.btnNhapSuaDiem.Text = "NHẬP/SỬA";
             this.btnNhapSuaDiem.UseVisualStyleBackColor = false;
@@ -201,11 +214,12 @@
             this.btnXemDiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXemDiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.btnXemDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXemDiem.Image = global::QLDT.Properties.Resources.icons8_opera_glasses_30;
             this.btnXemDiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXemDiem.Location = new System.Drawing.Point(24, 31);
+            this.btnXemDiem.Location = new System.Drawing.Point(24, 28);
             this.btnXemDiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnXemDiem.Name = "btnXemDiem";
-            this.btnXemDiem.Size = new System.Drawing.Size(182, 62);
+            this.btnXemDiem.Size = new System.Drawing.Size(145, 62);
             this.btnXemDiem.TabIndex = 127;
             this.btnXemDiem.Text = "XEM ĐIỂM";
             this.btnXemDiem.UseVisualStyleBackColor = false;
@@ -216,7 +230,7 @@
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.btnCanCel);
             this.groupBox3.Controls.Add(this.btnOK);
-            this.groupBox3.Location = new System.Drawing.Point(885, 44);
+            this.groupBox3.Location = new System.Drawing.Point(651, 44);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -284,7 +298,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(229, 199);
+            this.groupBox2.Size = new System.Drawing.Size(186, 199);
             this.groupBox2.TabIndex = 133;
             this.groupBox2.TabStop = false;
             // 
@@ -294,11 +308,11 @@
             this.groupBox5.Controls.Add(this.lblDuongDan);
             this.groupBox5.Controls.Add(this.btnChonDuongDan);
             this.groupBox5.Controls.Add(this.button1);
-            this.groupBox5.Location = new System.Drawing.Point(1320, 44);
+            this.groupBox5.Location = new System.Drawing.Point(1086, 44);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(412, 194);
+            this.groupBox5.Size = new System.Drawing.Size(393, 194);
             this.groupBox5.TabIndex = 134;
             this.groupBox5.TabStop = false;
             // 
@@ -335,15 +349,16 @@
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(218, 31);
+            this.button1.Location = new System.Drawing.Point(213, 57);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 61);
+            this.button1.Size = new System.Drawing.Size(159, 37);
             this.button1.TabIndex = 20;
             this.button1.Text = "XUẤT EXCEL";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmTBTL

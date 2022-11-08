@@ -12,32 +12,44 @@
 
   <ItemGroup>
     <PackageReference Include="DevExpress.CrossPlatform.Printing.DrawingEngine" Version="1.0.13" />
-    <PackageReference Include="NetOfficeFw.MSProject" Version="1.8.1" />
+    <PackageReference Include="DevExpress.Win.Design" Version="22.1.6" />
     <PackageReference Include="runtime.native.System.Data.SqlClient.sni" Version="4.7.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v19.1">
-      <HintPath>..\References\DevExpress.Data.v19.1.dll</HintPath>
+    <Reference Include="DevExpress.Data.Desktop.v22.1">
+      <HintPath>C:\Program Files\DevExpress 22.1\Components\Tools\DashboardDesignNetCore\Dashboard.ExternalProcess\DevExpress.Data.Desktop.v22.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Pdf.v19.1.Core">
-      <HintPath>..\References\DevExpress.Pdf.v19.1.Core.dll</HintPath>
+    <Reference Include="DevExpress.Data.v22.1">
+      <HintPath>C:\Program Files\DevExpress 22.1\Components\Bin\Framework\DevExpress.Data.v22.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Printing.v19.1.Core">
-      <HintPath>..\References\DevExpress.Printing.v19.1.Core.dll</HintPath>
+    <Reference Include="DevExpress.Drawing.v22.1">
+      <HintPath>C:\Program Files\DevExpress 22.1\Components\Bin\Framework\DevExpress.Drawing.v22.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Sparkline.v19.1.Core">
-      <HintPath>..\References\DevExpress.Sparkline.v19.1.Core.dll</HintPath>
+    <Reference Include="DevExpress.Office.v22.1.Core">
+      <HintPath>C:\Program Files\DevExpress 22.1\Components\Bin\Framework\DevExpress.Office.v22.1.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Utils.v19.1">
-      <HintPath>..\References\DevExpress.Utils.v19.1.dll</HintPath>
+    <Reference Include="DevExpress.Pdf.v22.1.Drawing">
+      <HintPath>C:\Program Files\DevExpress 22.1\Components\Tools\DashboardDesignNetCore\Dashboard.ExternalProcess\DevExpress.Pdf.v22.1.Drawing.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v19.1">
-      <HintPath>bin\Debug\net6.0-windows\DevExpress.XtraEditors.v19.1.dll</HintPath>
+    <Reference Include="DevExpress.Printing.v22.1.Core">
+      <HintPath>C:\Program Files\DevExpress 22.1\Components\Tools\DashboardDesignNetCore\Dashboard.ExternalProcess\DevExpress.Printing.v22.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v22.1.Core">
+      <HintPath>C:\Program Files\DevExpress 22.1\Components\Tools\DashboardDesignNetCore\Dashboard.ExternalProcess\DevExpress.Sparkline.v22.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v22.1">
+      <HintPath>C:\Program Files\DevExpress 22.1\Components\Bin\Framework\DevExpress.Utils.v22.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v22.1">
+      <HintPath>C:\Program Files\DevExpress 22.1\Components\Bin\Framework\DevExpress.XtraEditors.v22.1.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel">
       <HintPath>..\References\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Vbe.Interop">
+      <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.Vbe.Interop\15.0.0.0__71e9bce111e9429c\Microsoft.Vbe.Interop.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic.PowerPacks">
       <HintPath>bin\Debug\net6.0-windows\Microsoft.VisualBasic.PowerPacks.dll</HintPath>

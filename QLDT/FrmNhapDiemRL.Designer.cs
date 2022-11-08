@@ -68,7 +68,7 @@
             this.cbboxChonkhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxChonkhoa.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbboxChonkhoa.FormattingEnabled = true;
-            this.cbboxChonkhoa.Location = new System.Drawing.Point(70, 40);
+            this.cbboxChonkhoa.Location = new System.Drawing.Point(66, 28);
             this.cbboxChonkhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxChonkhoa.Name = "cbboxChonkhoa";
             this.cbboxChonkhoa.Size = new System.Drawing.Size(220, 28);
@@ -80,7 +80,7 @@
             this.cbboxchonlop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxchonlop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbboxchonlop.FormattingEnabled = true;
-            this.cbboxchonlop.Location = new System.Drawing.Point(70, 92);
+            this.cbboxchonlop.Location = new System.Drawing.Point(66, 80);
             this.cbboxchonlop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxchonlop.Name = "cbboxchonlop";
             this.cbboxchonlop.Size = new System.Drawing.Size(220, 28);
@@ -90,7 +90,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(15, 44);
+            this.label1.Location = new System.Drawing.Point(6, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 2;
@@ -100,7 +100,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(15, 96);
+            this.label2.Location = new System.Drawing.Point(6, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 20);
             this.label2.TabIndex = 3;
@@ -188,17 +188,17 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(66, 68);
+            this.label3.Location = new System.Drawing.Point(67, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 20);
+            this.label3.Size = new System.Drawing.Size(54, 20);
             this.label3.TabIndex = 6;
-            this.label3.Text = "MSV :";
+            this.label3.Text = "MSSV :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(54, 116);
+            this.label4.Location = new System.Drawing.Point(55, 80);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 20);
             this.label4.TabIndex = 7;
@@ -208,7 +208,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(66, 172);
+            this.label5.Location = new System.Drawing.Point(67, 136);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 20);
             this.label5.TabIndex = 8;
@@ -217,7 +217,7 @@
             // txtMSV
             // 
             this.txtMSV.BackColor = System.Drawing.Color.LightGray;
-            this.txtMSV.Location = new System.Drawing.Point(139, 64);
+            this.txtMSV.Location = new System.Drawing.Point(140, 28);
             this.txtMSV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMSV.Name = "txtMSV";
             this.txtMSV.ReadOnly = true;
@@ -227,7 +227,7 @@
             // txtHoten
             // 
             this.txtHoten.BackColor = System.Drawing.Color.LightGray;
-            this.txtHoten.Location = new System.Drawing.Point(139, 116);
+            this.txtHoten.Location = new System.Drawing.Point(140, 80);
             this.txtHoten.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtHoten.Name = "txtHoten";
             this.txtHoten.ReadOnly = true;
@@ -239,7 +239,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(114, 444);
+            this.button1.Location = new System.Drawing.Point(129, 348);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(223, 70);
@@ -251,7 +251,7 @@
             // txtLop
             // 
             this.txtLop.BackColor = System.Drawing.Color.LightGray;
-            this.txtLop.Location = new System.Drawing.Point(139, 169);
+            this.txtLop.Location = new System.Drawing.Point(140, 133);
             this.txtLop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLop.Name = "txtLop";
             this.txtLop.ReadOnly = true;
@@ -262,7 +262,7 @@
             // 
             this.radioButtonHK1.AutoSize = true;
             this.radioButtonHK1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.radioButtonHK1.Location = new System.Drawing.Point(84, 281);
+            this.radioButtonHK1.Location = new System.Drawing.Point(83, 234);
             this.radioButtonHK1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonHK1.Name = "radioButtonHK1";
             this.radioButtonHK1.Size = new System.Drawing.Size(84, 24);
@@ -275,7 +275,7 @@
             // 
             this.radioButtonHK2.AutoSize = true;
             this.radioButtonHK2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.radioButtonHK2.Location = new System.Drawing.Point(253, 281);
+            this.radioButtonHK2.Location = new System.Drawing.Point(252, 234);
             this.radioButtonHK2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonHK2.Name = "radioButtonHK2";
             this.radioButtonHK2.Size = new System.Drawing.Size(88, 24);
@@ -288,7 +288,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(52, 356);
+            this.label6.Location = new System.Drawing.Point(32, 270);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(116, 20);
             this.label6.TabIndex = 16;
@@ -296,7 +296,7 @@
             // 
             // txtTongDiemRL
             // 
-            this.txtTongDiemRL.Location = new System.Drawing.Point(181, 352);
+            this.txtTongDiemRL.Location = new System.Drawing.Point(161, 266);
             this.txtTongDiemRL.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTongDiemRL.Name = "txtTongDiemRL";
             this.txtTongDiemRL.Size = new System.Drawing.Size(156, 27);
@@ -308,7 +308,7 @@
             // 
             this.cbboxNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxNamHoc.FormattingEnabled = true;
-            this.cbboxNamHoc.Location = new System.Drawing.Point(139, 221);
+            this.cbboxNamHoc.Location = new System.Drawing.Point(140, 185);
             this.cbboxNamHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxNamHoc.Name = "cbboxNamHoc";
             this.cbboxNamHoc.Size = new System.Drawing.Size(177, 28);
@@ -318,7 +318,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(43, 225);
+            this.label7.Location = new System.Drawing.Point(44, 189);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 20);
             this.label7.TabIndex = 19;
@@ -340,11 +340,11 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox1.Location = new System.Drawing.Point(37, 518);
+            this.groupBox1.Location = new System.Drawing.Point(37, 467);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(483, 589);
+            this.groupBox1.Size = new System.Drawing.Size(483, 447);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập Điểm :";
@@ -360,7 +360,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(483, 158);
+            this.groupBox2.Size = new System.Drawing.Size(483, 120);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lọc Sinh Viên";
@@ -370,11 +370,12 @@
             this.btnLoadSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.btnLoadSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadSV.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLoadSV.Image = global::QLDT.Properties.Resources.icons8_update_301;
             this.btnLoadSV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLoadSV.Location = new System.Drawing.Point(302, 40);
             this.btnLoadSV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLoadSV.Name = "btnLoadSV";
-            this.btnLoadSV.Size = new System.Drawing.Size(175, 79);
+            this.btnLoadSV.Size = new System.Drawing.Size(175, 46);
             this.btnLoadSV.TabIndex = 4;
             this.btnLoadSV.Text = "    CẬP NHẬT";
             this.btnLoadSV.UseVisualStyleBackColor = false;
@@ -382,6 +383,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::QLDT.Properties.Resources._202004091154448852_54972fefc1ce01cc5f2e642e616eaa501;
             this.pictureBox1.Location = new System.Drawing.Point(37, 38);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";

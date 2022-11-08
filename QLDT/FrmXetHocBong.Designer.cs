@@ -51,6 +51,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtMucDiemXet = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnLoaiHocLai = new DevExpress.XtraEditors.SimpleButton();
+            this.btnXuatExCel = new DevExpress.XtraEditors.SimpleButton();
             this.txtSoTien = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -284,6 +291,7 @@
             this.groupBox1.Controls.Add(this.cbboxKhoaHoc);
             this.groupBox1.Controls.Add(this.cbboxChonkhoa);
             this.groupBox1.Controls.Add(this.cbboxNamHoc);
+            this.groupBox1.Controls.Add(this.simpleButton1);
             this.groupBox1.Location = new System.Drawing.Point(35, 42);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
@@ -314,6 +322,93 @@
             this.label4.TabIndex = 26;
             this.label4.Text = "MỨC ĐIỂM XÉT :";
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Appearance.Options.UseForeColor = true;
+            this.simpleButton1.Appearance.Options.UseTextOptions = true;
+            this.simpleButton1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.simpleButton1.ImageOptions.Image = global::QLDT.Properties.Resources.icons8_student_male_40;
+            this.simpleButton1.Location = new System.Drawing.Point(128, 262);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(156, 43);
+            this.simpleButton1.TabIndex = 25;
+            this.simpleButton1.Text = "    LOAD";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.Enabled = false;
+            this.simpleButton2.Location = new System.Drawing.Point(45, 91);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(314, 39);
+            this.simpleButton2.TabIndex = 27;
+            this.simpleButton2.Text = "  LOẠI SV ĐIỂM THI  < 4.0";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton3.Appearance.Options.UseFont = true;
+            this.simpleButton3.Enabled = false;
+            this.simpleButton3.Location = new System.Drawing.Point(45, 152);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(314, 39);
+            this.simpleButton3.TabIndex = 29;
+            this.simpleButton3.Text = "          LOẠI SV ĐIỂM THI TC/QP <5.0";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.simpleButton4.Appearance.Options.UseFont = true;
+            this.simpleButton4.Appearance.Options.UseForeColor = true;
+            this.simpleButton4.Location = new System.Drawing.Point(57, 83);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(267, 41);
+            this.simpleButton4.TabIndex = 30;
+            this.simpleButton4.Text = "CHIA TIỀN CHO CÁC EM :)";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.simpleButton5.Appearance.Options.UseFont = true;
+            this.simpleButton5.Location = new System.Drawing.Point(30, 22);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(141, 34);
+            this.simpleButton5.TabIndex = 23;
+            this.simpleButton5.Text = "Chọn Đường Dẫn";
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
+            // 
+            // btnLoaiHocLai
+            // 
+            this.btnLoaiHocLai.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLoaiHocLai.Appearance.Options.UseFont = true;
+            this.btnLoaiHocLai.Enabled = false;
+            this.btnLoaiHocLai.Location = new System.Drawing.Point(45, 30);
+            this.btnLoaiHocLai.Name = "btnLoaiHocLai";
+            this.btnLoaiHocLai.Size = new System.Drawing.Size(314, 39);
+            this.btnLoaiHocLai.TabIndex = 30;
+            this.btnLoaiHocLai.Text = "    LOẠI SV CÓ MÔN HỌC LẠI";
+            this.btnLoaiHocLai.Click += new System.EventHandler(this.simpleButton6_Click);
+            // 
+            // btnXuatExCel
+            // 
+            this.btnXuatExCel.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnXuatExCel.Appearance.Options.UseFont = true;
+            this.btnXuatExCel.Location = new System.Drawing.Point(211, 21);
+            this.btnXuatExCel.Name = "btnXuatExCel";
+            this.btnXuatExCel.Size = new System.Drawing.Size(182, 35);
+            this.btnXuatExCel.TabIndex = 22;
+            this.btnXuatExCel.Text = "XUẤT EXCEL";
+            this.btnXuatExCel.Click += new System.EventHandler(this.btnXuatExCel_Click);
+            // 
             // txtSoTien
             // 
             this.txtSoTien.Location = new System.Drawing.Point(192, 45);
@@ -338,6 +433,9 @@
             this.groupBox2.Controls.Add(this.checkBox3);
             this.groupBox2.Controls.Add(this.checkBox2);
             this.groupBox2.Controls.Add(this.checkBox1);
+            this.groupBox2.Controls.Add(this.btnLoaiHocLai);
+            this.groupBox2.Controls.Add(this.simpleButton3);
+            this.groupBox2.Controls.Add(this.simpleButton2);
             this.groupBox2.Location = new System.Drawing.Point(33, 438);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
@@ -351,7 +449,7 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Enabled = false;
-            this.checkBox3.Location = new System.Drawing.Point(92, 206);
+            this.checkBox3.Location = new System.Drawing.Point(81, 164);
             this.checkBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(18, 17);
@@ -363,7 +461,7 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Enabled = false;
-            this.checkBox2.Location = new System.Drawing.Point(92, 130);
+            this.checkBox2.Location = new System.Drawing.Point(81, 103);
             this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(18, 17);
@@ -375,7 +473,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Enabled = false;
-            this.checkBox1.Location = new System.Drawing.Point(92, 54);
+            this.checkBox1.Location = new System.Drawing.Point(81, 42);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(18, 17);
@@ -387,6 +485,7 @@
             // 
             this.groupBox3.Controls.Add(this.txtSoTien);
             this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.simpleButton4);
             this.groupBox3.Location = new System.Drawing.Point(34, 730);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
@@ -414,6 +513,8 @@
             // 
             this.groupBox6.Controls.Add(this.lblDuongDanFile);
             this.groupBox6.Controls.Add(this.lblDuongDan);
+            this.groupBox6.Controls.Add(this.simpleButton5);
+            this.groupBox6.Controls.Add(this.btnXuatExCel);
             this.groupBox6.Location = new System.Drawing.Point(18, 40);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Name = "groupBox6";
