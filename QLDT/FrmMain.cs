@@ -1,41 +1,41 @@
-﻿using QLDTLUC;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QLDT
 {
-    public delegate void SendMessage (String value,String quyen);
+    public delegate void SendMessage(String value, String quyen);
     public partial class FrmMain : Form
     {
         public FrmMain()
         {
             InitializeComponent();
-            random = new Random();
             btnCloseChildForm.Visible = false;
         }
-        static String quyenhan = "";
-        static String username = "";
-        private void SetValue(String value,String quyen) //truyền giá trị nhận từ form frmlogin
+        static String quyenhan = string.Empty;
+        static String username = string.Empty;
+        private void SetValueFromLogin(String value, String quyen) //truyền giá trị nhận từ form frmlogin
         {
-            //this.lblTrangThaiDN.Text = "Xin chào : " + value;
             this.trangthaidn = true;
             quyenhan = quyen;
             username = value;
-            LoadLai(value,quyen);
+            LoadLai(value, quyen);
+        }
+
+        private void SetValueFromHanhDong(bool MoThayDoiTTSV, bool MoDKHP, bool MoChamDRL) //truyền giá trị nhận từ form FrmHanhDong
+        {
+            MoThayDoiTTSV = MoThayDoiTTSV;
+            MoDKHP = Modal;
+            MoChamDRL = MoChamDRL;
+            LoadLai(username, quyenhan);
         }
 
         private Button currentButton;
-        private Random random;
         private int tempIndex;
         private Form activeForm;
+        private bool MoThayDoiTTSV = false;
+        private bool MoDKHP = false;
+        private bool MoChamDRL = false;
+
 
 
         public Boolean trangthaidn = false;
@@ -57,6 +57,7 @@ namespace QLDT
             btnNhapDiem.Enabled = true;
             btnXetHocBong.Enabled = true;
             btnHocPhi.Enabled = true;
+            linkLabel2.Visible = true;
         }
 
         public void DisableMenuAdmin()
@@ -88,21 +89,10 @@ namespace QLDT
             btnHoSoGiaoVien.Enabled = true;
             btnDiemRenLuyen.Enabled = true;
             btnNhapDiem.Enabled = true;
-            btnXemDiem.Enabled = true;
+            btnXemDiem.Enabled = false;
             btnQLGiangVien.Enabled = true;
             btnQLGiangVien.Text = "GIẢNG VIÊN";
-        }
-
-        private Color SelectThemeColor()
-        {
-            int index = random.Next(ThemeColor.ColorList.Count);
-            while (tempIndex == index)
-            {
-                index = random.Next(ThemeColor.ColorList.Count);
-            }
-
-            string color = ThemeColor.ColorList[index];
-            return ColorTranslator.FromHtml(color);
+            btnHocPhi.Enabled = false;;
         }
 
         private void ActivateButton(object btnSender)
@@ -115,12 +105,6 @@ namespace QLDT
                     currentButton = (Button)btnSender;
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-                    //panelTitleBar.BackColor = color;
-                    //panelLogo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-                    //ThemeColor.PrimaryColor = color;
-                    //ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-
                     btnCloseChildForm.Visible = true;
                 }
             }
@@ -132,7 +116,6 @@ namespace QLDT
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
-                    previousBtn.BackColor = Color.FromArgb(51, 51, 76);
                     previousBtn.ForeColor = Color.Gainsboro;
                     previousBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 }
@@ -179,10 +162,6 @@ namespace QLDT
         {
             DisnableButton();
             lblTitle.Text = "HOME";
-            /*
-            panelTitleBar.BackColor = Color.FromArgb(0, 150, 136);
-            panelLogo.BackColor = Color.FromArgb(39, 39, 58);
-            */
             currentButton = null;
             btnCloseChildForm.Visible = false;
         }
@@ -190,7 +169,7 @@ namespace QLDT
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            
+
             if (trangthaidn == false)
             {
                 lblTrangThaiDN.Text = "Bạn Chưa Đăng Nhập";
@@ -198,15 +177,15 @@ namespace QLDT
             }
             else
             {
-                btnDangNhap.Enabled=false;
+                btnDangNhap.Enabled = false;
                 lblTrangThaiDN.Text = "Xin chào : " + tendn;
                 thoatLogin.Text = "Thoát";
                 EnableMenuAdmin();
             }
-            
+
         }
 
-        public void LoadLai(String tendnhap,String quyen)
+        public void LoadLai(String tendnhap, String quyen)
         {
             if (trangthaidn == false)
             {
@@ -215,10 +194,8 @@ namespace QLDT
             }
             else
             {
-                //btnDangNhap.Enabled = false;
-                //btnDangNhap.Hide();
-                string tenquyen = "";
-                switch(quyen)
+                string tenquyen = string.Empty;
+                switch (quyen)
                 {
                     case "1":
                         tenquyen = "Quản trị viên";
@@ -231,7 +208,7 @@ namespace QLDT
                         break;
 
                 }
-                lblTrangThaiDN.Text = "Tài khoản: " + tendnhap +" ("+ tenquyen + ")";
+                lblTrangThaiDN.Text = "Tài khoản: " + tendnhap + " (" + tenquyen + ")";
                 lblTitle.Text = "HOME";
                 thoatLogin.Text = "Thoát";
                 if (quyen == "1")
@@ -243,9 +220,8 @@ namespace QLDT
                     linkdoimatkhau.Visible = true;
                     panel4.Visible = true;
                 }
-                else if(quyen == "2")
+                else if (quyen == "2")
                 {
-                    btnDangNhap.Text = "";
                     EnableMenuGV();
                     btnQLDiem.Text = "QUẢN LÝ ĐIỂM";
                     linkdoimatkhau.Visible = true;
@@ -254,7 +230,7 @@ namespace QLDT
                 }
                 else
                 {
-                    
+
                     EnableMenuSV();
                     btnDangNhap.Text = "ĐĂNG KÝ HỌC";
                     btnQLDiem.Text = "  ĐIỂM MÔN HỌC";
@@ -270,7 +246,7 @@ namespace QLDT
             DisableMenuAdmin();
             btnDangNhap.Text = "ĐĂNG NHẬP";
             lblTrangThaiDN.Text = "Bạn Chưa Đăng Nhập";
-            thoatLogin.Text = "";
+            thoatLogin.Text = string.Empty;
             lblTitle.Text = "HOME";
             btnCloseChildForm.Hide();
             panel4.Visible = false;
@@ -280,7 +256,7 @@ namespace QLDT
             {
                 activeForm.Close();
             }
-            if(btnNhapDiem.Visible==true)
+            if (btnNhapDiem.Visible == true)
             {
                 btnNhapDiem.Visible = false;
                 btnXemDiem.Visible = false;
@@ -292,19 +268,19 @@ namespace QLDT
         {
             if (btnDangNhap.Text == "ĐĂNG NHẬP")
             {
-                OpenChildFormLogin(new QLDT.FrmLogin(SetValue), sender);
+                OpenChildFormLogin(new QLDT.FrmLogin(SetValueFromLogin), sender);
             }
-            else if(btnDangNhap.Text == "MỞ LỚP HỌC")
+            else if (btnDangNhap.Text == "MỞ LỚP HỌC")
             {
                 OpenChildFormLogin(new QLDT.FrmTaoLopDangKyHoc(), sender);
             }
-            else if(btnDangNhap.Text == "ĐĂNG KÝ HỌC")
+            else if (btnDangNhap.Text == "ĐĂNG KÝ HỌC")
             {
                 OpenChildFormLogin(new QLDT.FrmSinhVienDangKyHoc(username), sender);
             }
-            else if(btnDangNhap.Text == "ĐIỂM SV")
+            else if (btnDangNhap.Text == "ĐIỂM SV")
             {
-                //OpenChildFormLogin(new QLDT.FrmGiangVienNhapDiemMonHoc(username), sender);
+                OpenChildFormLogin(new QLDT.FrmGiangVienNhapDiemMonHoc(username), sender);
             }
         }
 
@@ -335,15 +311,15 @@ namespace QLDT
 
         private void btnQLDiem_Click(object sender, EventArgs e)
         {
-            if(quyenhan == "3" || quyenhan == "4")
+            if (quyenhan == "3" || quyenhan == "4")
             {
                 OpenChildForm(new QLDT.FrmXemDiem(username), sender);
             }
-            else if(quyenhan == "2")
+            else if (quyenhan == "2")
             {
                 OpenChildForm(new QLDT.FrmQLDiem(), sender);
             }
-            else if(quyenhan == "1")
+            else if (quyenhan == "1")
             {
                 OpenChildForm(new QLDT.FrmQLDiem(), sender);
             }
@@ -356,7 +332,7 @@ namespace QLDT
 
         private void linkdoimatkhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmREGISTER frm = new FrmREGISTER(username,quyenhan);
+            FrmREGISTER frm = new FrmREGISTER(username, quyenhan);
             frm.ShowDialog();
         }
 
@@ -417,7 +393,7 @@ namespace QLDT
 
         private void btnHocPhi_Click_1(object sender, EventArgs e)
         {
-
+            OpenChildForm(new QLDT.FrmHocPhi(quyenhan, username), sender);
         }
 
         private void btnXetHocBong_Click_1(object sender, EventArgs e)
@@ -433,6 +409,13 @@ namespace QLDT
         private void btnHoSoGiaoVien_Click(object sender, EventArgs e)
         {
             OpenChildForm(new QLDT.FrmHoSoGiaoVien(quyenhan, username), sender);
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form f = new FrmHanhDong(MoThayDoiTTSV, MoDKHP, MoChamDRL);
+            f.ShowDialog();
+            //MoThayDoiTTSV = f.MoThayDoiTTSV;
         }
     }
 }

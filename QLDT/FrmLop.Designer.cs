@@ -501,7 +501,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cbbGVCV1;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private ComboBox cbboxKhoa;
         private Label label6;
         private ComboBox cbbGVCV;

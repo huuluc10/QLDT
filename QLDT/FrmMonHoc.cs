@@ -123,6 +123,8 @@ namespace QLDT
 
         private void btThemMH_Click(object sender, EventArgs e)
         {
+            Form frm = new FrmThemMonHoc();
+            frm.Show();
             //if(txtMaMonHocThemMoi.Text=="")
             //{
             //    MessageBox.Show("Bạn Chưa nhập Mã MH");
@@ -259,39 +261,39 @@ namespace QLDT
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(click==true)
-            {
-                if (dataGridView1.Rows.Count == 0)
-                {
+            //if(click==true)
+            //{
+            //    if (dataGridView1.Rows.Count == 0)
+            //    {
 
-                }
-                else
-                {
-                    txtMaMH1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    txtTenMH1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                    numericUpDownSoTC1.Value = int.Parse(dataGridView1.CurrentRow.Cells[2].Value.ToString());
-                    numericUpDownHocKyThu1.Value = int.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
-                    if (dataGridView1.CurrentRow.Cells[4].Value.ToString() == "")
-                    {
-                        radioMonHocChung2.Checked = true;
-                    }
-                    else
-                    {
-                        cbboxKhoa1.Enabled = true;
-                        cbboxChuyenNganh1.Enabled = true;
+            //    }
+            //    else
+            //    {
+            //        txtMaMH1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //        txtTenMH1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            //        numericUpDownSoTC1.Value = int.Parse(dataGridView1.CurrentRow.Cells[2].Value.ToString());
+            //        numericUpDownHocKyThu1.Value = int.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+            //        if (dataGridView1.CurrentRow.Cells[4].Value.ToString() == "")
+            //        {
+            //            radioMonHocChung2.Checked = true;
+            //        }
+            //        else
+            //        {
+            //            cbboxKhoa1.Enabled = true;
+            //            cbboxChuyenNganh1.Enabled = true;
 
-                        DataTable dt2 = new DataTable();
-                        dt2 = TatCaChuyenNganh();
-                        cbboxChuyenNganh1.DataSource = dt2;
-                        cbboxChuyenNganh1.DisplayMember = "TenChuyenNganh";
-                        cbboxChuyenNganh1.ValueMember = "MaChuyenNganh";
+            //            DataTable dt2 = new DataTable();
+            //            dt2 = TatCaChuyenNganh();
+            //            cbboxChuyenNganh1.DataSource = dt2;
+            //            cbboxChuyenNganh1.DisplayMember = "TenChuyenNganh";
+            //            cbboxChuyenNganh1.ValueMember = "MaChuyenNganh";
 
-                        cbboxChuyenNganh1.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                        cbboxKhoa1.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                        radioMonHocTheoKhoa2.Checked = true;
-                    }
-                }
-            }
+            //            cbboxChuyenNganh1.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            //            cbboxKhoa1.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            //            radioMonHocTheoKhoa2.Checked = true;
+            //        }
+            //    }
+            //}
         }
 
         private void radioButtonTheoKhoa_CheckedChanged(object sender, EventArgs e)
@@ -308,26 +310,26 @@ namespace QLDT
 
         private void radioMonHocTheoKhoa_CheckedChanged(object sender, EventArgs e)
         {
-            cbboxKhoa.Enabled = true;
-            cbboxChuyenNganh.Enabled = true;
+            //cbboxKhoa.Enabled = true;
+            //cbboxChuyenNganh.Enabled = true;
         }
 
         private void radioMonHocChung_CheckedChanged(object sender, EventArgs e)
         {
-            cbboxKhoa.Enabled = false;
-            cbboxChuyenNganh.Enabled = false;
+            //cbboxKhoa.Enabled = false;
+            //cbboxChuyenNganh.Enabled = false;
         }
 
         private void radioMonHocChung2_CheckedChanged(object sender, EventArgs e)
         {
-            cbboxKhoa1.Enabled = false;
-            cbboxChuyenNganh1.Enabled = false;
+            //cbboxKhoa1.Enabled = false;
+            //cbboxChuyenNganh1.Enabled = false;
         }
 
         private void radioMonHocTheoKhoa2_CheckedChanged(object sender, EventArgs e)
         {
-            cbboxKhoa1.Enabled = true;
-            cbboxChuyenNganh1.Enabled = true;
+            //cbboxKhoa1.Enabled = true;
+            //cbboxChuyenNganh1.Enabled = true;
         }
 
         private DataTable ChuyenNganhTheoKhoa(String makhoa)
@@ -367,54 +369,54 @@ namespace QLDT
 
         private void cbboxKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String t;
-            t = cbboxKhoa.SelectedValue.ToString();
-            if (t == "System.Data.DataRowView")
-            {
+            //String t;
+            //t = cbboxKhoa.SelectedValue.ToString();
+            //if (t == "System.Data.DataRowView")
+            //{
 
-            }
-            else
-            {
-                DataTable dt2 = new DataTable();
-                dt2 = ChuyenNganhTheoKhoa(t);
-                if (dt2.Rows.Count == 0)
-                {
-                    MessageBox.Show("Empty :(");
-                    cbboxChuyenNganh.DataSource = null;
-                }
-                else
-                {
-                    cbboxChuyenNganh.DataSource = dt2;
-                    cbboxChuyenNganh.DisplayMember = "TenChuyenNganh";
-                    cbboxChuyenNganh.ValueMember = "MaChuyenNganh";
-                }
-            }
+            //}
+            //else
+            //{
+            //    DataTable dt2 = new DataTable();
+            //    dt2 = ChuyenNganhTheoKhoa(t);
+            //    if (dt2.Rows.Count == 0)
+            //    {
+            //        MessageBox.Show("Empty :(");
+            //        cbboxChuyenNganh.DataSource = null;
+            //    }
+            //    else
+            //    {
+            //        cbboxChuyenNganh.DataSource = dt2;
+            //        cbboxChuyenNganh.DisplayMember = "TenChuyenNganh";
+            //        cbboxChuyenNganh.ValueMember = "MaChuyenNganh";
+            //    }
+            //}
         }
 
         private void cbboxKhoa1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String t;
-            t = cbboxKhoa1.SelectedValue.ToString();
-            if (t == "System.Data.DataRowView")
-            {
+            //String t;
+            //t = cbboxKhoa1.SelectedValue.ToString();
+            //if (t == "System.Data.DataRowView")
+            //{
 
-            }
-            else
-            {
-                DataTable dt2 = new DataTable();
-                dt2 = ChuyenNganhTheoKhoa(t);
-                if (dt2.Rows.Count == 0)
-                {
-                    MessageBox.Show("Empty :(");
-                    cbboxChuyenNganh1.DataSource = null;
-                }
-                else
-                {
-                    cbboxChuyenNganh1.DataSource = dt2;
-                    cbboxChuyenNganh1.DisplayMember = "TenChuyenNganh";
-                    cbboxChuyenNganh1.ValueMember = "MaChuyenNganh";
-                }
-            }
+            //}
+            //else
+            //{
+            //    DataTable dt2 = new DataTable();
+            //    dt2 = ChuyenNganhTheoKhoa(t);
+            //    if (dt2.Rows.Count == 0)
+            //    {
+            //        MessageBox.Show("Empty :(");
+            //        cbboxChuyenNganh1.DataSource = null;
+            //    }
+            //    else
+            //    {
+            //        cbboxChuyenNganh1.DataSource = dt2;
+            //        cbboxChuyenNganh1.DisplayMember = "TenChuyenNganh";
+            //        cbboxChuyenNganh1.ValueMember = "MaChuyenNganh";
+            //    }
+            //}
         }
 
         private void cbboxchonkhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -466,16 +468,16 @@ namespace QLDT
 
         private void cbboxChuyenNganh1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String t = cbboxChuyenNganh1.SelectedValue.ToString();
-            if (t == "System.Data.DataRowView")
-            {
+            //String t = cbboxChuyenNganh1.SelectedValue.ToString();
+            //if (t == "System.Data.DataRowView")
+            //{
 
-            }
-            else
-            {
-                //KhoaDT a = new KhoaDT();
-                //cbboxKhoa1.Text =a.tenkhoa(makhoa(t));
-            }
+            //}
+            //else
+            //{
+            //    //KhoaDT a = new KhoaDT();
+            //    //cbboxKhoa1.Text =a.tenkhoa(makhoa(t));
+            //}
         }
 
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

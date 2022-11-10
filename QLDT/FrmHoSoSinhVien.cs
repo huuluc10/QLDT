@@ -257,7 +257,7 @@ namespace QLDT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Can not open connection ! ");
+                MessageBox.Show("Can not open connection ! \n" + ex);
             }
         }
         private void getData2(AutoCompleteStringCollection dataCollection)
@@ -284,7 +284,7 @@ namespace QLDT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Can not open connection ! ");
+                MessageBox.Show("Can not open connection ! \n"+ex);
             }
         }
 

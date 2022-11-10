@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkdoimatkhau = new System.Windows.Forms.LinkLabel();
             this.thoatLogin = new System.Windows.Forms.LinkLabel();
             this.panelMenu = new System.Windows.Forms.Panel();
@@ -60,6 +61,7 @@
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -127,6 +129,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
+            this.panel4.Controls.Add(this.linkLabel1);
             this.panel4.Controls.Add(this.linkdoimatkhau);
             this.panel4.Location = new System.Drawing.Point(285, 8);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -134,6 +137,20 @@
             this.panel4.Size = new System.Drawing.Size(500, 500);
             this.panel4.TabIndex = 0;
             this.panel4.Visible = false;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel1.LinkColor = System.Drawing.Color.Red;
+            this.linkLabel1.Location = new System.Drawing.Point(195, 241);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(110, 18);
+            this.linkLabel1.TabIndex = 1;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Đổi Mật Khẩu";
+            this.linkLabel1.Visible = false;
             // 
             // linkdoimatkhau
             // 
@@ -484,7 +501,7 @@
             this.btnQLGiangVien.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
             this.btnQLGiangVien.Size = new System.Drawing.Size(277, 55);
             this.btnQLGiangVien.TabIndex = 10;
-            this.btnQLGiangVien.Text = "  QL GIẢNG VIÊN";
+            this.btnQLGiangVien.Text = "QL GIẢNG VIÊN";
             this.btnQLGiangVien.UseVisualStyleBackColor = false;
             this.btnQLGiangVien.Click += new System.EventHandler(this.btnQLGiangVien_Click_1);
             // 
@@ -629,6 +646,7 @@
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
+            this.panelTitleBar.Controls.Add(this.linkLabel2);
             this.panelTitleBar.Controls.Add(this.panel1);
             this.panelTitleBar.Controls.Add(this.lblTitle);
             this.panelTitleBar.Controls.Add(this.btnCloseChildForm);
@@ -638,6 +656,21 @@
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(1786, 47);
             this.panelTitleBar.TabIndex = 13;
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.linkLabel2.LinkColor = System.Drawing.Color.White;
+            this.linkLabel2.Location = new System.Drawing.Point(418, 14);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(92, 18);
+            this.linkLabel2.TabIndex = 1;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Hành Động";
+            this.linkLabel2.Visible = false;
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // btnCloseChildForm
             // 
@@ -732,5 +765,7 @@
         private Button btnHocPhi;
         private Button btnQLMonHoc;
         private Panel panelDesktopPane;
+        private LinkLabel linkLabel1;
+        private LinkLabel linkLabel2;
     }
 }

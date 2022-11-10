@@ -34,52 +34,31 @@
             this.MaMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoTinChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChuyenNganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btLoadMH = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbboxChuyenNganh1 = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.radioMonHocTheoKhoa2 = new System.Windows.Forms.RadioButton();
-            this.radioMonHocChung2 = new System.Windows.Forms.RadioButton();
             this.txtMaMH1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDownHocKyThu1 = new System.Windows.Forms.NumericUpDown();
             this.btXoaMH = new System.Windows.Forms.Button();
             this.numericUpDownSoTC1 = new System.Windows.Forms.NumericUpDown();
             this.btsuaMH = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtTenMH1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cbboxKhoa1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbboxChuyenNganh = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.radioMonHocTheoKhoa = new System.Windows.Forms.RadioButton();
-            this.radioMonHocChung = new System.Windows.Forms.RadioButton();
-            this.txtMaMonHocThemMoi = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.numericUpSoTC = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbboxKhoa = new System.Windows.Forms.ComboBox();
-            this.Khoa = new System.Windows.Forms.Label();
             this.btThemMH = new System.Windows.Forms.Button();
-            this.txtTenMH = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.cbboxLoadChuyenNganh = new System.Windows.Forms.ComboBox();
             this.cbboxchonkhoa = new System.Windows.Forms.ComboBox();
             this.radioButtonTheoKhoa = new System.Windows.Forms.RadioButton();
             this.radioButtonTatCa = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txbDonGia = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHocKyThu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSoTC1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpSoTC)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,7 +82,6 @@
             this.MaMonHoc,
             this.TenMonHoc,
             this.SoTinChi,
-            this.HocKy,
             this.ChuyenNganh,
             this.TenKhoa});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -148,13 +126,6 @@
             this.SoTinChi.MinimumWidth = 6;
             this.SoTinChi.Name = "SoTinChi";
             // 
-            // HocKy
-            // 
-            this.HocKy.DataPropertyName = "HocKy";
-            this.HocKy.HeaderText = "Học Kỳ";
-            this.HocKy.MinimumWidth = 6;
-            this.HocKy.Name = "HocKy";
-            // 
             // ChuyenNganh
             // 
             this.ChuyenNganh.DataPropertyName = "TenChuyenNganh";
@@ -175,7 +146,8 @@
             this.btLoadMH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.btLoadMH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btLoadMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btLoadMH.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btLoadMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btLoadMH.ForeColor = System.Drawing.SystemColors.Control;
             this.btLoadMH.Image = global::QLDT.Properties.Resources.icons8_update_301;
             this.btLoadMH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btLoadMH.Location = new System.Drawing.Point(137, 24);
@@ -190,83 +162,30 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.cbboxChuyenNganh1);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.radioMonHocTheoKhoa2);
-            this.groupBox2.Controls.Add(this.radioMonHocChung2);
+            this.groupBox2.Controls.Add(this.txbDonGia);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtMaMH1);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.numericUpDownHocKyThu1);
             this.groupBox2.Controls.Add(this.btXoaMH);
             this.groupBox2.Controls.Add(this.numericUpDownSoTC1);
             this.groupBox2.Controls.Add(this.btsuaMH);
-            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtTenMH1);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.cbboxKhoa1);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox2.Location = new System.Drawing.Point(757, 670);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox2.Location = new System.Drawing.Point(757, 334);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(392, 430);
+            this.groupBox2.Size = new System.Drawing.Size(392, 335);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SỬA-XÓA";
             // 
-            // cbboxChuyenNganh1
-            // 
-            this.cbboxChuyenNganh1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbboxChuyenNganh1.FormattingEnabled = true;
-            this.cbboxChuyenNganh1.Location = new System.Drawing.Point(147, 306);
-            this.cbboxChuyenNganh1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbboxChuyenNganh1.Name = "cbboxChuyenNganh1";
-            this.cbboxChuyenNganh1.Size = new System.Drawing.Size(213, 28);
-            this.cbboxChuyenNganh1.TabIndex = 39;
-            this.cbboxChuyenNganh1.SelectedIndexChanged += new System.EventHandler(this.cbboxChuyenNganh1_SelectedIndexChanged);
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(83, 310);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(36, 20);
-            this.label11.TabIndex = 38;
-            this.label11.Text = "CN :";
-            // 
-            // radioMonHocTheoKhoa2
-            // 
-            this.radioMonHocTheoKhoa2.AutoSize = true;
-            this.radioMonHocTheoKhoa2.Location = new System.Drawing.Point(181, 235);
-            this.radioMonHocTheoKhoa2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.radioMonHocTheoKhoa2.Name = "radioMonHocTheoKhoa2";
-            this.radioMonHocTheoKhoa2.Size = new System.Drawing.Size(190, 24);
-            this.radioMonHocTheoKhoa2.TabIndex = 37;
-            this.radioMonHocTheoKhoa2.TabStop = true;
-            this.radioMonHocTheoKhoa2.Text = "Môn Học Theo CN Khoa";
-            this.radioMonHocTheoKhoa2.UseVisualStyleBackColor = true;
-            this.radioMonHocTheoKhoa2.CheckedChanged += new System.EventHandler(this.radioMonHocTheoKhoa2_CheckedChanged);
-            // 
-            // radioMonHocChung2
-            // 
-            this.radioMonHocChung2.AutoSize = true;
-            this.radioMonHocChung2.Location = new System.Drawing.Point(30, 235);
-            this.radioMonHocChung2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.radioMonHocChung2.Name = "radioMonHocChung2";
-            this.radioMonHocChung2.Size = new System.Drawing.Size(137, 24);
-            this.radioMonHocChung2.TabIndex = 36;
-            this.radioMonHocChung2.TabStop = true;
-            this.radioMonHocChung2.Text = "Môn Học Chung";
-            this.radioMonHocChung2.UseVisualStyleBackColor = true;
-            this.radioMonHocChung2.CheckedChanged += new System.EventHandler(this.radioMonHocChung2_CheckedChanged);
-            // 
             // txtMaMH1
             // 
             this.txtMaMH1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMaMH1.Enabled = false;
             this.txtMaMH1.Location = new System.Drawing.Point(147, 51);
             this.txtMaMH1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaMH1.Name = "txtMaMH1";
@@ -278,35 +197,12 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(48, 55);
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label8.Location = new System.Drawing.Point(38, 54);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(102, 20);
             this.label8.TabIndex = 24;
             this.label8.Text = "Mã Môn Học :";
-            // 
-            // numericUpDownHocKyThu1
-            // 
-            this.numericUpDownHocKyThu1.Location = new System.Drawing.Point(147, 190);
-            this.numericUpDownHocKyThu1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.numericUpDownHocKyThu1.Maximum = new decimal(new int[] {
-            8,
-            0,
-            0,
-            0});
-            this.numericUpDownHocKyThu1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownHocKyThu1.Name = "numericUpDownHocKyThu1";
-            this.numericUpDownHocKyThu1.Size = new System.Drawing.Size(89, 27);
-            this.numericUpDownHocKyThu1.TabIndex = 31;
-            this.numericUpDownHocKyThu1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // btXoaMH
             // 
@@ -314,9 +210,10 @@
             this.btXoaMH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.btXoaMH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btXoaMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btXoaMH.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btXoaMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btXoaMH.ForeColor = System.Drawing.SystemColors.Control;
             this.btXoaMH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btXoaMH.Location = new System.Drawing.Point(222, 358);
+            this.btXoaMH.Location = new System.Drawing.Point(223, 249);
             this.btXoaMH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btXoaMH.Name = "btXoaMH";
             this.btXoaMH.Size = new System.Drawing.Size(139, 51);
@@ -354,9 +251,10 @@
             this.btsuaMH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.btsuaMH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btsuaMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btsuaMH.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btsuaMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btsuaMH.ForeColor = System.Drawing.SystemColors.Control;
             this.btsuaMH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btsuaMH.Location = new System.Drawing.Point(63, 358);
+            this.btsuaMH.Location = new System.Drawing.Point(64, 249);
             this.btsuaMH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btsuaMH.Name = "btsuaMH";
             this.btsuaMH.Size = new System.Drawing.Size(138, 51);
@@ -365,20 +263,10 @@
             this.btsuaMH.UseVisualStyleBackColor = false;
             this.btsuaMH.Click += new System.EventHandler(this.btsuaMH_Click);
             // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(57, 196);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 20);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "Học Kỳ Thứ :";
-            // 
             // txtTenMH1
             // 
             this.txtTenMH1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTenMH1.Enabled = false;
             this.txtTenMH1.Location = new System.Drawing.Point(148, 98);
             this.txtTenMH1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenMH1.Name = "txtTenMH1";
@@ -389,8 +277,8 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(68, 150);
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Location = new System.Drawing.Point(38, 144);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 20);
             this.label4.TabIndex = 28;
@@ -400,183 +288,26 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(42, 101);
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label7.Location = new System.Drawing.Point(38, 101);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 20);
             this.label7.TabIndex = 24;
             this.label7.Text = "Tên Môn Học :";
             // 
-            // cbboxKhoa1
-            // 
-            this.cbboxKhoa1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbboxKhoa1.FormattingEnabled = true;
-            this.cbboxKhoa1.Location = new System.Drawing.Point(147, 269);
-            this.cbboxKhoa1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbboxKhoa1.Name = "cbboxKhoa1";
-            this.cbboxKhoa1.Size = new System.Drawing.Size(213, 28);
-            this.cbboxKhoa1.TabIndex = 27;
-            this.cbboxKhoa1.SelectedIndexChanged += new System.EventHandler(this.cbboxKhoa1_SelectedIndexChanged);
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(83, 272);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 20);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Khoa :";
-            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.cbboxChuyenNganh);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.radioMonHocTheoKhoa);
-            this.groupBox1.Controls.Add(this.radioMonHocChung);
-            this.groupBox1.Controls.Add(this.txtMaMonHocThemMoi);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.numericUpSoTC);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cbboxKhoa);
-            this.groupBox1.Controls.Add(this.Khoa);
             this.groupBox1.Controls.Add(this.btThemMH);
-            this.groupBox1.Controls.Add(this.txtTenMH);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.Location = new System.Drawing.Point(757, 218);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(392, 445);
+            this.groupBox1.Size = new System.Drawing.Size(392, 108);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÊM MỚI";
-            // 
-            // cbboxChuyenNganh
-            // 
-            this.cbboxChuyenNganh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbboxChuyenNganh.FormattingEnabled = true;
-            this.cbboxChuyenNganh.Location = new System.Drawing.Point(164, 294);
-            this.cbboxChuyenNganh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbboxChuyenNganh.Name = "cbboxChuyenNganh";
-            this.cbboxChuyenNganh.Size = new System.Drawing.Size(213, 28);
-            this.cbboxChuyenNganh.TabIndex = 37;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(100, 298);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(36, 20);
-            this.label10.TabIndex = 36;
-            this.label10.Text = "CN :";
-            // 
-            // radioMonHocTheoKhoa
-            // 
-            this.radioMonHocTheoKhoa.AutoSize = true;
-            this.radioMonHocTheoKhoa.Location = new System.Drawing.Point(185, 222);
-            this.radioMonHocTheoKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.radioMonHocTheoKhoa.Name = "radioMonHocTheoKhoa";
-            this.radioMonHocTheoKhoa.Size = new System.Drawing.Size(190, 24);
-            this.radioMonHocTheoKhoa.TabIndex = 35;
-            this.radioMonHocTheoKhoa.TabStop = true;
-            this.radioMonHocTheoKhoa.Text = "Môn Học Theo CN Khoa";
-            this.radioMonHocTheoKhoa.UseVisualStyleBackColor = true;
-            this.radioMonHocTheoKhoa.CheckedChanged += new System.EventHandler(this.radioMonHocTheoKhoa_CheckedChanged);
-            // 
-            // radioMonHocChung
-            // 
-            this.radioMonHocChung.AutoSize = true;
-            this.radioMonHocChung.Location = new System.Drawing.Point(34, 222);
-            this.radioMonHocChung.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.radioMonHocChung.Name = "radioMonHocChung";
-            this.radioMonHocChung.Size = new System.Drawing.Size(137, 24);
-            this.radioMonHocChung.TabIndex = 34;
-            this.radioMonHocChung.TabStop = true;
-            this.radioMonHocChung.Text = "Môn Học Chung";
-            this.radioMonHocChung.UseVisualStyleBackColor = true;
-            this.radioMonHocChung.CheckedChanged += new System.EventHandler(this.radioMonHocChung_CheckedChanged);
-            // 
-            // txtMaMonHocThemMoi
-            // 
-            this.txtMaMonHocThemMoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaMonHocThemMoi.Location = new System.Drawing.Point(163, 24);
-            this.txtMaMonHocThemMoi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtMaMonHocThemMoi.Name = "txtMaMonHocThemMoi";
-            this.txtMaMonHocThemMoi.Size = new System.Drawing.Size(214, 27);
-            this.txtMaMonHocThemMoi.TabIndex = 33;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(64, 27);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(102, 20);
-            this.label9.TabIndex = 32;
-            this.label9.Text = "Mã Môn Học :";
-            // 
-            // numericUpSoTC
-            // 
-            this.numericUpSoTC.Location = new System.Drawing.Point(168, 130);
-            this.numericUpSoTC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.numericUpSoTC.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpSoTC.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpSoTC.Name = "numericUpSoTC";
-            this.numericUpSoTC.Size = new System.Drawing.Size(89, 27);
-            this.numericUpSoTC.TabIndex = 22;
-            this.numericUpSoTC.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(79, 136);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 20);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Số TC :";
-            // 
-            // cbboxKhoa
-            // 
-            this.cbboxKhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbboxKhoa.FormattingEnabled = true;
-            this.cbboxKhoa.Location = new System.Drawing.Point(164, 256);
-            this.cbboxKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbboxKhoa.Name = "cbboxKhoa";
-            this.cbboxKhoa.Size = new System.Drawing.Size(213, 28);
-            this.cbboxKhoa.TabIndex = 7;
-            this.cbboxKhoa.SelectedIndexChanged += new System.EventHandler(this.cbboxKhoa_SelectedIndexChanged);
-            // 
-            // Khoa
-            // 
-            this.Khoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Khoa.AutoSize = true;
-            this.Khoa.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Khoa.Location = new System.Drawing.Point(99, 260);
-            this.Khoa.Name = "Khoa";
-            this.Khoa.Size = new System.Drawing.Size(50, 20);
-            this.Khoa.TabIndex = 6;
-            this.Khoa.Text = "Khoa :";
             // 
             // btThemMH
             // 
@@ -584,36 +315,18 @@
             this.btThemMH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.btThemMH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btThemMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btThemMH.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btThemMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btThemMH.ForeColor = System.Drawing.SystemColors.Control;
+            this.btThemMH.Image = global::QLDT.Properties.Resources.icons8_add_30;
             this.btThemMH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btThemMH.Location = new System.Drawing.Point(117, 348);
+            this.btThemMH.Location = new System.Drawing.Point(11, 28);
             this.btThemMH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btThemMH.Name = "btThemMH";
-            this.btThemMH.Size = new System.Drawing.Size(193, 55);
+            this.btThemMH.Size = new System.Drawing.Size(366, 55);
             this.btThemMH.TabIndex = 5;
             this.btThemMH.Text = "THÊM MỚI";
             this.btThemMH.UseVisualStyleBackColor = false;
             this.btThemMH.Click += new System.EventHandler(this.btThemMH_Click);
-            // 
-            // txtTenMH
-            // 
-            this.txtTenMH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenMH.Location = new System.Drawing.Point(164, 70);
-            this.txtTenMH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtTenMH.Name = "txtTenMH";
-            this.txtTenMH.Size = new System.Drawing.Size(214, 27);
-            this.txtTenMH.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(58, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Tên Môn Học :";
             // 
             // groupBox6
             // 
@@ -654,6 +367,7 @@
             // radioButtonTheoKhoa
             // 
             this.radioButtonTheoKhoa.AutoSize = true;
+            this.radioButtonTheoKhoa.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.radioButtonTheoKhoa.Location = new System.Drawing.Point(11, 105);
             this.radioButtonTheoKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonTheoKhoa.Name = "radioButtonTheoKhoa";
@@ -667,6 +381,7 @@
             // radioButtonTatCa
             // 
             this.radioButtonTatCa.AutoSize = true;
+            this.radioButtonTatCa.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.radioButtonTatCa.Location = new System.Drawing.Point(12, 44);
             this.radioButtonTatCa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonTatCa.Name = "radioButtonTatCa";
@@ -676,6 +391,27 @@
             this.radioButtonTatCa.Text = "Tất Cả";
             this.radioButtonTatCa.UseVisualStyleBackColor = true;
             this.radioButtonTatCa.CheckedChanged += new System.EventHandler(this.radioButtonTatCa_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(38, 191);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 20);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Đơn giá";
+            // 
+            // txbDonGia
+            // 
+            this.txbDonGia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbDonGia.Enabled = false;
+            this.txbDonGia.Location = new System.Drawing.Point(147, 188);
+            this.txbDonGia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbDonGia.Name = "txbDonGia";
+            this.txbDonGia.Size = new System.Drawing.Size(138, 27);
+            this.txbDonGia.TabIndex = 32;
             // 
             // FrmMonHoc
             // 
@@ -695,11 +431,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHocKyThu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSoTC1)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpSoTC)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
@@ -714,43 +447,24 @@
         private System.Windows.Forms.Button btXoaMH;
         private System.Windows.Forms.Button btsuaMH;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cbboxKhoa;
-        private System.Windows.Forms.Label Khoa;
         private System.Windows.Forms.Button btThemMH;
-        private System.Windows.Forms.TextBox txtTenMH;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpSoTC;
         private System.Windows.Forms.TextBox txtMaMH1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDownHocKyThu1;
         private System.Windows.Forms.NumericUpDown numericUpDownSoTC1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTenMH1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbboxKhoa1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtMaMonHocThemMoi;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.ComboBox cbboxchonkhoa;
         private System.Windows.Forms.RadioButton radioButtonTheoKhoa;
         private System.Windows.Forms.RadioButton radioButtonTatCa;
-        private System.Windows.Forms.RadioButton radioMonHocTheoKhoa;
-        private System.Windows.Forms.RadioButton radioMonHocChung;
-        private System.Windows.Forms.RadioButton radioMonHocTheoKhoa2;
-        private System.Windows.Forms.RadioButton radioMonHocChung2;
-        private System.Windows.Forms.ComboBox cbboxChuyenNganh;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cbboxChuyenNganh1;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbboxLoadChuyenNganh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaMonHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenMonHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoTinChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HocKy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ChuyenNganh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenKhoa;
+        private DataGridViewTextBoxColumn MaMonHoc;
+        private DataGridViewTextBoxColumn TenMonHoc;
+        private DataGridViewTextBoxColumn SoTinChi;
+        private DataGridViewTextBoxColumn ChuyenNganh;
+        private DataGridViewTextBoxColumn TenKhoa;
+        private TextBox txbDonGia;
+        private Label label1;
     }
 }

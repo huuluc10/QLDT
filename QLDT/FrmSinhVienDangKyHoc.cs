@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.CodeParser;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,63 +25,64 @@ namespace QLDT
 
         private int Makhoa(String msv)
         {
-            int makhoa;
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "MaKhoaSV";
-                cmd.Parameters.Add(new SqlParameter("@msv", msv));
-                var result = cmd.ExecuteScalar();
-                con.Close();
-                if(result.ToString()=="")
-                {
-                    makhoa = 0;
-                }
-                else
-                {
-                    makhoa = (int)result;
-                }
-            }
-            return makhoa;
+            //int makhoa;
+            //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            //{
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand();
+            //    cmd.Connection = con;
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.CommandText = "MaKhoaSV";
+            //    cmd.Parameters.Add(new SqlParameter("@msv", msv));
+            //    var result = cmd.ExecuteScalar();
+            //    con.Close();
+            //    if(result.ToString()=="")
+            //    {
+            //        makhoa = 0;
+            //    }
+            //    else
+            //    {
+            //        makhoa = (int)result;
+            //    }
+            //}
+            //return makhoa;
+            return 0;
         }
 
 
         private DataTable LoadMonHoc(int makhoa)
         {
             DataTable data = new DataTable();
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "LIST_MonHocTheoKhoa";
-                cmd.Parameters.Add(new SqlParameter("@makhoa", makhoa));
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(data);
-                con.Close();
-            }
+            //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            //{
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand();
+            //    cmd.Connection = con;
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.CommandText = "LIST_MonHocTheoKhoa";
+            //    cmd.Parameters.Add(new SqlParameter("@makhoa", makhoa));
+            //    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            //    adapter.Fill(data);
+            //    con.Close();
+            //}
             return data;
         }
 
         private DataTable LoadLopMo(String mmh)
         {
             DataTable data = new DataTable();
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "LIST_LOPHOCTHEOMONHOC";
-                cmd.Parameters.Add(new SqlParameter("@mmh", mmh));
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(data);
-                con.Close();
-            }
+            //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            //{
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand();
+            //    cmd.Connection = con;
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.CommandText = "LIST_LOPHOCTHEOMONHOC";
+            //    cmd.Parameters.Add(new SqlParameter("@mmh", mmh));
+            //    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            //    adapter.Fill(data);
+            //    con.Close();
+            //}
             return data;
         }
 
@@ -118,47 +120,48 @@ namespace QLDT
         private List<String> DSCACLOPHOCDANGKY(String msv)
         {
             List<String> Arr = new List<String>();
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DANHSACHLOP_DK";
-                cmd.Parameters.Add(new SqlParameter("@masinhvien", msv));
-                SqlDataReader rdr=cmd.ExecuteReader();
-                while(rdr.Read())
-                {
-                    String MH = rdr[0].ToString();
-                    Arr.Add(MH);
-                }
-                con.Close();
-            }
+            //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            //{
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand();
+            //    cmd.Connection = con;
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.CommandText = "DANHSACHLOP_DK";
+            //    cmd.Parameters.Add(new SqlParameter("@masinhvien", msv));
+            //    SqlDataReader rdr=cmd.ExecuteReader();
+            //    while(rdr.Read())
+            //    {
+            //        String MH = rdr[0].ToString();
+            //        Arr.Add(MH);
+            //    }
+            //    con.Close();
+            //}
             return Arr;
         }
 
         private double? SoTien(String malophocphan)
         {
-            double? Sotien;
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SOTIEN1TC_SINHVIENDKHOC";
-                cmd.Parameters.Add(new SqlParameter("@malophocphan", malophocphan));
-                var result = cmd.ExecuteScalar();
-                con.Close();
-                if (result.ToString()=="")
-                {
-                    Sotien = 306500;
-                }
-                else
-                {
-                    Sotien = (double)result;
-                }
-            }
+            double Sotien = 0;
+            //double? Sotien;
+            //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            //{
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand();
+            //    cmd.Connection = con;
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.CommandText = "SOTIEN1TC_SINHVIENDKHOC";
+            //    cmd.Parameters.Add(new SqlParameter("@malophocphan", malophocphan));
+            //    var result = cmd.ExecuteScalar();
+            //    con.Close();
+            //    if (result.ToString()=="")
+            //    {
+            //        Sotien = 306500;
+            //    }
+            //    else
+            //    {
+            //        Sotien = (double)result;
+            //    }
+            //}
             return Sotien;
         }
 
@@ -166,32 +169,32 @@ namespace QLDT
         private DataTable TongCong(DataGridView datag)
         {
             DataTable data = new DataTable();
-            data.Columns.Add("Tong");
-            data.Columns.Add("TongSoTC");
-            data.Columns.Add("TongHocPhi");
-            if (datag.Rows.Count == 0)
-            {
-                DataRow row = data.NewRow();
-                row["Tong"] = "Tổng";
-                row["TongSoTC"] = 0;
-                row["TongHocPhi"] = 0;
-                data.Rows.Add(row);
-            }
-            else
-            {
-                int? TongSoTC=0;
-                double? TongHocPhi=0;
-                for (int i = 0; i < datag.Rows.Count; i++)
-                {
-                    TongSoTC = TongSoTC + int.Parse(datag.Rows[i].Cells["SoTCG"].Value.ToString());
-                    TongHocPhi = TongHocPhi + double.Parse(datag.Rows[i].Cells["HocPhi"].Value.ToString());
-                }
-                DataRow row = data.NewRow();
-                row["Tong"] = "Tổng";
-                row["TongSoTC"] = TongSoTC;
-                row["TongHocPhi"] = TongHocPhi;
-                data.Rows.Add(row);
-            }
+            //data.Columns.Add("Tong");
+            //data.Columns.Add("TongSoTC");
+            //data.Columns.Add("TongHocPhi");
+            //if (datag.Rows.Count == 0)
+            //{
+            //    DataRow row = data.NewRow();
+            //    row["Tong"] = "Tổng";
+            //    row["TongSoTC"] = 0;
+            //    row["TongHocPhi"] = 0;
+            //    data.Rows.Add(row);
+            //}
+            //else
+            //{
+            //    int? TongSoTC=0;
+            //    double? TongHocPhi=0;
+            //    for (int i = 0; i < datag.Rows.Count; i++)
+            //    {
+            //        TongSoTC = TongSoTC + int.Parse(datag.Rows[i].Cells["SoTCG"].Value.ToString());
+            //        TongHocPhi = TongHocPhi + double.Parse(datag.Rows[i].Cells["HocPhi"].Value.ToString());
+            //    }
+            //    DataRow row = data.NewRow();
+            //    row["Tong"] = "Tổng";
+            //    row["TongSoTC"] = TongSoTC;
+            //    row["TongHocPhi"] = TongHocPhi;
+            //    data.Rows.Add(row);
+            //}
             return data;
         }
 
@@ -210,43 +213,43 @@ namespace QLDT
             data.Columns.Add("DaDangKy");
             data.Columns.Add("SoTC");
             data.Columns.Add("HocPhi");
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                foreach (String item in arr)
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = con;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "DANHSACHLOP_HIENTHIDADANGKY";
-                    cmd.Parameters.Add(new SqlParameter("@malop", item));
-                    SqlDataReader rdr = cmd.ExecuteReader();
-                    while (rdr.Read())
-                    {
-                        String MaLopHP = rdr["MaLopHP"].ToString();
-                        String TenLopHp = rdr["TenLopHp"].ToString();
-                        String TenMonHoc = rdr["TenMonHoc"].ToString();
-                        String ThoiGian = rdr["ThoiGian"].ToString();
-                        String DiaDiem = rdr["DiaDiem"].ToString();
-                        String SiSo = rdr["SiSo"].ToString();
-                        String DaDangKy = rdr["DaDangKy"].ToString();
-                        String SoTC = rdr["SoTC"].ToString();
-                        double? HP = SoTien(MaLopHP) * int.Parse(SoTC);
-                        DataRow row = data.NewRow();
-                        row["MaLopHP"] = MaLopHP;
-                        row["TenLopHp"] = TenLopHp;
-                        row["TenMonHoc"] = TenMonHoc;
-                        row["ThoiGian"] = ThoiGian;
-                        row["DiaDiem"] = DiaDiem;
-                        row["SiSo"] = SiSo;
-                        row["DaDangKy"] = DaDangKy;
-                        row["SoTC"] = SoTC;
-                        row["HocPhi"] = HP;
-                        data.Rows.Add(row);
-                    }
-                    con.Close();
-                }
-            }
+            //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            //{
+            //    foreach (String item in arr)
+            //    {
+            //        con.Open();
+            //        SqlCommand cmd = new SqlCommand();
+            //        cmd.Connection = con;
+            //        cmd.CommandType = CommandType.StoredProcedure;
+            //        cmd.CommandText = "DANHSACHLOP_HIENTHIDADANGKY";
+            //        cmd.Parameters.Add(new SqlParameter("@malop", item));
+            //        SqlDataReader rdr = cmd.ExecuteReader();
+            //        while (rdr.Read())
+            //        {
+            //            String MaLopHP = rdr["MaLopHP"].ToString();
+            //            String TenLopHp = rdr["TenLopHp"].ToString();
+            //            String TenMonHoc = rdr["TenMonHoc"].ToString();
+            //            String ThoiGian = rdr["ThoiGian"].ToString();
+            //            String DiaDiem = rdr["DiaDiem"].ToString();
+            //            String SiSo = rdr["SiSo"].ToString();
+            //            String DaDangKy = rdr["DaDangKy"].ToString();
+            //            String SoTC = rdr["SoTC"].ToString();
+            //            double? HP = SoTien(MaLopHP) * int.Parse(SoTC);
+            //            DataRow row = data.NewRow();
+            //            row["MaLopHP"] = MaLopHP;
+            //            row["TenLopHp"] = TenLopHp;
+            //            row["TenMonHoc"] = TenMonHoc;
+            //            row["ThoiGian"] = ThoiGian;
+            //            row["DiaDiem"] = DiaDiem;
+            //            row["SiSo"] = SiSo;
+            //            row["DaDangKy"] = DaDangKy;
+            //            row["SoTC"] = SoTC;
+            //            row["HocPhi"] = HP;
+            //            data.Rows.Add(row);
+            //        }
+            //        con.Close();
+            //    }
+            //}
             return data;
         }
         private void button2_Click(object sender, EventArgs e)
@@ -264,100 +267,100 @@ namespace QLDT
 
         private void Dangky(String msv,String MLH)
         {
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DangKY_LopHoc";
-                cmd.Parameters.Add(new SqlParameter("@masinhvien", msv));
-                cmd.Parameters.Add(new SqlParameter("@malophoc", MLH));
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
+            //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            //{
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand();
+            //    cmd.Connection = con;
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.CommandText = "DangKY_LopHoc";
+            //    cmd.Parameters.Add(new SqlParameter("@masinhvien", msv));
+            //    cmd.Parameters.Add(new SqlParameter("@malophoc", MLH));
+            //    cmd.ExecuteNonQuery();
+            //    con.Close();
+            //}
         }
 
         private void HuyDangky(String msv, String MLH)
         {
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "HuyDangKY_LopHoc";
-                cmd.Parameters.Add(new SqlParameter("@masinhvien", msv));
-                cmd.Parameters.Add(new SqlParameter("@malophoc", MLH));
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
+            //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            //{
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand();
+            //    cmd.Connection = con;
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.CommandText = "HuyDangKY_LopHoc";
+            //    cmd.Parameters.Add(new SqlParameter("@masinhvien", msv));
+            //    cmd.Parameters.Add(new SqlParameter("@malophoc", MLH));
+            //    cmd.ExecuteNonQuery();
+            //    con.Close();
+            //}
         }
 
 
 
-        private Boolean DaDangKyLopNayHayChua(String MaLopHoc,String msv)
-        {
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "KIEMTRADADANGKYLOPNAYCHUA";
-                cmd.Parameters.Add(new SqlParameter("@malophoc", MaLopHoc));
-                cmd.Parameters.Add(new SqlParameter("@msv", msv));
-                int result = (int)cmd.ExecuteScalar();
-                con.Close();
-                if(result==0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
+        //private Boolean DaDangKyLopNayHayChua(String MaLopHoc,String msv)
+        //{
+        //    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+        //    {
+        //        con.Open();
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = con;
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cmd.CommandText = "KIEMTRADADANGKYLOPNAYCHUA";
+        //        cmd.Parameters.Add(new SqlParameter("@malophoc", MaLopHoc));
+        //        cmd.Parameters.Add(new SqlParameter("@msv", msv));
+        //        int result = (int)cmd.ExecuteScalar();
+        //        con.Close();
+        //        if (result == 0)
+        //        {
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //        //}
+        //    }
 
-        private Boolean DaDangKyLopMONHOCNayHayChua(String mamonhoc,String msv)
-        {
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "KIEMTRADADANGKYLOPMONHOCNAYCHUA";
-                cmd.Parameters.Add(new SqlParameter("@mamonhoc", mamonhoc));
-                cmd.Parameters.Add(new SqlParameter("@msv", msv));
-                int result = (int)cmd.ExecuteScalar();
-                con.Close();
-                if (result == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
+        //private Boolean DaDangKyLopMONHOCNayHayChua(String mamonhoc,String msv)
+        //{
+        //    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+        //    {
+        //        con.Open();
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = con;
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cmd.CommandText = "KIEMTRADADANGKYLOPMONHOCNAYCHUA";
+        //        cmd.Parameters.Add(new SqlParameter("@mamonhoc", mamonhoc));
+        //        cmd.Parameters.Add(new SqlParameter("@msv", msv));
+        //        int result = (int)cmd.ExecuteScalar();
+        //        con.Close();
+        //        if (result == 0)
+        //        {
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //}
 
         private int Sothangdadangkyvaocailopnay(String malop)
         {
-            int number;
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SoTHANGDADANGKYLOPNAY";
-                cmd.Parameters.Add(new SqlParameter("@malop", malop));
-                number = (int)cmd.ExecuteScalar();
-                con.Close();
-            }
+            int number = 0;
+            //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            //{
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand();
+            //    cmd.Connection = con;
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.CommandText = "SoTHANGDADANGKYLOPNAY";
+            //    cmd.Parameters.Add(new SqlParameter("@malop", malop));
+            //    number = (int)cmd.ExecuteScalar();
+            //    con.Close();
+            //}
             return number;
         }
 
@@ -402,38 +405,38 @@ namespace QLDT
                         }
                         else
                         {
-                            if (DaDangKyLopNayHayChua(LopHoc, msvien) == true)
-                            {
-                                if (DaDangKyLopMONHOCNayHayChua(MMH, msvien) == true)
-                                {
-                                    if (Sothangdadangkyvaocailopnay(LopHoc) == siso)
-                                    {
-                                        MessageBox.Show("Lớp này đã đủ sĩ số.. hãy chọn lớp khác");
-                                    }
-                                    else
-                                    {
-                                        if (KIEMTRA_SINHVIENDANGKYHOC(msvien, MMH)==true)
-                                        {
-                                            Dangky(msvien, LopHoc);
-                                            MessageBox.Show("ĐK Thành Công. Bạn Hãy Kiểm Tra Ở Kết Quả Đăng Ký");
-                                            dataGridView2.DataSource = KetQUADANGKY(DSCACLOPHOCDANGKY(msvien));
-                                            dataGridView3.DataSource = TongCong(dataGridView2);
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Môn Học Này Bạn Ko Học Lại Và Điểm Không Quá Yếu Để Không Phải Học Cải Thiện.");
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Bạn Đã Đăng Ký Môn học Này Rồi");
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Bạn Đã Đăng Ký Lớp Này Rồi. Hãy Kiểm Tra Kết Quả");
-                            }
+                            //if (DaDangKyLopNayHayChua(LopHoc, msvien) == true)
+                            //{
+                            //    if (DaDangKyLopMONHOCNayHayChua(MMH, msvien) == true)
+                            //    {
+                            //        if (Sothangdadangkyvaocailopnay(LopHoc) == siso)
+                            //        {
+                            //            MessageBox.Show("Lớp này đã đủ sĩ số.. hãy chọn lớp khác");
+                            //        }
+                            //        else
+                            //        {
+                            //            if (KIEMTRA_SINHVIENDANGKYHOC(msvien, MMH) == true)
+                            //            {
+                            //                Dangky(msvien, LopHoc);
+                            //                MessageBox.Show("ĐK Thành Công. Bạn Hãy Kiểm Tra Ở Kết Quả Đăng Ký");
+                            //                dataGridView2.DataSource = KetQUADANGKY(DSCACLOPHOCDANGKY(msvien));
+                            //                dataGridView3.DataSource = TongCong(dataGridView2);
+                            //            }
+                            //            else
+                            //            {
+                            //                MessageBox.Show("Môn Học Này Bạn Ko Học Lại Và Điểm Không Quá Yếu Để Không Phải Học Cải Thiện.");
+                            //            }
+                            //        }
+                            //    }
+                            //    else
+                            //    {
+                            //        MessageBox.Show("Bạn Đã Đăng Ký Môn học Này Rồi");
+                            //    }
+                            //}
+                            //else
+                            //{
+                            //    MessageBox.Show("Bạn Đã Đăng Ký Lớp Này Rồi. Hãy Kiểm Tra Kết Quả");
+                            //}
                         }
                     }
                 }

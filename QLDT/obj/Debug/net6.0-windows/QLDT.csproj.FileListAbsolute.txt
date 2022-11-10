@@ -138,4 +138,8 @@ D:\code\QLDT\QLDT\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\Syste
 D:\code\QLDT\QLDT\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.ServiceProcess.ServiceController.dll
 D:\code\QLDT\QLDT\bin\Debug\net6.0-windows\Microsoft.Vbe.Interop.dll
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.XtraUserControl1.resources
-D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.ThemMonHoc.resources
+D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmThemMonHoc.resources
+D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmHanhDong.resources
+D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmSinhVienDaDKMon.resources
+D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmGiangVienNhapDiemMonHoc.resources
+D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmHocPhi.resources

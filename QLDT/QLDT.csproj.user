@@ -4,6 +4,15 @@
     <Compile Update="FrmAddKhoa.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmGiangVienNhapDiemMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmHanhDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmHocPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmHoSoGiaoVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -40,6 +49,9 @@
     <Compile Update="FrmKhoa.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmSinhVienDaDKMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmSinhVienDangKyHoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,7 +85,7 @@
     <Compile Update="FrmHoSoSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ThemMonHoc.cs">
+    <Compile Update="FrmThemMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="XtraUserControl1.cs">

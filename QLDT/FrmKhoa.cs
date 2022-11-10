@@ -249,7 +249,7 @@ namespace QLDT
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("Trùng Mã CN");
+                    MessageBox.Show("Trùng Mã CN\n"+ex);
                 } 
             }
             else
