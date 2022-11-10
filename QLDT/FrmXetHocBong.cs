@@ -314,9 +314,9 @@ namespace QLDT
                     }
                     else
                     {
-                        //FrmLoad a = new FrmLoad(dataGridView1, duongdan);
-                        //a.Show();
-                        //duongdan = null;
+                        FrmLoad a = new FrmLoad(dataGridView1, duongdan);
+                        a.Show();
+                        duongdan = null;
                         lblDuongDanFile.Text = "";
                     }
                 }

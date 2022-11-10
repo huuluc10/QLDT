@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eqxXlh4ERSg+KUrlhJxh97+u6cP4DnCOYMVdL7QMle9fgu3rxjqis+FFojVijdlYGb95W+yS6OepgTrN7cwYVQ==",
+  "dgSpecHash": "UNujofSTF9o/k6rclZC3stDBj5DJAZfSFx9cYK2/Y8fiMuCjLqvf3pBkX802rqedmaVZbhJfCn3BhySDVOTI5g==",
   "success": true,
   "projectFilePath": "D:\\code\\QLDT\\QLDT\\QLDT.csproj",
   "expectedPackageFiles": [
@@ -79,7 +79,7 @@
     "C:\\Users\\lucng\\.nuget\\packages\\system.configuration.configurationmanager\\4.6.0\\system.configuration.configurationmanager.4.6.0.nupkg.sha512",
     "C:\\Users\\lucng\\.nuget\\packages\\system.data.odbc\\4.5.0\\system.data.odbc.4.5.0.nupkg.sha512",
     "C:\\Users\\lucng\\.nuget\\packages\\system.data.oledb\\4.6.0\\system.data.oledb.4.6.0.nupkg.sha512",
-    "C:\\Users\\lucng\\.nuget\\packages\\system.data.sqlclient\\4.8.4\\system.data.sqlclient.4.8.4.nupkg.sha512",
+    "C:\\Users\\lucng\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
     "C:\\Users\\lucng\\.nuget\\packages\\system.diagnostics.eventlog\\4.5.0\\system.diagnostics.eventlog.4.5.0.nupkg.sha512",
     "C:\\Users\\lucng\\.nuget\\packages\\system.diagnostics.performancecounter\\4.6.0\\system.diagnostics.performancecounter.4.6.0.nupkg.sha512",
     "C:\\Users\\lucng\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",

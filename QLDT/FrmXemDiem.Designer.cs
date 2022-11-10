@@ -58,6 +58,7 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoTCTLTK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -270,6 +271,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.simpleButton2);
             this.groupBox1.Controls.Add(this.cbboxNamHoc);
             this.groupBox1.Controls.Add(this.radioTheoNHHK);
             this.groupBox1.Controls.Add(this.radioButtonTatCa);
@@ -382,6 +384,14 @@
             this.SoTCTLTK.Name = "SoTCTLTK";
             this.SoTCTLTK.ReadOnly = true;
             // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(48, 160);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(193, 34);
+            this.simpleButton2.TabIndex = 17;
+            this.simpleButton2.Text = "XEM ĐIỂM";
+            // 
             // FrmXemDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -436,5 +446,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoTCTLTK;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

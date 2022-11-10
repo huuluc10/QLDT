@@ -285,11 +285,11 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(71, 15);
+            this.groupBox1.Location = new System.Drawing.Point(12, 15);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(974, 160);
+            this.groupBox1.Size = new System.Drawing.Size(1001, 160);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
@@ -312,6 +312,7 @@
             this.btnLoadDanhSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.btnLoadDanhSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadDanhSach.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLoadDanhSach.Image = global::QLDT.Properties.Resources.icons8_update_301;
             this.btnLoadDanhSach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLoadDanhSach.Location = new System.Drawing.Point(778, 45);
             this.btnLoadDanhSach.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -328,10 +329,10 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(218, 31);
+            this.button1.Location = new System.Drawing.Point(305, 55);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 61);
+            this.button1.Size = new System.Drawing.Size(159, 37);
             this.button1.TabIndex = 20;
             this.button1.Text = "XUẤT EXCEL";
             this.button1.UseVisualStyleBackColor = false;
@@ -341,7 +342,7 @@
             // 
             this.btnChonDuongDan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.btnChonDuongDan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChonDuongDan.Location = new System.Drawing.Point(18, 55);
+            this.btnChonDuongDan.Location = new System.Drawing.Point(45, 54);
             this.btnChonDuongDan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnChonDuongDan.Name = "btnChonDuongDan";
             this.btnChonDuongDan.Size = new System.Drawing.Size(169, 38);
@@ -370,7 +371,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(412, 159);
+            this.groupBox2.Size = new System.Drawing.Size(521, 159);
             this.groupBox2.TabIndex = 104;
             this.groupBox2.TabStop = false;
             // 

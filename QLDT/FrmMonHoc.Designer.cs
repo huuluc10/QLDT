@@ -62,9 +62,7 @@
             this.radioMonHocChung = new System.Windows.Forms.RadioButton();
             this.txtMaMonHocThemMoi = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.numericUpDownHocKyThu = new System.Windows.Forms.NumericUpDown();
             this.numericUpSoTC = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbboxKhoa = new System.Windows.Forms.ComboBox();
             this.Khoa = new System.Windows.Forms.Label();
@@ -81,7 +79,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHocKyThu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSoTC1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHocKyThu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpSoTC)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
@@ -179,6 +176,7 @@
             this.btLoadMH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btLoadMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btLoadMH.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btLoadMH.Image = global::QLDT.Properties.Resources.icons8_update_301;
             this.btLoadMH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btLoadMH.Location = new System.Drawing.Point(137, 24);
             this.btLoadMH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -440,9 +438,7 @@
             this.groupBox1.Controls.Add(this.radioMonHocChung);
             this.groupBox1.Controls.Add(this.txtMaMonHocThemMoi);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.numericUpDownHocKyThu);
             this.groupBox1.Controls.Add(this.numericUpSoTC);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbboxKhoa);
             this.groupBox1.Controls.Add(this.Khoa);
@@ -509,7 +505,7 @@
             // txtMaMonHocThemMoi
             // 
             this.txtMaMonHocThemMoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaMonHocThemMoi.Location = new System.Drawing.Point(167, 38);
+            this.txtMaMonHocThemMoi.Location = new System.Drawing.Point(163, 24);
             this.txtMaMonHocThemMoi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaMonHocThemMoi.Name = "txtMaMonHocThemMoi";
             this.txtMaMonHocThemMoi.Size = new System.Drawing.Size(214, 27);
@@ -520,34 +516,11 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(68, 41);
+            this.label9.Location = new System.Drawing.Point(64, 27);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(102, 20);
             this.label9.TabIndex = 32;
             this.label9.Text = "Mã Môn Học :";
-            // 
-            // numericUpDownHocKyThu
-            // 
-            this.numericUpDownHocKyThu.Location = new System.Drawing.Point(168, 176);
-            this.numericUpDownHocKyThu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.numericUpDownHocKyThu.Maximum = new decimal(new int[] {
-            8,
-            0,
-            0,
-            0});
-            this.numericUpDownHocKyThu.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownHocKyThu.Name = "numericUpDownHocKyThu";
-            this.numericUpDownHocKyThu.Size = new System.Drawing.Size(89, 27);
-            this.numericUpDownHocKyThu.TabIndex = 23;
-            this.numericUpDownHocKyThu.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // numericUpSoTC
             // 
@@ -571,17 +544,6 @@
             0,
             0,
             0});
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(68, 179);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 20);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Học Kỳ Thứ :";
             // 
             // label1
             // 
@@ -636,7 +598,7 @@
             // txtTenMH
             // 
             this.txtTenMH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenMH.Location = new System.Drawing.Point(168, 84);
+            this.txtTenMH.Location = new System.Drawing.Point(164, 70);
             this.txtTenMH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenMH.Name = "txtTenMH";
             this.txtTenMH.Size = new System.Drawing.Size(214, 27);
@@ -647,7 +609,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(62, 88);
+            this.label2.Location = new System.Drawing.Point(58, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 20);
             this.label2.TabIndex = 2;
@@ -737,7 +699,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSoTC1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHocKyThu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpSoTC)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
@@ -758,10 +719,8 @@
         private System.Windows.Forms.Button btThemMH;
         private System.Windows.Forms.TextBox txtTenMH;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numericUpSoTC;
-        private System.Windows.Forms.NumericUpDown numericUpDownHocKyThu;
         private System.Windows.Forms.TextBox txtMaMH1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown numericUpDownHocKyThu1;

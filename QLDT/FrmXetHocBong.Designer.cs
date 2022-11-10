@@ -222,7 +222,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(40, 170);
+            this.label3.Location = new System.Drawing.Point(39, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 20);
             this.label3.TabIndex = 24;
@@ -232,7 +232,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(53, 120);
+            this.label2.Location = new System.Drawing.Point(52, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 20);
             this.label2.TabIndex = 23;
@@ -242,7 +242,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(40, 68);
+            this.label1.Location = new System.Drawing.Point(39, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 22;
@@ -253,7 +253,7 @@
             this.cbboxKhoaHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxKhoaHoc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbboxKhoaHoc.FormattingEnabled = true;
-            this.cbboxKhoaHoc.Location = new System.Drawing.Point(128, 116);
+            this.cbboxKhoaHoc.Location = new System.Drawing.Point(127, 89);
             this.cbboxKhoaHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxKhoaHoc.Name = "cbboxKhoaHoc";
             this.cbboxKhoaHoc.Size = new System.Drawing.Size(220, 28);
@@ -265,7 +265,7 @@
             this.cbboxChonkhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxChonkhoa.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbboxChonkhoa.FormattingEnabled = true;
-            this.cbboxChonkhoa.Location = new System.Drawing.Point(101, 64);
+            this.cbboxChonkhoa.Location = new System.Drawing.Point(100, 37);
             this.cbboxChonkhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxChonkhoa.Name = "cbboxChonkhoa";
             this.cbboxChonkhoa.Size = new System.Drawing.Size(247, 28);
@@ -275,7 +275,7 @@
             // 
             this.cbboxNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxNamHoc.FormattingEnabled = true;
-            this.cbboxNamHoc.Location = new System.Drawing.Point(155, 166);
+            this.cbboxNamHoc.Location = new System.Drawing.Point(154, 139);
             this.cbboxNamHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxNamHoc.Name = "cbboxNamHoc";
             this.cbboxNamHoc.Size = new System.Drawing.Size(193, 28);
@@ -296,7 +296,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(402, 374);
+            this.groupBox1.Size = new System.Drawing.Size(402, 305);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CẬP NHẬT DANH SÁCH";
@@ -304,7 +304,7 @@
             // txtMucDiemXet
             // 
             this.txtMucDiemXet.Enabled = false;
-            this.txtMucDiemXet.Location = new System.Drawing.Point(233, 215);
+            this.txtMucDiemXet.Location = new System.Drawing.Point(232, 188);
             this.txtMucDiemXet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMucDiemXet.Name = "txtMucDiemXet";
             this.txtMucDiemXet.Size = new System.Drawing.Size(64, 27);
@@ -316,7 +316,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(108, 219);
+            this.label4.Location = new System.Drawing.Point(107, 192);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 20);
             this.label4.TabIndex = 26;
@@ -331,7 +331,7 @@
             this.simpleButton1.Appearance.Options.UseTextOptions = true;
             this.simpleButton1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.simpleButton1.ImageOptions.Image = global::QLDT.Properties.Resources.icons8_student_male_40;
-            this.simpleButton1.Location = new System.Drawing.Point(128, 262);
+            this.simpleButton1.Location = new System.Drawing.Point(127, 235);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(156, 43);
             this.simpleButton1.TabIndex = 25;
@@ -436,11 +436,11 @@
             this.groupBox2.Controls.Add(this.btnLoaiHocLai);
             this.groupBox2.Controls.Add(this.simpleButton3);
             this.groupBox2.Controls.Add(this.simpleButton2);
-            this.groupBox2.Location = new System.Drawing.Point(33, 438);
+            this.groupBox2.Location = new System.Drawing.Point(33, 355);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(402, 269);
+            this.groupBox2.Size = new System.Drawing.Size(402, 222);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "LỌC";
@@ -486,7 +486,7 @@
             this.groupBox3.Controls.Add(this.txtSoTien);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.simpleButton4);
-            this.groupBox3.Location = new System.Drawing.Point(34, 730);
+            this.groupBox3.Location = new System.Drawing.Point(34, 597);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -500,11 +500,11 @@
             this.groupBox4.Controls.Add(this.groupBox3);
             this.groupBox4.Controls.Add(this.groupBox2);
             this.groupBox4.Controls.Add(this.groupBox1);
-            this.groupBox4.Location = new System.Drawing.Point(12, 194);
+            this.groupBox4.Location = new System.Drawing.Point(12, 162);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(465, 951);
+            this.groupBox4.Size = new System.Drawing.Size(465, 806);
             this.groupBox4.TabIndex = 33;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "XÉT HỌC BỔNG";
@@ -519,7 +519,7 @@
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox6.Size = new System.Drawing.Size(459, 146);
+            this.groupBox6.Size = new System.Drawing.Size(459, 114);
             this.groupBox6.TabIndex = 108;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "XUẤT EXCEL";
@@ -528,7 +528,7 @@
             // 
             this.lblDuongDanFile.AutoSize = true;
             this.lblDuongDanFile.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblDuongDanFile.Location = new System.Drawing.Point(57, 102);
+            this.lblDuongDanFile.Location = new System.Drawing.Point(72, 77);
             this.lblDuongDanFile.Name = "lblDuongDanFile";
             this.lblDuongDanFile.Size = new System.Drawing.Size(0, 20);
             this.lblDuongDanFile.TabIndex = 106;
@@ -537,7 +537,7 @@
             // 
             this.lblDuongDan.AutoSize = true;
             this.lblDuongDan.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblDuongDan.Location = new System.Drawing.Point(27, 102);
+            this.lblDuongDan.Location = new System.Drawing.Point(27, 77);
             this.lblDuongDan.Name = "lblDuongDan";
             this.lblDuongDan.Size = new System.Drawing.Size(29, 20);
             this.lblDuongDan.TabIndex = 105;

@@ -73,6 +73,9 @@
     <Compile Update="FrmHoSoSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ThemMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="XtraUserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>

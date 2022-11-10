@@ -10,7 +10,7 @@
         "dependencies": {
           "DevExpress.CrossPlatform.Printing.DrawingEngine": "1.0.13",
           "DevExpress.Win.Design": "22.1.6",
-          "System.Data.SqlClient": "4.8.4",
+          "System.Data.SqlClient": "4.8.5",
           "runtime.native.System.Data.SqlClient.sni": "4.7.0",
           "Microsoft.Office.Interop.Excel": "15.0.0.0",
           "Microsoft.Vbe.Interop": "15.0.0.0",
@@ -124,7 +124,7 @@
           "DevExpress.Xpo": "22.1.6",
           "NETStandard.Library": "2.0.3",
           "System.Configuration.ConfigurationManager": "4.6.0",
-          "System.Data.SqlClient": "4.8.4",
+          "System.Data.SqlClient": "4.8.5",
           "System.Drawing.Common": "4.7.0",
           "System.Reflection.Emit": "4.3.0"
         },
@@ -153,7 +153,7 @@
           "DevExpress.Win.RichEdit": "22.1.6",
           "DevExpress.Win.TreeList": "22.1.6",
           "DevExpress.Xpo": "22.1.6",
-          "System.Data.SqlClient": "4.8.4"
+          "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
           "lib/netcoreapp3.0/DevExpress.DataAccess.v22.1.UI.dll": {
@@ -624,7 +624,7 @@
           "System.Configuration.ConfigurationManager": "4.6.0",
           "System.Data.Odbc": "4.5.0",
           "System.Data.OleDb": "4.6.0",
-          "System.Data.SqlClient": "4.8.4",
+          "System.Data.SqlClient": "4.8.5",
           "System.Drawing.Common": "4.7.0",
           "System.IO.Ports": "4.5.0",
           "System.ServiceModel.Http": "4.5.3",
@@ -750,7 +750,7 @@
           "DevExpress.Utils": "22.1.6",
           "DevExpress.Win.Navigation": "22.1.6",
           "DevExpress.Win.Printing": "22.1.6",
-          "System.Data.SqlClient": "4.8.4"
+          "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
           "lib/netcoreapp3.0/DevExpress.XtraMap.v22.1.dll": {
@@ -1064,7 +1064,7 @@
           "Microsoft.Extensions.DependencyInjection": "2.0.0",
           "Microsoft.Win32.Registry": "4.7.0",
           "NETStandard.Library": "2.0.3",
-          "System.Data.SqlClient": "4.8.4",
+          "System.Data.SqlClient": "4.8.5",
           "System.Drawing.Common": "4.7.0",
           "System.ServiceModel.Http": "4.5.3",
           "System.ServiceModel.NetTcp": "4.4.4",
@@ -1219,7 +1219,7 @@
           }
         }
       },
-      "System.Data.SqlClient/4.8.4": {
+      "System.Data.SqlClient/4.8.5": {
         "dependencies": {
           "Microsoft.Win32.Registry": "4.7.0",
           "System.Security.Principal.Windows": "4.7.0",
@@ -1227,22 +1227,22 @@
         },
         "runtime": {
           "lib/netcoreapp2.1/System.Data.SqlClient.dll": {
-            "assemblyVersion": "4.6.1.4",
-            "fileVersion": "4.700.22.47702"
+            "assemblyVersion": "4.6.1.5",
+            "fileVersion": "4.700.22.51706"
           }
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
             "rid": "unix",
             "assetType": "runtime",
-            "assemblyVersion": "4.6.1.4",
-            "fileVersion": "4.700.22.47702"
+            "assemblyVersion": "4.6.1.5",
+            "fileVersion": "4.700.22.51706"
           },
           "runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
             "rid": "win",
             "assetType": "runtime",
-            "assemblyVersion": "4.6.1.4",
-            "fileVersion": "4.700.22.47702"
+            "assemblyVersion": "4.6.1.5",
+            "fileVersion": "4.700.22.51706"
           }
         }
       },
@@ -2074,12 +2074,12 @@
       "path": "system.data.oledb/4.6.0",
       "hashPath": "system.data.oledb.4.6.0.nupkg.sha512"
     },
-    "System.Data.SqlClient/4.8.4": {
+    "System.Data.SqlClient/4.8.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-45YflfcVXAu+Tnf0WnZzQIp9iGm+XvSvh8OosYHqax/nW3gV28NBSRvHFZ/IsuwV4JIypYCKBEOVzW+RB5+zgQ==",
-      "path": "system.data.sqlclient/4.8.4",
-      "hashPath": "system.data.sqlclient.4.8.4.nupkg.sha512"
+      "sha512": "sha512-fRqxut4lrndPHrXD+ht1XRmCL3obuKldm4XjCRYS9p5f7FSR7shBxAwTkDrpFMsHC9BhNgjjmUtiIjvehn5zkg==",
+      "path": "system.data.sqlclient/4.8.5",
+      "hashPath": "system.data.sqlclient.4.8.5.nupkg.sha512"
     },
     "System.Diagnostics.EventLog/4.5.0": {
       "type": "package",

@@ -226,7 +226,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmAddKhoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ĐỔI MẬT KHẨU";
+            this.Text = "THÊM KHOA";
             this.Load += new System.EventHandler(this.FrmREGISTER_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
