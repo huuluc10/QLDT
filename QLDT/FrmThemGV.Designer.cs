@@ -34,9 +34,9 @@
             this.cbboxGioitinh = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.cbboxKhoa = new System.Windows.Forms.ComboBox();
-            this.txtCMND = new System.Windows.Forms.TextBox();
+            this.txtCCCD = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtHotenBo = new System.Windows.Forms.TextBox();
+            this.txtQuocGia = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             this.Lớp = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMSGV = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
@@ -171,16 +171,15 @@
             this.cbboxKhoa.Name = "cbboxKhoa";
             this.cbboxKhoa.Size = new System.Drawing.Size(254, 28);
             this.cbboxKhoa.TabIndex = 13;
-            this.cbboxKhoa.SelectedIndexChanged += new System.EventHandler(this.cbboxKhoa_SelectedIndexChanged);
             // 
-            // txtCMND
+            // txtCCCD
             // 
-            this.txtCMND.Location = new System.Drawing.Point(142, 271);
-            this.txtCMND.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtCMND.Name = "txtCMND";
-            this.txtCMND.Size = new System.Drawing.Size(319, 27);
-            this.txtCMND.TabIndex = 7;
-            this.txtCMND.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCMND_KeyPress);
+            this.txtCCCD.Location = new System.Drawing.Point(142, 271);
+            this.txtCCCD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCCCD.Name = "txtCCCD";
+            this.txtCCCD.Size = new System.Drawing.Size(319, 27);
+            this.txtCCCD.TabIndex = 7;
+            this.txtCCCD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCMND_KeyPress);
             // 
             // txtEmail
             // 
@@ -190,13 +189,13 @@
             this.txtEmail.Size = new System.Drawing.Size(319, 27);
             this.txtEmail.TabIndex = 8;
             // 
-            // txtHotenBo
+            // txtQuocGia
             // 
-            this.txtHotenBo.Location = new System.Drawing.Point(342, 135);
-            this.txtHotenBo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtHotenBo.Name = "txtHotenBo";
-            this.txtHotenBo.Size = new System.Drawing.Size(120, 27);
-            this.txtHotenBo.TabIndex = 9;
+            this.txtQuocGia.Location = new System.Drawing.Point(342, 135);
+            this.txtQuocGia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtQuocGia.Name = "txtQuocGia";
+            this.txtQuocGia.Size = new System.Drawing.Size(120, 27);
+            this.txtQuocGia.TabIndex = 9;
             // 
             // txtDiaChi
             // 
@@ -335,7 +334,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtMSGV);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btnThem);
             this.groupBox2.Controls.Add(this.cbboxTonGiao);
@@ -343,9 +342,9 @@
             this.groupBox2.Controls.Add(this.cbboxGioitinh);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.cbboxKhoa);
-            this.groupBox2.Controls.Add(this.txtCMND);
+            this.groupBox2.Controls.Add(this.txtCCCD);
             this.groupBox2.Controls.Add(this.txtEmail);
-            this.groupBox2.Controls.Add(this.txtHotenBo);
+            this.groupBox2.Controls.Add(this.txtQuocGia);
             this.groupBox2.Controls.Add(this.txtDiaChi);
             this.groupBox2.Controls.Add(this.txtSDT);
             this.groupBox2.Controls.Add(this.label18);
@@ -370,12 +369,12 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "THÔNG TIN CHI TIẾT";
             // 
-            // textBox1
+            // txtMSGV
             // 
-            this.textBox1.Location = new System.Drawing.Point(142, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 27);
-            this.textBox1.TabIndex = 100;
+            this.txtMSGV.Location = new System.Drawing.Point(142, 90);
+            this.txtMSGV.Name = "txtMSGV";
+            this.txtMSGV.Size = new System.Drawing.Size(113, 27);
+            this.txtMSGV.TabIndex = 100;
             // 
             // label1
             // 
@@ -416,7 +415,7 @@
             this.Name = "FrmThemGV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm Sinh Viên";
-            this.Load += new System.EventHandler(this.FrmThemSV_Load);
+            this.Load += new System.EventHandler(this.FrmThemGV_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -431,9 +430,9 @@
         private System.Windows.Forms.ComboBox cbboxGioitinh;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cbboxKhoa;
-        private System.Windows.Forms.TextBox txtCMND;
+        private System.Windows.Forms.TextBox txtCCCD;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtHotenBo;
+        private System.Windows.Forms.TextBox txtQuocGia;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.Label label18;
@@ -449,7 +448,7 @@
         private System.Windows.Forms.Label Lớp;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private TextBox textBox1;
+        private TextBox txtMSGV;
         private Label label1;
     }
 }

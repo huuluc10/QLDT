@@ -59,19 +59,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.MSGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HOTEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuocGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dantoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TonGiao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Khoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btXoaGV = new System.Windows.Forms.Button();
-            this.btSuaGV = new System.Windows.Forms.Button();
             this.btThemSV = new System.Windows.Forms.Button();
             this.btLoadGV = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
@@ -88,6 +76,18 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.MSGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HOTEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuocGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOCCCD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dantoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TonGiao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Khoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -214,7 +214,6 @@
             this.txtCCCD.Name = "txtCCCD";
             this.txtCCCD.Size = new System.Drawing.Size(270, 27);
             this.txtCCCD.TabIndex = 58;
-            this.txtCCCD.TextChanged += new System.EventHandler(this.txtCMND1_TextChanged);
             this.txtCCCD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCMND1_KeyPress);
             // 
             // txtEmail
@@ -456,6 +455,7 @@
             this.NgaySinh,
             this.GioiTinh,
             this.QuocGia,
+            this.SOCCCD,
             this.Dantoc,
             this.TonGiao,
             this.Khoa,
@@ -486,94 +486,6 @@
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
-            // MSGV
-            // 
-            this.MSGV.DataPropertyName = "MSGV";
-            this.MSGV.HeaderText = "MSGV";
-            this.MSGV.MinimumWidth = 6;
-            this.MSGV.Name = "MSGV";
-            this.MSGV.ReadOnly = true;
-            // 
-            // HOTEN
-            // 
-            this.HOTEN.DataPropertyName = "HOTEN";
-            this.HOTEN.HeaderText = "Họ Tên";
-            this.HOTEN.MinimumWidth = 6;
-            this.HOTEN.Name = "HOTEN";
-            this.HOTEN.ReadOnly = true;
-            // 
-            // NgaySinh
-            // 
-            this.NgaySinh.DataPropertyName = "NGAYSINH";
-            this.NgaySinh.HeaderText = "Ngày Sinh";
-            this.NgaySinh.MinimumWidth = 6;
-            this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
-            // 
-            // GioiTinh
-            // 
-            this.GioiTinh.DataPropertyName = "GIOITINH";
-            this.GioiTinh.HeaderText = "Giới Tính";
-            this.GioiTinh.MinimumWidth = 6;
-            this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
-            // 
-            // QuocGia
-            // 
-            this.QuocGia.DataPropertyName = "QUOCGIA";
-            this.QuocGia.HeaderText = "Quốc Gia";
-            this.QuocGia.MinimumWidth = 6;
-            this.QuocGia.Name = "QuocGia";
-            this.QuocGia.ReadOnly = true;
-            // 
-            // Dantoc
-            // 
-            this.Dantoc.DataPropertyName = "DANTOC";
-            this.Dantoc.HeaderText = "Dân Tộc";
-            this.Dantoc.MinimumWidth = 6;
-            this.Dantoc.Name = "Dantoc";
-            this.Dantoc.ReadOnly = true;
-            // 
-            // TonGiao
-            // 
-            this.TonGiao.DataPropertyName = "TONGIAO";
-            this.TonGiao.HeaderText = "Tôn Giáo";
-            this.TonGiao.MinimumWidth = 6;
-            this.TonGiao.Name = "TonGiao";
-            this.TonGiao.ReadOnly = true;
-            // 
-            // Khoa
-            // 
-            this.Khoa.DataPropertyName = "TENKHOA";
-            this.Khoa.HeaderText = "Khoa";
-            this.Khoa.MinimumWidth = 6;
-            this.Khoa.Name = "Khoa";
-            this.Khoa.ReadOnly = true;
-            // 
-            // SDT
-            // 
-            this.SDT.DataPropertyName = "DIENTHOAI";
-            this.SDT.HeaderText = "SDT";
-            this.SDT.MinimumWidth = 6;
-            this.SDT.Name = "SDT";
-            this.SDT.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "EMAIL";
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.DataPropertyName = "DIACHI";
-            this.DiaChi.HeaderText = "Địa Chỉ";
-            this.DiaChi.MinimumWidth = 6;
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            // 
             // btXoaGV
             // 
             this.btXoaGV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -583,32 +495,14 @@
             this.btXoaGV.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btXoaGV.Image = global::QLDT.Properties.Resources.icons8_delete_bin_30;
             this.btXoaGV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btXoaGV.Location = new System.Drawing.Point(847, 259);
+            this.btXoaGV.Location = new System.Drawing.Point(847, 215);
             this.btXoaGV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btXoaGV.Name = "btXoaGV";
             this.btXoaGV.Size = new System.Drawing.Size(303, 103);
             this.btXoaGV.TabIndex = 87;
             this.btXoaGV.Text = "XÓA";
             this.btXoaGV.UseVisualStyleBackColor = false;
-            this.btXoaGV.Click += new System.EventHandler(this.btXoaSV_Click);
-            // 
-            // btSuaGV
-            // 
-            this.btSuaGV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btSuaGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btSuaGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btSuaGV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btSuaGV.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btSuaGV.Image = global::QLDT.Properties.Resources.icons8_update_30;
-            this.btSuaGV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSuaGV.Location = new System.Drawing.Point(847, 141);
-            this.btSuaGV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btSuaGV.Name = "btSuaGV";
-            this.btSuaGV.Size = new System.Drawing.Size(303, 105);
-            this.btSuaGV.TabIndex = 84;
-            this.btSuaGV.Text = "SỬA";
-            this.btSuaGV.UseVisualStyleBackColor = false;
-            this.btSuaGV.Click += new System.EventHandler(this.btSuaSV_Click);
+            this.btXoaGV.Click += new System.EventHandler(this.btXoaGV_Click);
             // 
             // btThemSV
             // 
@@ -619,7 +513,7 @@
             this.btThemSV.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btThemSV.Image = global::QLDT.Properties.Resources.icons8_add_link_30;
             this.btThemSV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btThemSV.Location = new System.Drawing.Point(847, 24);
+            this.btThemSV.Location = new System.Drawing.Point(847, 74);
             this.btThemSV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btThemSV.Name = "btThemSV";
             this.btThemSV.Size = new System.Drawing.Size(303, 101);
@@ -697,7 +591,7 @@
             this.btnback.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnback.Enabled = false;
             this.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnback.Location = new System.Drawing.Point(232, 23);
+            this.btnback.Location = new System.Drawing.Point(234, 23);
             this.btnback.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(158, 52);
@@ -792,7 +686,6 @@
             this.groupBox3.Controls.Add(this.txtQuocGia);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.btXoaGV);
-            this.groupBox3.Controls.Add(this.btSuaGV);
             this.groupBox3.Controls.Add(this.btThemSV);
             this.groupBox3.Controls.Add(this.cbboxTonGiao);
             this.groupBox3.Controls.Add(this.cbboxKhoa);
@@ -825,7 +718,6 @@
             this.groupBox3.TabIndex = 105;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "THÔNG TIN GV";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // label23
             // 
@@ -854,6 +746,102 @@
             this.groupBox4.TabIndex = 141;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "CẬP NHẬT";
+            // 
+            // MSGV
+            // 
+            this.MSGV.DataPropertyName = "MSGV";
+            this.MSGV.HeaderText = "MSGV";
+            this.MSGV.MinimumWidth = 6;
+            this.MSGV.Name = "MSGV";
+            this.MSGV.ReadOnly = true;
+            // 
+            // HOTEN
+            // 
+            this.HOTEN.DataPropertyName = "HOTEN";
+            this.HOTEN.HeaderText = "Họ Tên";
+            this.HOTEN.MinimumWidth = 6;
+            this.HOTEN.Name = "HOTEN";
+            this.HOTEN.ReadOnly = true;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.DataPropertyName = "NGAYSINH";
+            this.NgaySinh.HeaderText = "Ngày Sinh";
+            this.NgaySinh.MinimumWidth = 6;
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.DataPropertyName = "GIOITINH";
+            this.GioiTinh.HeaderText = "Giới Tính";
+            this.GioiTinh.MinimumWidth = 6;
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            // 
+            // QuocGia
+            // 
+            this.QuocGia.DataPropertyName = "QUOCGIA";
+            this.QuocGia.HeaderText = "Quốc Gia";
+            this.QuocGia.MinimumWidth = 6;
+            this.QuocGia.Name = "QuocGia";
+            this.QuocGia.ReadOnly = true;
+            // 
+            // SOCCCD
+            // 
+            this.SOCCCD.DataPropertyName = "SOCCCD";
+            this.SOCCCD.HeaderText = "CCCD";
+            this.SOCCCD.MinimumWidth = 6;
+            this.SOCCCD.Name = "SOCCCD";
+            this.SOCCCD.ReadOnly = true;
+            // 
+            // Dantoc
+            // 
+            this.Dantoc.DataPropertyName = "DANTOC";
+            this.Dantoc.HeaderText = "Dân Tộc";
+            this.Dantoc.MinimumWidth = 6;
+            this.Dantoc.Name = "Dantoc";
+            this.Dantoc.ReadOnly = true;
+            // 
+            // TonGiao
+            // 
+            this.TonGiao.DataPropertyName = "TONGIAO";
+            this.TonGiao.HeaderText = "Tôn Giáo";
+            this.TonGiao.MinimumWidth = 6;
+            this.TonGiao.Name = "TonGiao";
+            this.TonGiao.ReadOnly = true;
+            // 
+            // Khoa
+            // 
+            this.Khoa.DataPropertyName = "TENKHOA";
+            this.Khoa.HeaderText = "Khoa";
+            this.Khoa.MinimumWidth = 6;
+            this.Khoa.Name = "Khoa";
+            this.Khoa.ReadOnly = true;
+            // 
+            // SDT
+            // 
+            this.SDT.DataPropertyName = "DIENTHOAI";
+            this.SDT.HeaderText = "SDT";
+            this.SDT.MinimumWidth = 6;
+            this.SDT.Name = "SDT";
+            this.SDT.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "EMAIL";
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.DataPropertyName = "DIACHI";
+            this.DiaChi.HeaderText = "Địa Chỉ";
+            this.DiaChi.MinimumWidth = 6;
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
             // 
             // FrmHoSoGiaoVien
             // 
@@ -891,7 +879,6 @@
         private System.Windows.Forms.Button btTimGV;
         private System.Windows.Forms.ComboBox cbboxchonkhoa;
         private System.Windows.Forms.Button btXoaGV;
-        private System.Windows.Forms.Button btSuaGV;
         private System.Windows.Forms.Button btThemSV;
         private System.Windows.Forms.ComboBox cbboxTonGiao;
         private System.Windows.Forms.ComboBox cbboxKhoa;
@@ -939,6 +926,7 @@
         private DataGridViewTextBoxColumn NgaySinh;
         private DataGridViewTextBoxColumn GioiTinh;
         private DataGridViewTextBoxColumn QuocGia;
+        private DataGridViewTextBoxColumn SOCCCD;
         private DataGridViewTextBoxColumn Dantoc;
         private DataGridViewTextBoxColumn TonGiao;
         private DataGridViewTextBoxColumn Khoa;

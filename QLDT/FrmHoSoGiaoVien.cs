@@ -99,7 +99,6 @@ namespace QLDT
                 }
 
                 btLoadGV.Visible = false;
-                btSuaGV.Visible = false;
                 btThemSV.Visible = false;
                 btXoaGV.Visible = false;
                 btTimGV.Visible = false;
@@ -186,363 +185,20 @@ namespace QLDT
                 }
                 else
                 {
-                    //Lop a = new Lop();
-                    //Diachi b = new Diachi();
-                    //txtMSV1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    //txtHoten1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                    //dataGridView1.CurrentRow.Selected = true;
-                    //if (dataGridView1.CurrentRow.Cells[2].Value.ToString() != "")
-                    //{
-                    //    byte[] img = (byte[])(dataGridView1.CurrentRow.Cells[2].Value);
-                    //    if (img == null)
-                    //        picstudent.Image = null;
-                    //    else
-                    //    {
-                    //        MemoryStream ms = new MemoryStream(img);
-                    //        picstudent.Image = Image.FromStream(ms);
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    picstudent.Image = null;
-                    //}
-                    //dateTimePicker1.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                    //cbboxGioitinh1.SelectedItem = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                    //cbboxDanToc1.SelectedItem = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                    //txtSDT1.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                    //txtCMND1.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-                    //txtEmail1.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
-                    //cbboxHeDT1.SelectedItem = dataGridView1.CurrentRow.Cells[9].Value.ToString();
-                    //txtHotenBo1.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
-                    //txtNghebo1.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
-                    //txtHotenme1.Text = dataGridView1.CurrentRow.Cells[12].Value.ToString();
-                    //txtNgheme1.Text = dataGridView1.CurrentRow.Cells[13].Value.ToString();
-                    //cbboxTinhThanhPho1.Text = dataGridView1.CurrentRow.Cells[14].Value.ToString();
-                    //cbboxQuanHuyen1.Text = dataGridView1.CurrentRow.Cells[15].Value.ToString();
-                    //cbboxPhuongxa1.Text = dataGridView1.CurrentRow.Cells[16].Value.ToString();
-                    //cbboxKhoa1.Text = dataGridView1.CurrentRow.Cells[17].Value.ToString();
-                    //cbboxLop1.Text = dataGridView1.CurrentRow.Cells[18].Value.ToString();
-                    //cbboxTinhtrang1.Text = dataGridView1.CurrentRow.Cells[19].Value.ToString();
-                    //txtNamNhapHoc1.Text = dataGridView1.CurrentRow.Cells[20].Value.ToString();
+                    txtMSGV.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    txtHoten.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    dataGridView1.CurrentRow.Selected = true;
+                    txtCCCD.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                    dateTimePicker1.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                    cbboxGioitinh.SelectedItem = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                    txtQuocGia.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                    cbboxDanToc1.SelectedItem = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                    cbboxTonGiao.SelectedItem = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+                    cbboxKhoa.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+                    txtSDT.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+                    txtEmail.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+                    txtDiaChi.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
                 }
-            }
-        }
-
-        private void btSuaSV_Click(object sender, EventArgs e)
-        {
-            if (txtMSGV.Text != "")
-            {
-                DialogResult thongbao;
-                thongbao = MessageBox.Show("Xác Nhận Chỉnh Sửa?", "Edit Liền Là Edit Liền", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (thongbao == DialogResult.OK)
-                {
-                    //Sinhvien a = new Sinhvien();
-                    //Lop b = new Lop();
-                    //Diachi c = new Diachi();
-                    //if (txtNamNhapHoc1.Text == "")
-                    //{
-                    //    if (a.checkCMDNsua(txtCMND1.Text, int.Parse(txtMSV1.Text)) == true)
-                    //    {
-                    //        if (imgLoc != "")
-                    //        {
-                    //            try
-                    //            {
-                    //                byte[] img = null;
-                    //                FileStream fs = new System.IO.FileStream(imgLoc, System.IO.FileMode.Open, System.IO.FileAccess.Read);
-                    //                BinaryReader br = new BinaryReader(fs);
-                    //                img = br.ReadBytes((int)fs.Length);
-                    //                a.update2(int.Parse(txtMSV1.Text), txtHoten1.Text, dateTimePicker1.Value.ToString(), cbboxGioitinh1.Text, cbboxDanToc1.Text, txtSDT1.Text, txtCMND1.Text, txtEmail1.Text, cbboxHeDT1.Text, txtHotenBo1.Text, txtNghebo1.Text, txtHotenme1.Text, txtNgheme1.Text, c.Maxa(cbboxPhuongxa1.Text), b.Malop(cbboxLop1.Text), cbboxTinhtrang1.Text, txtNamNhapHoc1.Text, img);
-                    //                MessageBox.Show("Sửa thành công");
-                    //                txtMSV1.Clear();
-                    //                txtCMND1.Clear();
-                    //                txtSDT1.Clear();
-                    //                txtNghebo1.Clear();
-                    //                txtNgheme1.Clear();
-                    //                txtHotenBo1.Clear();
-                    //                txtHotenme1.Clear();
-                    //                txtHoten1.Clear();
-                    //                txtEmail1.Clear();
-                    //                txtNamNhapHoc1.Clear();
-                    //                picstudent.Image = null;
-                    //                imgLoc = "";
-                    //                if (trangthai == "L")
-                    //                {
-                    //                    dataGridView1.DataSource = a.Load(b.Malop(cbboxchonlop.Text));
-                    //                }
-                    //                else if (trangthai == "TK" && TimKiem!="")
-                    //                {
-                    //                    if (IsNumber(TimKiem) == true) {
-                    //                        dataGridView1.DataSource = a.Search(int.Parse(txtTimKiem.Text));
-                    //                    }
-                    //                    else
-                    //                    {
-                    //                        dataGridView1.DataSource = a.SearchHoten(RemoveVietnameseTone(txtTimKiem.Text).Trim());
-                    //                    }
-                    //                }
-                    //                else if (trangthai == "All")
-                    //                {
-                    //                    con.Open();
-                    //                    ds.Clear();
-                    //                    string sql = "select MSV,Hoten,AnhHoSo,Ngaysinh,Gioitinh,Dantoc,SDT,CMND,Email,Hedaotao,Hotenbo,Nghebo,Hotenme,Ngheme,TenTinh,Tenhuyen,Tenxa,Tenkhoa,Tenlop,Tinhtrang,NamnhapHoc from SinhVien, Lop, Khoa, Tinh, Huyen, Xa where SinhVien.Maxa=Xa.Maxa and Xa.Mahuyen=Huyen.Mahuyen and Huyen.Matinh=Tinh.Matinh and SinhVien.Malop=Lop.Malop and Lop.Makhoa=Khoa.Makhoa ORDER BY MSV ASC";
-                    //                    SqlCommand cmd = new SqlCommand(sql, con);
-                    //                    adapter.SelectCommand = cmd;
-                    //                    adapter.Fill(ds, start, 18, "OP");
-                    //                    dataGridView1.DataSource = ds.Tables[0];
-                    //                    con.Close();
-                    //                }
-                    //                else
-                    //                {
-
-                    //                }
-
-                    //            }
-                    //            catch (Exception ex)
-                    //            {
-                    //                MessageBox.Show(ex.Message);
-                    //            }
-                    //        }
-                    //        else
-                    //        {
-                    //            a.updateNoChangeImage(int.Parse(txtMSV1.Text), txtHoten1.Text, dateTimePicker1.Value.ToString(), cbboxGioitinh1.Text, cbboxDanToc1.Text, txtSDT1.Text, txtCMND1.Text, txtEmail1.Text, cbboxHeDT1.Text, txtHotenBo1.Text, txtNghebo1.Text, txtHotenme1.Text, txtNgheme1.Text, c.Maxa(cbboxPhuongxa1.Text), b.Malop(cbboxLop1.Text), cbboxTinhtrang1.Text, txtNamNhapHoc1.Text);
-                    //            MessageBox.Show("Sửa thành công");
-                    //            txtMSV1.Clear();
-                    //            txtCMND1.Clear();
-                    //            txtSDT1.Clear();
-                    //            txtNghebo1.Clear();
-                    //            txtNgheme1.Clear();
-                    //            txtHotenBo1.Clear();
-                    //            txtHotenme1.Clear();
-                    //            txtHoten1.Clear();
-                    //            txtEmail1.Clear();
-                    //            txtNamNhapHoc1.Clear();
-                    //            picstudent.Image = null;
-                    //            if (trangthai == "L")
-                    //            {
-                    //                dataGridView1.DataSource = a.Load(b.Malop(cbboxchonlop.Text));
-                    //            }
-                    //            else if (trangthai == "TK" && TimKiem != "")
-                    //            {
-                    //                if (IsNumber(TimKiem) == true)
-                    //                {
-                    //                    dataGridView1.DataSource = a.Search(int.Parse(txtTimKiem.Text));
-                    //                }
-                    //                else
-                    //                {
-                    //                    dataGridView1.DataSource = a.SearchHoten(RemoveVietnameseTone(txtTimKiem.Text).Trim());
-                    //                }
-                    //            }
-                    //            else if (trangthai == "All")
-                    //            {
-                    //                con.Open();
-                    //                ds.Clear();
-                    //                string sql = "select MSV,Hoten,AnhHoSo,Ngaysinh,Gioitinh,Dantoc,SDT,CMND,Email,Hedaotao,Hotenbo,Nghebo,Hotenme,Ngheme,TenTinh,Tenhuyen,Tenxa,Tenkhoa,Tenlop,Tinhtrang,NamnhapHoc from SinhVien, Lop, Khoa, Tinh, Huyen, Xa where SinhVien.Maxa=Xa.Maxa and Xa.Mahuyen=Huyen.Mahuyen and Huyen.Matinh=Tinh.Matinh and SinhVien.Malop=Lop.Malop and Lop.Makhoa=Khoa.Makhoa ORDER BY MSV ASC";
-                    //                SqlCommand cmd = new SqlCommand(sql, con);
-                    //                adapter.SelectCommand = cmd;
-                    //                adapter.Fill(ds, start, 18, "OP");
-                    //                dataGridView1.DataSource = ds.Tables[0];
-                    //                con.Close();
-                    //            }
-                    //            else
-                    //            {
-
-                    //            }
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        MessageBox.Show("CMND này trùng với sinh viên nào đó sử dụng");
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    if (a.checkCMDNsua(txtCMND1.Text, int.Parse(txtMSV1.Text)) == true)
-                    //    {
-                    //        if (imgLoc != "")
-                    //        {
-                    //            try
-                    //            {
-                    //                byte[] img = null;
-                    //                FileStream fs = new System.IO.FileStream(imgLoc, System.IO.FileMode.Open, System.IO.FileAccess.Read);
-                    //                BinaryReader br = new BinaryReader(fs);
-                    //                img = br.ReadBytes((int)fs.Length);
-                    //                a.update(int.Parse(txtMSV1.Text), txtHoten1.Text, dateTimePicker1.Value.ToString(), cbboxGioitinh1.Text, cbboxDanToc1.Text, txtSDT1.Text, txtCMND1.Text, txtEmail1.Text, cbboxHeDT1.Text, txtHotenBo1.Text, txtNghebo1.Text, txtHotenme1.Text, txtNgheme1.Text, c.Maxa(cbboxPhuongxa1.Text), b.Malop(cbboxLop1.Text), cbboxTinhtrang1.Text, int.Parse(txtNamNhapHoc1.Text), img);
-                    //                MessageBox.Show("Sửa thành công");
-                    //                txtMSV1.Clear();
-                    //                txtCMND1.Clear();
-                    //                txtSDT1.Clear();
-                    //                txtNghebo1.Clear();
-                    //                txtNgheme1.Clear();
-                    //                txtHotenBo1.Clear();
-                    //                txtHotenme1.Clear();
-                    //                txtHoten1.Clear();
-                    //                txtEmail1.Clear();
-                    //                txtNamNhapHoc1.Clear();
-                    //                picstudent.Image = null;
-                    //                imgLoc = "";
-                    //                if (trangthai == "L")
-                    //                {
-                    //                    dataGridView1.DataSource = a.Load(b.Malop(cbboxchonlop.Text));
-                    //                }
-                    //                else if (trangthai == "TK" && TimKiem != "")
-                    //                {
-                    //                    if (IsNumber(TimKiem) == true)
-                    //                    {
-                    //                        dataGridView1.DataSource = a.Search(int.Parse(txtTimKiem.Text));
-                    //                    }
-                    //                    else
-                    //                    {
-                    //                        dataGridView1.DataSource = a.SearchHoten(RemoveVietnameseTone(txtTimKiem.Text).Trim());
-                    //                    }
-                    //                }
-                    //                else if (trangthai == "All")
-                    //                {
-                    //                    con.Open();
-                    //                    ds.Clear();
-                    //                    string sql = "select MSV,Hoten,AnhHoSo,Ngaysinh,Gioitinh,Dantoc,SDT,CMND,Email,Hedaotao,Hotenbo,Nghebo,Hotenme,Ngheme,TenTinh,Tenhuyen,Tenxa,Tenkhoa,Tenlop,Tinhtrang,NamnhapHoc from SinhVien, Lop, Khoa, Tinh, Huyen, Xa where SinhVien.Maxa=Xa.Maxa and Xa.Mahuyen=Huyen.Mahuyen and Huyen.Matinh=Tinh.Matinh and SinhVien.Malop=Lop.Malop and Lop.Makhoa=Khoa.Makhoa ORDER BY MSV ASC";
-                    //                    SqlCommand cmd = new SqlCommand(sql, con);
-                    //                    adapter.SelectCommand = cmd;
-                    //                    adapter.Fill(ds, start, 18, "OP");
-                    //                    dataGridView1.DataSource = ds.Tables[0];
-                    //                    con.Close();
-                    //                }
-                    //                else
-                    //                {
-
-                    //                }
-                    //            }
-                    //            catch (Exception ex)
-                    //            {
-                    //                MessageBox.Show(ex.Message);
-                    //            }
-                    //        }
-                    //        else
-                    //        {
-                    //            a.updateNoChangeImage(int.Parse(txtMSV1.Text), txtHoten1.Text, dateTimePicker1.Value.ToString(), cbboxGioitinh1.Text, cbboxDanToc1.Text, txtSDT1.Text, txtCMND1.Text, txtEmail1.Text, cbboxHeDT1.Text, txtHotenBo1.Text, txtNghebo1.Text, txtHotenme1.Text, txtNgheme1.Text, c.Maxa(cbboxPhuongxa1.Text), b.Malop(cbboxLop1.Text), cbboxTinhtrang1.Text, txtNamNhapHoc1.Text);
-                    //            MessageBox.Show("Sửa thành công");
-                    //            txtMSV1.Clear();
-                    //            txtCMND1.Clear();
-                    //            txtSDT1.Clear();
-                    //            txtNghebo1.Clear();
-                    //            txtNgheme1.Clear();
-                    //            txtHotenBo1.Clear();
-                    //            txtHotenme1.Clear();
-                    //            txtHoten1.Clear();
-                    //            txtEmail1.Clear();
-                    //            txtNamNhapHoc1.Clear();
-                    //            picstudent.Image = null;
-                    //            if (trangthai == "L")
-                    //            {
-                    //                dataGridView1.DataSource = a.Load(b.Malop(cbboxchonlop.Text));
-                    //            }
-                    //            else if (trangthai == "TK" && TimKiem != "")
-                    //            {
-                    //                if (IsNumber(TimKiem) == true)
-                    //                {
-                    //                    dataGridView1.DataSource = a.Search(int.Parse(txtTimKiem.Text));
-                    //                }
-                    //                else
-                    //                {
-                    //                    dataGridView1.DataSource = a.SearchHoten(RemoveVietnameseTone(txtTimKiem.Text).Trim());
-                    //                }
-                    //            }
-                    //            else if (trangthai == "All")
-                    //            {
-                    //                con.Open();
-                    //                ds.Clear();
-                    //                string sql = "select MSV,Hoten,AnhHoSo,Ngaysinh,Gioitinh,Dantoc,SDT,CMND,Email,Hedaotao,Hotenbo,Nghebo,Hotenme,Ngheme,TenTinh,Tenhuyen,Tenxa,Tenkhoa,Tenlop,Tinhtrang,NamnhapHoc from SinhVien, Lop, Khoa, Tinh, Huyen, Xa where SinhVien.Maxa=Xa.Maxa and Xa.Mahuyen=Huyen.Mahuyen and Huyen.Matinh=Tinh.Matinh and SinhVien.Malop=Lop.Malop and Lop.Makhoa=Khoa.Makhoa ORDER BY MSV ASC";
-                    //                SqlCommand cmd = new SqlCommand(sql, con);
-                    //                adapter.SelectCommand = cmd;
-                    //                adapter.Fill(ds, start, 18, "OP");
-                    //                dataGridView1.DataSource = ds.Tables[0];
-                    //                con.Close();
-                    //            }
-                    //            else
-                    //            {
-
-                    //            }
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        MessageBox.Show("CMND này trùng với sinh viên nào đó sử dụng");
-                    //    }
-                    //}
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn đối tượng");
-            }
-        }
-
-        private void btXoaSV_Click(object sender, EventArgs e)
-        {
-            if (txtMSGV.Text != "")
-            {
-                DialogResult thongbao;
-                thongbao = MessageBox.Show("Delete Sinh Vien", "Delete ?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (thongbao == DialogResult.OK)
-                {
-                    //Sinhvien a = new Sinhvien();
-                    //a.ExecuteNonQuery("Delete from DiemRL where MSVien="+txtMSV1.Text);
-                    //a.ExecuteNonQuery("Delete from Hosotamtru where MSVien="+txtMSV1.Text);
-                    //try
-                    //{
-                    //    a.delete(int.Parse(txtMSV1.Text));
-                    //}
-                    //catch(Exception ex)
-                    //{
-                    //    MessageBox.Show(ex.Message);
-                    //}
-                    //MessageBox.Show("Xóa thành công");
-                    //Lop b = new Lop();
-                    ////dataGridView1.DataSource = a.Load(b.Malop(cbboxchonlop.Text));
-                    //txtMSV1.Clear();
-                    //txtCMND1.Clear();
-                    //txtSDT1.Clear();
-                    //txtNghebo1.Clear();
-                    //txtNgheme1.Clear();
-                    //txtHotenBo1.Clear();
-                    //txtHotenme1.Clear();
-                    //txtHoten1.Clear();
-                    //txtEmail1.Clear();
-                    //picstudent.Image = null;
-                    //if(trangthai=="L")
-                    //{
-                    //    dataGridView1.DataSource= a.Load(b.Malop(cbboxchonlop.Text));
-                    //}
-                    //else if(trangthai=="TK" && TimKiem != "")
-                    //{
-                    //    if (IsNumber(TimKiem) == true)
-                    //    {
-                    //        dataGridView1.DataSource = a.Search(int.Parse(txtTimKiem.Text));
-                    //    }
-                    //    else
-                    //    {
-                    //        dataGridView1.DataSource = a.SearchHoten(RemoveVietnameseTone(txtTimKiem.Text).Trim());
-                    //    }
-                    //}
-                    //else if(trangthai=="All")
-                    //{
-                    //    con.Open();
-                    //    ds.Clear();
-                    //    string sql = "select MSV,Hoten,AnhHoSo,Ngaysinh,Gioitinh,Dantoc,SDT,CMND,Email,Hedaotao,Hotenbo,Nghebo,Hotenme,Ngheme,TenTinh,Tenhuyen,Tenxa,Tenkhoa,Tenlop,Tinhtrang,NamnhapHoc from SinhVien, Lop, Khoa, Tinh, Huyen, Xa where SinhVien.Maxa=Xa.Maxa and Xa.Mahuyen=Huyen.Mahuyen and Huyen.Matinh=Tinh.Matinh and SinhVien.Malop=Lop.Malop and Lop.Makhoa=Khoa.Makhoa ORDER BY MSV ASC";
-                    //    SqlCommand cmd = new SqlCommand(sql, con);
-                    //    adapter.SelectCommand = cmd;
-                    //    adapter.Fill(ds, start, 18, "OP");
-                    //    dataGridView1.DataSource = ds.Tables[0];
-                    //    con.Close();
-                    //}
-                    //else
-                    //{
-
-                    //}
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn đối tượng");
             }
         }
 
@@ -587,10 +243,30 @@ namespace QLDT
             return regex.IsMatch(pText);
         }
 
-
-        private void txtCMND1_TextChanged(object sender, EventArgs e)
+        private void HienThiAllGV()
         {
+            con.Open();
+            ds.Clear();
+            start = 0;
+            page = 1;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "SELECTALLGV";
+            adapter.SelectCommand = cmd;
+            double c = (double)count() / (double)18;
+            lblPageMAx.Text = "/" + (int)Math.Ceiling(c);
 
+            adapter.Fill(ds, start, 17, "OP");
+
+            dataGridView1.DataSource = ds.Tables[0];
+
+            lblPageNumber.Text = "Trang: 1";
+            btnback.Enabled = false;
+            btnnext.Enabled = true;
+            btnfullnext.Enabled = true;
+            btnfullback.Enabled = false;
+            con.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -600,28 +276,7 @@ namespace QLDT
             if (thongbao == DialogResult.OK)
             {
                 click = true;
-                con.Open();
-                ds.Clear();
-                start = 0;
-                page = 1;
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SELECTALLGV";
-                adapter.SelectCommand = cmd;
-                double c = (double)count() / (double)18;
-                lblPageMAx.Text = "/" + (int)Math.Ceiling(c);
-
-                adapter.Fill(ds, start, 17, "OP");
-                
-                dataGridView1.DataSource = ds.Tables[0];
-                
-                lblPageNumber.Text = "Trang: 1";
-                btnback.Enabled = false;
-                btnnext.Enabled = true;
-                btnfullnext.Enabled = true;
-                btnfullback.Enabled = false;
-                con.Close();
+                HienThiAllGV();
                 trangthai = "All";
             }
         }
@@ -734,10 +389,6 @@ namespace QLDT
             
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
@@ -814,7 +465,7 @@ namespace QLDT
             TimGV();
         }
 
-        private void HienThiGVTheoKhoaLop()
+        private void HienThiGVTheoKhoa()
         {
             string query = String.Format("SELECTGVKHOA N'" + cbboxchonkhoa.SelectedItem + "'");
             DataTable data = new DataTable();
@@ -841,7 +492,7 @@ namespace QLDT
                 page = 1;
                 lblPageNumber.Text = "Trang : " + page;
                 lblPageMAx.Text = "";
-                HienThiGVTheoKhoaLop();
+                HienThiGVTheoKhoa();
                 click = true;
                 btnback.Enabled = false;
                 btnnext.Enabled = false;
@@ -852,6 +503,68 @@ namespace QLDT
             else
             {
                 MessageBox.Show("Hãy Chọn Khoa");
+            }
+        }
+
+        private void btXoaGV_Click(object sender, EventArgs e)
+        {
+            if (txtMSGV.Text != "")
+            {
+                DialogResult thongbao;
+                thongbao = MessageBox.Show("Delete Giao Vien", "Delete ?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (thongbao == DialogResult.OK)
+                {
+                    #region truyền tham số
+                    List<CustomParameter> lstPara = new List<CustomParameter>()
+                    {
+                        new CustomParameter()
+                        {
+                            key = "@MSSV",
+                            value = txtMSGV.Text
+                        },
+                    };
+                    #endregion
+
+                    var rs = new Database().ExeCute("XOAGV", lstPara);  //truyền câu lệnh sql và các tham số
+                    if (rs == 1)      //nếu thực thi thành công
+                    {
+                        MessageBox.Show("Xóa sinh viên thành công");
+                        txtMSGV.Clear();
+                        txtHoten.Clear();
+                        cbboxGioitinh.Items.Clear();
+                        cbboxDanToc1.Items.Clear();
+                        cbboxTonGiao.Items.Clear();
+                        cbboxKhoa.Items.Clear();
+                        txtSDT.Clear();
+                        txtEmail.Clear();
+                        txtQuocGia.Clear();
+                        txtCCCD.Clear();
+                        txtDiaChi.Clear();
+                    }
+                    else        //thực thi lỗi
+                    {
+                        MessageBox.Show("Thực hiện thất bại");
+                    };
+
+                    if (trangthai == "L")
+                    {
+                        HienThiGVTheoKhoa();
+                    }
+                    else if (trangthai == "TK" && TimKiem != "")
+                    {
+                        TimGV();
+                    }
+                    else if (trangthai == "All")
+                    {
+                        ds.Clear();
+                        HienThiAllGV();
+                    }
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn đối tượng");
             }
         }
     }
