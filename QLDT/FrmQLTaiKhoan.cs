@@ -26,8 +26,8 @@ namespace QLDT
             //DataSet ds3 = new DataSet();
             //ds3 = khoa.Loadkhoa();
             //cbboxLocKhoa.DataSource = ds3.Tables[0];
-            cbboxLocKhoa.DisplayMember = "Tenkhoa";
-            cbboxLocKhoa.ValueMember = "Makhoa";
+            //cbboxLocKhoa.DisplayMember = "Tenkhoa";
+            //cbboxLocKhoa.ValueMember = "Makhoa";
 
             txttendangnhap.MaxLength = 15;
             txtmatkhau.MaxLength = 15;
@@ -207,21 +207,21 @@ namespace QLDT
 
         private void cbboxLocKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String t;
-            t = cbboxLocKhoa.SelectedValue.ToString();
-            if (t == "System.Data.DataRowView")
-            {
+            //String t;
+            //t = cbboxLocKhoa.SelectedValue.ToString();
+            //if (t == "System.Data.DataRowView")
+            //{
 
-            }
-            else
-            {
-                //Lop dc = new Lop();
-                //DataSet ds = new DataSet();
-                //ds = dc.LoadLopselect(t);
-                //cbboxLocLop.DataSource = ds.Tables[0];
-                cbboxLocLop.DisplayMember = "Tenlop";
-                cbboxLocLop.ValueMember = "Malop";
-            }
+            //}
+            //else
+            //{
+            //    //Lop dc = new Lop();
+            //    //DataSet ds = new DataSet();
+            //    //ds = dc.LoadLopselect(t);
+            //    //cbboxLocLop.DataSource = ds.Tables[0];
+            //    cbboxLocLop.DisplayMember = "Tenlop";
+            //    cbboxLocLop.ValueMember = "Malop";
+            //}
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -252,35 +252,10 @@ namespace QLDT
             //}
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(dataGridView2.Rows.Count==0)
-            {
-
-            }
-            else
-            {
-                if(trangthai=="Sinh Viên")
-                {
-                    txtMSV.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
-                    //txtHoTenSV.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
-                }
-                else if(trangthai=="Giảng Viên")
-                {
-                    //txtMGV.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
-                    //txtHoTenGV.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
-                }
-            }
-        }
-
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dataGridView1.ClearSelection();
         }
 
-        private void dataGridView2_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            dataGridView2.ClearSelection();
-        }
     }
 }

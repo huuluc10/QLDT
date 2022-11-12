@@ -45,18 +45,18 @@ namespace QLDT
             else
             {
                 List<CustomParameter> lstPara = new List<CustomParameter>()
-            {
-                new CustomParameter()
                 {
-                    key = "@TENDANGNHAP",
-                    value = txtUsername.Text
-                },
-                new CustomParameter()
-                {
-                    key = "@MATKHAU",
-                    value = txtPassword.Text
-                },
-            };
+                    new CustomParameter()
+                    {
+                        key = "@TENDANGNHAP",
+                        value = txtUsername.Text
+                    },
+                    new CustomParameter()
+                    {
+                        key = "@MATKHAU",
+                        value = txtPassword.Text
+                    },
+                };
                 var rs = new Database().SelectData("DANGNHAP", lstPara);
                 if (rs.Rows.Count > 0)
                 {

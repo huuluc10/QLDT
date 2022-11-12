@@ -24,18 +24,6 @@ namespace QLDT
         static String TimKiem = "";
         static String Quyen = "";
         static String username = "";
-        public static string RemoveVietnameseTone(string text)
-        {
-            string result = text.ToLower();
-            result = Regex.Replace(result, "à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|/g", "a");
-            result = Regex.Replace(result, "è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|/g", "e");
-            result = Regex.Replace(result, "ì|í|ị|ỉ|ĩ|/g", "i");
-            result = Regex.Replace(result, "ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|/g", "o");
-            result = Regex.Replace(result, "ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|/g", "u");
-            result = Regex.Replace(result, "ỳ|ý|ỵ|ỷ|ỹ|/g", "y");
-            result = Regex.Replace(result, "đ", "d");
-            return result;
-        }
         public FrmHoSoGiaoVien(String quyenhan,String user)
         {
             InitializeComponent();
@@ -47,185 +35,91 @@ namespace QLDT
         }
         public Boolean click = false;
         
-        private void LoadTheme()
-        {
-            foreach (Control btns in this.Controls)
-            {
-                if (btns.GetType() == typeof(Button))
-                {
-                    Button btn = (Button)btns;
-                    //btn.BackColor = ThemeColor.PrimaryColor;
-                    //btn.ForeColor = Color.White;
-                    //btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
-                }
-            }
-            /*
-            label4.ForeColor = ThemeColor.SecondaryColor;
-            label5.ForeColor = ThemeColor.PrimaryColor;
-            */
-        }
-
         private void HoSoSinhVien_Load_1(object sender, EventArgs e)
         {
+            con.Open();
+            dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            string queryKhoa = "SELECT DISTINCT TENKHOA FROM KHOA ORDER BY TENKHOA";
+            SqlCommand cmd = new SqlCommand(queryKhoa, con);
+            using (SqlDataReader saReader = cmd.ExecuteReader())
+            {
+                while (saReader.Read())
+                {
+                    string khoa = saReader.GetString(0);
+                    cbboxKhoa.Items.Add(khoa);
+                    cbboxchonkhoa.Items.Add(khoa);
+                }
+                con.Close();
+            }
 
-            txtCMND1.MaxLength = 11;
-            txtSDT.MaxLength = 11;
-            txtHoten.MaxLength = 40;
+            txtTimKiem.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtTimKiem.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection DataCollection = new AutoCompleteStringCollection();
+            getData(DataCollection);
+            getData2(DataCollection);
+            txtTimKiem.AutoCompleteCustomSource = DataCollection;
+            if (Quyen == "2")
+            {
+                try
+                {
+                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        groupBox1.Visible = false;
+                        groupBox2.Visible = false;
+                        groupBox4.Visible = false;
+                        dataGridView1.Visible = false;
+                        groupBox3.Dock = DockStyle.Fill;
 
-            //LoadTheme();
-            //dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //Diachi dc = new Diachi();
-            //DataSet ds = new DataSet();
-            //ds = dc.Load();
-            //cbboxTinhThanhPho1.DataSource = ds.Tables[0];
-            //cbboxTinhThanhPho1.DisplayMember = "Tentinh";
-            //cbboxTinhThanhPho1.ValueMember = "Matinh";
-            
+                        con.Open();
+                        String sql = "SELECTGV " + username;
+                        cmd = new SqlCommand(sql, con);
+                        SqlDataReader rdr = cmd.ExecuteReader();
+                        while (rdr.Read())
+                        {
+                            // get the results of each column
+                            txtMSGV.Text = rdr["MSGV"].ToString();
+                            txtHoten.Text = (string)rdr["HOTEN"];
+                            dateTimePicker1.Text = rdr["NGAYSINH"].ToString();
+                            cbboxGioitinh.SelectedItem = (string)rdr["GIOITINH"];
+                            cbboxDanToc1.SelectedItem = (string)rdr["DANTOC"];
+                            txtSDT.Text = (string)rdr["DIENTHOAI"];
+                            txtCCCD.Text = (string)rdr["SOCCCD"];
+                            txtEmail.Text = (string)rdr["EMAIL"];
+                            cbboxKhoa.SelectedItem = (string)rdr["TENKHOA"];
+                            txtQuocGia.Text = (string)rdr["QUOCGIA"];
+                            cbboxTonGiao.SelectedItem = (string)rdr["TONGIAO"];
+                            txtDiaChi.Text = (string)rdr["DIACHI"];
+                        }
+                        con.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
-            //KhoaDT khoa = new KhoaDT();
-            //DataSet ds1 = new DataSet();
-            //ds1 = khoa.Loadkhoa();
-            //cbboxKhoa1.DataSource = ds1.Tables[0];
-            //cbboxKhoa1.DisplayMember = "Tenkhoa";
-            //cbboxKhoa1.ValueMember = "Makhoa";
-
-
-            //KhoaDT khoa1 = new KhoaDT();
-            //DataSet ds5 = new DataSet();
-            //ds5 = khoa1.Loadkhoa();
-            //cbboxchonkhoa.DataSource = ds5.Tables[0];
-            //cbboxchonkhoa.DisplayMember = "Tenkhoa";
-            //cbboxchonkhoa.ValueMember = "Makhoa";
-
-
-            ////
-            //Diachi dc1 = new Diachi();
-            //DataSet ds2 = new DataSet();
-            //ds2 = dc1.LoadHuyen1();
-            //cbboxQuanHuyen1.DataSource = ds2.Tables[0];
-            //cbboxQuanHuyen1.DisplayMember = "Tenhuyen";
-            //cbboxQuanHuyen1.ValueMember = "Mahuyen";
-            ////
-            //Diachi dc2 = new Diachi();
-            //DataSet ds3 = new DataSet();
-            //ds3 = dc2.LoadPhuong1();
-            //cbboxPhuongxa1.DataSource = ds3.Tables[0];
-            //cbboxPhuongxa1.DisplayMember = "Tenxa";
-            //cbboxPhuongxa1.ValueMember = "Maxa";
-            ////
-
-            //Lop lop = new Lop();
-            //DataSet ds4 = new DataSet();
-            //ds4 = lop.LoadLop1();
-            //cbboxLop1.DataSource = ds4.Tables[0];
-            //cbboxLop.DisplayMember = "Tenlop";
-            //cbboxLop.ValueMember = "Malop";
-            //
-            /*
-            Lop lop1 = new Lop();
-            DataSet ds6 = new DataSet();
-            ds6 = lop1.LoadLop1();
-            cbboxchonlop.DataSource = ds6.Tables[0];
-            cbboxchonlop.DisplayMember = "Tenlop";
-            cbboxchonlop.ValueMember = "Malop";
-            */
-
-            //txtTimKiem.AutoCompleteMode = AutoCompleteMode.Suggest;
-            //txtTimKiem.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            //AutoCompleteStringCollection DataCollection = new AutoCompleteStringCollection();
-            //getData(DataCollection);
-            //getData2(DataCollection);
-            //txtTimKiem.AutoCompleteCustomSource = DataCollection;
-            //if (Quyen == "Sinh Viên")
-            //{
-            //    try
-            //    {
-            //        using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            //        {
-            //            groupBox1.Visible = false;
-            //            groupBox2.Visible = false;
-            //            groupBox4.Visible = false;
-            //            dataGridView1.Visible = false;
-            //            groupBox3.Dock = DockStyle.Fill;
-
-            //            con.Open();
-            //            String sql = "select MSV,Hoten,AnhHoSo,Ngaysinh,Gioitinh,Dantoc,SDT,CMND,Email,Hedaotao,Hotenbo,Nghebo,Hotenme,Ngheme,TenTinh,Tenhuyen,Tenxa,Tenkhoa,Tenlop,Tinhtrang,NamnhapHoc from SinhVien, Lop, Khoa, Tinh, Huyen, Xa where SinhVien.Maxa=Xa.Maxa and Xa.Mahuyen=Huyen.Mahuyen and Huyen.Matinh=Tinh.Matinh and SinhVien.Malop=Lop.Malop and Lop.Makhoa=Khoa.Makhoa and SinhVien.MSV=" + username;
-            //            SqlCommand cmd = new SqlCommand(sql, con);
-            //            SqlDataReader rdr = cmd.ExecuteReader();
-            //            while (rdr.Read())
-            //            {
-            //                get the results of each column
-            //                if (rdr["AnhHoSo"].ToString() != "")
-            //                {
-            //                    byte[] img = (byte[])(rdr["AnhHoSo"]);
-            //                    if (img == null)
-            //                        picstudent.Image = null;
-            //                    else
-            //                    {
-            //                        MemoryStream ms = new MemoryStream(img);
-            //                        picstudent.Image = Image.FromStream(ms);
-            //                    }
-            //                }
-            //                txtMSV1.Text = rdr["MSV"].ToString();
-            //                txtHoten1.Text = (string)rdr["Hoten"];
-            //                dateTimePicker1.Text = rdr["Ngaysinh"].ToString();
-            //                cbboxGioitinh1.SelectedItem = (string)rdr["Gioitinh"];
-            //                cbboxDanToc1.SelectedItem = (string)rdr["Dantoc"];
-            //                txtSDT1.Text = (string)rdr["SDT"];
-            //                txtCMND1.Text = (string)rdr["CMND"];
-            //                txtEmail1.Text = (string)rdr["Email"];
-            //                cbboxHeDT1.SelectedItem = (string)rdr["Hedaotao"];
-            //                txtHotenBo1.Text = (string)rdr["Hotenbo"];
-            //                txtNghebo1.Text = (string)rdr["Nghebo"];
-            //                txtHotenme1.Text = (string)rdr["Hotenme"];
-            //                txtNgheme1.Text = (string)rdr["Ngheme"];
-            //                cbboxTinhThanhPho1.Text = (string)rdr["Tentinh"];
-            //                cbboxQuanHuyen1.Text = (string)rdr["Tenhuyen"];
-            //                cbboxPhuongxa1.Text = (string)rdr["Tenxa"];
-            //                cbboxKhoa1.Text = (string)rdr["Tenkhoa"];
-            //                cbboxLop1.Text = (string)rdr["Tenlop"];
-            //                cbboxTinhtrang1.Text = (string)rdr["TinhTrang"];
-            //                txtNamNhapHoc1.Text = rdr["Namnhaphoc"].ToString();
-            //            }
-            //            con.Close();
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message);
-            //    }
-
-            //    btLoadSV.Visible = false;
-            //    btSuaSV.Visible = false;
-            //    btThemSV.Visible = false;
-            //    btXoaSV.Visible = false;
-            //    btTimSV.Visible = false;
-            //    button1.Enabled = false;
-            //    button2.Enabled = false;
-            //    dataGridView1.Enabled = false;
-            //    txtCMND1.ReadOnly = true;
-            //    txtHoten1.ReadOnly = true;
-            //    txtEmail1.ReadOnly = true;
-            //    txtHotenBo1.ReadOnly = true;
-            //    txtHotenme1.ReadOnly = true;
-            //    txtNamNhapHoc1.ReadOnly = true;
-            //    txtNghebo1.ReadOnly = true;
-            //    txtNgheme1.ReadOnly = true;
-            //    txtSDT1.ReadOnly = true;
-            //    txtTimKiem.Enabled = false;
-            //    cbboxchonkhoa.Enabled = false;
-            //    cbboxchonlop.Enabled = false;
-            //    cbboxDanToc1.Enabled = false;
-            //    cbboxGioitinh1.Enabled = false;
-            //    cbboxKhoa1.Enabled = false;
-            //    cbboxLop1.Enabled = false;
-            //    cbboxPhuongxa1.Enabled = false;
-            //    cbboxQuanHuyen1.Enabled = false;
-            //    cbboxTinhThanhPho1.Enabled = false;
-            //    cbboxHeDT1.Enabled = false;
-            //    cbboxTinhtrang1.Enabled = false;
-            //    dateTimePicker1.Enabled = false;
-            //}
+                btLoadGV.Visible = false;
+                btSuaGV.Visible = false;
+                btThemSV.Visible = false;
+                btXoaGV.Visible = false;
+                btTimGV.Visible = false;
+                button1.Enabled = false;
+                //button2.Enabled = false;
+                dataGridView1.Enabled = false;
+                txtMSGV.ReadOnly = true;
+                txtCCCD.ReadOnly = true;
+                txtHoten.ReadOnly = true;
+                txtEmail.ReadOnly = true;
+                txtSDT.ReadOnly = true;
+                txtQuocGia.ReadOnly = true;
+                txtTimKiem.Enabled = false;
+                cbboxchonkhoa.Enabled = false;
+                cbboxDanToc1.Enabled = false;
+                cbboxGioitinh.Enabled = false;
+                cbboxTonGiao.Enabled = false;
+                cbboxKhoa.Enabled = false;
+                dateTimePicker1.Enabled = false;
+            }
         }
         private void getData(AutoCompleteStringCollection dataCollection)
         {
@@ -233,7 +127,7 @@ namespace QLDT
             SqlCommand command;
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataSet ds = new DataSet();
-            string sql = "SELECT DISTINCT [Hoten] FROM [SinhVien]";
+            string sql = "SELECT DISTINCT HOTEN FROM GIAOVIEN";
             connection = new SqlConnection(ConnectionString.connectionString);
             try
             {
@@ -260,7 +154,7 @@ namespace QLDT
             SqlCommand command;
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataSet ds = new DataSet();
-            string sql = "SELECT DISTINCT [MSV] FROM [SinhVien]";
+            string sql = "SELECT DISTINCT MSGV FROM GIAOVIEN";
             connection = new SqlConnection(ConnectionString.connectionString); 
             try
             {
@@ -331,79 +225,6 @@ namespace QLDT
                     //cbboxTinhtrang1.Text = dataGridView1.CurrentRow.Cells[19].Value.ToString();
                     //txtNamNhapHoc1.Text = dataGridView1.CurrentRow.Cells[20].Value.ToString();
                 }
-            }
-        }
-
-        private void btLoadSV_Click(object sender, EventArgs e)
-        {
-            if (cbboxchonlop.Text != "")
-            {
-                //Sinhvien a = new Sinhvien();
-
-                //dataGridView1.AutoResizeColumns();
-                //dataGridView1.AutoResizeRows();
-
-                start = 0;
-                //Lop b = new Lop();
-                page = 1;
-                lblPageNumber.Text = "Trang :" + page;
-                lblPageMAx.Text = "";
-                //dataGridView1.DataSource = a.Load(b.Malop(cbboxchonlop.Text));
-                click = true;
-                btnback.Enabled = false;
-                btnnext.Enabled = false;
-                btnfullnext.Enabled = false;
-                btnfullback.Enabled = false;
-                trangthai = "L";
-            }
-            else
-            {
-                MessageBox.Show("Hãy Chọn Khoa Rồi Chọn Lớp");
-            }
-        }
-
-        private void cbboxKhoa1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String t;
-            t = cbboxKhoa.SelectedValue.ToString();
-            if (t == "System.Data.DataRowView")
-            {
-
-            }
-            else
-            {
-                //Lop dc = new Lop();
-                //DataSet ds = new DataSet();
-                //ds = dc.LoadLopselect(t);
-                //cbboxLop1.DataSource = ds.Tables[0];
-                //cbboxLop.DisplayMember = "Tenlop";
-                //cbboxLop.ValueMember = "Malop";
-            }
-        }
-        
-
-
-        private void cbboxLop1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbboxchonkhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String t;
-            t = cbboxchonkhoa.SelectedValue.ToString();
-            if (t == "System.Data.DataRowView")
-            {
-
-            }
-            else
-            {
-                //Lop dc = new Lop();
-                //DataSet ds = new DataSet();
-                //ds = dc.LoadLopselect(t);
-                //cbboxchonlop.DataSource = ds.Tables[0];
-                cbboxchonlop.DisplayMember = "Tenlop";
-                cbboxchonlop.ValueMember = "Malop";
             }
         }
 
@@ -741,13 +562,6 @@ namespace QLDT
             }
         }
 
-        private void txtNamNhapHoc1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
 
         private void cbboxchonkhoa_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -773,44 +587,6 @@ namespace QLDT
             return regex.IsMatch(pText);
         }
 
-        private void btTimSV_Click(object sender, EventArgs e)
-        {
-            click = true;
-            page = 1;
-            lblPageMAx.Text = "";
-            btnback.Enabled = false;
-            btnnext.Enabled = false;
-            btnfullnext.Enabled = false;
-            btnfullback.Enabled = false;
-            trangthai = "TK";
-            if (txtTimKiem.Text != "")
-            {
-                click = true;
-                //Sinhvien a = new Sinhvien();
-                //if (IsNumber(txtTimKiem.Text) == true)
-                //{
-                //    dataGridView1.DataSource = a.Search(int.Parse(txtTimKiem.Text));
-                //    if(dataGridView1.Rows.Count==0)
-                //    {
-                //        MessageBox.Show("Ko tìm thấy :((");
-                //    }
-                //    TimKiem = txtTimKiem.Text;
-                //}
-                //else
-                //{
-                //    dataGridView1.DataSource = a.SearchHoten(RemoveVietnameseTone(txtTimKiem.Text).Trim());
-                //    if (dataGridView1.Rows.Count == 0)
-                //    {
-                //        MessageBox.Show("Ko tìm thấy :((");
-                //    }
-                //    TimKiem = txtTimKiem.Text;
-                //}
-            }
-            else
-            {
-                MessageBox.Show("Nhập gì đi mới tìm đc chứ :<");
-            }
-        }
 
         private void txtCMND1_TextChanged(object sender, EventArgs e)
         {
@@ -820,7 +596,7 @@ namespace QLDT
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult thongbao;
-            thongbao = MessageBox.Show("Cập Nhật Toàn Bộ SV?", "Hiển Thị Toàn Bộ SV", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            thongbao = MessageBox.Show("Cập Nhật Toàn Bộ GV?", "Hiển Thị Toàn Bộ GV", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (thongbao == DialogResult.OK)
             {
                 click = true;
@@ -831,12 +607,12 @@ namespace QLDT
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SV_Load";
+                cmd.CommandText = "SELECTALLGV";
                 adapter.SelectCommand = cmd;
                 double c = (double)count() / (double)18;
                 lblPageMAx.Text = "/" + (int)Math.Ceiling(c);
 
-                adapter.Fill(ds, start, 18, "OP");
+                adapter.Fill(ds, start, 17, "OP");
                 
                 dataGridView1.DataSource = ds.Tables[0];
                 
@@ -852,7 +628,7 @@ namespace QLDT
 
         private void btnback_Click(object sender, EventArgs e)
         {
-            start = start - 18;
+            start = start - 17;
             btnnext.Enabled = true;
             btnfullnext.Enabled = true;
             if (start < 0)
@@ -864,12 +640,12 @@ namespace QLDT
             else
             {
                 ds.Clear();
-                adapter.Fill(ds, start, 18, "OP");
+                adapter.Fill(ds, start, 17, "OP");
                 btnfullnext.Enabled = true;
                 btnnext.Enabled = true;
                 page = page - 1;
                 lblPageNumber.Text = "Trang:" + page;
-                if (start - 18 < 0)
+                if (start - 17 < 0)
                 {
                     btnback.Enabled = false;
                     btnfullback.Enabled = false;
@@ -890,7 +666,7 @@ namespace QLDT
         }
         private void btnnext_Click(object sender, EventArgs e)
         {
-            start = start + 18;
+            start = start + 17;
             btnback.Enabled = true;
             if (start>count())
             {
@@ -900,7 +676,7 @@ namespace QLDT
             else
             {
                 ds.Clear();
-                adapter.Fill(ds, start, 18, "OP");
+                adapter.Fill(ds, start, 17, "OP");
                 btnback.Enabled = true;
                 btnfullback.Enabled = true;
                 page = page + 1;
@@ -917,7 +693,7 @@ namespace QLDT
         {
             start = 0;
             ds.Clear();
-            adapter.Fill(ds, start, 18, "OP");
+            adapter.Fill(ds, start, 17, "OP");
             btnfullback.Enabled = false;
             btnfullnext.Enabled = true;
             btnnext.Enabled = true;
@@ -972,6 +748,111 @@ namespace QLDT
         {
             FrmThemGV frm = new FrmThemGV();
             frm.ShowDialog();
+        }
+
+        private void TimGV()
+        {
+            if (txtTimKiem.Text != "")
+            {
+                click = true;
+                if (IsNumber(txtTimKiem.Text) == true)
+                {
+                    string query = String.Format("SELECTGV '" + txtTimKiem.Text + "'");
+                    DataTable data = new DataTable();
+                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        con.Open();
+                        SqlCommand cmd1 = new SqlCommand();
+                        cmd1.Connection = con;
+                        cmd1.CommandText = query;
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd1);
+                        adapter.Fill(data);
+                        con.Close();
+                    }
+                    dataGridView1.DataSource = data;
+                    if (dataGridView1.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không có giáo viên này");
+                    }
+                    TimKiem = txtTimKiem.Text;
+                }
+                else
+                {
+                    DataTable data = new DataTable();
+                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        con.Open();
+                        SqlCommand cmd2 = new SqlCommand();
+                        cmd2.Connection = con;
+                        cmd2.CommandType = CommandType.StoredProcedure;
+                        cmd2.CommandText = "FINDGV";
+                        cmd2.Parameters.Add(new SqlParameter("@HOTEN", txtTimKiem.Text));
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd2);
+                        adapter.Fill(data);
+                        con.Close();
+                    }
+                    dataGridView1.DataSource = data;
+                    if (dataGridView1.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không có giáo viên này");
+                    }
+                    TimKiem = txtTimKiem.Text;
+                }
+            }
+        }
+
+        private void btTimGV_Click(object sender, EventArgs e)
+        {
+            click = true;
+            page = 1;
+            lblPageMAx.Text = "";
+            btnback.Enabled = false;
+            btnnext.Enabled = false;
+            btnfullnext.Enabled = false;
+            btnfullback.Enabled = false;
+            trangthai = "TK";
+            TimGV();
+        }
+
+        private void HienThiGVTheoKhoaLop()
+        {
+            string query = String.Format("SELECTGVKHOA N'" + cbboxchonkhoa.SelectedItem + "'");
+            DataTable data = new DataTable();
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                SqlCommand cmd1 = new SqlCommand();
+                cmd1.Connection = con;
+                cmd1.CommandText = query;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd1);
+                adapter.Fill(data);
+                con.Close();
+            }
+            dataGridView1.DataSource = data;
+        }
+
+        private void btLoadGV_Click(object sender, EventArgs e)
+        {
+            if (cbboxchonkhoa.Text != "")
+            {
+                dataGridView1.AutoResizeColumns();
+                dataGridView1.AutoResizeRows();
+                start = 0;
+                page = 1;
+                lblPageNumber.Text = "Trang : " + page;
+                lblPageMAx.Text = "";
+                HienThiGVTheoKhoaLop();
+                click = true;
+                btnback.Enabled = false;
+                btnnext.Enabled = false;
+                btnfullnext.Enabled = false;
+                btnfullback.Enabled = false;
+                trangthai = "L";
+            }
+            else
+            {
+                MessageBox.Show("Hãy Chọn Khoa");
+            }
         }
     }
 }

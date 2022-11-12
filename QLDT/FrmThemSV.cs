@@ -15,6 +15,7 @@ namespace QLDT
     public partial class FrmThemSV : Form
     {
         static String imgLoc = "";
+        SqlConnection con = new SqlConnection(ConnectionString.connectionString);
         public FrmThemSV()
         {
             InitializeComponent();
@@ -22,85 +23,110 @@ namespace QLDT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //if (txtHoten.Text != "" && cbboxLop.Text != "" && txtNamNhapHoc1.Text!="" && cbboxQuanHuyen.Text != "" && cbboxPhuongxa.Text!= "")
-            //{
-            //    //Sinhvien a = new Sinhvien();
-            //    //Lop b = new Lop();
-            //    //Diachi c = new Diachi();
-            //    //if (a.checkCMDN(txtCMND.Text) == true)
-            //    //{
-            //    //    if (imgLoc == "")
-            //    //    {
-            //    //        a.addnew(txtHoten.Text, dateTimePicker1.Value.ToString(), cbboxGioitinh.Text, cbboxDanToc.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text, cbboxHeDT.Text, txtHotenBo.Text, txtNghebo.Text, txtHotenme.Text, txtNgheme.Text, c.Maxa(cbboxPhuongxa.Text), b.Malop(cbboxLop.Text), cbboxTinhtrang.Text, int.Parse(txtNamNhapHoc1.Text));
-            //    //        MessageBox.Show("Thêm Thành Công");
-            //    //        this.Close();
-            //    //    }
-            //    //    else
-            //    //    {
-            //    //        try
-            //    //        {
-            //    //            byte[] img = null;
-            //    //            FileStream fs = new System.IO.FileStream(imgLoc, System.IO.FileMode.Open, System.IO.FileAccess.Read);
-                            
-            //    //            BinaryReader br = new BinaryReader(fs); //Doc nhi phan
-            //    //            img = br.ReadBytes((int)fs.Length);
-            //    //            a.addnewIMG(txtHoten.Text, dateTimePicker1.Value.ToString(), cbboxGioitinh.Text, cbboxDanToc.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text, cbboxHeDT.Text, txtHotenBo.Text, txtNghebo.Text, txtHotenme.Text, txtNgheme.Text, c.Maxa(cbboxPhuongxa.Text), b.Malop(cbboxLop.Text), cbboxTinhtrang.Text, int.Parse(txtNamNhapHoc1.Text),img);
-            //    //            MessageBox.Show("Thêm Thành Công");
-            //    //            this.Close();
-            //    //            imgLoc = "";
-            //    //        }
-            //    //        catch (Exception ex)
-            //    //        {
-            //    //            MessageBox.Show(ex.Message);
-            //    //        }
-            //    //    }
-            //    //}
-            //    //else
-            //    //{
-            //    //    MessageBox.Show("Có vẻ như đã có SV có CMND này");
-            //    //}
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Vui lòng điền đầy đủ thông tin Cần thiết ...");
-            //}
+            if (txtMSSV.Text !="" && txtHoten.Text != "" && cbboxGioitinh.SelectedItem != "" && dateTimePicker1.Text != "" && txtQuocGia.Text != "" && cbboxDanToc.SelectedItem != "" && cbboxTonGiao.SelectedItem != "" && txtSDT.Text != "" && txtCCCD.Text != "" && txtEmail.Text != "" && cbboxKhoa.SelectedItem != "" && cbboxLop.SelectedItem != "" && cbbCN.SelectedItem != "" && txtDiaChi.Text != "")
+            {
+                try
+                {
+                    byte[] img = null;
+                    FileStream fs = new System.IO.FileStream(imgLoc, System.IO.FileMode.Open, System.IO.FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs); //Doc nhi phan
+                    img = br.ReadBytes((int)fs.Length);
+
+                    SqlConnection con = new SqlConnection(ConnectionString.connectionString);
+                    con.Open();
+                    String sql = "INSERT INTO SINHVIEN (\r\n        MSSV, HOTEN,\r\n        GIOITINH, NGAYSINH,\r\n        DIACHI, MAKHOA,\r\n        MACHUYENNGANH, MALOP,\r\n        SOCCCD, TONGIAO,\r\n        DANTOC, QUOCGIA,\r\n        EMAIL, ANHSV, DIENTHOAI\r\n    )VALUES(\r\n        @MSSV, @HOTEN,\r\n        @GIOITINH, @NGAYSINH,\r\n        @DIACHI, @MAKHOA,\r\n        @MACHUYENNGANH, @MALOP,\r\n        @SOCCCD, @TONGIAO,\r\n        @DANTOC, @QUOCGIA,\r\n        @EMAIL, @ANHSV,@DIENTHOAI\r\n    );";
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.Parameters.Add("@MSSV", SqlDbType.Char, 8);
+                    cmd.Parameters.Add("@HOTEN", SqlDbType.NVarChar, 50);
+                    cmd.Parameters.Add("@NGAYSINH",SqlDbType.Date);
+                    cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar, 30);
+                    cmd.Parameters.Add("@DANTOC", SqlDbType.NVarChar, 15);
+                    cmd.Parameters.Add("@DIENTHOAI", SqlDbType.Char, 10);
+                    cmd.Parameters.Add("@SOCCCD", SqlDbType.Char, 12);
+                    cmd.Parameters.Add("@MAKHOA", SqlDbType.VarChar, 8);
+                    cmd.Parameters.Add("@MACHUYENNGANH", SqlDbType.Char, 10);
+                    cmd.Parameters.Add("@TONGIAO", SqlDbType.NVarChar, 20);
+                    cmd.Parameters.Add("@QUOCGIA", SqlDbType.NVarChar, 15);
+                    cmd.Parameters.Add("@EMAIL", SqlDbType.NVarChar, 30);
+                    cmd.Parameters.Add("@DIACHI", SqlDbType.NVarChar, 100);
+                    cmd.Parameters.Add("@MALOP", SqlDbType.VarChar, 12);
+                    cmd.Parameters.Add(new SqlParameter("@ANHSV", img));
+
+                    cmd.Parameters["@MSSV"].Value = txtMSSV.Text;
+                    cmd.Parameters["@HOTEN"].Value = txtHoten.Text;
+                    cmd.Parameters["@GIOITINH"].Value = cbboxGioitinh.SelectedItem;
+                    cmd.Parameters["@NGAYSINH"].Value = dateTimePicker1.Value.ToString();
+                    cmd.Parameters["@DANTOC"].Value = cbboxDanToc.SelectedItem;
+                    cmd.Parameters["@DIENTHOAI"].Value = txtSDT.Text;
+                    cmd.Parameters["@SOCCCD"].Value = txtCCCD.Text;
+                    cmd.Parameters["@MAKHOA"].Value = cbboxKhoa.SelectedItem;
+                    cmd.Parameters["@MACHUYENNGANH"].Value = cbbCN.SelectedItem;
+                    cmd.Parameters["@TONGIAO"].Value = cbboxTonGiao.SelectedItem;
+                    cmd.Parameters["@QUOCGIA"].Value = txtQuocGia.Text;
+                    cmd.Parameters["@EMAIL"].Value = txtEmail.Text;
+                    cmd.Parameters["@DIACHI"].Value = txtDiaChi.Text;
+                    cmd.Parameters["@MALOP"].Value = cbboxLop.SelectedItem;
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    MessageBox.Show("Thêm Thành Công");
+                    this.Close();
+                    imgLoc = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin Cần thiết ...");
+            }
         }
 
         private void FrmThemSV_Load(object sender, EventArgs e)
         {
-            txtCMND.MaxLength = 15;
-            txtSDT.MaxLength = 15;
-
             MaximizeBox = false;
 
-            //Diachi dc = new Diachi();
-            //DataSet ds = new DataSet();
-            //ds = dc.Load();
-            //cbboxTinhThanhPho.DataSource = ds.Tables[0];
-            //KhoaDT khoa = new KhoaDT();
-            //DataSet ds1 = new DataSet();
-            //ds1 = khoa.Loadkhoa();
-            //cbboxKhoa.DataSource = ds1.Tables[0];
+            con.Open();
+
+            string queryKhoa = "SELECT DISTINCT MAKHOA FROM KHOA ORDER BY MAKHOA";
+            SqlCommand cmd = new SqlCommand(queryKhoa, con);
+            using (SqlDataReader saReader = cmd.ExecuteReader())
+            {
+                while (saReader.Read())
+                {
+                    string khoa = saReader.GetString(0);
+                    cbboxKhoa.Items.Add(khoa);
+                }
+            }
+
+            string queryLop = String.Format("SELECT DISTINCT MALOP FROM LOPQUANLY ORDER BY MALOP");
+            cmd = new SqlCommand(queryLop, con);
+            using (SqlDataReader saReader = cmd.ExecuteReader())
+            {
+                while (saReader.Read())
+                {
+                    string lop = saReader.GetString(0);
+                    cbboxLop.Items.Add(lop);
+                }
+            }
+
+            string queryCN = String.Format("SELECT DISTINCT MACHUYENNGANH FROM CHUYENNGANH\r\nORDER BY MACHUYENNGANH");
+            cmd = new SqlCommand(queryCN, con);
+            using (SqlDataReader saReader = cmd.ExecuteReader())
+            {
+                while (saReader.Read())
+                {
+                    string chuyenNganh = saReader.GetString(0);
+                    cbbCN.Items.Add(chuyenNganh);
+                }
+            }
+
+            con.Close();
         }
 
-        private void cbboxKhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String t;
-            t = cbboxKhoa.SelectedValue.ToString();
-            if (t == "System.Data.DataRowView")
-            {
-
-            }
-            else
-            {
-                //Lop dc = new Lop();
-                //DataSet ds = new DataSet();
-                //ds = dc.LoadLopselect(t);
-                //cbboxLop.DataSource = ds.Tables[0];
-                cbboxLop.DisplayMember = "Tenlop";
-                cbboxLop.ValueMember = "Malop";
-            }
-        }
 
         private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -111,14 +137,6 @@ namespace QLDT
         }
 
         private void txtCMND_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtNamNhapHoc1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
             {

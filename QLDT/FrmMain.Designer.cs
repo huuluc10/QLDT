@@ -51,7 +51,7 @@
             this.btnQLDiem = new System.Windows.Forms.Button();
             this.btnDanhSachKhoa = new System.Windows.Forms.Button();
             this.btnDanhSachLop = new System.Windows.Forms.Button();
-            this.btnQLGiangVien = new System.Windows.Forms.Button();
+            this.btnHanhDong = new System.Windows.Forms.Button();
             this.btnQLTaiKhoan = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnHoSoGiaoVien = new System.Windows.Forms.Button();
@@ -61,7 +61,6 @@
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelTitleBar = new System.Windows.Forms.Panel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -193,7 +192,7 @@
             this.panelMenu.Controls.Add(this.btnQLDiem);
             this.panelMenu.Controls.Add(this.btnDanhSachKhoa);
             this.panelMenu.Controls.Add(this.btnDanhSachLop);
-            this.panelMenu.Controls.Add(this.btnQLGiangVien);
+            this.panelMenu.Controls.Add(this.btnHanhDong);
             this.panelMenu.Controls.Add(this.btnQLTaiKhoan);
             this.panelMenu.Controls.Add(this.panel3);
             this.panelMenu.Controls.Add(this.btnHoSoGiaoVien);
@@ -482,28 +481,28 @@
             this.btnDanhSachLop.UseVisualStyleBackColor = false;
             this.btnDanhSachLop.Click += new System.EventHandler(this.btnDanhSachLop_Click);
             // 
-            // btnQLGiangVien
+            // btnHanhDong
             // 
-            this.btnQLGiangVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
-            this.btnQLGiangVien.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
-            this.btnQLGiangVien.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnQLGiangVien.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQLGiangVien.Enabled = false;
-            this.btnQLGiangVien.FlatAppearance.BorderSize = 0;
-            this.btnQLGiangVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQLGiangVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnQLGiangVien.ForeColor = System.Drawing.Color.Cornsilk;
-            this.btnQLGiangVien.Image = global::QLDT.Properties.Resources.icons8_teacher_32;
-            this.btnQLGiangVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLGiangVien.Location = new System.Drawing.Point(0, 301);
-            this.btnQLGiangVien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnQLGiangVien.Name = "btnQLGiangVien";
-            this.btnQLGiangVien.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
-            this.btnQLGiangVien.Size = new System.Drawing.Size(277, 55);
-            this.btnQLGiangVien.TabIndex = 10;
-            this.btnQLGiangVien.Text = "QL GIẢNG VIÊN";
-            this.btnQLGiangVien.UseVisualStyleBackColor = false;
-            this.btnQLGiangVien.Click += new System.EventHandler(this.btnQLGiangVien_Click_1);
+            this.btnHanhDong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
+            this.btnHanhDong.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
+            this.btnHanhDong.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHanhDong.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHanhDong.Enabled = false;
+            this.btnHanhDong.FlatAppearance.BorderSize = 0;
+            this.btnHanhDong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHanhDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHanhDong.ForeColor = System.Drawing.Color.Cornsilk;
+            this.btnHanhDong.Image = global::QLDT.Properties.Resources.icons8_teacher_32;
+            this.btnHanhDong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHanhDong.Location = new System.Drawing.Point(0, 301);
+            this.btnHanhDong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHanhDong.Name = "btnHanhDong";
+            this.btnHanhDong.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
+            this.btnHanhDong.Size = new System.Drawing.Size(277, 55);
+            this.btnHanhDong.TabIndex = 10;
+            this.btnHanhDong.Text = "HÀNH ĐỘNG";
+            this.btnHanhDong.UseVisualStyleBackColor = false;
+            this.btnHanhDong.Click += new System.EventHandler(this.btnHanhDong_Click);
             // 
             // btnQLTaiKhoan
             // 
@@ -646,7 +645,6 @@
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
-            this.panelTitleBar.Controls.Add(this.linkLabel2);
             this.panelTitleBar.Controls.Add(this.panel1);
             this.panelTitleBar.Controls.Add(this.lblTitle);
             this.panelTitleBar.Controls.Add(this.btnCloseChildForm);
@@ -656,21 +654,6 @@
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(1786, 47);
             this.panelTitleBar.TabIndex = 13;
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.linkLabel2.LinkColor = System.Drawing.Color.White;
-            this.linkLabel2.Location = new System.Drawing.Point(418, 14);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(92, 18);
-            this.linkLabel2.TabIndex = 1;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Hành Động";
-            this.linkLabel2.Visible = false;
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // btnCloseChildForm
             // 
@@ -754,7 +737,7 @@
         private System.Windows.Forms.Button btnXemDiem;
         private System.Windows.Forms.Button btnNhapDiem;
         private System.Windows.Forms.Button btnQLTaiKhoan;
-        private System.Windows.Forms.Button btnQLGiangVien;
+        private System.Windows.Forms.Button btnHanhDong;
         private System.Windows.Forms.Button btnQLDiem;
         private System.Windows.Forms.Button btnTBTL;
         private System.Windows.Forms.LinkLabel linkdoimatkhau;
@@ -766,6 +749,5 @@
         private Button btnQLMonHoc;
         private Panel panelDesktopPane;
         private LinkLabel linkLabel1;
-        private LinkLabel linkLabel2;
     }
 }

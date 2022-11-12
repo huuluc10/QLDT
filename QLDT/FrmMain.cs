@@ -32,9 +32,9 @@ namespace QLDT
         private Button currentButton;
         private int tempIndex;
         private Form activeForm;
-        private bool MoThayDoiTTSV = false;
-        private bool MoDKHP = false;
-        private bool MoChamDRL = false;
+        private bool MoThayDoiTTSV;
+        private bool MoDKHP;
+        private bool MoChamDRL;
 
 
 
@@ -51,13 +51,12 @@ namespace QLDT
             btnThongKe.Enabled = true;
             btnQLMonHoc.Enabled = true;
             btnQLTaiKhoan.Enabled = true;
-            btnQLGiangVien.Enabled = true;
+            btnHanhDong.Enabled = true;
             btnQLDiem.Enabled = true;
             btnTBTL.Enabled = true;
             btnNhapDiem.Enabled = true;
             btnXetHocBong.Enabled = true;
             btnHocPhi.Enabled = true;
-            linkLabel2.Visible = true;
         }
 
         public void DisableMenuAdmin()
@@ -70,7 +69,7 @@ namespace QLDT
             btnThongKe.Enabled = false;
             btnQLMonHoc.Enabled = false;
             btnQLTaiKhoan.Enabled = false;
-            btnQLGiangVien.Enabled = false;
+            btnHanhDong.Enabled = false;
             btnQLDiem.Enabled = false;
             btnTBTL.Enabled = false;
             btnXetHocBong.Enabled = false;
@@ -90,8 +89,6 @@ namespace QLDT
             btnDiemRenLuyen.Enabled = true;
             btnNhapDiem.Enabled = true;
             btnXemDiem.Enabled = false;
-            btnQLGiangVien.Enabled = true;
-            btnQLGiangVien.Text = "GIẢNG VIÊN";
             btnHocPhi.Enabled = false;;
         }
 
@@ -183,6 +180,17 @@ namespace QLDT
                 EnableMenuAdmin();
             }
 
+            LoadDKMo();
+        }
+
+        private void LoadDKMo()
+        {
+            var r = new Database().Select(String.Format("SELECT DIEUKHIEN FROM CHUCNANGHETHONG WHERE TENCHUCNANG = 'MOTHAYDOITTSV'"));
+            MoThayDoiTTSV = Convert.ToBoolean(r["DIEUKHIEN"].ToString());
+            r = new Database().Select(String.Format("SELECT DIEUKHIEN FROM CHUCNANGHETHONG WHERE TENCHUCNANG = 'MODKHP'"));
+            MoDKHP = Convert.ToBoolean(r["DIEUKHIEN"].ToString());
+            r = new Database().Select(String.Format("SELECT DIEUKHIEN FROM CHUCNANGHETHONG WHERE TENCHUCNANG = 'MOCHAMDRL'"));
+            MoChamDRL = Convert.ToBoolean(r["DIEUKHIEN"].ToString());
         }
 
         public void LoadLai(String tendnhap, String quyen)
@@ -216,7 +224,7 @@ namespace QLDT
                     EnableMenuAdmin();
                     btnDangNhap.Text = "MỞ LỚP HỌC";
                     btnQLDiem.Text = " QUẢN LÝ ĐIỂM";
-                    btnQLGiangVien.Text = "  QUẢN LÝ GIẢNG VIÊN";
+                    btnHanhDong.Text = "  HÀNH ĐỘNG";
                     linkdoimatkhau.Visible = true;
                     panel4.Visible = true;
                 }
@@ -304,10 +312,6 @@ namespace QLDT
             OpenChildForm(new QLDT.FrmQLTaiKhoan(), sender);
         }
 
-        private void btnQLGiangVien_Click_1(object sender, EventArgs e)
-        {
-            OpenChildForm(new QLDT.FrmQLGiangVien(username, quyenhan), sender);
-        }
 
         private void btnQLDiem_Click(object sender, EventArgs e)
         {
@@ -343,6 +347,7 @@ namespace QLDT
                 activeForm.Close();
             }
             Reset();
+            LoadDKMo();
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -374,7 +379,7 @@ namespace QLDT
 
         private void btnHoSoSinhVien_Click_1(object sender, EventArgs e)
         {
-            OpenChildForm(new QLDT.FrmHoSoSinhVien(quyenhan, username), sender);
+            OpenChildForm(new QLDT.FrmHoSoSinhVien(quyenhan, username, MoThayDoiTTSV), sender);
         }
 
         private void btnDiemRenLuyen_Click_1(object sender, EventArgs e)
@@ -411,11 +416,24 @@ namespace QLDT
             OpenChildForm(new QLDT.FrmHoSoGiaoVien(quyenhan, username), sender);
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void btnHanhDong_Click(object sender, EventArgs e)
         {
-            Form f = new FrmHanhDong(MoThayDoiTTSV, MoDKHP, MoChamDRL);
-            f.ShowDialog();
-            //MoThayDoiTTSV = f.MoThayDoiTTSV;
+            FrmHanhDong f = new FrmHanhDong(MoThayDoiTTSV, MoDKHP, MoChamDRL);
+            
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            ActivateButton(btnHanhDong);
+            activeForm = f;
+            f.TopLevel = false;
+            f.MdiParent = this;
+            f.Dock = DockStyle.Fill;
+            this.panelDesktopPane.Controls.Add(f);
+            this.panelDesktopPane.Tag = f;
+            f.Show();
+            lblTitle.Text = f.Text;
+            LoadDKMo();
         }
     }
 }

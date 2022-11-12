@@ -523,6 +523,16 @@ namespace QLDT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_running_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-running-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_school_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-school-32", resourceCulture);

@@ -109,5 +109,27 @@ namespace QLDT
                     conn.Close();
             }
         }
+        public int UpdateData(string sql)
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+                conn.Open();
+                cmd = new SqlCommand(sql, conn);    //thực thi câu lệnh sql
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();  //lấy kết quả thực thi truy vấn
+                return 0;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi thực thi câu lệnh: " + e.Message);
+                return -1;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+        }
     }
 }

@@ -426,7 +426,6 @@
         private System.Windows.Forms.Label lblhienthithongtinsinhvien;
         private System.Windows.Forms.RadioButton radioButtonTatCa;
         private System.Windows.Forms.RadioButton radioTheoNHHK;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.ComboBox cbboxNamHoc;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
