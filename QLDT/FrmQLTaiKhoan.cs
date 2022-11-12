@@ -1,7 +1,10 @@
-﻿using System;
+﻿using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.Xpo.DB.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +15,7 @@ namespace QLDT
 {
     public partial class FrmQLTaiKhoan : Form
     {
+        SqlConnection con = new SqlConnection(ConnectionString.connectionString);
         public FrmQLTaiKhoan()
         {
             InitializeComponent();
@@ -22,143 +26,94 @@ namespace QLDT
 
         private void FrmQLTaiKhoan_Load(object sender, EventArgs e)
         {
-            //KhoaDT khoa = new KhoaDT();
-            //DataSet ds3 = new DataSet();
-            //ds3 = khoa.Loadkhoa();
-            //cbboxLocKhoa.DataSource = ds3.Tables[0];
-            //cbboxLocKhoa.DisplayMember = "Tenkhoa";
-            //cbboxLocKhoa.ValueMember = "Makhoa";
+            con.Open();
 
-            txttendangnhap.MaxLength = 15;
-            txtmatkhau.MaxLength = 15;
-            txtNhapLaiMK.MaxLength = 15;
-            txthoten.MaxLength = 30;
-
-            txtReMKSV.MaxLength = 15;
-            txtMKSV.MaxLength = 15;
-
-
-
-
+            string queryKhoa = "SELECT TENQUYEN FROM QUYEN ORDER BY MAQUYEN";
+            SqlCommand cmd = new SqlCommand(queryKhoa, con);
+            using (SqlDataReader saReader = cmd.ExecuteReader())
+            {
+                while (saReader.Read())
+                {
+                    string quyen = saReader.GetString(0);
+                    cbboxloaitaikhoan.Items.Add(quyen);
+                    cbbQuyen.Items.Add(quyen);
+                }
+            }
+            con.Close();
         }
 
-        private void cbboxkhoa_SelectedIndexChanged(object sender, EventArgs e)
+        private void LoadDSTK(String loaiTK)
         {
-            
-        }
+            var query = String.Format("XEMTAIKHOAN N'" + loaiTK + "'");
+            DataTable data = new DataTable();
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                SqlCommand cmd1 = new SqlCommand();
+                cmd1.Connection = con;
+                cmd1.CommandText = query;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd1);
+                adapter.Fill(data);
+                con.Close();
+            }
+            dataGridView1.DataSource = data;
 
-        private void cbboxlop_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cbboxHoten_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
+                dataGridView1[4, i] = linkCell;
+            }
         }
 
         private void btncapnhattaikhoan_Click(object sender, EventArgs e)
         {
-            //Admin a = new Admin();
-            //if(cbboxloaitaikhoan.Text=="")
-            //{
-            //    MessageBox.Show("Hãy Chọn Loại Tài Khoản Hiển Thị");
-            //}
-            //else
-            //{
-            //    dataGridView1.DataSource = a.taikhoan(cbboxloaitaikhoan.Text);
-                
-            //    for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            //    {
-            //        DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
-            //        dataGridView1[5, i] = linkCell;
-            //    }
-                
-            //}
+            if (cbboxloaitaikhoan.Text == "")
+            {
+                MessageBox.Show("Hãy Chọn Loại Tài Khoản Hiển Thị");
+            }
+            else
+            {
+                LoadDSTK(cbboxloaitaikhoan.SelectedItem.ToString());
+            }
         }
 
         private void btnThemTKQL_Click(object sender, EventArgs e)
         {
-            //if (txttendangnhap.Text == "" || txtmatkhau.Text == "" || txtNhapLaiMK.Text == "")
-            //{
-            //    MessageBox.Show("Vui lòng điền đầy đủ User và Pass/Nhập Lại Pass");
-            //}
-            //else
-            //{
-            //    if (txtNhapLaiMK.Text == txtmatkhau.Text)
-            //    {
-            //        Admin a = new Admin();
-            //        if (a.check(txttendangnhap.Text) == true)
-            //        {
-            //            String c = GetMD5(txtmatkhau.Text);
-            //            a.addadmin(txthoten.Text, txttendangnhap.Text, c, "Quản Lý");
-            //            MessageBox.Show("Tạo Tài Khoản Thành Công");
-            //            dataGridView1.DataSource = a.taikhoan("Quản Lý");
-            //            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            //            {
-            //                DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
-            //                dataGridView1[5, i] = linkCell;
-            //            }
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Đã tồn tại User này");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Password nhập lại ko đúng, vui lòng kiểm tra lại");
-            //    }
-            //}
-        }
-
-        private void btThemTKSV_Click(object sender, EventArgs e)
-        {
-            if (txtMSV.Text=="")
+            if (txtmatkhau.Text == "" || txtMAQTV.Text == "" || txthoten.Text == "")
             {
-                MessageBox.Show("Vui lòng Chọn SV,điền đầy đủ User và Pass/Nhập Lại Pass");
+                MessageBox.Show("Vui lòng điền đầy đủ User và Pass/Nhập Lại Pass");
             }
             else
             {
-
-                //if (txtMKSV.Text==txtReMKSV.Text)
-                //{
-                //    GiangVien b = new GiangVien();
-                //    Admin a = new Admin();
-                //    if (a.check(txtMSV.Text) == true)
-                //    {
-                //        a.addadmin(txtHoTenSV.Text, txtMSV.Text, GetMD5(txtMKSV.Text), "Sinh Viên");
-                //        MessageBox.Show("Tạo Tài Khoản Thành Công");
-                //        dataGridView1.DataSource = a.taikhoan("Sinh Viên");
-                //        if(trangthai=="Sinh Viên")
-                //        {
-                //            dataGridView2.DataSource = b.DanhSachTatCaSVThemTaiKhoan(Lop);
-                //            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                //            {
-                //                DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
-                //                dataGridView1[5, i] = linkCell;
-                //            }
-
-                //        }
-                //        else if(trangthai=="Giảng Viên")
-                //        {
-                //            dataGridView2.DataSource = b.DanhSachTatCaGVThemTaiKhoan(khoa);
-                //            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                //            {
-                //                DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
-                //                dataGridView1[5, i] = linkCell;
-                //            }
-                //        }
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Đã tồn tại User này");
-                //    }
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Password nhập lại ko đúng, vui lòng kiểm tra lại");
-                //}
+                String sql = "THEMQTV";
+                List<CustomParameter> lstPara = new List<CustomParameter>();
+                lstPara.Add(new CustomParameter()
+                {
+                    key = "@MAQTV",
+                    value = txtMAQTV.Text
+                });
+                lstPara.Add(new CustomParameter()
+                {
+                    key = "@HOTENQTV",
+                    value = txthoten.Text
+                });
+                
+                lstPara.Add(new CustomParameter()
+                {
+                    key = "@MATKHAU",
+                    value = txtmatkhau.Text
+                });
+                var rs = new Database().ExeCute(sql, lstPara);  //truyền câu lệnh sql và các tham số
+                if (rs >= 1)      //nếu thực thi thành công
+                {
+                    MessageBox.Show("Tạo Tài Khoản Thành Công");
+                }
+                else        //thực thi lỗi
+                {
+                    MessageBox.Show("Tạo Tài Khoản thất bại");
+                }
+                cbboxloaitaikhoan.Text = "Quản trị viên";
+                LoadDSTK("Quản trị viên");
             }
         }
 
@@ -170,58 +125,67 @@ namespace QLDT
             }
             else
             {
-                if (e.ColumnIndex == 5)
+                if (e.ColumnIndex == 4)
                 {
-                    //Admin a = new Admin();
-                    //string Task = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                    //if (Task == "Delete")
-                    //{
-                    //    if (MessageBox.Show("Bạn có chắc chắm muốn xóa không?", "Đang xóa...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    //    {
-                    //        int rowIndex = e.RowIndex;
-                    //        String ID = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
-                    //        a.XoaTaiKhoan(ID);
-                    //        dataGridView1.DataSource = a.taikhoan(cbboxloaitaikhoan.Text);
-                    //        for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                    //        {
-                    //            DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
-                    //            dataGridView1[5, i] = linkCell;
-                    //        }
-                    //    }
-                    //}
+                    string Task = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    if (Task == "Delete")
+                    {
+                        if (MessageBox.Show("Bạn có chắc chắm muốn xóa không?", "Đang xóa...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            int rowIndex = e.RowIndex;
+                            String tenDangNhap = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
+                            String loaiTK = cbboxloaitaikhoan.SelectedItem.ToString();
+                            String sql = "";
+                            var rs = 0;
+                            if (loaiTK == "Quản trị viên")
+                            {
+                                sql = "XOAQTV";
+                                List<CustomParameter> lstPara = new List<CustomParameter>();
+                                lstPara.Add(new CustomParameter()
+                                {
+                                    key = "@MAQTV",
+                                    value = tenDangNhap
+                                });
+                                rs = new Database().ExeCute(sql, lstPara);
+                            } 
+                            else if (loaiTK == "Giáo viên")
+                            {
+                                sql = "XOAGV";
+                                List<CustomParameter> lstPara = new List<CustomParameter>();
+                                lstPara.Add(new CustomParameter()
+                                {
+                                    key = "@MSGV",
+                                    value = tenDangNhap
+                                });
+                                rs = new Database().ExeCute(sql, lstPara);
+                            } 
+                            else
+                            {
+                                sql = "XOASV";
+                                List<CustomParameter> lstPara = new List<CustomParameter>();
+                                lstPara.Add(new CustomParameter()
+                                {
+                                    key = "@MSSV",
+                                    value = tenDangNhap
+                                });
+                                rs = new Database().ExeCute(sql, lstPara);
+                            }
+                              //truyền câu lệnh sql và các tham số
+                            if (rs >= 1)      //nếu thực thi thành công
+                            {
+                                MessageBox.Show("Thực hiện thành công");
+                            }
+                            else        //thực thi lỗi
+                            {
+                                MessageBox.Show("Thực hiện thất bại");
+                            }
+                            cbboxloaitaikhoan.Text = loaiTK;
+                            LoadDSTK(loaiTK);
+                        }
+                    }
                 }
          
             }
-        }
-
-        private void cbboxKhoaGV_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cbboxHotenGV_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-
-        private void cbboxLocKhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //String t;
-            //t = cbboxLocKhoa.SelectedValue.ToString();
-            //if (t == "System.Data.DataRowView")
-            //{
-
-            //}
-            //else
-            //{
-            //    //Lop dc = new Lop();
-            //    //DataSet ds = new DataSet();
-            //    //ds = dc.LoadLopselect(t);
-            //    //cbboxLocLop.DataSource = ds.Tables[0];
-            //    cbboxLocLop.DisplayMember = "Tenlop";
-            //    cbboxLocLop.ValueMember = "Malop";
-            //}
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -257,5 +221,44 @@ namespace QLDT
             dataGridView1.ClearSelection();
         }
 
+        private void btThemTKSV_Click_1(object sender, EventArgs e)
+        {
+            if (txtMSV.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn tài khoản");
+            }
+            else
+            {
+                String sql = "DOITTTK";
+                List<CustomParameter> lstPara = new List<CustomParameter>();
+                lstPara.Add(new CustomParameter()
+                {
+                    key = "@TENDANGNHAP",
+                    value = txtMSV.Text
+                });
+                lstPara.Add(new CustomParameter()
+                {
+                    key = "@MATKHAUMOI",
+                    value = txtMKMSV.Text
+                });
+                lstPara.Add(new CustomParameter()
+                {
+                    key = "@TENQUYEN",
+                    value = cbbQuyen.SelectedItem.ToString()
+                });
+                var rs = new Database().ExeCute(sql, lstPara);  //truyền câu lệnh sql và các tham số
+                if (rs >= 1)      //nếu thực thi thành công
+                {
+                    MessageBox.Show("Thực hiện thành công");
+                }
+                else        //thực thi lỗi
+                {
+                    MessageBox.Show("Thực hiện thất bại");
+                }
+                cbboxloaitaikhoan.Text = cbbQuyen.SelectedItem.ToString();
+                LoadDSTK(cbbQuyen.SelectedItem.ToString());
+            } 
+                
+        }
     }
 }

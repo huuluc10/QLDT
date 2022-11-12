@@ -1054,7 +1054,6 @@
         private System.Windows.Forms.Button btLoadSV;
         private System.Windows.Forms.Label Lớp;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtCMND1;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtMSSV;
         private System.Windows.Forms.ComboBox cbboxGioitinh;
@@ -1094,7 +1093,6 @@
         private System.Windows.Forms.PictureBox picstudent;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox5;
-        private TextBox txbChuyenNganh;
         private Label label15;
         private TextBox txtCCCD;
         private ComboBox cbboxCN;

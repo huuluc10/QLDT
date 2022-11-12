@@ -247,8 +247,6 @@ namespace QLDT
                 else
                 {
                     imgLoc = "";
-                    //Lop a = new Lop();
-                    //Diachi b = new Diachi();
                     txtMSSV.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     txtHoten.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                     dataGridView1.CurrentRow.Selected = true;
