@@ -31,13 +31,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TenKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoTinChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChuyenNganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TSCHUYENCAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TSGIUAKY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TSCUOIKY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DONGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btLoadMH = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txbDonGia = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtMaMH1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btXoaMH = new System.Windows.Forms.Button();
@@ -53,8 +59,6 @@
             this.cbboxchonkhoa = new System.Windows.Forms.ComboBox();
             this.radioButtonTheoKhoa = new System.Windows.Forms.RadioButton();
             this.radioButtonTatCa = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txbDonGia = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSoTC1)).BeginInit();
@@ -79,11 +83,15 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TenKhoa,
             this.MaMonHoc,
             this.TenMonHoc,
             this.SoTinChi,
             this.ChuyenNganh,
-            this.TenKhoa});
+            this.TSCHUYENCAN,
+            this.TSGIUAKY,
+            this.TSCUOIKY,
+            this.DONGIA});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -105,40 +113,68 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
+            // TenKhoa
+            // 
+            this.TenKhoa.DataPropertyName = "TENKHOA";
+            this.TenKhoa.HeaderText = "Khoa";
+            this.TenKhoa.MinimumWidth = 6;
+            this.TenKhoa.Name = "TenKhoa";
+            // 
             // MaMonHoc
             // 
-            this.MaMonHoc.DataPropertyName = "MaMonHoc";
+            this.MaMonHoc.DataPropertyName = "MAMONHOC";
             this.MaMonHoc.HeaderText = "Mã Môn Học";
             this.MaMonHoc.MinimumWidth = 6;
             this.MaMonHoc.Name = "MaMonHoc";
             // 
             // TenMonHoc
             // 
-            this.TenMonHoc.DataPropertyName = "TenMonHoc";
+            this.TenMonHoc.DataPropertyName = "TENMONHOC";
             this.TenMonHoc.HeaderText = "Tên Môn Học";
             this.TenMonHoc.MinimumWidth = 6;
             this.TenMonHoc.Name = "TenMonHoc";
             // 
             // SoTinChi
             // 
-            this.SoTinChi.DataPropertyName = "SoTC";
+            this.SoTinChi.DataPropertyName = "SOTC";
             this.SoTinChi.HeaderText = "Số TC";
             this.SoTinChi.MinimumWidth = 6;
             this.SoTinChi.Name = "SoTinChi";
             // 
             // ChuyenNganh
             // 
-            this.ChuyenNganh.DataPropertyName = "TenChuyenNganh";
+            this.ChuyenNganh.DataPropertyName = "TENCHUYENNGANH";
             this.ChuyenNganh.HeaderText = "Chuyên Ngành";
             this.ChuyenNganh.MinimumWidth = 6;
             this.ChuyenNganh.Name = "ChuyenNganh";
             // 
-            // TenKhoa
+            // TSCHUYENCAN
             // 
-            this.TenKhoa.DataPropertyName = "TenKhoa";
-            this.TenKhoa.HeaderText = "Khoa";
-            this.TenKhoa.MinimumWidth = 6;
-            this.TenKhoa.Name = "TenKhoa";
+            this.TSCHUYENCAN.DataPropertyName = "TSCHUYENCAN";
+            this.TSCHUYENCAN.HeaderText = "Trọng số điểm chuyên cần";
+            this.TSCHUYENCAN.MinimumWidth = 6;
+            this.TSCHUYENCAN.Name = "TSCHUYENCAN";
+            // 
+            // TSGIUAKY
+            // 
+            this.TSGIUAKY.DataPropertyName = "TSGIUAKY";
+            this.TSGIUAKY.HeaderText = "Trọng số giữa kỳ";
+            this.TSGIUAKY.MinimumWidth = 6;
+            this.TSGIUAKY.Name = "TSGIUAKY";
+            // 
+            // TSCUOIKY
+            // 
+            this.TSCUOIKY.DataPropertyName = "TSCUOIKY";
+            this.TSCUOIKY.HeaderText = "Trọng số cuối kỳ";
+            this.TSCUOIKY.MinimumWidth = 6;
+            this.TSCUOIKY.Name = "TSCUOIKY";
+            // 
+            // DONGIA
+            // 
+            this.DONGIA.DataPropertyName = "DONGIA";
+            this.DONGIA.HeaderText = "Đơn giá";
+            this.DONGIA.MinimumWidth = 6;
+            this.DONGIA.Name = "DONGIA";
             // 
             // btLoadMH
             // 
@@ -181,6 +217,27 @@
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SỬA-XÓA";
+            // 
+            // txbDonGia
+            // 
+            this.txbDonGia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbDonGia.Enabled = false;
+            this.txbDonGia.Location = new System.Drawing.Point(147, 188);
+            this.txbDonGia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbDonGia.Name = "txbDonGia";
+            this.txbDonGia.Size = new System.Drawing.Size(138, 27);
+            this.txbDonGia.TabIndex = 32;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(38, 191);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 20);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Đơn giá";
             // 
             // txtMaMH1
             // 
@@ -227,7 +284,7 @@
             this.numericUpDownSoTC1.Location = new System.Drawing.Point(147, 144);
             this.numericUpDownSoTC1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numericUpDownSoTC1.Maximum = new decimal(new int[] {
-            10,
+            5,
             0,
             0,
             0});
@@ -362,7 +419,7 @@
             this.cbboxchonkhoa.Name = "cbboxchonkhoa";
             this.cbboxchonkhoa.Size = new System.Drawing.Size(240, 28);
             this.cbboxchonkhoa.TabIndex = 127;
-            this.cbboxchonkhoa.SelectedIndexChanged += new System.EventHandler(this.cbboxchonkhoa_SelectedIndexChanged);
+            this.cbboxchonkhoa.SelectedValueChanged += new System.EventHandler(this.cbboxchonkhoa_SelectedValueChanged);
             // 
             // radioButtonTheoKhoa
             // 
@@ -391,27 +448,6 @@
             this.radioButtonTatCa.Text = "Tất Cả";
             this.radioButtonTatCa.UseVisualStyleBackColor = true;
             this.radioButtonTatCa.CheckedChanged += new System.EventHandler(this.radioButtonTatCa_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(38, 191);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 20);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Đơn giá";
-            // 
-            // txbDonGia
-            // 
-            this.txbDonGia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbDonGia.Enabled = false;
-            this.txbDonGia.Location = new System.Drawing.Point(147, 188);
-            this.txbDonGia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txbDonGia.Name = "txbDonGia";
-            this.txbDonGia.Size = new System.Drawing.Size(138, 27);
-            this.txbDonGia.TabIndex = 32;
             // 
             // FrmMonHoc
             // 
@@ -459,12 +495,16 @@
         private System.Windows.Forms.RadioButton radioButtonTheoKhoa;
         private System.Windows.Forms.RadioButton radioButtonTatCa;
         private System.Windows.Forms.ComboBox cbboxLoadChuyenNganh;
+        private TextBox txbDonGia;
+        private Label label1;
+        private DataGridViewTextBoxColumn TenKhoa;
         private DataGridViewTextBoxColumn MaMonHoc;
         private DataGridViewTextBoxColumn TenMonHoc;
         private DataGridViewTextBoxColumn SoTinChi;
         private DataGridViewTextBoxColumn ChuyenNganh;
-        private DataGridViewTextBoxColumn TenKhoa;
-        private TextBox txbDonGia;
-        private Label label1;
+        private DataGridViewTextBoxColumn TSCHUYENCAN;
+        private DataGridViewTextBoxColumn TSGIUAKY;
+        private DataGridViewTextBoxColumn TSCUOIKY;
+        private DataGridViewTextBoxColumn DONGIA;
     }
 }

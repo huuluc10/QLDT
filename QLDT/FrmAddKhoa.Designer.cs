@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnThem = new System.Windows.Forms.Button();
-            this.txbTruongKhoa = new System.Windows.Forms.TextBox();
             this.txbTenKhoa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.txbDiaChi = new System.Windows.Forms.TextBox();
             this.txbDienThoai = new System.Windows.Forms.TextBox();
             this.txbWeb = new System.Windows.Forms.TextBox();
+            this.cbbTK = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnThem
@@ -60,17 +60,7 @@
             this.btnThem.TabIndex = 8;
             this.btnThem.Text = "THÊM MỚI";
             this.btnThem.UseVisualStyleBackColor = false;
-            this.btnThem.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
-            // 
-            // txbTruongKhoa
-            // 
-            this.txbTruongKhoa.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txbTruongKhoa.Location = new System.Drawing.Point(148, 138);
-            this.txbTruongKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txbTruongKhoa.Name = "txbTruongKhoa";
-            this.txbTruongKhoa.Size = new System.Drawing.Size(230, 27);
-            this.txbTruongKhoa.TabIndex = 3;
-            this.txbTruongKhoa.UseSystemPasswordChar = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // txbTenKhoa
             // 
@@ -80,7 +70,6 @@
             this.txbTenKhoa.Name = "txbTenKhoa";
             this.txbTenKhoa.Size = new System.Drawing.Size(230, 27);
             this.txbTenKhoa.TabIndex = 2;
-            this.txbTenKhoa.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -112,7 +101,6 @@
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(230, 27);
             this.txbEmail.TabIndex = 4;
-            this.txbEmail.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -201,12 +189,21 @@
             this.txbWeb.Size = new System.Drawing.Size(230, 27);
             this.txbWeb.TabIndex = 7;
             // 
+            // cbbTK
+            // 
+            this.cbbTK.FormattingEnabled = true;
+            this.cbbTK.Location = new System.Drawing.Point(148, 136);
+            this.cbbTK.Name = "cbbTK";
+            this.cbbTK.Size = new System.Drawing.Size(230, 28);
+            this.cbbTK.TabIndex = 16;
+            // 
             // FrmAddKhoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.ClientSize = new System.Drawing.Size(427, 459);
+            this.Controls.Add(this.cbbTK);
             this.Controls.Add(this.txbWeb);
             this.Controls.Add(this.txbDienThoai);
             this.Controls.Add(this.txbDiaChi);
@@ -219,7 +216,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txbTruongKhoa);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txbTenKhoa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -236,7 +232,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.TextBox txbTruongKhoa;
         private System.Windows.Forms.TextBox txbTenKhoa;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -250,5 +245,6 @@
         private TextBox txbDiaChi;
         private TextBox txbDienThoai;
         private TextBox txbWeb;
+        private ComboBox cbbTK;
     }
 }

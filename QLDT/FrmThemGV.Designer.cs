@@ -33,7 +33,6 @@
             this.cbboxDanToc = new System.Windows.Forms.ComboBox();
             this.cbboxGioitinh = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.cbboxKhoa = new System.Windows.Forms.ComboBox();
             this.txtCCCD = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtQuocGia = new System.Windows.Forms.TextBox();
@@ -49,7 +48,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.Lớp = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtMSGV = new System.Windows.Forms.TextBox();
@@ -162,16 +160,6 @@
             this.label14.TabIndex = 25;
             this.label14.Text = "TÔN GIÁO";
             // 
-            // cbboxKhoa
-            // 
-            this.cbboxKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbboxKhoa.FormattingEnabled = true;
-            this.cbboxKhoa.Location = new System.Drawing.Point(143, 371);
-            this.cbboxKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbboxKhoa.Name = "cbboxKhoa";
-            this.cbboxKhoa.Size = new System.Drawing.Size(254, 28);
-            this.cbboxKhoa.TabIndex = 13;
-            // 
             // txtCCCD
             // 
             this.txtCCCD.Location = new System.Drawing.Point(142, 271);
@@ -199,7 +187,7 @@
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(142, 425);
+            this.txtDiaChi.Location = new System.Drawing.Point(142, 370);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(319, 27);
@@ -228,7 +216,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label16.Location = new System.Drawing.Point(32, 432);
+            this.label16.Location = new System.Drawing.Point(32, 377);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(62, 20);
             this.label16.TabIndex = 27;
@@ -312,16 +300,6 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "HỌ TÊN ";
             // 
-            // Lớp
-            // 
-            this.Lớp.AutoSize = true;
-            this.Lớp.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Lớp.Location = new System.Drawing.Point(32, 374);
-            this.Lớp.Name = "Lớp";
-            this.Lớp.Size = new System.Drawing.Size(50, 20);
-            this.Lớp.TabIndex = 15;
-            this.Lớp.Text = "KHOA";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -341,7 +319,6 @@
             this.groupBox2.Controls.Add(this.cbboxDanToc);
             this.groupBox2.Controls.Add(this.cbboxGioitinh);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.cbboxKhoa);
             this.groupBox2.Controls.Add(this.txtCCCD);
             this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.txtQuocGia);
@@ -357,14 +334,13 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.Lớp);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox2.Location = new System.Drawing.Point(28, 29);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(507, 576);
+            this.groupBox2.Size = new System.Drawing.Size(507, 536);
             this.groupBox2.TabIndex = 48;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "THÔNG TIN CHI TIẾT";
@@ -393,7 +369,7 @@
             this.btnThem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnThem.Image = global::QLDT.Properties.Resources.icons8_add_link_301;
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(142, 487);
+            this.btnThem.Location = new System.Drawing.Point(142, 432);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(227, 65);
@@ -407,7 +383,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
-            this.ClientSize = new System.Drawing.Size(557, 636);
+            this.ClientSize = new System.Drawing.Size(557, 584);
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -429,7 +405,6 @@
         private System.Windows.Forms.ComboBox cbboxDanToc;
         private System.Windows.Forms.ComboBox cbboxGioitinh;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox cbboxKhoa;
         private System.Windows.Forms.TextBox txtCCCD;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtQuocGia;
@@ -445,7 +420,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label Lớp;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
         private TextBox txtMSGV;

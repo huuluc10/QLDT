@@ -19,141 +19,171 @@ namespace QLDT
         }
         public Boolean click = false;
 
+        private void LoadKhoa()
+        {
+            DataTable data = new DataTable();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DANHSACHKHOA";
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(data);
+                con.Close();
+            }
+            dataGridView1.DataSource = data;
+            click = true;
+        }
+
         private void btLoadkhoa_Click(object sender, EventArgs e)
         {
-            //KhoaDT k = new KhoaDT();
-            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //dataGridView1.DataSource = k.Loadkhoa().Tables[0];
-            //click = true;
+            LoadKhoa();
         }
 
         private void btThemkhoa_Click(object sender, EventArgs e)
         {
             var f = new FrmAddKhoa();
             f.Show();
-            //if(txtTenkhoa.Text != "")
-            //{
-            //    //KhoaDT k = new KhoaDT();
-            //    //k.Them(txtTenkhoa.Text,txtSoTien.Text);
-            //    //MessageBox.Show("Thêm thành Công");
-            //    //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //    //dataGridView1.DataSource = k.Loadkhoa();
-            //    //txtTenkhoa.Clear();
-            //    //txtTenkhoa.Clear();
-            //    //txtSoTien2.Clear();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Tên Khoa không thể bỏ trống");
-            //}
+            LoadKhoa();
+        }
+
+        private void SuaKhoa(String maKhoa, String tenTruongKhoa, String diaChi, String website)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SUAKHOA";
+                cmd.Parameters.Add(new SqlParameter("@MAKHOA", maKhoa));
+                cmd.Parameters.Add(new SqlParameter("@TENTRUONGKHOA", tenTruongKhoa));
+                cmd.Parameters.Add(new SqlParameter("@DIACHI", diaChi));
+                cmd.Parameters.Add(new SqlParameter("@WEBSITE", website));
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
         }
 
         private void btsuakhoa_Click(object sender, EventArgs e)
         {
-            //if (txtMakhoa1.Text != "")
-            //{
-            //    DialogResult thongbao;
-            //    thongbao = MessageBox.Show("Xác Nhận Chỉnh Sửa?", "Edit Liền Là Edit Liền", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            //    if (thongbao == DialogResult.OK)
-            //    {
-            //        //KhoaDT k = new KhoaDT();
-            //        //k.update(txtMakhoa1.Text, txtTenkhoa1.Text,txtSoTien2.Text);
-            //        //MessageBox.Show("Sửa thành công");
-            //        //txtMakhoa1.Clear();
-            //        //txtTenkhoa1.Clear();
-            //        //txtSoTien2.Clear();
-            //        //dataGridView1.DataSource = k.Loadkhoa().Tables[0];
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Vui lòng chọn đối tượng");
-            //}
+            if (cbbTK.SelectedItem.ToString() != "" && txtDiaChi.Text != "" && txtWeb.Text != "")
+            {
+                DialogResult thongbao;
+                thongbao = MessageBox.Show("Xác Nhận Chỉnh Sửa?", "Chỉnh sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (thongbao == DialogResult.OK)
+                {
+                    SuaKhoa(dataGridView1.CurrentRow.Cells[0].Value.ToString(), cbbTK.SelectedItem.ToString(), txtDiaChi.Text, txtWeb.Text);
+                    LoadKhoa();
+                }
+                cbbTK.Items.Clear();
+                txtDiaChi.Clear();
+                txtWeb.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin");
+            }
+        }
+
+        private void XoaKhoa(String maKhoa)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "XOAKHOA";
+                cmd.Parameters.Add(new SqlParameter("@MAKHOA", maKhoa));
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
         }
 
         private void btXoakhoa_Click(object sender, EventArgs e)
         {
-            //if (txtMakhoa1.Text != "")
-            //{
-            //    //DialogResult thongbao;
-            //    //thongbao = MessageBox.Show("Delete Khoa", "Bạn thực sự Muốn Xóa Khoa này ?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            //    //if (thongbao == DialogResult.OK)
-            //    //{
-            //    //    KhoaDT k = new KhoaDT();
-            //    //    if (k.check(int.Parse(txtMakhoa1.Text)) == false)
-            //    //    {
-            //    //        k.delete(txtMakhoa1.Text);
-            //    //        MessageBox.Show("Xóa thành công");
-            //    //        dataGridView1.DataSource = k.Loadkhoa().Tables[0];
-            //    //        txtMakhoa1.Clear();
-            //    //        txtTenkhoa1.Clear();
-            //    //        txtSoTien2.Clear();
-            //    //    }
-            //    //    else
-            //    //    {
-            //    //        MessageBox.Show("Tồn Tại Lớp Học Thuộc Khoa Này");
-            //    //    }
-            //    //}
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Vui lòng chọn đối tượng");
-            //}
+            DialogResult thongbao;
+            thongbao = MessageBox.Show("Delete Khoa", "Bạn thực sự Muốn Xóa Khoa này ?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (thongbao == DialogResult.OK)
+            {
+                XoaKhoa(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                LoadKhoa();
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if(click == true)
-            //{
-            //    if (dataGridView1.Rows.Count == 0)
-            //    {
+            if (click == true)
+            {
+                if (dataGridView1.Rows.Count == 0)
+                {
 
-            //    }
-            //    else
-            //    {
-            //        txtMakhoa1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            //        txtTenkhoa1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            //        txtSoTien2.Text= dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            //    }
-            //}
+                }
+                else
+                {
+                    cbbTK.Items.Clear();
+                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        con.Open();
+                        string query = String.Format("SELECT DISTINCT HOTEN FROM GIAOVIEN WHERE MAKHOA = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' ORDER BY HOTEN");
+                        SqlCommand cmd = new SqlCommand(query, con);
+                        using (SqlDataReader saReader = cmd.ExecuteReader())
+                        {
+                            while (saReader.Read())
+                            {
+                                string lop = saReader.GetString(0);
+                                cbbTK.Items.Add(lop);
+                            }
+                        }
+                    }
+                    cbbTK.SelectedItem = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                    txtDiaChi.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                    txtWeb.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                }
+            }
         }
 
         private void Khoa_Load(object sender, EventArgs e)
         {
-            //dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            //KhoaDT khoa = new KhoaDT();
-            //DataSet ds1 = new DataSet();
-            //ds1 = khoa.Loadkhoa();
-            //cbboxKhoa.DataSource = ds1.Tables[0];
-            //cbboxKhoa.DisplayMember = "Tenkhoa";
-            //cbboxKhoa.ValueMember = "Makhoa";
-
-            //DataSet ds2 = new DataSet();
-            //ds2 = khoa.Loadkhoa();
-            //cbboxChonKhoaCapNhat.DataSource = ds2.Tables[0];
-            //cbboxChonKhoaCapNhat.DisplayMember = "Tenkhoa";
-            //cbboxChonKhoaCapNhat.ValueMember = "Makhoa";
-
-        }
-
-        private void txtSoTien_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
             {
-                e.Handled = true;
+                con.Open();
+
+                string queryKhoa = "SELECT DISTINCT TENKHOA FROM KHOA ORDER BY TENKHOA";
+                SqlCommand cmd = new SqlCommand(queryKhoa, con);
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string khoa = saReader.GetString(0);
+                        cbboxKhoa.Items.Add(khoa);
+                    }
+                }
+
+                string queryLop = String.Format("SELECT DISTINCT MAKHOA, TENKHOA FROM KHOA ORDER BY TENKHOA");
+                cmd = new SqlCommand(queryLop, con);
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string lop = saReader.GetString(0);
+                        cbboxChonKhoaCapNhat.Items.Add(lop);
+                    }
+                }
+
+                con.Close();
             }
+            LoadKhoa();
+            LoadChuyenNganh();
         }
 
-        private void txtSoTien2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void themchuyennganh(String machuyennganh,String tenchuyennganh,String makhoa)
+        private void ThemChuyenNganh(String machuyennganh,String tenchuyennganh,String makhoa)
         {
             using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
             {
@@ -162,14 +192,14 @@ namespace QLDT
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "TAOCHUYENNGANH";
-                cmd.Parameters.Add(new SqlParameter("@machuyennganh", machuyennganh));
-                cmd.Parameters.Add(new SqlParameter("@tenchuyennganh", tenchuyennganh));
-                cmd.Parameters.Add(new SqlParameter("@makhoa", makhoa));
+                cmd.Parameters.Add(new SqlParameter("@MACHUYENNGANH", machuyennganh));
+                cmd.Parameters.Add(new SqlParameter("@TENCHUYENNGANH", tenchuyennganh));
+                cmd.Parameters.Add(new SqlParameter("@MAKHOA", makhoa));
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
         }
-        private void xoachuyennganh(String machuyennganh)
+        private void XoaChuyenNganh(String machuyennganh)
         {
             using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
             {
@@ -178,13 +208,13 @@ namespace QLDT
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "XOACHUYENNGANH";
-                cmd.Parameters.Add(new SqlParameter("@machuyennganh", machuyennganh));
+                cmd.Parameters.Add(new SqlParameter("@MACHUYENNGANH", machuyennganh));
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
         }
 
-        private void suachuyennganh(String machuyennganh, String tenchuyennganh, String makhoa)
+        private void SuaChuyenNganh(String machuyennganh, String tenchuyennganh, String makhoa)
         {
             using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
             {
@@ -193,9 +223,9 @@ namespace QLDT
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "SUACHUYENNGANH";
-                cmd.Parameters.Add(new SqlParameter("@machuyennganh", machuyennganh));
-                cmd.Parameters.Add(new SqlParameter("@tenchuyennganh", tenchuyennganh));
-                cmd.Parameters.Add(new SqlParameter("@makhoa", makhoa));
+                cmd.Parameters.Add(new SqlParameter("@MACHUYENNGANH", machuyennganh));
+                cmd.Parameters.Add(new SqlParameter("@TENCHUYENNGANH", tenchuyennganh));
+                cmd.Parameters.Add(new SqlParameter("@MAKHOA", makhoa));
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -203,7 +233,7 @@ namespace QLDT
 
 
 
-        private DataTable LoadChuyenNganh()
+        private void LoadChuyenNganh()
         {
             DataTable data = new DataTable();
             using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
@@ -217,7 +247,7 @@ namespace QLDT
                 adapter.Fill(data);
                 con.Close();
             }
-            return data;
+            dataGridView2.DataSource = data;
         }
 
         private DataTable LoadChuyenNganhTheoKhoa(String makhoa)
@@ -244,7 +274,7 @@ namespace QLDT
             {
                 try
                 {
-                    themchuyennganh(txtMaChuyenNganh.Text, txtTenChuyenNganh.Text, cbboxKhoa.SelectedValue.ToString());
+                    ThemChuyenNganh(txtMaChuyenNganh.Text, txtTenChuyenNganh.Text, cbboxKhoa.SelectedValue.ToString());
                     MessageBox.Show("Thêm Thành Công");
                 }
                 catch(Exception ex)
@@ -260,32 +290,19 @@ namespace QLDT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView2.DataSource = LoadChuyenNganh();
+            LoadChuyenNganh();
         }
 
         private void btnCapNhatCNTheoKhoa_Click(object sender, EventArgs e)
         {
-            dataGridView2.DataSource= LoadChuyenNganhTheoKhoa(cbboxChonKhoaCapNhat.SelectedValue.ToString());
+            dataGridView2.DataSource = LoadChuyenNganhTheoKhoa(cbboxChonKhoaCapNhat.SelectedItem.ToString());
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             if (txtMaChuyenNganh.Text != "")
             {
-                suachuyennganh(txtMaChuyenNganh.Text, txtTenChuyenNganh.Text, cbboxKhoa.SelectedValue.ToString());
-                MessageBox.Show("Done :)");
-            }
-            else
-            {
-                MessageBox.Show("Chọn đối tượng");
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (txtMaChuyenNganh.Text != "")
-            {
-                xoachuyennganh(txtMaChuyenNganh.Text);
+                SuaChuyenNganh(txtMaChuyenNganh.Text, txtTenChuyenNganh.Text, cbboxKhoa.SelectedValue.ToString());
                 MessageBox.Show("Done :)");
             }
             else
@@ -320,8 +337,22 @@ namespace QLDT
 
         private void simpleButton1_Click_1(object sender, EventArgs e)
         {
+            cbboxKhoa.Items.Clear();
             txtMaChuyenNganh.Clear();
             txtTenChuyenNganh.Clear();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (txtMaChuyenNganh.Text != "")
+            {
+                XoaChuyenNganh(txtMaChuyenNganh.Text);
+                MessageBox.Show("Done :)");
+            }
+            else
+            {
+                MessageBox.Show("Chọn đối tượng");
+            }
         }
     }
 }
