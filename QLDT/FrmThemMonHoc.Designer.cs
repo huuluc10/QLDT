@@ -36,20 +36,20 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txbMaMH = new System.Windows.Forms.TextBox();
             this.txbTenMH = new System.Windows.Forms.TextBox();
-            this.txbKhoa = new System.Windows.Forms.TextBox();
-            this.txbCN = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownSoTC1 = new System.Windows.Forms.NumericUpDown();
             this.numericChartRangeControlClient1 = new DevExpress.XtraEditors.NumericChartRangeControlClient();
             this.txbDonGia = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.txbCK = new System.Windows.Forms.TextBox();
+            this.txbGK = new System.Windows.Forms.TextBox();
             this.txbChuyenCan = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.cbboxKhoa = new System.Windows.Forms.ComboBox();
+            this.cbboxCN = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSoTC1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericChartRangeControlClient1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -134,37 +134,23 @@
             this.txbTenMH.Size = new System.Drawing.Size(276, 27);
             this.txbTenMH.TabIndex = 7;
             // 
-            // txbKhoa
+            // numericUpDownSoTC1
             // 
-            this.txbKhoa.Location = new System.Drawing.Point(183, 130);
-            this.txbKhoa.Name = "txbKhoa";
-            this.txbKhoa.Size = new System.Drawing.Size(276, 27);
-            this.txbKhoa.TabIndex = 8;
-            // 
-            // txbCN
-            // 
-            this.txbCN.Location = new System.Drawing.Point(183, 176);
-            this.txbCN.Name = "txbCN";
-            this.txbCN.Size = new System.Drawing.Size(276, 27);
-            this.txbCN.TabIndex = 9;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(183, 225);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numericUpDownSoTC1.Location = new System.Drawing.Point(183, 225);
+            this.numericUpDownSoTC1.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.numericUpDownSoTC1.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(60, 27);
-            this.numericUpDown1.TabIndex = 10;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numericUpDownSoTC1.Name = "numericUpDownSoTC1";
+            this.numericUpDownSoTC1.Size = new System.Drawing.Size(60, 27);
+            this.numericUpDownSoTC1.TabIndex = 10;
+            this.numericUpDownSoTC1.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -179,8 +165,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txbCK);
+            this.groupBox1.Controls.Add(this.txbGK);
             this.groupBox1.Controls.Add(this.txbChuyenCan);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
@@ -194,27 +180,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Trọng Số Điểm Môn";
             // 
-            // label7
+            // txbCK
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(22, 38);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 16);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Chuyên Cần";
+            this.txbCK.Location = new System.Drawing.Point(151, 147);
+            this.txbCK.Name = "txbCK";
+            this.txbCK.Size = new System.Drawing.Size(158, 22);
+            this.txbCK.TabIndex = 17;
             // 
-            // label8
+            // txbGK
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(22, 93);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(60, 16);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Giữa Kỳ";
+            this.txbGK.Location = new System.Drawing.Point(151, 90);
+            this.txbGK.Name = "txbGK";
+            this.txbGK.Size = new System.Drawing.Size(158, 22);
+            this.txbGK.TabIndex = 16;
+            // 
+            // txbChuyenCan
+            // 
+            this.txbChuyenCan.Location = new System.Drawing.Point(151, 32);
+            this.txbChuyenCan.Name = "txbChuyenCan";
+            this.txbChuyenCan.Size = new System.Drawing.Size(158, 22);
+            this.txbChuyenCan.TabIndex = 13;
             // 
             // label9
             // 
@@ -227,26 +212,27 @@
             this.label9.TabIndex = 15;
             this.label9.Text = "Thi Kết Thúc";
             // 
-            // txbChuyenCan
+            // label8
             // 
-            this.txbChuyenCan.Location = new System.Drawing.Point(151, 32);
-            this.txbChuyenCan.Name = "txbChuyenCan";
-            this.txbChuyenCan.Size = new System.Drawing.Size(158, 22);
-            this.txbChuyenCan.TabIndex = 13;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(22, 93);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 16);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Giữa Kỳ";
             // 
-            // textBox1
+            // label7
             // 
-            this.textBox1.Location = new System.Drawing.Point(151, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 22);
-            this.textBox1.TabIndex = 16;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(151, 147);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(158, 22);
-            this.textBox2.TabIndex = 17;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(22, 38);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 16);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Chuyên Cần";
             // 
             // btnThem
             // 
@@ -262,19 +248,37 @@
             this.btnThem.TabIndex = 13;
             this.btnThem.Text = "THÊM";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // ThemMonHoc
+            // cbboxKhoa
+            // 
+            this.cbboxKhoa.FormattingEnabled = true;
+            this.cbboxKhoa.Location = new System.Drawing.Point(183, 130);
+            this.cbboxKhoa.Name = "cbboxKhoa";
+            this.cbboxKhoa.Size = new System.Drawing.Size(276, 28);
+            this.cbboxKhoa.TabIndex = 14;
+            this.cbboxKhoa.SelectedValueChanged += new System.EventHandler(this.cbboxKhoa_SelectedValueChanged);
+            // 
+            // cbboxCN
+            // 
+            this.cbboxCN.FormattingEnabled = true;
+            this.cbboxCN.Location = new System.Drawing.Point(183, 181);
+            this.cbboxCN.Name = "cbboxCN";
+            this.cbboxCN.Size = new System.Drawing.Size(276, 28);
+            this.cbboxCN.TabIndex = 15;
+            // 
+            // FrmThemMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.ClientSize = new System.Drawing.Size(880, 364);
+            this.Controls.Add(this.cbboxCN);
+            this.Controls.Add(this.cbboxKhoa);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txbDonGia);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.txbCN);
-            this.Controls.Add(this.txbKhoa);
+            this.Controls.Add(this.numericUpDownSoTC1);
             this.Controls.Add(this.txbTenMH);
             this.Controls.Add(this.txbMaMH);
             this.Controls.Add(this.label6);
@@ -284,9 +288,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "ThemMonHoc";
+            this.Name = "FrmThemMonHoc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "THÊM MÔN HỌC";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmThemMonHoc_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSoTC1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericChartRangeControlClient1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -305,18 +311,18 @@
         private Label label6;
         private TextBox txbMaMH;
         private TextBox txbTenMH;
-        private TextBox txbKhoa;
-        private TextBox txbCN;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown numericUpDownSoTC1;
         private DevExpress.XtraEditors.NumericChartRangeControlClient numericChartRangeControlClient1;
         private TextBox txbDonGia;
         private GroupBox groupBox1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txbCK;
+        private TextBox txbGK;
         private TextBox txbChuyenCan;
         private Label label9;
         private Label label8;
         private Label label7;
         private Button btnThem;
+        private ComboBox cbboxKhoa;
+        private ComboBox cbboxCN;
     }
 }

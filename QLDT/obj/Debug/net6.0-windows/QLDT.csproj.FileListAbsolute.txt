@@ -38,19 +38,16 @@ D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmMonHoc.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmHoSoSinhVien.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmNhapDiemRL.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmQLDiem.resources
-D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmQLGiangVien.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmQLTaiKhoan.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmSinhVienDangKyHoc.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmSuaDiemRL.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmTaoLopDangKyHoc.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmTBTL.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmThemSV.resources
-D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmThongKe.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmXemDiem.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmXemDiemRL.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmXetHocBong.resources
 D:\code\QLDT\QLDT\bin\Debug\net6.0-windows\Microsoft.Office.Interop.Excel.dll
-D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmLoad.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmHoSoGiaoVien.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmThemGV.resources
 D:\code\QLDT\QLDT\bin\Debug\net6.0-windows\DevExpress.Data.Desktop.v22.1.dll
@@ -140,6 +137,6 @@ D:\code\QLDT\QLDT\bin\Debug\net6.0-windows\Microsoft.Vbe.Interop.dll
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.XtraUserControl1.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmThemMonHoc.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmHanhDong.resources
-D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmSinhVienDaDKMon.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmGiangVienNhapDiemMonHoc.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmHocPhi.resources
+D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmLoad.resources

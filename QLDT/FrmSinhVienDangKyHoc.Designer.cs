@@ -40,13 +40,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThoiGian = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaDiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GVGD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HOCKY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SiSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DaDangKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -56,21 +55,19 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Malop2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoTCG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HocPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.Tong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongSoTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongHocPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Malop2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HocPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -99,13 +96,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaLop,
-            this.TenLop,
             this.MonHoc,
-            this.ThoiGian,
-            this.DiaDiem,
+            this.GVGD,
+            this.SoTC,
+            this.HOCKY,
             this.SiSo,
-            this.DaDangKy,
-            this.SoTC});
+            this.DaDangKy});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -128,50 +124,50 @@
             // MaLop
             // 
             this.MaLop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaLop.DataPropertyName = "MaLopHP";
+            this.MaLop.DataPropertyName = "MAKHOAHOC";
             this.MaLop.HeaderText = "Mã Lớp";
             this.MaLop.MinimumWidth = 6;
             this.MaLop.Name = "MaLop";
             this.MaLop.Width = 81;
             // 
-            // TenLop
-            // 
-            this.TenLop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.TenLop.DataPropertyName = "TenLopHp";
-            this.TenLop.HeaderText = "Tên Lớp";
-            this.TenLop.MinimumWidth = 6;
-            this.TenLop.Name = "TenLop";
-            this.TenLop.Width = 86;
-            // 
             // MonHoc
             // 
-            this.MonHoc.DataPropertyName = "TenMonHoc";
+            this.MonHoc.DataPropertyName = "TENMONHOC";
             this.MonHoc.HeaderText = "Môn Học";
             this.MonHoc.MinimumWidth = 6;
             this.MonHoc.Name = "MonHoc";
             // 
-            // ThoiGian
+            // GVGD
             // 
-            this.ThoiGian.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ThoiGian.DataPropertyName = "ThoiGian";
-            this.ThoiGian.FillWeight = 200F;
-            this.ThoiGian.HeaderText = "Thời Gian";
-            this.ThoiGian.MinimumWidth = 6;
-            this.ThoiGian.Name = "ThoiGian";
+            this.GVGD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.GVGD.DataPropertyName = "HOTEN";
+            this.GVGD.FillWeight = 200F;
+            this.GVGD.HeaderText = "GVGD";
+            this.GVGD.MinimumWidth = 6;
+            this.GVGD.Name = "GVGD";
             // 
-            // DiaDiem
+            // SoTC
             // 
-            this.DiaDiem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.DiaDiem.DataPropertyName = "DiaDiem";
-            this.DiaDiem.HeaderText = "Địa Điểm";
-            this.DiaDiem.MinimumWidth = 6;
-            this.DiaDiem.Name = "DiaDiem";
-            this.DiaDiem.Width = 90;
+            this.SoTC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SoTC.DataPropertyName = "SOTC";
+            this.SoTC.HeaderText = "Số TC";
+            this.SoTC.MinimumWidth = 6;
+            this.SoTC.Name = "SoTC";
+            this.SoTC.Width = 74;
+            // 
+            // HOCKY
+            // 
+            this.HOCKY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.HOCKY.DataPropertyName = "HOCKY";
+            this.HOCKY.HeaderText = "HOCKY";
+            this.HOCKY.MinimumWidth = 6;
+            this.HOCKY.Name = "HOCKY";
+            this.HOCKY.Width = 82;
             // 
             // SiSo
             // 
             this.SiSo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SiSo.DataPropertyName = "SiSo";
+            this.SiSo.DataPropertyName = "NAM";
             this.SiSo.HeaderText = "Sĩ Số";
             this.SiSo.MinimumWidth = 6;
             this.SiSo.Name = "SiSo";
@@ -185,15 +181,6 @@
             this.DaDangKy.MinimumWidth = 6;
             this.DaDangKy.Name = "DaDangKy";
             this.DaDangKy.Width = 106;
-            // 
-            // SoTC
-            // 
-            this.SoTC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SoTC.DataPropertyName = "SoTC";
-            this.SoTC.HeaderText = "Số TC";
-            this.SoTC.MinimumWidth = 6;
-            this.SoTC.Name = "SoTC";
-            this.SoTC.Width = 74;
             // 
             // label10
             // 
@@ -238,9 +225,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(17, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 20);
+            this.label2.Size = new System.Drawing.Size(132, 20);
             this.label2.TabIndex = 66;
-            this.label2.Text = "CHỌN HỌC PHẦN :";
+            this.label2.Text = "CHỌN MÔN HỌC :";
             // 
             // cbboxMonHoc
             // 
@@ -317,13 +304,11 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Malop2,
-            this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.SoTCG,
+            this.dataGridViewTextBoxColumn1,
+            this.NAM,
             this.HocPhi});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
@@ -343,85 +328,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(1194, 366);
             this.dataGridView2.TabIndex = 71;
             this.dataGridView2.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView2_DataBindingComplete);
-            // 
-            // Malop2
-            // 
-            this.Malop2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Malop2.DataPropertyName = "MaLopHP";
-            this.Malop2.HeaderText = "Mã Lớp";
-            this.Malop2.MinimumWidth = 6;
-            this.Malop2.Name = "Malop2";
-            this.Malop2.Width = 81;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "TenLopHp";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Tên Lớp";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 86;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TenMonHoc";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Môn Học";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "ThoiGian";
-            this.dataGridViewTextBoxColumn4.FillWeight = 200F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Thời Gian";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "DiaDiem";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Địa Điểm";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "SiSo";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Sĩ Số";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "DaDangKy";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Đã Đăng Ký";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 106;
-            // 
-            // SoTCG
-            // 
-            this.SoTCG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SoTCG.DataPropertyName = "SoTC";
-            this.SoTCG.HeaderText = "Số TC";
-            this.SoTCG.MinimumWidth = 6;
-            this.SoTCG.Name = "SoTCG";
-            this.SoTCG.Width = 74;
-            // 
-            // HocPhi
-            // 
-            this.HocPhi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.HocPhi.DataPropertyName = "HocPhi";
-            this.HocPhi.HeaderText = "Học Phí";
-            this.HocPhi.MinimumWidth = 6;
-            this.HocPhi.Name = "HocPhi";
-            this.HocPhi.Width = 83;
             // 
             // pictureBox2
             // 
@@ -529,6 +435,63 @@
             this.TongHocPhi.ReadOnly = true;
             this.TongHocPhi.Width = 102;
             // 
+            // Malop2
+            // 
+            this.Malop2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Malop2.DataPropertyName = "MAKHOAHOC";
+            this.Malop2.HeaderText = "Mã Lớp";
+            this.Malop2.MinimumWidth = 6;
+            this.Malop2.Name = "Malop2";
+            this.Malop2.Width = 81;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "TENMONHOC";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Môn Học";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "HOTEN";
+            this.dataGridViewTextBoxColumn4.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "GVCV";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "SOTC";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Số TC";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 74;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "HOCKY";
+            this.dataGridViewTextBoxColumn1.HeaderText = "HOCKY";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // NAM
+            // 
+            this.NAM.DataPropertyName = "NAM";
+            this.NAM.HeaderText = "NAM";
+            this.NAM.MinimumWidth = 6;
+            this.NAM.Name = "NAM";
+            // 
+            // HocPhi
+            // 
+            this.HocPhi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.HocPhi.DataPropertyName = "HOCPHI";
+            this.HocPhi.HeaderText = "Học Phí";
+            this.HocPhi.MinimumWidth = 6;
+            this.HocPhi.Name = "HocPhi";
+            this.HocPhi.Width = 83;
+            // 
             // FrmSinhVienDangKyHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -572,14 +535,6 @@
         private System.Windows.Forms.ComboBox cbboxMonHoc;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaLop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenLop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MonHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ThoiGian;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiaDiem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SiSo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DaDangKy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoTC;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -588,14 +543,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Tong;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongSoTC;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongHocPhi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Malop2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoTCG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HocPhi;
+        private DataGridViewTextBoxColumn MaLop;
+        private DataGridViewTextBoxColumn MonHoc;
+        private DataGridViewTextBoxColumn GVGD;
+        private DataGridViewTextBoxColumn SoTC;
+        private DataGridViewTextBoxColumn HOCKY;
+        private DataGridViewTextBoxColumn SiSo;
+        private DataGridViewTextBoxColumn DaDangKy;
+        private DataGridViewTextBoxColumn Malop2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn NAM;
+        private DataGridViewTextBoxColumn HocPhi;
     }
 }

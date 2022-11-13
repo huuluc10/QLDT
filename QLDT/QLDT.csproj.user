@@ -37,9 +37,6 @@
     <Compile Update="FrmQLDiem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmQLGiangVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FrmQLTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -47,9 +44,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmKhoa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="FrmSinhVienDaDKMon.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmSinhVienDangKyHoc.cs">
@@ -77,9 +71,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmXetHocBong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="FrmThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmHoSoSinhVien.cs">

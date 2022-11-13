@@ -48,7 +48,6 @@ namespace QLDT
             btnDiemRenLuyen.Enabled = true;
             btnDanhSachLop.Enabled = true;
             btnDanhSachKhoa.Enabled = true;
-            btnThongKe.Enabled = true;
             btnQLMonHoc.Enabled = true;
             btnQLTaiKhoan.Enabled = true;
             btnHanhDong.Enabled = true;
@@ -66,7 +65,6 @@ namespace QLDT
             btnDiemRenLuyen.Enabled = false;
             btnDanhSachLop.Enabled = false;
             btnDanhSachKhoa.Enabled = false;
-            btnThongKe.Enabled = false;
             btnQLMonHoc.Enabled = false;
             btnQLTaiKhoan.Enabled = false;
             btnHanhDong.Enabled = false;
@@ -406,10 +404,6 @@ namespace QLDT
             OpenChildForm(new QLDT.FrmXetHocBong(), sender);
         }
 
-        private void btnThongKe_Click_1(object sender, EventArgs e)
-        {
-            OpenChildForm(new QLDT.FrmThongKe(), sender);
-        }
 
         private void btnHoSoGiaoVien_Click(object sender, EventArgs e)
         {

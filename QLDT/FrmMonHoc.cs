@@ -21,7 +21,7 @@ namespace QLDT
         //KhoaDT b = new KhoaDT();
         static Boolean click = false;
 
-        private DataTable LoadMonHocTheoKhoaNganh(String machuyennganh,String chuyennganhchung)
+        private DataTable LoadMonHocTheoKhoaNganh(String tenKhoa,String tenChuyenNganh)
         {
             DataTable data = new DataTable();
             using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
@@ -30,9 +30,9 @@ namespace QLDT
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "MACHUYENNGANHCHUNGTHEOKHOA";
-                cmd.Parameters.Add(new SqlParameter("@TENKHOA", machuyennganh));
-                cmd.Parameters.Add(new SqlParameter("@TENCHUYENNGANH", chuyennganhchung));
+                cmd.CommandText = "MONTHEOKHOANGANH";
+                cmd.Parameters.Add(new SqlParameter("@TENKHOA", tenKhoa));
+                cmd.Parameters.Add(new SqlParameter("@TENCHUYENNGANH", tenChuyenNganh));
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(data);
                 con.Close();
@@ -57,28 +57,6 @@ namespace QLDT
             return data;
         }
 
-        private String MaChuyenNganhChung(String makhoa)
-        {
-            String kq = null;
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "MACHUYENNGANHCHUNGTHEOKHOA";
-                cmd.Parameters.Add(new SqlParameter("@TENKHOA", cbboxchonkhoa.SelectedItem.ToString()));
-                cmd.Parameters.Add(new SqlParameter("@TENCHUYENNGANH", cbboxLoadChuyenNganh.SelectedItem.ToString()));
-                object result = cmd.ExecuteScalar();
-                con.Close();
-                if(result!=null)
-                {
-                    kq = result.ToString();
-                }
-            }
-            return kq;
-        }
-
         private void btLoadMH_Click(object sender, EventArgs e)
         {
             if (radioButtonTatCa.Checked)
@@ -95,25 +73,29 @@ namespace QLDT
             }
             else if(radioButtonTheoKhoa.Checked)
             {
-                if (cbboxLoadChuyenNganh.Text != "")
+                if (cbboxchonkhoa.Text != "")
                 {
-                    if(MaChuyenNganhChung(cbboxchonkhoa.SelectedItem.ToString())==null)
+                    if(cbboxLoadChuyenNganh.SelectedItem.ToString()!="")
                     {
-                        MessageBox.Show("Cảnh báo. Ko Tìm Thấy Những Môn Học Chung Của Khoa :"+cbboxchonkhoa.Text);
-                    }
-                    dataGridView1.DataSource = LoadMonHocTheoKhoaNganh(cbboxLoadChuyenNganh.SelectedItem.ToString(), cbboxchonkhoa.SelectedItem.ToString());
-                    if(dataGridView1.Rows.Count==0)
-                    {
-                        MessageBox.Show("Empty");
+                        dataGridView1.DataSource = LoadMonHocTheoKhoaNganh(cbboxchonkhoa.SelectedItem.ToString(), cbboxLoadChuyenNganh.SelectedItem.ToString());
+                        if (dataGridView1.Rows.Count == 0)
+                        {
+                            MessageBox.Show("Empty");
+                        }
+                        else
+                        {
+                            click = true;
+                        }
+                        
                     }
                     else
                     {
-                        click = true;
+                        MessageBox.Show("Chưa chọn chuyên ngành");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Empty CHUYÊN CẦN");
+                    MessageBox.Show("Chưa chọn khoa");
                 }
             }
             else
@@ -126,40 +108,6 @@ namespace QLDT
         {
             Form frm = new FrmThemMonHoc();
             frm.Show();
-            //if(txtMaMonHocThemMoi.Text=="")
-            //{
-            //    MessageBox.Show("Bạn Chưa nhập Mã MH");
-            //}
-            //else
-            //{
-            //    if(a.checkTrungMMH(txtMaMonHocThemMoi.Text)==true)
-            //    {
-            //        if (radioMonHocTheoKhoa.Checked)
-            //        {
-            //            a.AddMonHoc(txtMaMonHocThemMoi.Text, txtTenMH.Text, numericUpSoTC.Value.ToString(), numericUpDownHocKyThu.Value.ToString(), cbboxChuyenNganh.SelectedValue.ToString());
-            //            txtMaMonHocThemMoi.Clear();
-            //            txtTenMH.Clear();
-            //            numericUpSoTC.Value = 1;
-            //            numericUpDownHocKyThu.Value = 1;
-            //            MessageBox.Show("Thêm Thành Công");
-            //            click = true;
-            //        }
-            //        else
-            //        {
-            //            a.AddMonHocChung(txtMaMonHocThemMoi.Text, txtTenMH.Text, numericUpSoTC.Value.ToString(), numericUpDownHocKyThu.Value.ToString());
-            //            txtMaMonHocThemMoi.Clear();
-            //            txtTenMH.Clear();
-            //            numericUpSoTC.Value = 1;
-            //            numericUpDownHocKyThu.Value = 1;
-            //            MessageBox.Show("Thêm Thành Công");
-            //            click = true;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Trùng MMH");
-            //    }
-            //}
         }
 
         private void FrmMonHoc_Load(object sender, EventArgs e)
@@ -184,98 +132,92 @@ namespace QLDT
 
         private void btXoaMH_Click(object sender, EventArgs e)
         {
-            //if(txtMaMH1.Text=="")
-            //{
-            //    MessageBox.Show("Hãy Chọn 1 môn học nào đó");
-            //}
-            //else
-            //{
-            //    try
-            //    {
-            //        a.deleteMH(txtMaMH1.Text);
-            //        txtMaMH1.Clear();
-            //        txtTenMH1.Clear();
-            //        numericUpDownSoTC1.Value = 1;
-            //        numericUpDownHocKyThu1.Value = 1;
-            //        MessageBox.Show("Done :)");
-            //        click = true;
-            //    }
-            //    catch(Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message);
-            //    }
-            //}
+            if (txtMaMH1.Text == "")
+            {
+                MessageBox.Show("Hãy Chọn 1 môn học nào đó");
+            }
+            else
+            {
+                try
+                {
+                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "XOAMON";
+                        cmd.Parameters.Add(new SqlParameter("@MAMONHOC", txtMaMH1.Text));
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    txtMaMH1.Clear();
+                    txtTenMH1.Clear();
+                    MessageBox.Show("Đã xóa môn");
+                    click = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void btsuaMH_Click(object sender, EventArgs e)
         {
-            //if (txtMaMH1.Text == "")
-            //{
-            //    MessageBox.Show("Hãy Chọn 1 môn học nào đó");
-            //}
-            //else
-            //{
-            //    if (radioMonHocTheoKhoa2.Checked)
-            //    {
-            //        a.updateMonHoc(txtMaMH1.Text, txtTenMH1.Text, numericUpDownSoTC1.Value.ToString(), numericUpDownHocKyThu1.Value.ToString(), cbboxChuyenNganh1.SelectedValue.ToString());
-            //        txtMaMH1.Clear();
-            //        txtTenMH1.Clear();
-            //        numericUpDownSoTC1.Value = 1;
-            //        numericUpDownHocKyThu1.Value = 1;
-            //        MessageBox.Show("Done :)");
-                    
-            //        click = true;
-            //    }
-            //    else
-            //    {
-            //        String c = null;
-            //        a.updateMonHoc(txtMaMH1.Text, txtTenMH1.Text, numericUpDownSoTC1.Value.ToString(), numericUpDownHocKyThu1.Value.ToString(), c);
-            //        txtMaMH1.Clear();
-            //        txtTenMH1.Clear();
-            //        numericUpDownSoTC1.Value = 1;
-            //        numericUpDownHocKyThu1.Value = 1;
-            //        MessageBox.Show("Done :)");
-            //        dataGridView1.DataSource = a.getTable("select MaMonHoc,TenMonHoc,SoTC,HocKy,TenChuyenNganh from MonHoc left join ChuyenNganh on MonHoc.MaCN=ChuyenNganh.MaChuyenNganh");
-            //        click = true;
-            //    }
-            //}
+            if (txtMaMH1.Text == "")
+            {
+                MessageBox.Show("Hãy Chọn 1 môn học nào đó");
+            }
+            else
+            {
+                using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "SUAMON";
+                    cmd.Parameters.Add(new SqlParameter("@MAMONHOC", txtMaMH1.Text));
+                    cmd.Parameters.Add(new SqlParameter("@SOTC", numericUpDownSoTC1.Value));
+                    cmd.Parameters.Add(new SqlParameter("@TSCHUYENCAN", (txtCC.Text).Replace(",",".")));
+                    cmd.Parameters.Add(new SqlParameter("@TSGIUAKY", (txtGK.Text).Replace(",", ".")));
+                    cmd.Parameters.Add(new SqlParameter("@TSCUOIKY", (txtCK.Text).Replace(",", ".")));
+                    cmd.Parameters.Add(new SqlParameter("@DONGIA", txbDonGia.Text));
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                MessageBox.Show("Sửa môn thành công");
+                btLoadMH_Click(null,null);
+                txtMaMH1.Clear();
+                txtTenMH1.Clear();
+                txtCC.Clear();
+                txtGK.Clear();
+                txtCK.Clear();
+                txbDonGia.Clear();
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if(click==true)
-            //{
-            //    if (dataGridView1.Rows.Count == 0)
-            //    {
+            if (click == true)
+            {
+                if (dataGridView1.Rows.Count == 0)
+                {
 
-            //    }
-            //    else
-            //    {
-            //        txtMaMH1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            //        txtTenMH1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            //        numericUpDownSoTC1.Value = int.Parse(dataGridView1.CurrentRow.Cells[2].Value.ToString());
-            //        numericUpDownHocKyThu1.Value = int.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
-            //        if (dataGridView1.CurrentRow.Cells[4].Value.ToString() == "")
-            //        {
-            //            radioMonHocChung2.Checked = true;
-            //        }
-            //        else
-            //        {
-            //            cbboxKhoa1.Enabled = true;
-            //            cbboxChuyenNganh1.Enabled = true;
-
-            //            DataTable dt2 = new DataTable();
-            //            dt2 = TatCaChuyenNganh();
-            //            cbboxChuyenNganh1.DataSource = dt2;
-            //            cbboxChuyenNganh1.DisplayMember = "TenChuyenNganh";
-            //            cbboxChuyenNganh1.ValueMember = "MaChuyenNganh";
-
-            //            cbboxChuyenNganh1.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            //            cbboxKhoa1.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            //            radioMonHocTheoKhoa2.Checked = true;
-            //        }
-            //    }
-            //}
+                }
+                else
+                {
+                    txtMaMH1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    txtTenMH1.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                    numericUpDownSoTC1.Value = int.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+                    txtCC.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                    txtGK.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                    txtCK.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+                    string dongia = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+                    txbDonGia.Text = dongia.Substring(0, dongia.Length-1);
+                }
+            }
         }
 
         private void radioButtonTheoKhoa_CheckedChanged(object sender, EventArgs e)
@@ -288,178 +230,6 @@ namespace QLDT
         {
             cbboxchonkhoa.Enabled = false;
             cbboxLoadChuyenNganh.Enabled = false;
-        }
-
-        private void radioMonHocTheoKhoa_CheckedChanged(object sender, EventArgs e)
-        {
-            //cbboxKhoa.Enabled = true;
-            //cbboxChuyenNganh.Enabled = true;
-        }
-
-        private void radioMonHocChung_CheckedChanged(object sender, EventArgs e)
-        {
-            //cbboxKhoa.Enabled = false;
-            //cbboxChuyenNganh.Enabled = false;
-        }
-
-        private void radioMonHocChung2_CheckedChanged(object sender, EventArgs e)
-        {
-            //cbboxKhoa1.Enabled = false;
-            //cbboxChuyenNganh1.Enabled = false;
-        }
-
-        private void radioMonHocTheoKhoa2_CheckedChanged(object sender, EventArgs e)
-        {
-            //cbboxKhoa1.Enabled = true;
-            //cbboxChuyenNganh1.Enabled = true;
-        }
-
-        private DataTable ChuyenNganhTheoKhoa(String makhoa)
-        {
-            DataTable data = new DataTable();
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DANHSACHCHUYENNGANH";
-                cmd.Parameters.Add(new SqlParameter("@makhoa", makhoa));
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(data);
-                con.Close();
-            }
-            return data;
-        }
-
-        private DataTable TatCaChuyenNganh()
-        {
-            DataTable data = new DataTable();
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DANHSACHCHUYENNGANHTATCA";
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(data);
-                con.Close();
-            }
-            return data;
-        }
-
-        private void cbboxKhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //String t;
-            //t = cbboxKhoa.SelectedValue.ToString();
-            //if (t == "System.Data.DataRowView")
-            //{
-
-            //}
-            //else
-            //{
-            //    DataTable dt2 = new DataTable();
-            //    dt2 = ChuyenNganhTheoKhoa(t);
-            //    if (dt2.Rows.Count == 0)
-            //    {
-            //        MessageBox.Show("Empty :(");
-            //        cbboxChuyenNganh.DataSource = null;
-            //    }
-            //    else
-            //    {
-            //        cbboxChuyenNganh.DataSource = dt2;
-            //        cbboxChuyenNganh.DisplayMember = "TenChuyenNganh";
-            //        cbboxChuyenNganh.ValueMember = "MaChuyenNganh";
-            //    }
-            //}
-        }
-
-        private void cbboxKhoa1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //String t;
-            //t = cbboxKhoa1.SelectedValue.ToString();
-            //if (t == "System.Data.DataRowView")
-            //{
-
-            //}
-            //else
-            //{
-            //    DataTable dt2 = new DataTable();
-            //    dt2 = ChuyenNganhTheoKhoa(t);
-            //    if (dt2.Rows.Count == 0)
-            //    {
-            //        MessageBox.Show("Empty :(");
-            //        cbboxChuyenNganh1.DataSource = null;
-            //    }
-            //    else
-            //    {
-            //        cbboxChuyenNganh1.DataSource = dt2;
-            //        cbboxChuyenNganh1.DisplayMember = "TenChuyenNganh";
-            //        cbboxChuyenNganh1.ValueMember = "MaChuyenNganh";
-            //    }
-            //}
-        }
-
-        private void cbboxchonkhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String t;
-            t = cbboxchonkhoa.SelectedValue.ToString();
-            if (t == "System.Data.DataRowView")
-            {
-
-            }
-            else
-            {
-                DataTable dt2 = new DataTable();
-                dt2 = ChuyenNganhTheoKhoa(t);
-                if (dt2.Rows.Count == 0)
-                {
-                    MessageBox.Show("Empty :(");
-                    cbboxLoadChuyenNganh.DataSource = null;
-                }
-                else
-                {
-                    cbboxLoadChuyenNganh.DataSource = dt2;
-                    cbboxLoadChuyenNganh.DisplayMember = "TenChuyenNganh";
-                    cbboxLoadChuyenNganh.ValueMember = "MaChuyenNganh";
-                }
-            }
-        }
-
-        private String makhoa(String machuyennganh)
-        {
-            String kq = null;
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "MAKHOA";
-                cmd.Parameters.Add(new SqlParameter("@machuyennganh", machuyennganh));
-                var result = cmd.ExecuteScalar();
-                con.Close();
-                if (result != null)
-                {
-                    kq = result.ToString();
-                }
-            }
-            return kq;
-        }
-
-        private void cbboxChuyenNganh1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //String t = cbboxChuyenNganh1.SelectedValue.ToString();
-            //if (t == "System.Data.DataRowView")
-            //{
-
-            //}
-            //else
-            //{
-            //    //KhoaDT a = new KhoaDT();
-            //    //cbboxKhoa1.Text =a.tenkhoa(makhoa(t));
-            //}
         }
 
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

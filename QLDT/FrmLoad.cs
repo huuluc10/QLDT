@@ -65,7 +65,7 @@ namespace QLDT
         {
             progressBar1.Value = (int)Number;
             percentageLabel.Text = "100%";
-            MessageBox.Show("Đã xuất File thành công");
+            MessageBox.Show("Done :)");
             this.Close();
         }
    

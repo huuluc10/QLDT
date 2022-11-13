@@ -80,7 +80,6 @@
             // progressBar1
             // 
             this.progressBar1.BackColor = System.Drawing.Color.Black;
-            this.progressBar1.ForeColor = System.Drawing.Color.Chartreuse;
             this.progressBar1.Location = new System.Drawing.Point(27, 40);
             this.progressBar1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.progressBar1.Name = "progressBar1";

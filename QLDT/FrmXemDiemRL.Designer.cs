@@ -32,21 +32,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Masodiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongDiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.XepLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cbboxChonkhoa = new System.Windows.Forms.ComboBox();
             this.cbboxChonlop = new System.Windows.Forms.ComboBox();
-            this.cbboxNamHoc = new System.Windows.Forms.ComboBox();
             this.radioButtonHK2 = new System.Windows.Forms.RadioButton();
             this.radioButtonHK1 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -80,11 +76,9 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Masodiem,
             this.MSV,
             this.Hoten,
             this.Lop,
-            this.NamHoc,
             this.HocKy,
             this.TongDiem,
             this.XepLoai});
@@ -116,16 +110,9 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
-            // Masodiem
-            // 
-            this.Masodiem.DataPropertyName = "Masodiem";
-            this.Masodiem.HeaderText = "Mã Số Điểm";
-            this.Masodiem.MinimumWidth = 6;
-            this.Masodiem.Name = "Masodiem";
-            // 
             // MSV
             // 
-            this.MSV.DataPropertyName = "MSV";
+            this.MSV.DataPropertyName = "MSSV";
             this.MSV.HeaderText = "Mã SV";
             this.MSV.MinimumWidth = 6;
             this.MSV.Name = "MSV";
@@ -133,42 +120,35 @@
             // Hoten
             // 
             this.Hoten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Hoten.DataPropertyName = "Hoten";
+            this.Hoten.DataPropertyName = "HOTEN";
             this.Hoten.HeaderText = "Họ Tên";
             this.Hoten.MinimumWidth = 6;
             this.Hoten.Name = "Hoten";
             // 
             // Lop
             // 
-            this.Lop.DataPropertyName = "Tenlop";
+            this.Lop.DataPropertyName = "MALOP";
             this.Lop.HeaderText = "Lớp";
             this.Lop.MinimumWidth = 6;
             this.Lop.Name = "Lop";
             // 
-            // NamHoc
-            // 
-            this.NamHoc.DataPropertyName = "Namhoc";
-            this.NamHoc.HeaderText = "Năm Học";
-            this.NamHoc.MinimumWidth = 6;
-            this.NamHoc.Name = "NamHoc";
-            // 
             // HocKy
             // 
-            this.HocKy.DataPropertyName = "Hocky";
+            this.HocKy.DataPropertyName = "HOCKY";
             this.HocKy.HeaderText = "Học Kỳ";
             this.HocKy.MinimumWidth = 6;
             this.HocKy.Name = "HocKy";
             // 
             // TongDiem
             // 
-            this.TongDiem.DataPropertyName = "Tongdiem";
+            this.TongDiem.DataPropertyName = "DIEM";
             this.TongDiem.HeaderText = "Tổng Điểm";
             this.TongDiem.MinimumWidth = 6;
             this.TongDiem.Name = "TongDiem";
             // 
             // XepLoai
             // 
-            this.XepLoai.DataPropertyName = "Xeploai";
+            this.XepLoai.DataPropertyName = "XEPLOAI";
             this.XepLoai.HeaderText = "Xếp Loại";
             this.XepLoai.MinimumWidth = 6;
             this.XepLoai.Name = "XepLoai";
@@ -193,21 +173,11 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "LỚP :";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(403, 45);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "NĂM HỌC :";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(350, 102);
+            this.label4.Location = new System.Drawing.Point(350, 75);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 20);
             this.label4.TabIndex = 4;
@@ -222,7 +192,7 @@
             this.cbboxChonkhoa.Name = "cbboxChonkhoa";
             this.cbboxChonkhoa.Size = new System.Drawing.Size(247, 28);
             this.cbboxChonkhoa.TabIndex = 5;
-            this.cbboxChonkhoa.SelectedIndexChanged += new System.EventHandler(this.cbboxChonkhoa_SelectedIndexChanged);
+            this.cbboxChonkhoa.SelectedValueChanged += new System.EventHandler(this.cbboxChonkhoa_SelectedValueChanged);
             // 
             // cbboxChonlop
             // 
@@ -233,23 +203,13 @@
             this.cbboxChonlop.Name = "cbboxChonlop";
             this.cbboxChonlop.Size = new System.Drawing.Size(201, 28);
             this.cbboxChonlop.TabIndex = 6;
-            this.cbboxChonlop.SelectedIndexChanged += new System.EventHandler(this.cbboxChonlop_SelectedIndexChanged);
-            // 
-            // cbboxNamHoc
-            // 
-            this.cbboxNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbboxNamHoc.FormattingEnabled = true;
-            this.cbboxNamHoc.Location = new System.Drawing.Point(483, 40);
-            this.cbboxNamHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbboxNamHoc.Name = "cbboxNamHoc";
-            this.cbboxNamHoc.Size = new System.Drawing.Size(201, 28);
-            this.cbboxNamHoc.TabIndex = 7;
+            this.cbboxChonlop.SelectedIndexChanged += new System.EventHandler(this.cbboxChonkhoa_SelectedValueChanged);
             // 
             // radioButtonHK2
             // 
             this.radioButtonHK2.AutoSize = true;
             this.radioButtonHK2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.radioButtonHK2.Location = new System.Drawing.Point(541, 102);
+            this.radioButtonHK2.Location = new System.Drawing.Point(541, 75);
             this.radioButtonHK2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonHK2.Name = "radioButtonHK2";
             this.radioButtonHK2.Size = new System.Drawing.Size(88, 24);
@@ -262,7 +222,7 @@
             // 
             this.radioButtonHK1.AutoSize = true;
             this.radioButtonHK1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.radioButtonHK1.Location = new System.Drawing.Point(424, 102);
+            this.radioButtonHK1.Location = new System.Drawing.Point(424, 75);
             this.radioButtonHK1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonHK1.Name = "radioButtonHK1";
             this.radioButtonHK1.Size = new System.Drawing.Size(84, 24);
@@ -278,11 +238,9 @@
             this.groupBox1.Controls.Add(this.btnLoadDanhSach);
             this.groupBox1.Controls.Add(this.radioButtonHK2);
             this.groupBox1.Controls.Add(this.radioButtonHK1);
-            this.groupBox1.Controls.Add(this.cbboxNamHoc);
             this.groupBox1.Controls.Add(this.cbboxChonlop);
             this.groupBox1.Controls.Add(this.cbboxChonkhoa);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 15);
@@ -297,7 +255,7 @@
             // 
             this.radioButtonCaNam.AutoSize = true;
             this.radioButtonCaNam.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.radioButtonCaNam.Location = new System.Drawing.Point(659, 102);
+            this.radioButtonCaNam.Location = new System.Drawing.Point(659, 75);
             this.radioButtonCaNam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonCaNam.Name = "radioButtonCaNam";
             this.radioButtonCaNam.Size = new System.Drawing.Size(83, 24);
@@ -426,13 +384,11 @@
         private System.Windows.Forms.Label lblDuongDan;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblDuongDanFile;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Masodiem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MSV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hoten;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NamHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HocKy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TongDiem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn XepLoai;
+        private DataGridViewTextBoxColumn MSV;
+        private DataGridViewTextBoxColumn Hoten;
+        private DataGridViewTextBoxColumn Lop;
+        private DataGridViewTextBoxColumn HocKy;
+        private DataGridViewTextBoxColumn TongDiem;
+        private DataGridViewTextBoxColumn XepLoai;
     }
 }

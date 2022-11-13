@@ -40,7 +40,6 @@
             this.thoatLogin = new System.Windows.Forms.LinkLabel();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnHelp = new System.Windows.Forms.Button();
-            this.btnThongKe = new System.Windows.Forms.Button();
             this.btnXetHocBong = new System.Windows.Forms.Button();
             this.btnHocPhi = new System.Windows.Forms.Button();
             this.btnQLMonHoc = new System.Windows.Forms.Button();
@@ -181,7 +180,6 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.panelMenu.Controls.Add(this.btnHelp);
-            this.panelMenu.Controls.Add(this.btnThongKe);
             this.panelMenu.Controls.Add(this.btnXetHocBong);
             this.panelMenu.Controls.Add(this.btnHocPhi);
             this.panelMenu.Controls.Add(this.btnQLMonHoc);
@@ -218,7 +216,7 @@
             this.btnHelp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnHelp.Image = global::QLDT.Properties.Resources.icons8_get_help_32;
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 933);
+            this.btnHelp.Location = new System.Drawing.Point(0, 876);
             this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
@@ -227,29 +225,6 @@
             this.btnHelp.Text = "TRỢ GIÚP";
             this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
-            // 
-            // btnThongKe
-            // 
-            this.btnThongKe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
-            this.btnThongKe.BackgroundImage = global::QLDT.Properties.Resources.bgColor1;
-            this.btnThongKe.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnThongKe.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnThongKe.Enabled = false;
-            this.btnThongKe.FlatAppearance.BorderSize = 0;
-            this.btnThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnThongKe.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnThongKe.Image = global::QLDT.Properties.Resources.icons8_statistics_32;
-            this.btnThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThongKe.Location = new System.Drawing.Point(0, 876);
-            this.btnThongKe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
-            this.btnThongKe.Size = new System.Drawing.Size(277, 57);
-            this.btnThongKe.TabIndex = 23;
-            this.btnThongKe.Text = "THỐNG KÊ";
-            this.btnThongKe.UseVisualStyleBackColor = false;
-            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click_1);
             // 
             // btnXetHocBong
             // 
@@ -743,7 +718,6 @@
         private System.Windows.Forms.LinkLabel linkdoimatkhau;
         private System.Windows.Forms.Panel panel4;
         private Button btnHelp;
-        private Button btnThongKe;
         private Button btnXetHocBong;
         private Button btnHocPhi;
         private Button btnQLMonHoc;

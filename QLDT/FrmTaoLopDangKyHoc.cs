@@ -13,7 +13,8 @@ namespace QLDT
 {
     public partial class FrmTaoLopDangKyHoc : Form
     {
-        static String NHHK;
+        static String namHoc;
+        static String hocKy;
         public FrmTaoLopDangKyHoc()
         {
             InitializeComponent();
@@ -21,59 +22,41 @@ namespace QLDT
 
         private void FrmTaoLopDangKyHoc_Load(object sender, EventArgs e)
         {
-            NHHK = null;
-            //KhoaDT khoa = new KhoaDT();
-            //DataSet ds1 = new DataSet();
-            //ds1 = khoa.Loadkhoa();
-            //cbboxKhoa.DataSource = ds1.Tables[0];
-            cbboxKhoa.DisplayMember = "Tenkhoa";
-            cbboxKhoa.ValueMember = "Makhoa";
-
-
-            //DataSet ds2 = new DataSet();
-            //ds2 = khoa.Loadkhoa();
-            //cbboxLoadKhoa.DataSource = ds2.Tables[0];
-            cbboxLoadKhoa.DisplayMember = "Tenkhoa";
-            cbboxLoadKhoa.ValueMember = "Makhoa";
-
+            namHoc = null;
 
             DateTime today = DateTime.Now;
             int year = today.Year;
             int month = today.Month;
             if (month <= 6)
             {
-                NHHK = year - 1 + " - " + year + "_2";
+                namHoc = year - 1 + " - " + year ;
+                hocKy = "2";
             }
             else if (month > 6)
             {
-                NHHK = year + " - " + (year + 1) + "_1";
+                namHoc = year + " - " + (year + 1);
+                hocKy = "1";
             }
-            txtNamHocHienTai.Text = NHHK;
+            txtNamHocHienTai.Text = namHoc;
+            txtHocKy.Text = hocKy;
 
-
-        }
-
-        private Boolean check(String MaHocPhan)
-        {
             using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
             {
                 con.Open();
-                String sql = "Select COUNT(*) from LopHocPhan where MaLopHP=@MaHocPhan";
-                SqlCommand cmd = new SqlCommand(sql,con);
-                cmd.Parameters.Add(new SqlParameter("@MaHocPhan", MaHocPhan));
-                int result = (int)cmd.ExecuteScalar();
+                string queryKhoa = "SELECT DISTINCT TENKHOA FROM KHOA ORDER BY TENKHOA";
+                SqlCommand cmd = new SqlCommand(queryKhoa, con);
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string khoa = saReader.GetString(0);
+                        cbboxKhoa.Items.Add(khoa);
+                        cbboxLoadKhoa.Items.Add(khoa);
+                    }
+                }
                 con.Close();
-                if(result==0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
             }
         }
-
 
         private void XoaLop(String Malop)
         {
@@ -83,23 +66,8 @@ namespace QLDT
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DELETE_LOPHOC";
-                cmd.Parameters.Add(new SqlParameter("@malop", Malop));
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-        }
-
-        private void XoaSVDANGKYTRONGLOP(String Malop)
-        {
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DELETE_SINHVIENTRONGLOPHOC";
-                cmd.Parameters.Add(new SqlParameter("@malop", Malop));
+                cmd.CommandText = "XOALOPHP";
+                cmd.Parameters.Add(new SqlParameter("@MAKHOAHOC", Malop));
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -133,7 +101,7 @@ namespace QLDT
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "LIST_LOPHOCTHEOKHOA";
-                cmd.Parameters.Add(new SqlParameter("@makhoa", makhoa));
+                cmd.Parameters.Add(new SqlParameter("@TENKHOA", makhoa));
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(data);
                 con.Close();
@@ -141,126 +109,39 @@ namespace QLDT
             return data;
         }
 
-
-        private DataTable DSMonHoc(String makhoa)
-        {
-            DataTable data = new DataTable();
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DSMONHOC_MOLOP";
-                cmd.Parameters.Add(new SqlParameter("@makhoa", makhoa));
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(data);
-                con.Close();
-            }
-            return data;
-        }
-
-        private DataTable DSGiangVien(String makhoa)
-        {
-            DataTable data = new DataTable();
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DSGIANGVIEN_MOLOP";
-                cmd.Parameters.Add(new SqlParameter("@makhoa", makhoa));
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(data);
-                con.Close();
-            }
-            return data;
-        }
-
-        private void cbboxKhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String t;
-            t = cbboxKhoa.SelectedValue.ToString();
-            if (t == "System.Data.DataRowView")
-            {
-
-            }
-            else
-            {
-                cbboxMonHoc.DataSource = DSMonHoc(t);
-                cbboxMonHoc.DisplayMember = "TenMonHoc";
-                cbboxMonHoc.ValueMember = "MaMonHoc";
-
-                cbboxGiangVien.DataSource = DSGiangVien(t);
-                cbboxGiangVien.DisplayMember = "Hoten";
-                cbboxGiangVien.ValueMember = "MGV";
-
-            }
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(txtChiTiet.Text=="" || txtMaLopHP.Text=="" || txtNoiHoc.Text=="" || txtTenLopHP.Text =="" || cbboxMonHoc.Text=="" || cbboxGiangVien.Text=="" || txtNamHocHienTai.Text=="")
+            if(txtMaLopHP.Text=="" || cbboxMonHoc.Text=="" || cbboxGiangVien.Text=="")
             {
                 MessageBox.Show("Hãy điền đầy đủ thông tin lớp học cần mở");
             }
             else
             {
-                if (check(txtMaLopHP.Text) == true)
+                using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
                 {
-                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-                    {
-                        con.Open();
-                        SqlCommand cmd = new SqlCommand();
-                        cmd.Connection = con;
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "Insert_MOLOPHoc";
-                        cmd.Parameters.Add(new SqlParameter("@makhoa", cbboxKhoa.SelectedValue.ToString()));
-                        cmd.Parameters.Add(new SqlParameter("@malop", txtMaLopHP.Text));
-                        cmd.Parameters.Add(new SqlParameter("@tenlop", txtTenLopHP.Text));
-                        cmd.Parameters.Add(new SqlParameter("@mamonhoc", cbboxMonHoc.SelectedValue.ToString()));
-                        object obj = "Từ " + dateTimePicker1.Text + " Đến " + dateTimePicker2.Text + " " + txtChiTiet.Text;
-                        cmd.Parameters.Add(new SqlParameter("@thoigian", obj));
-                        cmd.Parameters.Add(new SqlParameter("@mgv", cbboxGiangVien.SelectedValue.ToString()));
-                        cmd.Parameters.Add(new SqlParameter("@diadiem", txtNoiHoc.Text));
-                        cmd.Parameters.Add(new SqlParameter("@siso", txtSiSo.Text));
-                        cmd.Parameters.Add(new SqlParameter("@namhoc", txtNamHocHienTai.Text));
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                    }
-                    MessageBox.Show("Mở Thành Công Lớp");
-                    dataGridView1.DataSource = LoadLopMo();
-                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                    {
-                        DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
-                        dataGridView1[10, i] = linkCell;
-                    }
-                    txtMaLopHP.Clear();
-                    txtChiTiet.Clear();
-                    txtSiSo.Clear();
-                    txtTenLopHP.Clear();
-                    txtNoiHoc.Clear();
-
-                    DateTime today = DateTime.Now;
-                    int year = today.Year;
-                    int month = today.Month;
-                    if (month <= 6)
-                    {
-                        NHHK = year - 1 + " - " + year + "_2";
-                    }
-                    else if (month > 6)
-                    {
-                        NHHK = year + " - " + (year + 1) + "_1";
-                    }
-                    txtNamHocHienTai.Text = NHHK;
-                    radioThayDoi.Checked = true;
-                    txtNamHocHienTai.Enabled = false;
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "MOLOPHOC";
+                    cmd.Parameters.Add(new SqlParameter("@MAKHOAHOC", txtMaLopHP.Text));
+                    cmd.Parameters.Add(new SqlParameter("@HOTEN", cbboxGiangVien.SelectedItem.ToString()));
+                    cmd.Parameters.Add(new SqlParameter("@TENMONHOC", cbboxMonHoc.SelectedItem.ToString()));
+                    cmd.Parameters.Add(new SqlParameter("@HOCKY", hocKy));
+                    cmd.Parameters.Add(new SqlParameter("@NAM", namHoc));
+                    MessageBox.Show(cbboxGiangVien.SelectedItem.ToString());
+                    cmd.ExecuteNonQuery();
+                    con.Close();
                 }
-                else
+                MessageBox.Show("Mở Thành Công Lớp");
+                dataGridView1.DataSource = LoadLopMo();
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    MessageBox.Show("Đã Có Mã Lớp Này");
+                    DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
+                    dataGridView1[10, i] = linkCell;
                 }
+                txtMaLopHP.Clear();
             }
         }
 
@@ -274,7 +155,7 @@ namespace QLDT
             }
             else
             {
-                if (e.ColumnIndex == 10)
+                if (e.ColumnIndex == 5)
                 {
                     string Task = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
                     if (Task == "Delete")
@@ -283,13 +164,12 @@ namespace QLDT
                         {
                             int rowIndex = e.RowIndex;
                             String ID = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
-                            XoaSVDANGKYTRONGLOP(ID);
                             XoaLop(ID);
                             dataGridView1.DataSource = LoadLopMo();
                             for (int i = 0; i < dataGridView1.Rows.Count; i++)
                             {
                                 DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
-                                dataGridView1[10, i] = linkCell;
+                                dataGridView1[5, i] = linkCell;
                             }
                         }
                     }
@@ -304,46 +184,63 @@ namespace QLDT
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
-                dataGridView1[10, i] = linkCell;
+                dataGridView1[5, i] = linkCell;
             }
         }
 
-        private void txtSiSo_TextChanged(object sender, EventArgs e)
-        {
-            if (txtSiSo.Text == "") { }
-            else
-            {
-                if (int.Parse(txtSiSo.Text) > 100)
-                {
-                    txtSiSo.Text = "60";
-                }
-            }
-        }
-
-        private void txtSiSo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-                e.Handled = true;
-        }
 
         private void btnLoadTheoKhoa_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = LoadLopMoTheoKhoa(cbboxLoadKhoa.SelectedValue.ToString());
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            try
             {
-                DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
-                dataGridView1[10, i] = linkCell;
+                if (cbboxLoadKhoa.SelectedItem.ToString() != "")
+                {
+                    dataGridView1.DataSource = LoadLopMoTheoKhoa(cbboxLoadKhoa.SelectedItem.ToString());
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
+                        dataGridView1[5, i] = linkCell;
+                    }
+                }
             }
-        }
-
-        private void radioThayDoi_CheckedChanged(object sender, EventArgs e)
-        {
-            txtNamHocHienTai.Enabled = true;
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+        private void cbboxKhoa_SelectedValueChanged(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                string queryKhoa = "SELECT DISTINCT HOTEN FROM GIAOVIEN WHERE MAKHOA = (SELECT MAKHOA FROM KHOA WHERE TENKHOA = N'" + cbboxKhoa.SelectedItem.ToString() + "') ORDER BY HOTEN";
+                SqlCommand cmd = new SqlCommand(queryKhoa, con);
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string khoa = saReader.GetString(0);
+                        cbboxGiangVien.Items.Add(khoa);
+                    }
+                }
+                queryKhoa = String.Format("HIENTHIMONTHEOKHOA N'" + cbboxKhoa.SelectedItem.ToString() + "'");
+                cmd = new SqlCommand(queryKhoa, con);
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string khoa = saReader.GetString(0);
+                        cbboxMonHoc.Items.Add(khoa);
+                    }
+                }
+                con.Close();
+            }
         }
     }
 }
