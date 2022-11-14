@@ -139,9 +139,9 @@ namespace QLDT
                     groupBox3.Dock = DockStyle.Fill;
 
                     // get the results of each column
-                    if (r["ANH"].ToString() != "")
+                    if (r["ANHSV"].ToString() != "")
                     {
-                        byte[] img = (byte[])(r["ANH"]);
+                        byte[] img = (byte[])(r["ANHSV"]);
                         if (img == null)
                             picstudent.Image = null;
                         else

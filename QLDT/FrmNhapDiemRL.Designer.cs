@@ -73,7 +73,7 @@
             this.cbboxChonkhoa.Name = "cbboxChonkhoa";
             this.cbboxChonkhoa.Size = new System.Drawing.Size(220, 28);
             this.cbboxChonkhoa.TabIndex = 0;
-            this.cbboxChonkhoa.SelectedIndexChanged += new System.EventHandler(this.cbboxChonkhoa_SelectedIndexChanged);
+            this.cbboxChonkhoa.SelectedValueChanged += new System.EventHandler(this.cbboxChonkhoa_SelectedValueChanged);
             // 
             // cbboxchonlop
             // 

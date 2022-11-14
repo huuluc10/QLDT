@@ -90,6 +90,17 @@ namespace QLDT
             btnHocPhi.Enabled = false;;
         }
 
+        private void MoCmDRL()
+        {
+            if (quyenhan != "1")
+            {
+                if (MoChamDRL && quyenhan != "4")
+                    btnNhapDiem.Enabled = true;
+                else
+                    btnNhapDiem.Enabled = false;
+            }
+        }
+
         private void ActivateButton(object btnSender)
         {
             if (btnSender != null)
@@ -179,6 +190,7 @@ namespace QLDT
             }
 
             LoadDKMo();
+            MoCmDRL();
         }
 
         private void LoadDKMo()
@@ -243,6 +255,7 @@ namespace QLDT
                     linkdoimatkhau.Visible = true;
                     panel4.Visible = true;
                 }
+                MoCmDRL();
             }
         }
 
@@ -292,7 +305,7 @@ namespace QLDT
 
         private void btnNhapDiem_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new QLDT.FrmNhapDiemRL(), sender);
+            OpenChildForm(new QLDT.FrmNhapDiemRL(username, quyenhan), sender);
         }
 
         private void btnXemDiem_Click(object sender, EventArgs e)

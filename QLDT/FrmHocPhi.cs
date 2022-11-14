@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using DevExpress.CodeParser;
+using System;
 using System.Data;
-using System.Drawing;
-using System.IO;
+using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using app = Microsoft.Office.Interop.Excel.Application;
+using Excel = Microsoft.Office.Interop.Excel;
+//using Syncfusion.XlsIO;
 using DataTable = System.Data.DataTable;
+using DevExpress.Spreadsheet;
 
 namespace QLDT
 {
@@ -18,166 +15,139 @@ namespace QLDT
     {
         private String quyenhan;
         private String username;
-        public FrmHocPhi(String quyenhan,String MaSV)
+        public FrmHocPhi(String quyenhan, String MaSV)
         {
             InitializeComponent();
             this.quyenhan = quyenhan;
             this.username = MaSV;
         }
 
-        static String duongdan=null;
+        static String duongdan = null;
         public Boolean click = false;
 
         private void FrmXemDiemRL_Load(object sender, EventArgs e)
         {
             dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //KhoaDT khoa = new KhoaDT();
-            //DataSet ds1 = new DataSet();
-            //ds1 = khoa.Loadkhoa();
-            //cbboxChonkhoa.DataSource = ds1.Tables[0];
-            //cbboxChonkhoa.DisplayMember = "Tenkhoa";
-            //cbboxChonkhoa.ValueMember = "Makhoa";
-            //duongdan = null;
-            //click = false;
-            //if (quyenhan=="Sinh Viên")
-            //{
-            //    groupBox1.Visible = false;
-            //    dataGridView1.Dock = DockStyle.Fill;
-            //    button1.Visible = false;
-            //    DiemRL a = new DiemRL();
-                
-            //    dataGridView1.Enabled = false;
-            //    btnLoadDanhSach.Enabled = false;
-            //    groupBox2.Visible = false;
-        
-
-            //    dataGridView1.Columns.Clear();
-            //    dataGridView1.DataSource = null;
-            //    dataGridView1.ColumnCount = 6;
-            //    dataGridView1.Columns[0].Name = "Mã Sinh Viên";
-            //    dataGridView1.Columns[0].DataPropertyName = "MSV";
-            //    dataGridView1.Columns[1].Name = "Họ Tên";
-            //    dataGridView1.Columns[1].DataPropertyName = "HoTen";
-            //    dataGridView1.Columns[2].Name = "Năm Học";
-            //    dataGridView1.Columns[2].DataPropertyName = "NamHoc";
-            //    dataGridView1.Columns[3].Name = "Học Kỳ";
-            //    dataGridView1.Columns[3].DataPropertyName = "HocKy";
-            //    dataGridView1.Columns[4].Name = "Tổng Điểm";
-            //    dataGridView1.Columns[4].DataPropertyName = "TongDiem";
-            //    dataGridView1.Columns[5].Name = "Xếp Loại";
-            //    dataGridView1.Columns[5].DataPropertyName = "XepLoai";
-
-            //    dataGridView1.DataSource = a.XemDiemRLQHSV(username);
-            //    dataGridView1.ReadOnly = true;
-            //}
-            //else
-            //{
-
-            //}
-        }
-
-        private void export2Excel(DataGridView g,String duongdan)
-        {
-            app obj = new app();
-            obj.Application.Workbooks.Add(Type.Missing);
-            obj.Columns.ColumnWidth = 25;
-            for(int i=1; i < g.Columns.Count+1;i++)
+            duongdan = null;
+            click = false;
+            if (quyenhan != "1")
             {
-                obj.Cells[1, i] = g.Columns[i - 1].HeaderText;
-            }
-            for(int i=0;i<g.Rows.Count;i++)
-            {
-                for(int j=0;j<g.Columns.Count;j++)
+                groupBox1.Visible = false;
+                dataGridView1.Enabled = false;
+                btnLoadDanhSach.Enabled = false;
+                DataTable data = new DataTable();
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
                 {
-                    if(g.Rows[i].Cells[j].Value != null)
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "SVXEMHOCPHI";
+                    cmd.Parameters.Add(new SqlParameter("@MSSV", username));
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(data);
+                    con.Close();
+                }
+                dataGridView1.DataSource = data;
+                dataGridView1.ReadOnly = true;
+            }
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                string queryKhoa = "SELECT DISTINCT TENKHOA FROM KHOA ORDER BY TENKHOA";
+                SqlCommand cmd = new SqlCommand(queryKhoa, con);
+
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
                     {
-                        obj.Cells[i + 2, j + 1] = g.Rows[i].Cells[j].Value.ToString();
+                        string khoa = saReader.GetString(0);
+                        cbboxChonkhoa.Items.Add(khoa);
                     }
                 }
-            }
-            obj.ActiveWorkbook.SaveCopyAs(duongdan);
-            obj.ActiveWorkbook.Saved = true;
-        }
-        private void cbboxChonkhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String t;
-            t = cbboxChonkhoa.SelectedValue.ToString();
-            if (t == "System.Data.DataRowView")
-            {
-
-            }
-            else
-            {
-                //Lop dc = new Lop();
-                //DataSet ds = new DataSet();
-                //ds = dc.LoadLopselect(t);
-                //cbboxChonlop.DataSource = ds.Tables[0];
-                cbboxChonlop.DisplayMember = "Tenlop";
-                cbboxChonlop.ValueMember = "Malop";
-            }
-        }
-
-        private void cbboxChonlop_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String t;
-            t = cbboxChonlop.Text;
-            if (t == "System.Data.DataRowView")
-            {
-
-            }
-            else
-            {
-                //DiemRL drl = new DiemRL();
-                //DataTable ds = new DataTable();
-                //if (drl.KiemtratontaiSV(drl.Malop(t)) == true)
-                //{
-                //    ds = drl.Danhsachnamhoc(drl.NamNhapHoc(drl.Malop(t)));
-                //    cbboxNamHoc.DataSource = ds;
-                //    cbboxNamHoc.DisplayMember = "Nam";
-                //    cbboxNamHoc.ValueMember = "Nam";
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Không tồn tại sinh viên trong lớp nên không thể cập nhật Mới các niên khóa học tập");
-                //}
+                con.Close();
             }
         }
 
         private void btnLoadDanhSach_Click(object sender, EventArgs e)
         {
-            if (cbboxChonlop.Text == "")
+            if (cbboxChonlop.Text == string.Empty)
             {
                 MessageBox.Show("Vui lòng chọn lớp cần hiển thị");
             }
             else
             {
-                //DiemRL a = new DiemRL();
-                //Lop b = new Lop();
-                //if (radioButtonHK1.Checked)
-                //{
-                //    dataGridView1.DataSource = a.diemrenluyenthoelop(b.Malop(cbboxChonlop.Text), cbboxNamHoc.Text, radioButtonHK1.Text);
-                //    click = true;
-                //}
-                //else if (radioButtonHK2.Checked)
-                //{
-                //    dataGridView1.DataSource = a.diemrenluyenthoelop(b.Malop(cbboxChonlop.Text), cbboxNamHoc.Text, radioButtonHK2.Text);
-                //    click = true;
-                //}
-                //else if(radioButtonCaNam.Checked)
-                //{
-                //    dataGridView1.DataSource = a.diemrenluyenthoelop(b.Malop(cbboxChonlop.Text), cbboxNamHoc.Text, radioButtonCaNam.Text);
-                //    click = false;
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Vui lòng chọn học kỳ nào đó cần hiển thị");
-                //}
+                if (radioButtonHK1.Checked)
+                {
+                    DataTable data = new DataTable();
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "XEMHOCPHIHOCKY1";
+                        cmd.Parameters.Add(new SqlParameter("@TENKHOA", cbboxChonkhoa.SelectedItem.ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@MALOP", cbboxChonlop.SelectedItem.ToString()));
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(data);
+                        con.Close();
+                    }
+                    dataGridView1.DataSource = data;
+                    click = true;
+                }
+                else if (radioButtonHK2.Checked)
+                {
+                    DataTable data = new DataTable();
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "XEMHOCPHIHOCKY2";
+                        cmd.Parameters.Add(new SqlParameter("@TENKHOA", cbboxChonkhoa.SelectedItem.ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@MALOP", cbboxChonlop.SelectedItem.ToString()));
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(data);
+                        con.Close();
+                    }
+                    dataGridView1.DataSource = data;
+                    click = true;
+                }
+                else if (radioButtonCaNam.Checked)
+                {
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    DataTable data = new DataTable();
+                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "XEMDRL";
+                        cmd.Parameters.Add(new SqlParameter("@TENKHOA", cbboxChonkhoa.SelectedItem.ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@MALOP", cbboxChonlop.SelectedItem.ToString()));
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(data);
+                        con.Close();
+                    }
+                    dataGridView1.DataSource = data;
+                    click = false;
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn học kỳ nào đó cần hiển thị");
+                }
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(click==true)
+            if (click == true)
             {
                 if (dataGridView1.Rows.Count == 0)
                 {
@@ -198,9 +168,17 @@ namespace QLDT
             }
         }
 
+        //private void copyAlltoClipboard()
+        //{
+        //    dataGridView1.SelectAll();
+        //    DataObject dataObj = dataGridView1.GetClipboardContent();
+        //    if (dataObj != null)
+        //        Clipboard.SetDataObject(dataObj);
+        //}
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count==0)
+            if (dataGridView1.Rows.Count == 0)
             {
                 MessageBox.Show("Ko co gi de xuat Excel");
             }
@@ -218,10 +196,51 @@ namespace QLDT
                     }
                     else
                     {
-                        //FrmLoad a = new FrmLoad(dataGridView1, duongdan);
-                        //a.Show();
+                        FrmLoad a = new FrmLoad(dataGridView1, duongdan);
+                        a.Show();
                         duongdan = null;
                         lblDuongDanFile.Text = "";
+
+
+                        //copyAlltoClipboard();
+                        //Microsoft.Office.Interop.Excel.Application xlexcel;
+                        //Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+                        //Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+                        //object misValue = System.Reflection.Missing.Value;
+                        //xlexcel = new Excel.Application();
+                        //xlexcel.Visible = true;
+                        //xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                        //xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+                        //Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+                        //CR.Select();
+                        //xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                        //using (ExcelEngine excelEngine = new ExcelEngine())
+                        //{
+                        //    IApplication application = excelEngine.Excel;
+                        //    application.DefaultVersion = ExcelVersion.Excel2016;
+                        //    IWorkbook workbook = application.Workbooks.Create(1);
+                        //    IWorksheet worksheet = workbook.Worksheets[0];
+                        //    //Adding text to a cell
+                        //    for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
+                        //    {
+                        //        worksheet.Range[1, i].Text = dataGridView1.Columns[i - 1].HeaderText;
+                        //    }
+
+                        //    for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                        //    {
+                        //        for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                        //        {
+                        //            worksheet.Range[i + 2, j + 1].Text = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        //        }
+                        //    }
+                        //    //Saving the workbook to disk in XLSX format
+                        //    Stream excelstream = File.Create(Path.GetFullPath(@"MyExcelFile.xlsx"));
+                        //    workbook.SaveAs(excelstream);
+                        //    excelstream.Dispose();
+                        //}
+
+
                     }
                 }
             }
@@ -254,6 +273,26 @@ namespace QLDT
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+        private void cbboxChonkhoa_SelectedValueChanged(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                string query = String.Format("SELECT DISTINCT MALOP FROM LOPQUANLY WHERE MAKHOA = (SELECT MAKHOA FROM KHOA WHERE TENKHOA = N'" + cbboxChonkhoa.SelectedItem.ToString() + "') ORDER BY MALOP"); ;
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string LOP = saReader.GetString(0);
+                        cbboxChonlop.Items.Add(LOP);
+                    }
+                }
+                con.Close();
+            }
         }
     }
 }

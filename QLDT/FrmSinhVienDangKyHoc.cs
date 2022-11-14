@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace QLDT
 {
@@ -28,50 +29,35 @@ namespace QLDT
         private string Makhoa(String msv)
         {
             string makhoa;
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "XDKHOASV";
-                cmd.Parameters.Add(new SqlParameter("@MSSV", msv));
-                var result = cmd.ExecuteScalar();
-                con.Close();
-                if (result.ToString() == "")
-                {
-                    makhoa = null;
-                }
-                else
-                {
-                    makhoa = (string)result;
-                }
-            }
+            //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            //{
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand();
+            //    cmd.Connection = con;
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.CommandText = "XDKHOASV";
+            //    cmd.Parameters.Add(new SqlParameter("@MSSV", msv));
+            //    var result = cmd.ExecuteScalar();
+            //    con.Close();
+            //    if (result.ToString() == "")
+            //    {
+            //        makhoa = null;
+            //    }
+            //    else
+            //    {
+            //        makhoa = (string)result;
+            //    }
+            //}
+            var r = new Database().Select(String.Format("XDKHOASV '" + msv + "'"));
+            makhoa = r["MAKHOA"].ToString();
             return makhoa;
         }
 
         private string MaMon(string tenmon)
         {
             string mamon = null;
-            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "XDMAMON";
-                cmd.Parameters.Add(new SqlParameter("@TENMONHOC", tenmon));
-                var result = cmd.ExecuteScalar();
-                con.Close();
-                if (result.ToString() == "")
-                {
-                    tenmon = null;
-                }
-                else
-                {
-                    tenmon = (string)result;
-                }
-            }
+            var r = new Database().Select(String.Format("XDMAMON N'" + tenmon + "'"));
+            mamon = r["MAMONHOC"].ToString();
             return mamon;
         }
 
@@ -129,65 +115,16 @@ namespace QLDT
                 con.Close();
             }
         }
-        private List<String> DSCACLOPHOCDANGKY(String msv)
-        {
-            List<String> Arr = new List<String>();
-            //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            //{
-            //    con.Open();
-            //    SqlCommand cmd = new SqlCommand();
-            //    cmd.Connection = con;
-            //    cmd.CommandType = CommandType.StoredProcedure;
-            //    cmd.CommandText = "DANHSACHLOP_DK";
-            //    cmd.Parameters.Add(new SqlParameter("@masinhvien", msv));
-            //    SqlDataReader rdr=cmd.ExecuteReader();
-            //    while(rdr.Read())
-            //    {
-            //        String MH = rdr[0].ToString();
-            //        Arr.Add(MH);
-            //    }
-            //    con.Close();
-            //}
-            return Arr;
-        }
-
-        private double? SoTien(String malophocphan)
-        {
-            double Sotien = 0;
-            //double? Sotien;
-            //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            //{
-            //    con.Open();
-            //    SqlCommand cmd = new SqlCommand();
-            //    cmd.Connection = con;
-            //    cmd.CommandType = CommandType.StoredProcedure;
-            //    cmd.CommandText = "SOTIEN1TC_SINHVIENDKHOC";
-            //    cmd.Parameters.Add(new SqlParameter("@malophocphan", malophocphan));
-            //    var result = cmd.ExecuteScalar();
-            //    con.Close();
-            //    if (result.ToString()=="")
-            //    {
-            //        Sotien = 306500;
-            //    }
-            //    else
-            //    {
-            //        Sotien = (double)result;
-            //    }
-            //}
-            return Sotien;
-        }
 
 
         private DataTable TongCong(DataGridView datag)
         {
             DataTable data = new DataTable();
-            data.Columns.Add("Tong");
             data.Columns.Add("TongSoTC");
             data.Columns.Add("TongHocPhi");
             if (datag.Rows.Count == 0)
             {
                 DataRow row = data.NewRow();
-                row["Tong"] = "Tổng";
                 row["TongSoTC"] = 0;
                 row["TongHocPhi"] = 0;
                 data.Rows.Add(row);
@@ -198,19 +135,16 @@ namespace QLDT
                 double? TongHocPhi = 0;
                 for (int i = 0; i < datag.Rows.Count; i++)
                 {
-                    TongSoTC = TongSoTC + int.Parse(datag.Rows[i].Cells["SoTCG"].Value.ToString());
+                    TongSoTC = TongSoTC + int.Parse(datag.Rows[i].Cells["dataGridViewTextBoxColumn5"].Value.ToString());
                     TongHocPhi = TongHocPhi + double.Parse(datag.Rows[i].Cells["HocPhi"].Value.ToString());
                 }
                 DataRow row = data.NewRow();
-                row["Tong"] = "Tổng";
                 row["TongSoTC"] = TongSoTC;
                 row["TongHocPhi"] = TongHocPhi;
                 data.Rows.Add(row);
             }
             return data;
         }
-
-
 
 
         private DataTable KetQUADANGKY()
@@ -246,34 +180,41 @@ namespace QLDT
 
         private void Dangky(String msv,String MLH)
         {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "DangKY_LopHoc";
+                    cmd.Parameters.Add(new SqlParameter("@MSSV", msv));
+                    cmd.Parameters.Add(new SqlParameter("@MAKHOAHOC", MLH));
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void HuyDangky(String msv, String MLH)
+        {
             using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DangKY_LopHoc";
+                cmd.CommandText = "HuyDangKY_LopHoc";
                 cmd.Parameters.Add(new SqlParameter("@MSSV", msv));
                 cmd.Parameters.Add(new SqlParameter("@MAKHOAHOC", MLH));
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
-        }
-
-        private void HuyDangky(String msv, String MLH)
-        {
-            //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-            //{
-            //    con.Open();
-            //    SqlCommand cmd = new SqlCommand();
-            //    cmd.Connection = con;
-            //    cmd.CommandType = CommandType.StoredProcedure;
-            //    cmd.CommandText = "HuyDangKY_LopHoc";
-            //    cmd.Parameters.Add(new SqlParameter("@masinhvien", msv));
-            //    cmd.Parameters.Add(new SqlParameter("@malophoc", MLH));
-            //    cmd.ExecuteNonQuery();
-            //    con.Close();
-            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -285,37 +226,42 @@ namespace QLDT
             else
             {
                 String LopHoc = null;
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                try
                 {
-                    if (dataGridView1.Rows[i].Cells["chk"].Value == null)
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
                     {
+                        if (dataGridView1.Rows[i].Cells["chk"].Value == null)
+                        {
 
-                    }
-                    else
-                    {
-                        
-                        bool checkedCell = (bool)dataGridView1.Rows[i].Cells["chk"].Value;
-                        if (checkedCell == true)
-                        {
-                            LopHoc = dataGridView1.Rows[i].Cells["MaLop"].Value.ToString();
-                        }
-                    }
-                    if (i == dataGridView1.Rows.Count - 1)
-                    {
-                        if (KIEMTRA_SINHVIENDANGKYHOC(msvien, MMH) == true)
-                        {
-                            Dangky(msvien, LopHoc);
-                            MessageBox.Show("ĐK Thành Công. Bạn Hãy Kiểm Tra Ở Kết Quả Đăng Ký");
-                            dataGridView2.DataSource = KetQUADANGKY();
-                            dataGridView3.DataSource = TongCong(dataGridView2);
                         }
                         else
                         {
-                            MessageBox.Show("Bạn đã đăng ký môn này hoặc đã qua môn");
+
+                            bool checkedCell = (bool)dataGridView1.Rows[i].Cells["chk"].Value;
+                            if (checkedCell == true)
+                            {
+                                LopHoc = dataGridView1.Rows[i].Cells["MaLop"].Value.ToString();
+                            }
+                        }
+                        if (i == dataGridView1.Rows.Count - 1)
+                        {
+                            if (KIEMTRA_SINHVIENDANGKYHOC(msvien, LopHoc) == true)
+                            {
+                                Dangky(msvien, LopHoc);
+                                MessageBox.Show("ĐK Thành Công. Bạn Hãy Kiểm Tra Ở Kết Quả Đăng Ký");
+                                dataGridView2.DataSource = KetQUADANGKY();
+                                dataGridView3.DataSource = TongCong(dataGridView2);
+                                button2_Click(null, null);
+                            } 
+                            else
+                                MessageBox.Show("Lớp học này bạn đã đăng ký");
                         }
                     }
                 }
-                
+                catch (Exception)
+                {
+                    throw;;
+                }
             }
         }
 
@@ -331,9 +277,8 @@ namespace QLDT
                 SqlDataReader rdr= cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    var result = rdr["DIEMKETTHUC"];
-                    var result1 = rdr["SLKT"];
-                    if ((result == null && (int)result1 < 1) || ((int)result < 5 && (int)result1 <= 1))
+                    var result1 = rdr["SLDK"];
+                    if ((int)result1 < 1)
                     {
                         kq= true;
                     }
@@ -351,7 +296,6 @@ namespace QLDT
         {
             if (dataGridView2.Rows.Count == 0)
             {
-                MessageBox.Show("Ko Có Gì Hết");
             }
             else
             {
@@ -376,7 +320,7 @@ namespace QLDT
                     {
                         if (check > 1)
                         {
-                            MessageBox.Show("Bạn Chỉ Có Thể Hủy Từng Lớp 1 :(");
+                            MessageBox.Show("Bạn Chỉ Có Thể Hủy Từng Lớp");
                         }
                         else if (check == 0)
                         {
@@ -385,7 +329,7 @@ namespace QLDT
                         else
                         {
                             HuyDangky(msvien, LopHoc);
-                            MessageBox.Show("Hủy Thành Công. Lớp Trống ra 1 thằng :) hahaa");
+                            MessageBox.Show("Hủy Thành Công");
                             dataGridView2.DataSource = KetQUADANGKY();
                             dataGridView3.DataSource = TongCong(dataGridView2);
                         }

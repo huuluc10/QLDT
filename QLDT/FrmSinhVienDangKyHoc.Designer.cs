@@ -44,8 +44,7 @@
             this.GVGD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HOCKY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SiSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DaDangKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -55,12 +54,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.Tong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongSoTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongHocPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Malop2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +61,12 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HocPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.Tong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongSoTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongHocPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -100,8 +99,7 @@
             this.GVGD,
             this.SoTC,
             this.HOCKY,
-            this.SiSo,
-            this.DaDangKy});
+            this.dataGridViewTextBoxColumn6});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -164,23 +162,12 @@
             this.HOCKY.Name = "HOCKY";
             this.HOCKY.Width = 82;
             // 
-            // SiSo
+            // dataGridViewTextBoxColumn6
             // 
-            this.SiSo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SiSo.DataPropertyName = "NAM";
-            this.SiSo.HeaderText = "Sĩ Số";
-            this.SiSo.MinimumWidth = 6;
-            this.SiSo.Name = "SiSo";
-            this.SiSo.Width = 70;
-            // 
-            // DaDangKy
-            // 
-            this.DaDangKy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.DaDangKy.DataPropertyName = "DaDangKy";
-            this.DaDangKy.HeaderText = "Đã Đăng Ký";
-            this.DaDangKy.MinimumWidth = 6;
-            this.DaDangKy.Name = "DaDangKy";
-            this.DaDangKy.Width = 106;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "NAM";
+            this.dataGridViewTextBoxColumn6.HeaderText = "NAM";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // label10
             // 
@@ -325,115 +312,9 @@
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(1194, 366);
+            this.dataGridView2.Size = new System.Drawing.Size(1194, 388);
             this.dataGridView2.TabIndex = 71;
             this.dataGridView2.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView2_DataBindingComplete);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox2.Image = global::QLDT.Properties.Resources.icons8_google_classroom_50;
-            this.pictureBox2.Location = new System.Drawing.Point(306, 132);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(69, 62);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 73;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox1.Image = global::QLDT.Properties.Resources.icons8_classroom_50;
-            this.pictureBox1.Location = new System.Drawing.Point(490, 515);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 66);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 72;
-            this.pictureBox1.TabStop = false;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView3.ColumnHeadersHeight = 29;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Tong,
-            this.TongSoTC,
-            this.TongHocPhi});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridView3.EnableHeadersVisualStyles = false;
-            this.dataGridView3.Location = new System.Drawing.Point(31, 951);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dataGridView3.MultiSelect = false;
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(1194, 84);
-            this.dataGridView3.TabIndex = 74;
-            this.dataGridView3.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView3_DataBindingComplete);
-            // 
-            // Tong
-            // 
-            this.Tong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Tong.DataPropertyName = "Tong";
-            this.Tong.HeaderText = "Tổng";
-            this.Tong.MinimumWidth = 6;
-            this.Tong.Name = "Tong";
-            this.Tong.ReadOnly = true;
-            // 
-            // TongSoTC
-            // 
-            this.TongSoTC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.TongSoTC.DataPropertyName = "TongSoTC";
-            this.TongSoTC.HeaderText = "Tổng Số TC";
-            this.TongSoTC.MinimumWidth = 6;
-            this.TongSoTC.Name = "TongSoTC";
-            this.TongSoTC.ReadOnly = true;
-            this.TongSoTC.Width = 109;
-            // 
-            // TongHocPhi
-            // 
-            this.TongHocPhi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.TongHocPhi.DataPropertyName = "TongHocPhi";
-            this.TongHocPhi.HeaderText = "Tổng Xèng";
-            this.TongHocPhi.MinimumWidth = 6;
-            this.TongHocPhi.Name = "TongHocPhi";
-            this.TongHocPhi.ReadOnly = true;
-            this.TongHocPhi.Width = 102;
             // 
             // Malop2
             // 
@@ -492,6 +373,112 @@
             this.HocPhi.Name = "HocPhi";
             this.HocPhi.Width = 83;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox2.Image = global::QLDT.Properties.Resources.icons8_google_classroom_50;
+            this.pictureBox2.Location = new System.Drawing.Point(306, 132);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(69, 62);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 73;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox1.Image = global::QLDT.Properties.Resources.icons8_classroom_50;
+            this.pictureBox1.Location = new System.Drawing.Point(490, 515);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(54, 66);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 72;
+            this.pictureBox1.TabStop = false;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView3.ColumnHeadersHeight = 29;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Tong,
+            this.TongSoTC,
+            this.TongHocPhi});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView3.EnableHeadersVisualStyles = false;
+            this.dataGridView3.Location = new System.Drawing.Point(31, 971);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataGridView3.MultiSelect = false;
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(1194, 64);
+            this.dataGridView3.TabIndex = 74;
+            this.dataGridView3.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView3_DataBindingComplete);
+            // 
+            // Tong
+            // 
+            this.Tong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Tong.DataPropertyName = "Tong";
+            this.Tong.HeaderText = "Tổng";
+            this.Tong.MinimumWidth = 6;
+            this.Tong.Name = "Tong";
+            this.Tong.ReadOnly = true;
+            // 
+            // TongSoTC
+            // 
+            this.TongSoTC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TongSoTC.DataPropertyName = "TongSoTC";
+            this.TongSoTC.HeaderText = "Tổng Số TC";
+            this.TongSoTC.MinimumWidth = 6;
+            this.TongSoTC.Name = "TongSoTC";
+            this.TongSoTC.ReadOnly = true;
+            this.TongSoTC.Width = 109;
+            // 
+            // TongHocPhi
+            // 
+            this.TongHocPhi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TongHocPhi.DataPropertyName = "TongHocPhi";
+            this.TongHocPhi.HeaderText = "Tổng học phí";
+            this.TongHocPhi.MinimumWidth = 6;
+            this.TongHocPhi.Name = "TongHocPhi";
+            this.TongHocPhi.ReadOnly = true;
+            this.TongHocPhi.Width = 114;
+            // 
             // FrmSinhVienDangKyHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -540,18 +527,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TongSoTC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TongHocPhi;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoTCG;
-        private DataGridViewTextBoxColumn MaLop;
-        private DataGridViewTextBoxColumn MonHoc;
-        private DataGridViewTextBoxColumn GVGD;
-        private DataGridViewTextBoxColumn SoTC;
-        private DataGridViewTextBoxColumn HOCKY;
-        private DataGridViewTextBoxColumn SiSo;
-        private DataGridViewTextBoxColumn DaDangKy;
         private DataGridViewTextBoxColumn Malop2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -559,5 +536,16 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn NAM;
         private DataGridViewTextBoxColumn HocPhi;
+        private DataGridViewTextBoxColumn MaLop;
+        private DataGridViewTextBoxColumn MonHoc;
+        private DataGridViewTextBoxColumn GVGD;
+        private DataGridViewTextBoxColumn SoTC;
+        private DataGridViewTextBoxColumn HOCKY;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn SÍSO;
+        private DataGridViewTextBoxColumn CHỌN;
+        private DataGridViewTextBoxColumn Tong;
+        private DataGridViewTextBoxColumn TongSoTC;
+        private DataGridViewTextBoxColumn TongHocPhi;
     }
 }

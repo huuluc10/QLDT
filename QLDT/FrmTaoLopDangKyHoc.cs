@@ -139,7 +139,7 @@ namespace QLDT
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
                     DataGridViewLinkCell linkCell = new DataGridViewLinkCell();
-                    dataGridView1[10, i] = linkCell;
+                    dataGridView1[5, i] = linkCell;
                 }
                 txtMaLopHP.Clear();
             }

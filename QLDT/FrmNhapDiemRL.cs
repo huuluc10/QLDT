@@ -13,58 +13,55 @@ namespace QLDT
 {
     public partial class FrmNhapDiemRL : Form
     {
-        public FrmNhapDiemRL()
+        string username;
+        string quyenhan;
+
+        public FrmNhapDiemRL(string username, string quyenhan)
         {
             InitializeComponent();
+            this.username = username;
+            this.quyenhan = quyenhan;
         }
 
         public Boolean click = false;
 
         private void FrmNhapDiemRL_Load(object sender, EventArgs e)
         {
-            //txtTongDiemRL.MaxLength = 3;
-            //dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //KhoaDT khoa = new KhoaDT();
-            //DataSet ds1 = new DataSet();
-            //ds1 = khoa.Loadkhoa();
-            //cbboxChonkhoa.DataSource = ds1.Tables[0];
-            //cbboxChonkhoa.DisplayMember = "Tenkhoa";
-            //cbboxChonkhoa.ValueMember = "Makhoa";
-        }
+            txtTongDiemRL.MaxLength = 3;
+            dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                string queryKhoa = "SELECT DISTINCT TENKHOA FROM KHOA ORDER BY TENKHOA";
+                SqlCommand cmd = new SqlCommand(queryKhoa, con);
 
-        private void cbboxChonkhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //String t;
-            //t = cbboxChonkhoa.SelectedValue.ToString();
-            //if (t == "System.Data.DataRowView")
-            //{
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string khoa = saReader.GetString(0);
+                        cbboxChonkhoa.Items.Add(khoa);
+                    }
+                }
+                con.Close();
+            }
 
-            //}
-            //else
-            //{
-            //    Lop dc = new Lop();
-            //    DataSet ds = new DataSet();
-            //    ds = dc.LoadLopselect(t);
-            //    cbboxchonlop.DataSource = ds.Tables[0];
-            //    cbboxchonlop.DisplayMember = "Tenlop";
-            //    cbboxchonlop.ValueMember = "Malop";
-            //}
         }
 
         private void btnLoadSV_Click(object sender, EventArgs e)
         {
-            //if (cbboxchonlop.Text != "")
-            //{
-            //    DiemRL a = new DiemRL();
-            //    dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
-            //    Lop b = new Lop();
-            //    dataGridView1.DataSource = a.LoadDanhSachSinhVien(b.Malop(cbboxchonlop.Text));
-            //    click = true;
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Hãy Chọn Lớp");
-            //}
+            if (cbboxchonlop.Text != "")
+            {
+                //DiemRL a = new DiemRL();
+                //dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+                //Lop b = new Lop();
+                //dataGridView1.DataSource = a.LoadDanhSachSinhVien(b.Malop(cbboxchonlop.Text));
+                //click = true;
+            }
+            else
+            {
+                MessageBox.Show("Hãy Chọn Lớp");
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -271,6 +268,26 @@ namespace QLDT
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+        private void cbboxChonkhoa_SelectedValueChanged(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                string query = String.Format("SELECT DISTINCT MALOP FROM LOPQUANLY WHERE MAKHOA = (SELECT MAKHOA FROM KHOA WHERE TENKHOA = N'" + cbboxChonkhoa.SelectedItem.ToString() + "') ORDER BY MALOP"); ;
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string LOP = saReader.GetString(0);
+                        cbboxchonlop.Items.Add(LOP);
+                    }
+                }
+                con.Close();
+            }
         }
     }
 }

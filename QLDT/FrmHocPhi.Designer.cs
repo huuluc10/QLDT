@@ -34,11 +34,13 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.cbboxChonkhoa = new System.Windows.Forms.ComboBox();
             this.cbboxChonlop = new System.Windows.Forms.ComboBox();
-            this.cbboxNamHoc = new System.Windows.Forms.ComboBox();
+            this.radioButtonHK2 = new System.Windows.Forms.RadioButton();
+            this.radioButtonHK1 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButtonCaNam = new System.Windows.Forms.RadioButton();
             this.btnLoadDanhSach = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnChonDuongDan = new System.Windows.Forms.Button();
@@ -48,9 +50,8 @@
             this.MSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HocPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -77,9 +78,8 @@
             this.MSV,
             this.Hoten,
             this.Lop,
-            this.NamHoc,
             this.HocKy,
-            this.HocPhi});
+            this.NAM});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -128,15 +128,15 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "LỚP :";
             // 
-            // label3
+            // label4
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(403, 45);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "NĂM HỌC :";
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(350, 75);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 20);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "HỌC KỲ :";
             // 
             // cbboxChonkhoa
             // 
@@ -147,7 +147,7 @@
             this.cbboxChonkhoa.Name = "cbboxChonkhoa";
             this.cbboxChonkhoa.Size = new System.Drawing.Size(247, 28);
             this.cbboxChonkhoa.TabIndex = 5;
-            this.cbboxChonkhoa.SelectedIndexChanged += new System.EventHandler(this.cbboxChonkhoa_SelectedIndexChanged);
+            this.cbboxChonkhoa.SelectedValueChanged += new System.EventHandler(this.cbboxChonkhoa_SelectedValueChanged);
             // 
             // cbboxChonlop
             // 
@@ -158,26 +158,44 @@
             this.cbboxChonlop.Name = "cbboxChonlop";
             this.cbboxChonlop.Size = new System.Drawing.Size(201, 28);
             this.cbboxChonlop.TabIndex = 6;
-            this.cbboxChonlop.SelectedIndexChanged += new System.EventHandler(this.cbboxChonlop_SelectedIndexChanged);
+            this.cbboxChonlop.SelectedIndexChanged += new System.EventHandler(this.cbboxChonkhoa_SelectedValueChanged);
             // 
-            // cbboxNamHoc
+            // radioButtonHK2
             // 
-            this.cbboxNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbboxNamHoc.FormattingEnabled = true;
-            this.cbboxNamHoc.Location = new System.Drawing.Point(483, 40);
-            this.cbboxNamHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbboxNamHoc.Name = "cbboxNamHoc";
-            this.cbboxNamHoc.Size = new System.Drawing.Size(201, 28);
-            this.cbboxNamHoc.TabIndex = 7;
+            this.radioButtonHK2.AutoSize = true;
+            this.radioButtonHK2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.radioButtonHK2.Location = new System.Drawing.Point(541, 75);
+            this.radioButtonHK2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radioButtonHK2.Name = "radioButtonHK2";
+            this.radioButtonHK2.Size = new System.Drawing.Size(88, 24);
+            this.radioButtonHK2.TabIndex = 17;
+            this.radioButtonHK2.TabStop = true;
+            this.radioButtonHK2.Text = "Học Kỳ II";
+            this.radioButtonHK2.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonHK1
+            // 
+            this.radioButtonHK1.AutoSize = true;
+            this.radioButtonHK1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.radioButtonHK1.Location = new System.Drawing.Point(424, 75);
+            this.radioButtonHK1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radioButtonHK1.Name = "radioButtonHK1";
+            this.radioButtonHK1.Size = new System.Drawing.Size(84, 24);
+            this.radioButtonHK1.TabIndex = 16;
+            this.radioButtonHK1.TabStop = true;
+            this.radioButtonHK1.Text = "Học Kỳ I";
+            this.radioButtonHK1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox1.Controls.Add(this.radioButtonCaNam);
             this.groupBox1.Controls.Add(this.btnLoadDanhSach);
-            this.groupBox1.Controls.Add(this.cbboxNamHoc);
+            this.groupBox1.Controls.Add(this.radioButtonHK2);
+            this.groupBox1.Controls.Add(this.radioButtonHK1);
             this.groupBox1.Controls.Add(this.cbboxChonlop);
             this.groupBox1.Controls.Add(this.cbboxChonkhoa);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 15);
@@ -187,6 +205,20 @@
             this.groupBox1.Size = new System.Drawing.Size(1001, 160);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
+            // 
+            // radioButtonCaNam
+            // 
+            this.radioButtonCaNam.AutoSize = true;
+            this.radioButtonCaNam.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.radioButtonCaNam.Location = new System.Drawing.Point(659, 75);
+            this.radioButtonCaNam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radioButtonCaNam.Name = "radioButtonCaNam";
+            this.radioButtonCaNam.Size = new System.Drawing.Size(83, 24);
+            this.radioButtonCaNam.TabIndex = 19;
+            this.radioButtonCaNam.TabStop = true;
+            this.radioButtonCaNam.Text = "Cả Năm";
+            this.radioButtonCaNam.UseVisualStyleBackColor = true;
+            this.radioButtonCaNam.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // btnLoadDanhSach
             // 
@@ -266,7 +298,7 @@
             // 
             // MSV
             // 
-            this.MSV.DataPropertyName = "MSV";
+            this.MSV.DataPropertyName = "MSSV";
             this.MSV.HeaderText = "Mã SV";
             this.MSV.MinimumWidth = 6;
             this.MSV.Name = "MSV";
@@ -274,37 +306,31 @@
             // Hoten
             // 
             this.Hoten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Hoten.DataPropertyName = "Hoten";
+            this.Hoten.DataPropertyName = "HOTEN";
             this.Hoten.HeaderText = "Họ Tên";
             this.Hoten.MinimumWidth = 6;
             this.Hoten.Name = "Hoten";
             // 
             // Lop
             // 
-            this.Lop.DataPropertyName = "Tenlop";
+            this.Lop.DataPropertyName = "MALOP";
             this.Lop.HeaderText = "Lớp";
             this.Lop.MinimumWidth = 6;
             this.Lop.Name = "Lop";
             // 
-            // NamHoc
-            // 
-            this.NamHoc.DataPropertyName = "Namhoc";
-            this.NamHoc.HeaderText = "Năm Học";
-            this.NamHoc.MinimumWidth = 6;
-            this.NamHoc.Name = "NamHoc";
-            // 
             // HocKy
             // 
-            this.HocKy.DataPropertyName = "Hocky";
+            this.HocKy.DataPropertyName = "HOCKY";
             this.HocKy.HeaderText = "Học Kỳ";
             this.HocKy.MinimumWidth = 6;
             this.HocKy.Name = "HocKy";
             // 
-            // HocPhi
+            // NAM
             // 
-            this.HocPhi.HeaderText = "Học Phí";
-            this.HocPhi.MinimumWidth = 6;
-            this.HocPhi.Name = "HocPhi";
+            this.NAM.DataPropertyName = "NAM";
+            this.NAM.HeaderText = "NĂM";
+            this.NAM.MinimumWidth = 6;
+            this.NAM.Name = "NAM";
             // 
             // FrmHocPhi
             // 
@@ -335,12 +361,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbboxChonkhoa;
         private System.Windows.Forms.ComboBox cbboxChonlop;
         private System.Windows.Forms.ComboBox cbboxNamHoc;
+        private System.Windows.Forms.RadioButton radioButtonHK2;
+        private System.Windows.Forms.RadioButton radioButtonHK1;
         private System.Windows.Forms.Button btnLoadDanhSach;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton radioButtonCaNam;
         private System.Windows.Forms.Button btnChonDuongDan;
         private System.Windows.Forms.Label lblDuongDan;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -348,8 +378,7 @@
         private DataGridViewTextBoxColumn MSV;
         private DataGridViewTextBoxColumn Hoten;
         private DataGridViewTextBoxColumn Lop;
-        private DataGridViewTextBoxColumn NamHoc;
         private DataGridViewTextBoxColumn HocKy;
-        private DataGridViewTextBoxColumn HocPhi;
+        private DataGridViewTextBoxColumn NAM;
     }
 }
