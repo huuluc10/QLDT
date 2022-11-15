@@ -16,6 +16,9 @@ namespace QLDT
         string username;
         string quyenhan;
 
+        static String namHoc;
+        static String hocKy;
+
         public FrmNhapDiemRL(string username, string quyenhan)
         {
             InitializeComponent();
@@ -25,10 +28,30 @@ namespace QLDT
 
         public Boolean click = false;
 
+        private string HocKy(string msv)
+        {
+            string mk;
+            var r = new Database().Select(String.Format("SELECT MAX(HOCKY) + 1  as HOCKY FROM DIEMRENLUYEN\r\nWHERE MSSV = '" + msv + "'"));
+            mk = r["HOCKY"].ToString();
+            return mk;
+        }
         private void FrmNhapDiemRL_Load(object sender, EventArgs e)
         {
             txtTongDiemRL.MaxLength = 3;
             dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DateTime today = DateTime.Now;
+            int year = today.Year;
+            int month = today.Month;
+            if (month <= 6)
+            {
+                namHoc = year - 1 + " - " + year;
+            }
+            else if (month > 6)
+            {
+                namHoc = year + " - " + (year + 1);
+            }
+            txtNamHocHienTai.Text = namHoc;
+            txtHocKy.Text = hocKy;
             using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
             {
                 con.Open();
@@ -48,15 +71,28 @@ namespace QLDT
 
         }
 
+        public DataTable LoadDanhSachSinhVien(String Malop)
+        {
+            DataTable data = new DataTable();
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                String sql = "DSCHAMDRL '" + Malop + "'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+                Adapter.Fill(data);
+                con.Close();
+            }
+            return data;
+        }
+
         private void btnLoadSV_Click(object sender, EventArgs e)
         {
             if (cbboxchonlop.Text != "")
             {
-                //DiemRL a = new DiemRL();
-                //dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
-                //Lop b = new Lop();
-                //dataGridView1.DataSource = a.LoadDanhSachSinhVien(b.Malop(cbboxchonlop.Text));
-                //click = true;
+                dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+                dataGridView1.DataSource = LoadDanhSachSinhVien(cbboxchonlop.SelectedItem.ToString());
+                click = true;
             }
             else
             {
@@ -66,37 +102,22 @@ namespace QLDT
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if(click==true)
-            //{
-            //    if (dataGridView1.Rows.Count == 0)
-            //    {
+            if (click == true)
+            {
+                if (dataGridView1.Rows.Count == 0)
+                {
 
-            //    }
-            //    else
-            //    {
-            //        txtMSV.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            //        txtHoten.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            //        Lop b = new Lop();
-            //        txtLop.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-
-
-            //        DiemRL drl = new DiemRL();
-            //        DataTable ds1 = new DataTable();
-
-            //        String test = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            //        if (test != "" && int.Parse(test) != 0)
-            //        {
-            //            ds1 = drl.Danhsachnamhoc(int.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString()));
-            //            cbboxNamHoc.DataSource = ds1;
-            //            cbboxNamHoc.DisplayMember = "Nam";
-            //            cbboxNamHoc.ValueMember = "Nam";
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Bạn nên cập nhật năm nhập học cho sinh viên này để xác định các năm học của sinh viên");
-            //        }
-            //    }
-            //}
+                }
+                else
+                {
+                    
+                    txtMSV.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    string hk = HocKy(txtMSV.Text);
+                    txtHoten.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    txtLop.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                    txtHocKy.Text = hk;
+                }
+            }
         }
 
         public Boolean TinhTK(String Namhoc,String msv)
@@ -168,81 +189,41 @@ namespace QLDT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //if (txtMSV.Text == "")
-            //{
-            //    MessageBox.Show("Hãy chọn 1 sinh viên nào đó");
-            //}
-            //else
-            //{
-            //    if (txtTongDiemRL.Text == "")
-            //    {
-            //        MessageBox.Show("Hãy điền điểm");
-            //    }
-            //    else
-            //    {
-            //        if (int.Parse(txtTongDiemRL.Text) >= 0 && int.Parse(txtTongDiemRL.Text) <= 100)
-            //        {
-            //            Lop a = new Lop();
-            //            if (radioButtonHK1.Checked)
-            //            {
-
-            //                DiemRL drl = new DiemRL();
-            //                if (drl.KiemtraTrung(int.Parse(txtMSV.Text), cbboxNamHoc.Text, radioButtonHK1.Text) == true)
-            //                {
-            //                    drl.NhapDiem(int.Parse(txtMSV.Text), cbboxNamHoc.Text, radioButtonHK1.Text, int.Parse(txtTongDiemRL.Text));
-            //                    MessageBox.Show("Cập Nhật Điểm Thành Công.Chi Tiết : MSV:" + txtMSV.Text + ",Họ Tên:" + txtHoten.Text + ",Lop:" + txtLop.Text + ",Năm Học:" + cbboxNamHoc.Text + "," + radioButtonHK1.Text + ",Điểm:" + txtTongDiemRL.Text);
-            //                    if(TinhTK(cbboxNamHoc.Text,txtMSV.Text)==true)
-            //                    {
-            //                        int Diem1 = DiemHocKy(radioButtonHK1.Text, cbboxNamHoc.Text, txtMSV.Text);
-            //                        int Diem2 = DiemHocKy(radioButtonHK2.Text, cbboxNamHoc.Text, txtMSV.Text);
-            //                        double dtk = ((double)Diem1 + (double)Diem2) / (double)2;
-            //                        int DiemCaNam = (int)Math.Ceiling(dtk);
-            //                        if(KTraTrung(txtMSV.Text,cbboxNamHoc.Text,"Cả Năm")==true)
-            //                        {
-            //                            drl.NhapDiem(int.Parse(txtMSV.Text), cbboxNamHoc.Text, "Cả Năm", DiemCaNam);
-            //                        }
-            //                    }
-            //                }
-            //                else
-            //                {
-            //                    MessageBox.Show("Bạn đã cập nhật điểm cho sinh viên " + txtHoten.Text + " Trong Năm Học Và Học Kỳ Này rồi. Vào Xem Điểm Để Sửa Điểm Lại Nếu Bạn Muốn");
-            //                }
-            //            }
-            //            else if (radioButtonHK2.Checked)
-            //            {
-            //                DiemRL drl = new DiemRL();
-            //                if (drl.KiemtraTrung(int.Parse(txtMSV.Text), cbboxNamHoc.Text, radioButtonHK2.Text) == true)
-            //                {
-            //                    drl.NhapDiem(int.Parse(txtMSV.Text), cbboxNamHoc.Text, radioButtonHK2.Text, int.Parse(txtTongDiemRL.Text));
-            //                    MessageBox.Show("Cập Nhật Điểm Thành Công.Chi Tiết : MSV:" + txtMSV.Text + ",Họ Tên:" + txtHoten.Text + ",Lop:" + txtLop.Text + ",Năm Học:" + cbboxNamHoc.Text + "," + radioButtonHK2.Text + ",Điểm:" + txtTongDiemRL.Text);
-            //                    if (TinhTK(cbboxNamHoc.Text,txtMSV.Text) == true)
-            //                    {
-            //                        int Diem1 = DiemHocKy(radioButtonHK1.Text, cbboxNamHoc.Text, txtMSV.Text);
-            //                        int Diem2 = DiemHocKy(radioButtonHK2.Text, cbboxNamHoc.Text, txtMSV.Text);
-            //                        double dtk = ((double)Diem1 + (double)Diem2) / (double)2;
-            //                        int DiemCaNam = (int)Math.Ceiling(dtk);
-            //                        if (KTraTrung(txtMSV.Text, cbboxNamHoc.Text, "Cả Năm") == true)
-            //                        {
-            //                            drl.NhapDiem(int.Parse(txtMSV.Text), cbboxNamHoc.Text, "Cả Năm", DiemCaNam);
-            //                        }
-            //                    }
-            //                }
-            //                else
-            //                {
-            //                    MessageBox.Show("Bạn đã cập nhật điểm cho sinh viên " + txtHoten.Text + " Trong Năm Học Và Học Kỳ Này rồi. Vào Xem Điểm Để Sửa Điểm Lại Nếu Bạn Muốn");
-            //                }
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("Hãy chọn 1 học kỳ nào đó");
-            //            }
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Bạn Nhập Điểm Ko hợp lệ");
-            //        }
-            //    }
-            //}
+            if (txtMSV.Text == "")
+            {
+                MessageBox.Show("Hãy chọn 1 sinh viên nào đó");
+            }
+            else
+            {
+                if (txtTongDiemRL.Text == "")
+                {
+                    MessageBox.Show("Hãy điền điểm");
+                }
+                else
+                {
+                    if (int.Parse(txtTongDiemRL.Text) >= 0 && int.Parse(txtTongDiemRL.Text) <= 100)
+                    {
+                        using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                        {
+                            con.Open();
+                            String sql = "NHAPDRL @MSSV, @HOCKY, @DIEM";
+                            SqlCommand cmd = new SqlCommand(sql, con);
+                            cmd.Parameters.Add("@MSSV", SqlDbType.Char, 8);
+                            cmd.Parameters.Add("@HOCKY", SqlDbType.Char, 1);
+                            cmd.Parameters.Add("@DIEM", SqlDbType.TinyInt);
+                            cmd.Parameters["@MSSV"].Value = txtMSV.Text;
+                            cmd.Parameters["@HOCKY"].Value = txtHocKy.Text;
+                            cmd.Parameters["@DIEM"].Value = txtTongDiemRL.Text;
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bạn Nhập Điểm Ko hợp lệ");
+                    }
+                }
+            }
         }
 
         private void txtTongDiemRL_KeyPress(object sender, KeyPressEventArgs e)

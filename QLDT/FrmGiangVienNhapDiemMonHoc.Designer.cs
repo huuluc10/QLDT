@@ -34,22 +34,23 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.MSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiemKT1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiemKT2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiemThi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.cbboxLopHocDangDay = new System.Windows.Forms.ComboBox();
             this.btnloadsv = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.lblDuongDanFile = new System.Windows.Forms.Label();
             this.lblDuongDan = new System.Windows.Forms.Label();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnXuatExCel = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.MSSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiemKT1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiemKT2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiemKT3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -74,12 +75,12 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MSV,
+            this.MSSV,
             this.HoTen,
             this.Lop,
             this.DiemKT1,
             this.DiemKT2,
-            this.DiemThi});
+            this.DiemKT3});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -110,54 +111,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
-            // MSV
-            // 
-            this.MSV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MSV.DataPropertyName = "MaSinhVien";
-            this.MSV.HeaderText = "Mã Sinh Viên";
-            this.MSV.MinimumWidth = 6;
-            this.MSV.Name = "MSV";
-            // 
-            // HoTen
-            // 
-            this.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HoTen.DataPropertyName = "Hoten";
-            this.HoTen.HeaderText = "Họ Tên";
-            this.HoTen.MinimumWidth = 6;
-            this.HoTen.Name = "HoTen";
-            // 
-            // Lop
-            // 
-            this.Lop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Lop.DataPropertyName = "TenLop";
-            this.Lop.HeaderText = "Lớp";
-            this.Lop.MinimumWidth = 6;
-            this.Lop.Name = "Lop";
-            // 
-            // DiemKT1
-            // 
-            this.DiemKT1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiemKT1.DataPropertyName = "Diem1";
-            this.DiemKT1.HeaderText = "Điểm KT1";
-            this.DiemKT1.MinimumWidth = 6;
-            this.DiemKT1.Name = "DiemKT1";
-            // 
-            // DiemKT2
-            // 
-            this.DiemKT2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiemKT2.DataPropertyName = "Diem2";
-            this.DiemKT2.HeaderText = "Điểm KT2";
-            this.DiemKT2.MinimumWidth = 6;
-            this.DiemKT2.Name = "DiemKT2";
-            // 
-            // DiemThi
-            // 
-            this.DiemThi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiemThi.DataPropertyName = "DiemThi";
-            this.DiemThi.HeaderText = "Điểm Thi";
-            this.DiemThi.MinimumWidth = 6;
-            this.DiemThi.Name = "DiemThi";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -171,10 +124,10 @@
             // 
             this.cbboxLopHocDangDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbboxLopHocDangDay.FormattingEnabled = true;
-            this.cbboxLopHocDangDay.Location = new System.Drawing.Point(137, 45);
+            this.cbboxLopHocDangDay.Location = new System.Drawing.Point(158, 71);
             this.cbboxLopHocDangDay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbboxLopHocDangDay.Name = "cbboxLopHocDangDay";
-            this.cbboxLopHocDangDay.Size = new System.Drawing.Size(441, 28);
+            this.cbboxLopHocDangDay.Size = new System.Drawing.Size(391, 28);
             this.cbboxLopHocDangDay.TabIndex = 2;
             // 
             // btnloadsv
@@ -195,17 +148,29 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.btnloadsv);
             this.groupBox1.Controls.Add(this.cbboxLopHocDangDay);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(48, 38);
+            this.groupBox1.Location = new System.Drawing.Point(48, 13);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(719, 102);
+            this.groupBox1.Size = new System.Drawing.Size(719, 127);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CÁC LỚP HỌC ĐANG QUẢN LÝ :";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(158, 25);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(391, 28);
+            this.comboBox1.TabIndex = 4;
+            this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
             // 
             // groupBox6
             // 
@@ -275,6 +240,54 @@
             this.simpleButton2.Text = "CẬP NHẬT";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
+            // MSSV
+            // 
+            this.MSSV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MSSV.DataPropertyName = "MSSV";
+            this.MSSV.HeaderText = "Mã Sinh Viên";
+            this.MSSV.MinimumWidth = 6;
+            this.MSSV.Name = "MSSV";
+            // 
+            // HoTen
+            // 
+            this.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.HoTen.DataPropertyName = "Hoten";
+            this.HoTen.HeaderText = "Họ Tên";
+            this.HoTen.MinimumWidth = 6;
+            this.HoTen.Name = "HoTen";
+            // 
+            // Lop
+            // 
+            this.Lop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Lop.DataPropertyName = "MALOP";
+            this.Lop.HeaderText = "Lớp";
+            this.Lop.MinimumWidth = 6;
+            this.Lop.Name = "Lop";
+            // 
+            // DiemKT1
+            // 
+            this.DiemKT1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DiemKT1.DataPropertyName = "DIEMQUATRINH";
+            this.DiemKT1.HeaderText = "DIEMQUATRINH";
+            this.DiemKT1.MinimumWidth = 6;
+            this.DiemKT1.Name = "DiemKT1";
+            // 
+            // DiemKT2
+            // 
+            this.DiemKT2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DiemKT2.DataPropertyName = "DIEMGIUAKY";
+            this.DiemKT2.HeaderText = "DIEMGIUAKY";
+            this.DiemKT2.MinimumWidth = 6;
+            this.DiemKT2.Name = "DiemKT2";
+            // 
+            // DiemKT3
+            // 
+            this.DiemKT3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DiemKT3.DataPropertyName = "DIEMCUOIKY";
+            this.DiemKT3.HeaderText = "Điểm Thi";
+            this.DiemKT3.MinimumWidth = 6;
+            this.DiemKT3.Name = "DiemKT3";
+            // 
             // FrmGiangVienNhapDiemMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -288,7 +301,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmGiangVienNhapDiemMonHoc";
-            this.Text = "NHẬP ĐIỂM :)";
+            this.Text = "NHẬP ĐIỂM";
             this.Load += new System.EventHandler(this.FrmGiangVienNhapDiemMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -312,11 +325,12 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton btnXuatExCel;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MSV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiemKT1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiemKT2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiemThi;
+        private ComboBox comboBox1;
+        private DataGridViewTextBoxColumn MSSV;
+        private DataGridViewTextBoxColumn HoTen;
+        private DataGridViewTextBoxColumn Lop;
+        private DataGridViewTextBoxColumn DiemKT1;
+        private DataGridViewTextBoxColumn DiemKT2;
+        private DataGridViewTextBoxColumn DiemKT3;
     }
 }

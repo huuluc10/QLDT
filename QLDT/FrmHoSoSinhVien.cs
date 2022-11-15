@@ -1,4 +1,5 @@
-﻿using GLib;
+﻿using DevExpress.XtraCharts.Native;
+using GLib;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -94,41 +95,33 @@ namespace QLDT
             if (Quyen != "1" )
             {
                 var r = new Database().Select(String.Format("SELECTSV '" + username + "'"));
+                txtMSSV.ReadOnly = true;
+                txtHoten.ReadOnly = true;
+                txtCCCD.ReadOnly = true;
+                dateTimePicker1.Enabled = false;
+                cbboxGioitinh.Enabled = false;
+                cbboxDanToc1.Enabled = false;
+                txtEmail.ReadOnly = true;
+                txtSDT.ReadOnly = true;
+                txtQuocGia.ReadOnly = true;
+                cbboxTonGiao.Enabled = false;
+                txtDiaChi.ReadOnly = true;
+
                 if (DoiTTSV == false)
                 {
                     btSuaSV.Visible = false;
-                    txtMSSV.ReadOnly = true;
-                    txtHoten.ReadOnly = true;
-                    txtCCCD.ReadOnly = true;
-                    dateTimePicker1.Enabled = false;
-                    cbboxGioitinh.Enabled = false;
-                    cbboxDanToc1.Enabled = false;
-                    txtEmail.ReadOnly = true;
-                    txtSDT.ReadOnly = true;
                     cbboxKhoa.Enabled = false;
                     cbboxLop.Enabled = false;
-                    txtQuocGia.ReadOnly = true;
-                    cbboxTonGiao.Enabled = false;
                     cbboxCN.Enabled = false;
-                    txtDiaChi.ReadOnly = true;
+                    button2.Enabled = false;
                 }
                 else
                 {
                     btSuaSV.Visible = true;
-                    txtMSSV.ReadOnly = false;
-                    txtHoten.ReadOnly = false;
-                    txtCCCD.ReadOnly = false;
-                    dateTimePicker1.Enabled = false;
-                    cbboxGioitinh.Enabled = false;
-                    cbboxDanToc1.Enabled = false;
-                    txtEmail.ReadOnly = false;
-                    txtSDT.ReadOnly = false;
-                    cbboxKhoa.Enabled = false;
-                    cbboxLop.Enabled = false;
-                    txtQuocGia.ReadOnly = false;
-                    cbboxTonGiao.Enabled = false;
-                    cbboxCN.Enabled = false;
-                    txtDiaChi.ReadOnly = false;
+                    cbboxKhoa.Enabled = true;
+                    cbboxLop.Enabled = true;
+                    cbboxCN.Enabled = true;
+                    button2.Enabled = true;
                 }
                 try
                 {
@@ -720,6 +713,61 @@ namespace QLDT
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+        private void cbboxKhoa_SelectedValueChanged(object sender, EventArgs e)
+        {
+            cbboxLop.Items.Clear();
+            cbboxLop.Text = "";
+            cbboxCN.Items.Clear();
+            cbboxCN.Text = "";
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                string query = String.Format("SELECT DISTINCT MALOP FROM LOPQUANLY WHERE MAKHOA = (SELECT MAKHOA FROM KHOA WHERE TENKHOA = N'" + cbboxKhoa.SelectedItem.ToString() + "') ORDER BY MALOP");
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string LOP = saReader.GetString(0);
+                        cbboxLop.Items.Add(LOP);
+                    }
+                }
+                query = String.Format("SELECT DISTINCT TENCHUYENNGANH FROM CHUYENNGANH WHERE MAKHOA = (SELECT MAKHOA FROM KHOA WHERE TENKHOA = N'" + cbboxKhoa.SelectedItem.ToString() + "') ORDER BY TENCHUYENNGANH");
+                cmd = new SqlCommand(query, con);
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string khoa = saReader.GetString(0);
+                        cbboxCN.Items.Add(khoa);
+                    }
+                }
+                con.Close();
+            }
+        }
+
+        private void cbboxchonkhoa_SelectedValueChanged(object sender, EventArgs e)
+        {
+            cbboxchonlop.Items.Clear();
+            cbboxchonlop.Text = "";
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                string query = String.Format("SELECT DISTINCT MALOP FROM LOPQUANLY WHERE MAKHOA = (SELECT MAKHOA FROM KHOA WHERE TENKHOA = N'" + cbboxchonkhoa.SelectedItem.ToString() + "') ORDER BY MALOP");
+                SqlCommand cmd = new SqlCommand(query, con);
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string LOP = saReader.GetString(0);
+                        cbboxchonlop.Items.Add(LOP);
+                    }
+                }
+                con.Close();
+            }
         }
     }
 }

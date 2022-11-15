@@ -65,9 +65,9 @@ namespace QLDT
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "XOALOPHP";
-                cmd.Parameters.Add(new SqlParameter("@MAKHOAHOC", Malop));
+                //cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = String.Format("XOALOPHP '" + Malop + "'");
+                //cmd.Parameters.Add(new SqlParameter("@MAKHOAHOC", Malop));
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -157,7 +157,7 @@ namespace QLDT
             {
                 if (e.ColumnIndex == 5)
                 {
-                    string Task = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
+                    string Task = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                     if (Task == "Delete")
                     {
                         if (MessageBox.Show("Bạn có chắc chắm muốn xóa không?", "Đang xóa...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

@@ -17,6 +17,10 @@ namespace QLDT
 {
     public partial class FrmXetHocBong : Form
     {
+
+        static String namHoc;
+        static String hocKy;
+
         public FrmXetHocBong()
         {
             InitializeComponent();
@@ -26,6 +30,37 @@ namespace QLDT
         static String hockythu;
         private void FrmXetHocBong_Load(object sender, EventArgs e)
         {
+            DateTime today = DateTime.Now;
+            int year = today.Year;
+            int month = today.Month;
+            if (month <= 6)
+            {
+                namHoc = year - 1 + " - " + year;
+                hocKy = "2";
+            }
+            else if (month > 6)
+            {
+                namHoc = year + " - " + (year + 1);
+                hocKy = "1";
+            }
+            txtNamHocHienTai.Text = namHoc;
+            txtHocKy.Text = hocKy;
+
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                string queryKhoa = "SELECT DISTINCT TENKHOA FROM KHOA ORDER BY TENKHOA";
+                SqlCommand cmd = new SqlCommand(queryKhoa, con);
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string khoa = saReader.GetString(0);
+                        cbboxChonkhoa.Items.Add(khoa);
+                    }
+                }
+                con.Close();
+            }
             //KhoaDT khoa = new KhoaDT();
             //DataSet ds1 = new DataSet();
             //ds1 = khoa.Loadkhoa();
@@ -35,43 +70,30 @@ namespace QLDT
 
 
             //cbboxKhoaHoc.DataSource = khoa.Loadkhoahoc();
-            cbboxKhoaHoc.DisplayMember = "TenKhoaHoc";
-            cbboxKhoaHoc.ValueMember = "MaKhoaHoc";
+
+            using (SqlConnection con1 = new SqlConnection(ConnectionString.connectionString))
+            {
+                con1.Open();
+                string queryKhoa = "SELECT DISTINCT TENKHOA FROM KHOA ORDER BY TENKHOA";
+                SqlCommand cmd = new SqlCommand(queryKhoa, con1);
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string khoa = saReader.GetString(0);
+                        cbboxChonkhoa.Items.Add(khoa);
+                    }
+                }
+                con1.Close();
+            }
 
             txtMucDiemXet.Enabled = false;
-            groupBox3.Enabled = false;
             duongdan = null;
             makhoa = null;
             hockythu = null;
         }
 
-        private void cbboxKhoaHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String t;
-            t = cbboxKhoaHoc.SelectedValue.ToString();
-            if (t == "System.Data.DataRowView")
-            {
-
-            }
-            else
-            {
-                //KhoaDT a = new KhoaDT();
-                //DiemRL drl = new DiemRL();
-                //DataTable dt = new DataTable();
-                //if (a.LayRaNamHocCuaKhoaHoc(t)!=0)
-                //{
-                //    int namhoc = a.LayRaNamHocCuaKhoaHoc(t);
-                //    dt = drl.DanhsachnamhocSVXemDiem123(namhoc);
-                //    cbboxNamHoc.DataSource = dt;
-                //    cbboxNamHoc.DisplayMember = "Nam";
-                //    cbboxNamHoc.ValueMember = "HocKyThu";
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Không tồn tại sinh viên :(");
-                //}
-            }
-        }
+        
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -151,7 +173,7 @@ namespace QLDT
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            if(cbboxChonkhoa.Text=="" || cbboxKhoaHoc.Text=="" || cbboxNamHoc.Text=="" || txtMucDiemXet.Text=="")
+            if(cbboxChonkhoa.Text=="" || txtMucDiemXet.Text=="")
             {
                 MessageBox.Show("Hãy Lựa Chọn Đầy Đủ");
             }
@@ -162,94 +184,109 @@ namespace QLDT
             else
             {
                     DataTable data = new DataTable();
-                    data.Columns.Add("MaSv");
-                    data.Columns.Add("Hoten");
-                    data.Columns.Add("Tenlop");
-                    data.Columns.Add("NamHoc");
-                    data.Columns.Add("Tongdiem");
-                    data.Columns.Add("DTBHE10");
-                    data.Columns.Add("DTBHE4");
-                    data.Columns.Add("TongSoTCHocTrongKy");
-                    data.Columns.Add("LoaiHocBong");
-                    data.Columns.Add("SoTien");
-                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
-                    {
-                        con.Open();
-                        SqlCommand cmd = new SqlCommand();
-                        cmd.Connection = con;
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "DSSV_XETHB";
-                        cmd.Parameters.Add(new SqlParameter("@namhoc", cbboxNamHoc.Text));
-                        cmd.Parameters.Add(new SqlParameter("@khoahoc", cbboxKhoaHoc.SelectedValue.ToString()));
-                        string[] arrListStr = (cbboxNamHoc.Text).Split('_');
-                        cmd.Parameters.Add(new SqlParameter("@namhocdiemrl", arrListStr[0].ToString()));
-                        String hk;
-                        if (arrListStr[1].ToString() == "1")
-                        {
-                            hk = "Học Kỳ I";
-                        }
-                        else
-                        {
-                            hk = "Học Kỳ II";
-                        }
-                        cmd.Parameters.Add(new SqlParameter("@diemrlhocky", hk));
-                        cmd.Parameters.Add(new SqlParameter("@makhoa", cbboxChonkhoa.SelectedValue.ToString()));
-                        cmd.Parameters.Add(new SqlParameter("@diemxet", float.Parse(txtMucDiemXet.Text)));
-                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                        adapter.Fill(data);
-                        /*
-                        SqlDataReader rdr = cmd.ExecuteReader();
-                        while (rdr.Read())
-                        {
-                            String MSv = rdr["MaSV"].ToString();
-                            String Hoten = rdr["Hoten"].ToString();
-                            String Tenlop = rdr["Tenlop"].ToString();
-                            String NamHoc = rdr["NamHoc"].ToString();
-                            int? diemrl = null;
-                            double? DTBHE10 = null;
-                            double? DTBHE4 = null;
-                            int? TongTC = null;
-                            if (rdr["Tongdiem"].ToString() != "")
-                            {
-                                diemrl = (int)rdr["Tongdiem"];
-                            }
-                            if (rdr["DTBHE10"].ToString() != "")
-                            {
-                                DTBHE10 = (double)rdr["DTBHE10"];
-                            }
-                            if (rdr["DTBHE4"].ToString() != "")
-                            {
-                                String DTBHE4i = rdr["DTBHE4"].ToString();
-                                DTBHE4 = Math.Round(Convert.ToDouble(DTBHE4i), 2);
-                            }
-                            if (rdr["TongSoTCHocTrongKy"].ToString() != "")
-                            {
-                                TongTC = (int)rdr["TongSoTCHocTrongKy"];
-                            }
-                            DataRow row = data.NewRow();
-                            row["MaSV"] = MSv;
-                            row["Hoten"] = Hoten;
-                            row["Tenlop"] = Tenlop;
-                            row["NamHoc"] = NamHoc;
-                            row["Tongdiem"] = diemrl;
-                            row["DTBHE10"] = DTBHE10;
-                            row["DTBHE4"] = DTBHE4;
-                            row["TongSoTCHocTrongKy"] = TongTC;
-                            data.Rows.Add(row);
-                        }
-                        */
-                        dataGridView1.DataSource = data;
-                        con.Close();
-                    }
-                    makhoa = cbboxChonkhoa.SelectedValue.ToString();
-                    hockythu = cbboxNamHoc.SelectedValue.ToString();
+                    //data.Columns.Add("MSSV");
+                    //data.Columns.Add("Hoten");
+                    //data.Columns.Add("Tenlop");
+                    //data.Columns.Add("NAM");
+                    //data.Columns.Add("HOCKY");
+                    //data.Columns.Add("Tongdiem");
+                    //data.Columns.Add("DTBHE10");
+                    //data.Columns.Add("TongSoTCHocTrongKy");
+                    //data.Columns.Add("LoaiHocBong");
+                    //data.Columns.Add("SoTien");
+                //using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                //{
+                //    con.Open();
+                //    SqlCommand cmd = new SqlCommand();
+                //    cmd.Connection = con;
+                //    cmd.CommandType = CommandType.StoredProcedure;
+                //    cmd.CommandText = "DSSV_XETHB";
+                //    cmd.Parameters.Add(new SqlParameter("@namhoc", cbboxNamHoc.Text));
+                //    cmd.Parameters.Add(new SqlParameter("@khoahoc", cbboxKhoaHoc.SelectedValue.ToString()));
+                //    string[] arrListStr = (cbboxNamHoc.Text).Split('_');
+                //    cmd.Parameters.Add(new SqlParameter("@namhocdiemrl", arrListStr[0].ToString()));
+                //    String hk;
+                //    if (arrListStr[1].ToString() == "1")
+                //    {
+                //        hk = "Học Kỳ I";
+                //    }
+                //    else
+                //    {
+                //        hk = "Học Kỳ II";
+                //    }
+                //    cmd.Parameters.Add(new SqlParameter("@diemrlhocky", hk));
+                //    cmd.Parameters.Add(new SqlParameter("@makhoa", cbboxChonkhoa.SelectedValue.ToString()));
+                //    cmd.Parameters.Add(new SqlParameter("@diemxet", float.Parse(txtMucDiemXet.Text)));
+                //    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //    adapter.Fill(data);
+                //    /*
+                //    SqlDataReader rdr = cmd.ExecuteReader();
+                //    while (rdr.Read())
+                //    {
+                //        String MSv = rdr["MaSV"].ToString();
+                //        String Hoten = rdr["Hoten"].ToString();
+                //        String Tenlop = rdr["Tenlop"].ToString();
+                //        String NamHoc = rdr["NamHoc"].ToString();
+                //        int? diemrl = null;
+                //        double? DTBHE10 = null;
+                //        double? DTBHE4 = null;
+                //        int? TongTC = null;
+                //        if (rdr["Tongdiem"].ToString() != "")
+                //        {
+                //            diemrl = (int)rdr["Tongdiem"];
+                //        }
+                //        if (rdr["DTBHE10"].ToString() != "")
+                //        {
+                //            DTBHE10 = (double)rdr["DTBHE10"];
+                //        }
+                //        if (rdr["DTBHE4"].ToString() != "")
+                //        {
+                //            String DTBHE4i = rdr["DTBHE4"].ToString();
+                //            DTBHE4 = Math.Round(Convert.ToDouble(DTBHE4i), 2);
+                //        }
+                //        if (rdr["TongSoTCHocTrongKy"].ToString() != "")
+                //        {
+                //            TongTC = (int)rdr["TongSoTCHocTrongKy"];
+                //        }
+                //        DataRow row = data.NewRow();
+                //        row["MaSV"] = MSv;
+                //        row["Hoten"] = Hoten;
+                //        row["Tenlop"] = Tenlop;
+                //        row["NamHoc"] = NamHoc;
+                //        row["Tongdiem"] = diemrl;
+                //        row["DTBHE10"] = DTBHE10;
+                //        row["DTBHE4"] = DTBHE4;
+                //        row["TongSoTCHocTrongKy"] = TongTC;
+                //        data.Rows.Add(row);
+                //    }
+                //    */
+                //    dataGridView1.DataSource = data;
+                //    con.Close();
+                //}
+                using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "DSSV_DE_XETHB";
+                    cmd.Parameters.Add(new SqlParameter("@TENKHOA", cbboxChonkhoa.SelectedItem.ToString()));
+                    cmd.Parameters.Add(new SqlParameter("@NAM", namHoc));
+                    cmd.Parameters.Add(new SqlParameter("@HOCKY", hocKy));
+                    cmd.Parameters.Add(new SqlParameter("@MUCDIEMXET", txtMucDiemXet.Text));
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(data);
+                    con.Close();
+                }
+                dataGridView1.DataSource = data;
+                makhoa = cbboxChonkhoa.SelectedItem.ToString();
+                    hockythu = hocKy;
                     simpleButton3.Enabled = true;
                     simpleButton2.Enabled = true;
                     btnLoaiHocLai.Enabled = true;
                     checkBox1.Checked = false;
                     checkBox2.Checked = false;
                     checkBox3.Checked = false;
-                    simpleButton4.Enabled = false;
             }
         }
 
@@ -329,27 +366,27 @@ namespace QLDT
         {
             if (dataGridView1.Rows.Count == 0)
             {
-                MessageBox.Show("Ko có gì để quét ...");
+                MessageBox.Show("KHÔNG CÓ DỮ LIỆU ĐỂ LỌC");
             }
             else
             {
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    String MSV = dataGridView1.Rows[i].Cells["MSV"].Value.ToString();
-                    String NamHoc = dataGridView1.Rows[i].Cells["NamHoc"].Value.ToString();
-                    if (loaisvdiemduoi4(MSV,NamHoc,makhoa) == false)
+                    String MSV = dataGridView1.Rows[i].Cells["MSSV"].Value.ToString();
+                    String NamHoc = dataGridView1.Rows[i].Cells["NAM"].Value.ToString();
+                    if (loaisvdiemduoi5(MSV,NamHoc,makhoa) == false)
                     {
                         dataGridView1.Rows.RemoveAt(i);
                         i = i - 1;
                     }
                 }
-                MessageBox.Show("Đã loại tất cả sinh viên có môn học thi điểm dưỡi 4 đối với môn học bình thường");
+                MessageBox.Show("Đã loại tất cả sinh viên có môn học thi điểm dưỡi 5");
                 simpleButton2.Enabled = false;
                 checkBox2.Checked = true;
             }
         }
 
-        private Boolean loaisvdiemduoi4(String msv, String namhoc, String makhoamonhoc)
+        private Boolean loaisvdiemduoi5(String msv, String namhoc, String makhoamonhoc)
         {
             using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
             {
@@ -358,16 +395,16 @@ namespace QLDT
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "DIEMTHISV_HOCKY";
-                cmd.Parameters.Add(new SqlParameter("@msv", msv));
-                cmd.Parameters.Add(new SqlParameter("@namhoc", namhoc));
-                cmd.Parameters.Add(new SqlParameter("@makhoamonhoc", makhoamonhoc));
+                cmd.Parameters.Add(new SqlParameter("@MSSV", msv));
+                cmd.Parameters.Add(new SqlParameter("@NAM", namhoc));
+                cmd.Parameters.Add(new SqlParameter("@HOCKY", hocKy));
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    if (rdr["DiemThi"].ToString() != "")
+                    if (rdr["DIEMCUOIKY"].ToString() != "")
                     {
-                        double? diemthi = (double)rdr["DiemThi"];
-                        if (diemthi < 4.0)
+                        double? diemthi = (double)rdr["DIEMCUOIKY"];
+                        if (diemthi < 5.0)
                         {
                             return false;
                         }
@@ -386,16 +423,22 @@ namespace QLDT
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DIEMTHITCQP_HOCKY";
-                cmd.Parameters.Add(new SqlParameter("@msv", msv));
-                cmd.Parameters.Add(new SqlParameter("@namhoc", namhoc));
+                cmd.CommandText = "TONGTC_DRLSV_HOCKY";
+                cmd.Parameters.Add(new SqlParameter("@MSSV", msv));
+                cmd.Parameters.Add(new SqlParameter("@NAM", namhoc));
+                cmd.Parameters.Add(new SqlParameter("@HOCKY", hocKy));
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    if (rdr["DiemThi"].ToString() != "")
+                    if (rdr["TONGTC"].ToString() != "" && rdr["DIEM"].ToString() != "")
                     {
-                        double diemthi = (double)rdr["DiemThi"];
-                        if (diemthi < 5.0)
+                        int TONGTC = (int)rdr["TONGTC"];
+                        int Diem = (int)rdr["DIEM"];
+                        if (TONGTC < 18)
+                        {
+                            return false;
+                        }
+                        if (Diem < 70)
                         {
                             return false;
                         }
@@ -415,14 +458,15 @@ namespace QLDT
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DIEMCHUSV_HOCKY";
-                cmd.Parameters.Add(new SqlParameter("@msv", msv));
-                cmd.Parameters.Add(new SqlParameter("@namhoc", namhoc));
+                cmd.CommandText = "LOCSVHOCLAI";
+                cmd.Parameters.Add(new SqlParameter("@MSSV", msv));
+                cmd.Parameters.Add(new SqlParameter("@NAM", namhoc));
+                cmd.Parameters.Add(new SqlParameter("@HOCKY", hocKy));
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    String diemchu = rdr["DiemChu"].ToString();
-                    if (diemchu == "F")
+                    var xet = rdr["XET"].ToString();
+                    if (xet.ToString() != "0")
                     {
                         return false;
                     }
@@ -438,7 +482,7 @@ namespace QLDT
         {
             if (dataGridView1.Rows.Count == 0)
             {
-                MessageBox.Show("Ko có gì để quét ...");
+                MessageBox.Show("KHÔNG CÓ DỮ LIỆU ĐỂ LỌC");
             }
             else
             {
@@ -462,7 +506,7 @@ namespace QLDT
         {
             if (dataGridView1.Rows.Count == 0)
             {
-                MessageBox.Show("Ko có gì để quét ...");
+                MessageBox.Show("KHÔNG CÓ DỮ LIỆU ĐỂ LỌC");
             }
             else
             {
@@ -482,195 +526,11 @@ namespace QLDT
             }
         }
 
-        private void radioButtonXemDS_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void radioButtonNhapDS_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void simpleButton4_Click(object sender, EventArgs e)
-        {
-            if (txtSoTien.Text == "")
-            {
-                MessageBox.Show("Bạn Chưa Nhập Tiền... Chia tdn nào được :((");
-            }
-            else
-            {
-                if (dataGridView1.Rows.Count == 0)
-                {
-                    MessageBox.Show("Ko có gì để quét ...");
-                }
-                else
-                {
-                    double? TongSoTien = double.Parse(txtSoTien.Text);
-                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                    {
-                        String MSV = dataGridView1.Rows[i].Cells["MSV"].Value.ToString();
-                        double DiemTBC4 = double.Parse(dataGridView1.Rows[i].Cells["DiemHe4"].Value.ToString());
-                        int DiemRL;
-                        if (dataGridView1.Rows[i].Cells["DRL"].Value.ToString() == "")
-                        {
-                            MessageBox.Show("Bạn Nên Kiểm Tra SV '" + MSV + "' ,SV Này Chưa Có ĐRL");
-                            break;
-                        }
-                        else
-                        {
-                            DiemRL = int.Parse(dataGridView1.Rows[i].Cells["DRL"].Value.ToString());
-                        }
-                        String LoaiDiemRL = null;
-                        String loaihocbong = null;
-                        if(DiemRL >= 90)
-                        {
-                            LoaiDiemRL = "Xuất Sắc";
-                        }
-                        else if (DiemRL >= 80 && DiemRL < 90)
-                        {
-                            LoaiDiemRL = "Tốt";
-                        }
-                        else if (DiemRL >= 70 && DiemRL < 80)
-                        {
-                            LoaiDiemRL = "Khá";
-                        }
-                        else
-                        {
-                            LoaiDiemRL = "Trung Bình";
-                        }
-                        if(DiemTBC4>=3.6 && DiemTBC4<=4.0)
-                        {
-                            if(LoaiDiemRL=="Xuất Sắc")
-                            {
-                                loaihocbong = "Xuất Sắc";
-                            }
-                            else if(LoaiDiemRL == "Tốt")
-                            {
-                                loaihocbong = "Giỏi";
-                            }
-                            else if(LoaiDiemRL=="Khá")
-                            {
-                                loaihocbong = "Giỏi";
-                            }
-                        }
-                        else if(DiemTBC4 >= 3.2 && DiemTBC4 < 3.6)
-                        {
-                            if (LoaiDiemRL == "Xuất Sắc")
-                            {
-                                loaihocbong = "Giỏi";
-                            }
-                            else if (LoaiDiemRL == "Tốt")
-                            {
-                                loaihocbong = "Giỏi";
-                            }
-                            else if (LoaiDiemRL == "Khá")
-                            {
-                                loaihocbong = "Khá";
-                            }
-                        }
-                        else if(DiemTBC4 >= 2.5 && DiemTBC4 < 3.2)
-                        {
-                            if (LoaiDiemRL == "Xuất Sắc")
-                            {
-                                loaihocbong = "Khá";
-                            }
-                            else if (LoaiDiemRL == "Tốt")
-                            {
-                                loaihocbong = "Khá";
-                            }
-                            else if (LoaiDiemRL == "Khá")
-                            {
-                                loaihocbong = "Khá";
-                            }
-                        }
-                        if (loaihocbong == null)
-                        {
-                            MessageBox.Show("Loại SV '" + MSV + "' Vì Có Tài Mà Không Có Đức :)");
-                            dataGridView1.Rows.RemoveAt(i);
-                            i = i - 1;
-                        }
-                        else
-                        {
-                            if (dataGridView1.Rows[i].Cells["TongSoTC"].Value.ToString() != SoTCTrongHocKyTheoKhoa(makhoa, hockythu).ToString())
-                            {
-                                MessageBox.Show("Sinh Viên " + MSV + "Có vẻ như bị thiếu điểm. bạn nên kiểm tra lại");
-                                break;
-                            }
-                            else {
-                                if (TongSoTien > 0)
-                                {
-                                    dataGridView1.Rows[i].Cells["LoaiHocBong"].Value = loaihocbong;
-                                    double soTC = int.Parse(dataGridView1.Rows[i].Cells["TongSoTC"].Value.ToString());
-                                    double Sotien1TC = SoTien1TC(makhoa);
-                                    double TienHocphi = soTC * Sotien1TC;
-                                    double? tienhocbong = null;
-                                    if (loaihocbong == "Xuất Sắc")
-                                    {
-                                        tienhocbong = (TienHocphi / 100) * 125;
-                                    }
-                                    else if (loaihocbong == "Giỏi")
-                                    {
-                                        tienhocbong = (TienHocphi / 100) * 115;
-                                    }
-                                    else if (loaihocbong == "Khá")
-                                    {
-                                        tienhocbong = TienHocphi;
-                                    }
-                                    dataGridView1.Rows[i].Cells["SoTien"].Value = tienhocbong;
-                                    TongSoTien = TongSoTien - tienhocbong;
-                                }
-                                else
-                                {
-                                    if(DiemTBC4==double.Parse(dataGridView1.Rows[i-1].Cells["DiemHe4"].Value.ToString()) && DiemRL > int.Parse(dataGridView1.Rows[i-1].Cells["DRL"].Value.ToString()))
-                                    {
-                                        dataGridView1.Rows[i].Cells["LoaiHocBong"].Value = loaihocbong;
-                                        String sinhvienbiloai = dataGridView1.Rows[i-1].Cells["MSV"].Value.ToString();
-                                        double soTC = int.Parse(dataGridView1.Rows[i].Cells["TongSoTC"].Value.ToString());
-                                        double Sotien1TC = SoTien1TC(makhoa);
-                                        double TienHocphi = soTC * Sotien1TC;
-                                        double? tienhocbong = null;
-                                        if (loaihocbong == "Xuất Sắc")
-                                        {
-                                            tienhocbong = (TienHocphi / 100) * 125;
-                                        }
-                                        else if (loaihocbong == "Giỏi")
-                                        {
-                                            tienhocbong = (TienHocphi / 100) * 115;
-                                        }
-                                        else if (loaihocbong == "Khá")
-                                        {
-                                            tienhocbong = TienHocphi;
-                                        }
-                                        dataGridView1.Rows[i].Cells["SoTien"].Value = tienhocbong;
-                                        TongSoTien = TongSoTien + int.Parse(dataGridView1.Rows[i-1].Cells["SoTien"].Value.ToString());
-                                        TongSoTien = TongSoTien - tienhocbong;
-                                        MessageBox.Show("Sinh Viên '"+sinhvienbiloai+"' Bị loại vì đã hết tiền học bổng, bằng điểm thanh niên bên dưới mà lại ít đạo đức hơn :)");
-                                        dataGridView1.Rows.RemoveAt(i-1);
-                                        i = i - 1;
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Loại '"+MSV+"' Vì Đã Chia Hết Tiền");
-                                        dataGridView1.Rows.RemoveAt(i);
-                                        i = i - 1;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    MessageBox.Show("So Tien Con Lai(Hoac bi thieu): '" + TongSoTien+"'");
-                    simpleButton4.Enabled = false;
-                }
-            }
-        }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
             if(checkBox1.Checked && checkBox2.Checked && checkBox3.Checked)
             {
-                groupBox3.Enabled = true;
-                simpleButton4.Enabled = true;
             }
         }
 
@@ -678,8 +538,6 @@ namespace QLDT
         {
             if (checkBox1.Checked && checkBox2.Checked && checkBox3.Checked)
             {
-                groupBox3.Enabled = true;
-                simpleButton4.Enabled = true;
             }
         }
 
@@ -687,8 +545,6 @@ namespace QLDT
         {
             if (checkBox1.Checked && checkBox2.Checked && checkBox3.Checked)
             {
-                groupBox3.Enabled = true;
-                simpleButton4.Enabled = true;
             }
         }
 

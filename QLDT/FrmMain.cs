@@ -80,6 +80,7 @@ namespace QLDT
             btnQLMonHoc.Enabled = false;
             btnQLDiem.Enabled = true;
             btnHocPhi.Enabled = true;
+            btnXemDiem.Enabled = true;
         }
         public void EnableMenuGV()
         {
@@ -295,9 +296,9 @@ namespace QLDT
             }
             else if (btnDangNhap.Text == "ĐĂNG KÝ HỌC")
             {
-                OpenChildFormLogin(new QLDT.FrmSinhVienDangKyHoc(username), sender);
+                OpenChildFormLogin(new QLDT.FrmSinhVienDangKyHoc(username, MoDKHP), sender);
             }
-            else if (btnDangNhap.Text == "ĐIỂM SV")
+            else if (btnDangNhap.Text == "ĐIỂM SINH VIÊN")
             {
                 OpenChildFormLogin(new QLDT.FrmGiangVienNhapDiemMonHoc(username), sender);
             }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -21,73 +22,44 @@ namespace QLDT
         }
         static String trangthai;
         static String chucnang;
-        static int hocky;
-        static String MMH;
+        private int hocky = 1;
+        static String TMH;
         static int? MaDiemXoa = null;
-        private static String NamHoc;
+        private String NamHoc = null;
         private static String duongdan = null;
         private void FrmQLDiem_Load(object sender, EventArgs e)
         {
-            //dataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //KhoaDT khoa = new KhoaDT();
-            //DataSet ds1 = new DataSet();
-            //ds1 = khoa.Loadkhoa();
-            //cbboxChonkhoa.DataSource = ds1.Tables[0];
-            cbboxChonkhoa.DisplayMember = "Tenkhoa";
-            cbboxChonkhoa.ValueMember = "Makhoa";
-
-            btnCanCel.Enabled = false;
-            btnOK.Enabled = false;
+            using (SqlConnection con1 = new SqlConnection(ConnectionString.connectionString))
+            {
+                con1.Open();
+                string queryKhoa = "SELECT DISTINCT TENKHOA FROM KHOA ORDER BY TENKHOA";
+                SqlCommand cmd = new SqlCommand(queryKhoa, con1);
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string khoa = saReader.GetString(0);
+                        cbboxChonkhoa.Items.Add(khoa);
+                    }
+                }
+                con1.Close();
+            }
+            using (SqlConnection con1 = new SqlConnection(ConnectionString.connectionString))
+            {
+                con1.Open();
+                string queryKhoa = "SELECT DISTINCT NAM FROM GIANGDAY ORDER BY NAM";
+                SqlCommand cmd = new SqlCommand(queryKhoa, con1);
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string khoa = saReader.GetString(0);
+                        cbboxNamHoc.Items.Add(khoa);
+                    }
+                }
+                con1.Close();
+            }
             duongdan = null;
-        }
-
-        private void cbboxChonlop_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String t;
-            t = cbboxChonlop.Text;
-            if (t == "System.Data.DataRowView")
-            {
-
-            }
-            else
-            {
-                //DiemRL drl = new DiemRL();
-                //DataTable ds = new DataTable();
-                //if (drl.KiemtratontaiSV(drl.Malop(t)) == true)
-                //{
-                //    ds = drl.DanhsachnamhocDiem(drl.NamNhapHoc(drl.Malop(t)));
-                //    cbboxNamHoc.DataSource = ds;
-                //    cbboxNamHoc.DisplayMember = "Nam";
-                //    cbboxNamHoc.ValueMember = "HocKy";
-                //    radioButtonHK1.Checked = false;
-                //    radioButtonHK2.Checked = false;
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Không tồn tại sinh viên trong lớp nên không thể cập nhật các niên khóa học tập");
-                //}
-            }
-            cbboxMonHoc.DataSource = null;
-        }
-
-        private void cbboxChonkhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String t;
-            t = cbboxChonkhoa.SelectedValue.ToString();
-            if (t == "System.Data.DataRowView")
-            {
-
-            }
-            else
-            {
-                //Lop dc = new Lop();
-                //DataSet ds = new DataSet();
-                //ds = dc.LoadLopselect(t);
-                //cbboxChonlop.DataSource = ds.Tables[0];
-                cbboxChonlop.DisplayMember = "Tenlop";
-                cbboxChonlop.ValueMember = "Malop";
-            }
-            cbboxMonHoc.DataSource = null;
         }
 
         private void cbboxNamHoc_SelectedIndexChanged(object sender, EventArgs e)
@@ -97,30 +69,41 @@ namespace QLDT
 
         private void radioButtonHK1_CheckedChanged(object sender, EventArgs e)
         {
-            String c = cbboxNamHoc.SelectedValue.ToString();
-            hocky = int.Parse(c) - 1;
+            if (radioButtonHK1.Checked)
+            {
+                hocky = 1;
+            }
+            else
+            {
+                hocky = 2;
+            }
+            cbboxMonHoc.Items.Clear();
+            cbboxMonHoc.Text = "";
 
-            //KhoaDT a = new KhoaDT();
-            //MonHoc dc = new MonHoc();
-            //DataSet ds = new DataSet();
-            //ds = dc.LoadMonHocselect(hocky,a.Makhoa(cbboxChonkhoa.Text));
-            //cbboxMonHoc.DataSource = ds.Tables[0];
-            cbboxMonHoc.DisplayMember = "TenMonHoc";
-            cbboxMonHoc.ValueMember = "MaMonHoc";
-        }
+            if (cbboxChonkhoa.Text != "" && cbboxNamHoc.Text != "")
+            {
+                using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                {
+                    con.Open();
 
-        private void radioButtonHK2_CheckedChanged(object sender, EventArgs e)
-        {
-            String c = cbboxNamHoc.SelectedValue.ToString();
-            hocky = int.Parse(c);
+                    string query = String.Format("LOADMONHOCTHEOKHOANAMHOCKY N'" + cbboxChonkhoa.SelectedItem.ToString() + "', '" + (cbboxNamHoc.SelectedItem.ToString()).Substring(0, 11) + "', '" + hocky + "'");
+                    SqlCommand cmd = new SqlCommand(query, con);
 
-            //KhoaDT a = new KhoaDT();
-            //MonHoc dc = new MonHoc();
-            //DataSet ds = new DataSet();
-            //ds = dc.LoadMonHocselect(hocky, a.Makhoa(cbboxChonkhoa.Text));
-            //cbboxMonHoc.DataSource = ds.Tables[0];
-            cbboxMonHoc.DisplayMember = "TenMonHoc";
-            cbboxMonHoc.ValueMember = "MaMonHoc";
+                    using (SqlDataReader saReader = cmd.ExecuteReader())
+                    {
+                        while (saReader.Read())
+                        {
+                            string LOP = saReader.GetString(0);
+                            cbboxMonHoc.Items.Add(LOP);
+                        }
+                    }
+                    con.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn đủ tên khoa và năm học");
+            }
         }
 
         private void btnLoadDanhSach_Click(object sender, EventArgs e)
@@ -134,48 +117,50 @@ namespace QLDT
                 else
                 {
                     dataGridView1.DataSource = null;
-                    dataGridView1.ColumnCount = 11;
-                    dataGridView1.Columns[0].Name = "Mã Điểm";
-                    dataGridView1.Columns[0].DataPropertyName = "MaSoDiem";
-                    dataGridView1.Columns[1].Name = "MSV";
-                    dataGridView1.Columns[1].DataPropertyName = "MSV";
-                    dataGridView1.Columns[2].Name = "Họ Tên";
-                    dataGridView1.Columns[2].DataPropertyName = "HoTen";
-                    dataGridView1.Columns[3].Name = "Lần Học";
-                    dataGridView1.Columns[3].DataPropertyName = "LanHoc";
-                    dataGridView1.Columns[4].Name = "Năm Học";
-                    dataGridView1.Columns[4].DataPropertyName = "NamHoc";
-                    dataGridView1.Columns[5].Name = "Điểm TP1";
-                    dataGridView1.Columns[5].DataPropertyName = "Diem1";
-                    dataGridView1.Columns[6].Name = "Điểm TP2";
-                    dataGridView1.Columns[6].DataPropertyName = "Diem2";
-                    dataGridView1.Columns[7].Name = "Điểm Thi";
-                    dataGridView1.Columns[7].DataPropertyName = "DiemThi";
-                    dataGridView1.Columns[8].Name = "Điểm Tổng Kết";
-                    dataGridView1.Columns[8].DataPropertyName = "DiemTongKet";
-                    dataGridView1.Columns[9].Name = "Điểm Chữ";
-                    dataGridView1.Columns[9].DataPropertyName = "DiemChu";
-                    dataGridView1.Columns[10].Name = "Đánh Giá";
-                    dataGridView1.Columns[10].DataPropertyName = "DanhGia";
+                    dataGridView1.ColumnCount = 8;
+                    dataGridView1.Columns[0].Name = "MSSV";
+                    dataGridView1.Columns[0].DataPropertyName = "MSSV";
+                    dataGridView1.Columns[1].Name = "Họ Tên";
+                    dataGridView1.Columns[1].DataPropertyName = "HOTEN";
+                    dataGridView1.Columns[2].Name = "NĂM HOC";
+                    dataGridView1.Columns[2].DataPropertyName = "NAM";
+                    dataGridView1.Columns[3].Name = "HỌC KỲ";
+                    dataGridView1.Columns[3].DataPropertyName = "HOCKY";
+                    dataGridView1.Columns[4].Name = "ĐIỂM QT";
+                    dataGridView1.Columns[4].DataPropertyName = "DIEMQUATRINH";
+                    dataGridView1.Columns[5].Name = "Điểm GK";
+                    dataGridView1.Columns[5].DataPropertyName = "DIEMGIUAKY";
+                    dataGridView1.Columns[6].Name = "Điểm CK";
+                    dataGridView1.Columns[6].DataPropertyName = "DIEMCUOIKY";
+                    dataGridView1.Columns[7].Name = "Điểm Tổng Kết";
+                    dataGridView1.Columns[7].DataPropertyName = "DIEMTONGKET";
 
-
-                    //Lop b = new Lop();
-                    //DiemMonHoc a = new DiemMonHoc();
-                    
-                    //dataGridView1.DataSource = a.XemDiemTheoLop(cbboxMonHoc.SelectedValue.ToString(), b.Malop(cbboxChonlop.Text));
+                    DataTable data = new DataTable();
+                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        //cmd.CommandText = "XEMDIEMSV_THEO_KHOA_LOP_MON_NAM_KY N'@TENKHOA', '@MALOP', N'@TENMONHOC', '@NAM', '@HOCKY'";
+                        cmd.CommandText = "XEMDIEMSV_THEO_KHOA_LOP_MON_NAM_KY";
+                        cmd.Parameters.Add(new SqlParameter("@TENKHOA", cbboxChonkhoa.SelectedItem.ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@MALOP", cbboxChonlop.SelectedItem.ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@TENMONHOC", cbboxMonHoc.SelectedItem.ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@NAM", cbboxNamHoc.SelectedItem.ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@HOCKY", hocky));
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(data);
+                        con.Close();
+                    }
+                    dataGridView1.DataSource = data;
                     trangthai = "Xem Điểm";
                     dataGridView1.ReadOnly = true;
 
-                    btnCanCel.Enabled = false;
-                    btnOK.Enabled = false;
-                    btnXoaDiem.Enabled = true;
-                    btnNhapDiem.Enabled = true;
-                    chucnang = "";
-                    lblThongBao.Text = "Here";
                     dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 }
             }
-            else if(radioButtonNHAPDIEM.Checked)
+            else if (radioButtonNHAPDIEM.Checked)
             {
                 if (cbboxMonHoc.Text == "")
                 {
@@ -186,42 +171,52 @@ namespace QLDT
 
                     dataGridView1.DataSource = null;
                     dataGridView1.ColumnCount = 7;
-                    dataGridView1.Columns[0].Name = "MSV";
-                    dataGridView1.Columns[0].DataPropertyName = "MSV";
+                    dataGridView1.Columns[0].Name = "MSSV";
+                    dataGridView1.Columns[0].DataPropertyName = "MSSV";
                     dataGridView1.Columns[1].Name = "Họ Tên";
-                    dataGridView1.Columns[1].DataPropertyName = "HoTen";
-                    dataGridView1.Columns[2].Name = "Lần Học";
-                    dataGridView1.Columns[2].DataPropertyName = "LanHoc";
-                    dataGridView1.Columns[3].Name = "Năm Học";
-                    dataGridView1.Columns[3].DataPropertyName = "NamHoc";      
-                    dataGridView1.Columns[4].Name = "Điểm TP1";
-                    dataGridView1.Columns[4].DataPropertyName = "Diem1";
-                    dataGridView1.Columns[5].Name = "Điểm TP2";
-                    dataGridView1.Columns[5].DataPropertyName = "Diem2";
-                    dataGridView1.Columns[6].Name = "Điểm Thi";
-                    dataGridView1.Columns[6].DataPropertyName = "DiemThi";
-                    //Lop b = new Lop();
-                    //DiemMonHoc a = new DiemMonHoc();
-                    //dataGridView1.DataSource = a.NhapDiemTheoLop(cbboxMonHoc.SelectedValue.ToString(), b.Malop(cbboxChonlop.Text));
+                    dataGridView1.Columns[1].DataPropertyName = "HOTEN";
+                    dataGridView1.Columns[2].Name = "Năm Học";
+                    dataGridView1.Columns[2].DataPropertyName = "NAM";
+                    dataGridView1.Columns[3].Name = "Học kỳ";
+                    dataGridView1.Columns[3].DataPropertyName = "HOCKY";
+                    dataGridView1.Columns[4].Name = "Điểm QT";
+                    dataGridView1.Columns[4].DataPropertyName = "DIEMQUATRINH";
+                    dataGridView1.Columns[5].Name = "Điểm GK";
+                    dataGridView1.Columns[5].DataPropertyName = "DIEMGIUAKY";
+                    dataGridView1.Columns[6].Name = "Điểm CK";
+                    dataGridView1.Columns[6].DataPropertyName = "DIEMCUOIKY";
+                    DataTable data = new DataTable();
+                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        //cmd.CommandText = "XEMDIEMSV_THEO_KHOA_LOP_MON_NAM_KY N'@TENKHOA', '@MALOP', N'@TENMONHOC', '@NAM', '@HOCKY'";
+                        cmd.CommandText = "DSSVSUADIEM_THEO_KHOA_MON_LOP_NAM_KY";
+                        cmd.Parameters.Add(new SqlParameter("@TENKHOA", cbboxChonkhoa.SelectedItem.ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@MALOP", cbboxChonlop.SelectedItem.ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@TENMONHOC", cbboxMonHoc.SelectedItem.ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@NAM", cbboxNamHoc.SelectedItem.ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@HOCKY", hocky));
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(data);
+                        con.Close();
+                    }
+                    dataGridView1.DataSource = data;
                     trangthai = "Nhập Điểm";
-                    MMH = cbboxMonHoc.SelectedValue.ToString();
+                    TMH = cbboxMonHoc.SelectedItem.ToString();
                     dataGridView1.ReadOnly = false;
-                    String hk="";
-                    if(radioButtonHK1.Checked)
+                    String hk = "";
+                    if (radioButtonHK1.Checked)
                     {
                         hk = "1";
                     }
-                    else if(radioButtonHK2.Checked)
+                    else if (radioButtonHK2.Checked)
                     {
                         hk = "2";
                     }
-                    NamHoc = cbboxNamHoc.Text+"_"+hk;
-                    chucnang = "";
-                    lblThongBao.Text = "Here";
-                    btnCanCel.Enabled = false;
-                    btnOK.Enabled = false;
-                    btnXoaDiem.Enabled = true;
-                    btnNhapDiem.Enabled = true;
+                    NamHoc = cbboxNamHoc.Text;
                     dataGridView1.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
                 }
             }
@@ -231,250 +226,7 @@ namespace QLDT
             }
         }
 
-        private void btnNhapDiem_Click(object sender, EventArgs e)
-        {
-            if (trangthai == "Nhập Điểm")
-            {
-                String tmh = "";
-                //KhoaDT b = new KhoaDT();
-                //DiemMonHoc a = new DiemMonHoc();
-                //if (trangthai == "Nhập Điểm")
-                //{
-                //    tmh = a.TenMonHoc(cbboxMonHoc.SelectedValue.ToString());
-                //}
-                lblThongBao.Text = "Nhập/Sửa Điểm Cho Môn " + tmh ;
-                btnOK.Enabled = true;
-                btnCanCel.Enabled = true;
-                chucnang = "Nhập Điểm";
-
-
-                btnNhapDiem.Enabled = false;
-                btnXoaDiem.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show("Chức Năng Này Chỉ Hoạt Động Ở Mục Nhập Điểm");
-            }
-        }
-
-        private void btnCanCel_Click(object sender, EventArgs e)
-        {
-            lblThongBao.Text = "Here";
-            btnOK.Enabled = false;
-            btnCanCel.Enabled = false;
-
-            btnNhapDiem.Enabled = true;
-            btnXoaDiem.Enabled = true;
-            MaDiemXoa = null;
-        }
-
-        private void btnSuaDiem_Click(object sender, EventArgs e)
-        {
-            if (trangthai == "Nhập Điểm")
-            {
-                MessageBox.Show("Chức Năng Này Chỉ Hoạt Động Trong Trạng Thái Xem Điểm");
-            }
-            else
-            {
-                lblThongBao.Text = "Bạn Đang Chọn Chức Năng Sửa Điểm";
-                btnOK.Enabled = true;
-                btnCanCel.Enabled = true;
-                chucnang = "Sửa Điểm";
-
-                btnNhapDiem.Enabled = true;
-                btnXoaDiem.Enabled = true;
-            }
-        }
-
-        private void btnXoaDiem_Click(object sender, EventArgs e)
-        {
-            if (trangthai == "Nhập Điểm")
-            {
-                MessageBox.Show("Chức Năng Này Chỉ Hoạt Động Trong Trạng Thái Xem Điểm");
-            }
-            else if(trangthai=="Xem Điểm")
-            {
-                if (MaDiemXoa == null)
-                {
-                    MessageBox.Show("Bạn Cần Chỉ Định Một Đối Tượng Nào Đó");
-                }
-                else
-                {
-                    lblThongBao.Text = "Bạn Đang Chọn Chức Năng Xóa Điểm Ở Vị Tí MSĐ = " + MaDiemXoa;
-                    btnOK.Enabled = true;
-                    btnCanCel.Enabled = true;
-                    chucnang = "Xóa Điểm";
-                    btnXoaDiem.Enabled = false;
-                    btnNhapDiem.Enabled = true;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Chức Năng Này Chỉ Hoạt Động Trong Trạng Thái Xem Điểm");
-            }
-        }
-
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-            if(chucnang=="Nhập Điểm")
-            {
-                if(trangthai=="Nhập Điểm")
-                {
-                    try
-                    {
-                        //DiemMonHoc a = new DiemMonHoc();
-                        for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                        {
-                            String MSV = dataGridView1.Rows[i].Cells[0].Value.ToString();
-                            String HoTen = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                            int lanhoc;
-                            if(dataGridView1.Rows[i].Cells[2].Value.ToString()!="")
-                            {
-                                lanhoc = int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
-                            }
-                            else
-                            {
-                                lanhoc = 1;
-                            }
-                            double? Diem1 = null;
-                            double? Diem2 = null;
-                            double? DiemThi = null;
-                            double? DiemTongKet = null;
-                            double? DiemHe4 = null;
-                            String DiemChu = null;
-                            String DanhGia = null;
-                            String NH = null;
-                            
-                            if(dataGridView1.Rows[i].Cells[3].Value.ToString()!="")
-                            {
-                                NH = dataGridView1.Rows[i].Cells[3].Value.ToString();
-                            }
-                            else
-                            {
-                                NH = NamHoc;
-                            }
-
-                            if (dataGridView1.Rows[i].Cells[4].Value.ToString() != "")
-                            {
-                                Diem1 = double.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
-                            }
-                            if (dataGridView1.Rows[i].Cells[5].Value.ToString() != "")
-                            {
-                                Diem2 = double.Parse(dataGridView1.Rows[i].Cells[5].Value.ToString());
-                            }
-                            if (dataGridView1.Rows[i].Cells[6].Value.ToString() != "")
-                            {
-                                DiemThi = double.Parse(dataGridView1.Rows[i].Cells[6].Value.ToString());
-                            }
-
-                            if (Diem1 != null && Diem2 != null && DiemThi != null)
-                            {
-                                if (Diem1 > 10 || Diem2 > 10|| DiemThi>10)
-                                {
-                                    MessageBox.Show("Cảnh Báo. Điểm Nhập Ko Hợp Lệ: MSV:" + MSV);
-                                    break;
-                                }
-                                DiemTongKet = (((Diem1 + Diem2) / 2) * 0.4) + (DiemThi * 0.6);
-                                String str = String.Format("{0:00.0}", DiemTongKet);
-                                DiemTongKet = double.Parse(str);
-                                if (DiemTongKet <= 10.0 && DiemTongKet >= 8.5)
-                                {
-                                    DiemChu = "A";
-                                    DiemHe4 = 4.0;
-                                }
-                                else if (DiemTongKet >= 8.0 && DiemTongKet <= 8.4)
-                                {
-                                    DiemChu = "B+";
-                                    DiemHe4 = 3.5;
-                                }
-                                else if (DiemTongKet >= 7.0 && DiemTongKet <= 7.9)
-                                {
-                                    DiemChu = "B";
-                                    DiemHe4 = 3.0;
-                                }
-                                else if (DiemTongKet >= 6.0 && DiemTongKet <= 6.4)
-                                {
-                                    DiemChu = "C";
-                                    DiemHe4 = 2.0;
-                                }
-                                else if (DiemTongKet >= 6.5 && DiemTongKet <= 6.9)
-                                {
-                                    DiemChu = "C+";
-                                    DiemHe4 = 2.5;
-                                }
-                                else if (DiemTongKet >= 5.0 && DiemTongKet <= 5.9)
-                                {
-                                    DiemChu = "D+";
-                                    DiemHe4 = 1.5;
-                                }
-                                else if (DiemTongKet >= 4.0 && DiemTongKet <= 4.9)
-                                {
-                                    DiemChu = "D";
-                                    DiemHe4 = 1.0;
-                                }
-                                else if (DiemTongKet < 4.0)
-                                {
-                                    DiemChu = "F";
-                                    DiemHe4 = 0;
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Cảnh Báo. Điểm Nhập Ko Hợp Lệ: MSV:" + MSV);
-                                    break;
-                                }
-
-                                if (DiemChu == "A" || DiemChu == "B" || DiemChu == "B+" || DiemChu == "C+" || DiemChu == "C" || DiemChu == "D+" || DiemChu == "D")
-                                {
-                                    DanhGia = "Đạt";
-                                }
-                                else
-                                {
-                                    DanhGia = "Chưa Đạt";
-                                }
-                            }
-                            //if (a.checkDaCoDiem(MSV, MMH,lanhoc,NH) == true)
-                            //{
-                            //    a.insertDiem(MSV, MMH,lanhoc,NH, Diem1, Diem2, DiemThi, DiemTongKet, DiemChu,DiemHe4, DanhGia);
-                            //}
-                            //else
-                            //{
-                            //    a.updateDiem(MSV, MMH, lanhoc, Diem1, Diem2, DiemThi, DiemTongKet, DiemChu,DiemHe4, DanhGia);
-                            //}
-                        }
-                    }
-                    catch(Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                    MessageBox.Show("Done :)");
-                    chucnang = "";
-                    lblThongBao.Text = "Here";
-                    btnCanCel.Enabled = false;
-                    btnOK.Enabled = false;
-                    btnXoaDiem.Enabled = true;
-                    btnNhapDiem.Enabled = true;
-                }
-                else
-                {
-                    MessageBox.Show("Chức Năng Này chỉ hoạt động khi bạn chọn Nhập Điểm");
-                }
-            }
-            else if(chucnang=="Xóa Điểm")
-            {
-                //DiemMonHoc a = new DiemMonHoc();
-                //a.XoaDiem(MaDiemXoa);
-                MessageBox.Show("Done :)");
-                btnXoaDiem.Enabled = true;
-                btnOK.Enabled = false;
-                btnCanCel.Enabled = false;
-                chucnang = "";
-            }
-            else
-            {
-                MessageBox.Show("Ngoài Tầm Kiểm Soát ...");
-            }
-        }
-
+    
         private void radioButtonNHAPDIEM_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -482,7 +234,7 @@ namespace QLDT
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(trangthai=="Xem Điểm")
+            if (trangthai == "Xem Điểm")
             {
                 if (dataGridView1.Rows.Count == 0)
                 {
@@ -567,6 +319,144 @@ namespace QLDT
                         lblDuongDanFile.Text = "";
                     }
                 }
+            }
+        }
+
+        private void cbboxChonkhoa_SelectedValueChanged(object sender, EventArgs e)
+        {
+            cbboxChonlop.Items.Clear();
+            cbboxChonlop.Text = "";
+            cbboxMonHoc.Items.Clear();
+            cbboxMonHoc.Text = "";
+
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                string query = String.Format("SELECT DISTINCT MALOP FROM LOPQUANLY WHERE MAKHOA = (SELECT MAKHOA FROM KHOA WHERE TENKHOA = N'" + cbboxChonkhoa.SelectedItem.ToString() + "') ORDER BY MALOP");
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string LOP = saReader.GetString(0);
+                        cbboxChonlop.Items.Add(LOP);
+                    }
+                }
+
+
+                con.Close();
+            }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (trangthai == "Nhập Điểm")
+            {
+                try
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        String MSSV = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                        String HOTEN = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                        double? Diem1 = null;
+                        double? Diem2 = null;
+                        double? DiemThi = null;
+                        double? DiemTongKet = null;
+                        String NH = null;
+
+                        if (dataGridView1.Rows[i].Cells[2].Value.ToString() != "")
+                        {
+                            NH = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                        }
+                        else
+                        {
+                            NH = NamHoc;
+                        }
+
+                        if (dataGridView1.Rows[i].Cells[3].Value.ToString() != "")
+                        {
+                            hocky = int.Parse(dataGridView1.Rows[i].Cells[3].Value.ToString());
+                        }
+
+                        if (dataGridView1.Rows[i].Cells[4].Value.ToString() != "")
+                        {
+                            Diem1 = double.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
+                        }
+                        if (dataGridView1.Rows[i].Cells[5].Value.ToString() != "")
+                        {
+                            Diem2 = double.Parse(dataGridView1.Rows[i].Cells[5].Value.ToString());
+                        }
+                        if (dataGridView1.Rows[i].Cells[6].Value.ToString() != "")
+                        {
+                            DiemThi = double.Parse(dataGridView1.Rows[i].Cells[6].Value.ToString());
+                        }
+
+                        if (Diem1 != null && Diem2 != null && DiemThi != null)
+                        {
+                            if (Diem1 > 10 || Diem2 > 10 || DiemThi > 10  || Diem1 < 0 || Diem2 < 0 || DiemThi < 0)
+                            {
+                                MessageBox.Show("Cảnh Báo. Điểm Nhập Ko Hợp Lệ: MSV:" + MSSV);
+                                break;
+                            }
+                        }
+                        List<CustomParameter> lstPara = new List<CustomParameter>();
+                        lstPara.Add(new CustomParameter()
+                        {
+                            key = "@MSSV",
+                            value = MSSV
+                        });
+                        lstPara.Add(new CustomParameter()
+                        {
+                            key = "@TENKHOA",
+                            value = cbboxChonkhoa.SelectedItem.ToString()
+                        });
+                        lstPara.Add(new CustomParameter()
+                        {
+                            key = "@MALOP",
+                            value = cbboxChonlop.SelectedItem.ToString()
+                        });
+                        lstPara.Add(new CustomParameter()
+                        {
+                            key = "@TENMONHOC",
+                            value = cbboxMonHoc.SelectedItem.ToString()
+                        });
+                        lstPara.Add(new CustomParameter()
+                        {
+                            key = "@NAM",
+                            value = (cbboxNamHoc.SelectedItem.ToString()).Substring(0,11)
+                        });
+                        lstPara.Add(new CustomParameter()
+                        {
+                            key = "@HOCKY",
+                            value = hocky.ToString()
+                        }); ;
+                        lstPara.Add(new CustomParameter()
+                        {
+                            key = "@DIEM1",
+                            value = (Diem1.ToString()).Replace(",", ".")
+                        });
+                        lstPara.Add(new CustomParameter()
+                        {
+                            key = "@DIEM2",
+                            value = (Diem2.ToString()).Replace(",", ".")
+                        });
+                        lstPara.Add(new CustomParameter()
+                        {
+                            key = "@DIEM3",
+                            value = (DiemThi.ToString()).Replace(",", ".")
+                        });
+                        var chk = new Database().ExeCute("SUADIEMSV_THEO_KHOA_MON_LOP_NAM_KY", lstPara);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chức Năng Này chỉ hoạt động khi bạn chọn Nhập Điểm");
             }
         }
     }

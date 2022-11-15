@@ -22,44 +22,86 @@ namespace QLDT
 
         private void FrmXemDiem_Load(object sender, EventArgs e)
         {
-            //Sinhvien a = new Sinhvien();
-            //lblhienthithongtinsinhvien.Text = "MSV: " + MaSinhVien +" ("+a.TenSinhVien(int.Parse(MaSinhVien))+")";
-            //DiemTBTL b = new DiemTBTL();
-            //dataGridView2.DataSource = b.XemDiemHe4BySinhVien(MaSinhVien);
+            lblhienthithongtinsinhvien.Text = "MSV: " + MaSinhVien;
+            using (SqlConnection con1 = new SqlConnection(ConnectionString.connectionString))
+            {
+                con1.Open();
+                string queryKhoa = "SELECT DISTINCT NAM FROM GIANGDAY ORDER BY NAM";
+                SqlCommand cmd = new SqlCommand(queryKhoa, con1);
+                using (SqlDataReader saReader = cmd.ExecuteReader())
+                {
+                    while (saReader.Read())
+                    {
+                        string khoa = saReader.GetString(0);
+                        cbboxNamHoc.Items.Add(khoa);
+                    }
+                }
+                con1.Close();
+            }
+            DataTable data = new DataTable();
+            using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+            {
+                con.Open();
+                String sql = "KQHT '"+ MaSinhVien +"'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                //cmd.Parameters.Add(new SqlParameter("@MSSV", MaSinhVien));
+                SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+                Adapter.Fill(data);
+                con.Close();
+            }
+            dataGridView2.DataSource = data;
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            //XemDiemSV a = new XemDiemSV();
-            //if(radioButtonTatCa.Checked)
-            //{
-            //    dataGridView1.DataSource = a.LoadTatCaDiemSV(MaSinhVien);
-            //}
-            //else if(radioTheoNHHK.Checked)
-            //{
-            //    if(cbboxNamHoc.Text=="")
-            //    {
+            if (radioButtonTatCa.Checked)
+            {
+                DataTable data = new DataTable();
+                using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                {
+                    con.Open();
+                    String sql = "XEMDIEMALL @MSSV";
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.Parameters.Add(new SqlParameter("@MSSV", MaSinhVien));
+                    SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+                    Adapter.Fill(data);
+                    con.Close();
+                }
+                dataGridView1.DataSource = data;
+            }
+            else if (radioTheoNHHK.Checked)
+            {
+                if (cbboxNamHoc.Text == "")
+                {
 
-            //    }
-            //    else
-            //    {
-            //        dataGridView1.DataSource = a.LoadDiemSVTheoHocKy(MaSinhVien,cbboxNamHoc.Text);
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Bạn Chưa Chọn");
-            //}
+                }
+                else
+                {
+                    DataTable data = new DataTable();
+                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        con.Open();
+                        String sql = "XEMDIEMNAMKY @MSSV, @HOCKY, @NAMHOC";
+                        SqlCommand cmd = new SqlCommand(sql, con);
+                        cmd.Parameters.Add(new SqlParameter("@MSSV", MaSinhVien));
+                        cmd.Parameters.Add(new SqlParameter("@HOCKY", numericUpDown1.Value.ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@NAMHOC", cbboxNamHoc.SelectedItem.ToString()));
+                        SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+                        Adapter.Fill(data);
+                        con.Close();
+                    }
+                    dataGridView1.DataSource = data;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn Chưa Chọn");
+            }
         }
 
         private void radioTheoNHHK_CheckedChanged(object sender, EventArgs e)
         {
-            //DiemRL drl = new DiemRL();
-            //DataTable ds = new DataTable();
-            //ds = drl.DanhsachnamhocSVXemDiem123(drl.NamNhapHoc(MaSinhVien));
-            //cbboxNamHoc.DataSource = ds;
-            cbboxNamHoc.DisplayMember = "Nam";
-            cbboxNamHoc.ValueMember = "HocKyThu";
+            
         }
 
         private void dataGridView2_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -70,6 +112,55 @@ namespace QLDT
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            if (radioButtonTatCa.Checked)
+            {
+                DataTable data = new DataTable();
+                using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                {
+                    con.Open();
+                    String sql = "XEMDIEMALL @MSSV";
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.Parameters.Add(new SqlParameter("@MSSV", MaSinhVien));
+                    SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+                    Adapter.Fill(data);
+                    con.Close();
+                }
+                dataGridView1.DataSource = data;
+            }
+            else if (radioTheoNHHK.Checked)
+            {
+                if (cbboxNamHoc.Text == "")
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("1");
+                    DataTable data = new DataTable();
+                    using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        con.Open();
+                        String sql = "XEMDIEMNAMKY @MSSV, @HOCKY, @NAMHOC";
+                        SqlCommand cmd = new SqlCommand(sql, con);
+                        cmd.Parameters.Add(new SqlParameter("@MSSV", MaSinhVien));
+                        cmd.Parameters.Add(new SqlParameter("@HOCKY", numericUpDown1.Value.ToString()));
+                        cmd.Parameters.Add(new SqlParameter("@NAMHOC", cbboxNamHoc.SelectedItem.ToString()));
+                        SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+                        Adapter.Fill(data);
+                        con.Close();
+                    }
+                    dataGridView1.DataSource = data;
+                    MessageBox.Show("2");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn Chưa Chọn");
+            }
         }
     }
 }

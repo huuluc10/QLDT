@@ -18,12 +18,13 @@ namespace QLDT
     public partial class FrmSinhVienDangKyHoc : Form
     {
         private String msvien;
+        private bool MoDKHP;
         static String MMH;
-        public FrmSinhVienDangKyHoc(String user)
+        public FrmSinhVienDangKyHoc(string msvien, bool moDKHP)
         {
             InitializeComponent();
-            this.msvien=user;
-
+            this.msvien = msvien;
+            MoDKHP = moDKHP;
         }
 
         private string Makhoa(String msv)
@@ -82,7 +83,18 @@ namespace QLDT
 
         private void FrmSinhVienDangKyHoc_Load(object sender, EventArgs e)
         {
-
+            if(MoDKHP)
+            {
+                button1.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+            }
+            else
+            {
+                button1.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = false;
+            }
             MMH = null;
             string mk = Makhoa(msvien);
             dataGridView2.DataSource = KetQUADANGKY();

@@ -162,8 +162,6 @@ namespace QLDT
                     String Namhoc = dataGridView1.CurrentRow.Cells[4].Value.ToString();
                     String Hocky = dataGridView1.CurrentRow.Cells[5].Value.ToString();
                     String Tongdiem = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                    FrmSuaDiemRL frm = new FrmSuaDiemRL(Masodiem, MSV, Hoten, Lop, Namhoc, Hocky, Tongdiem);
-                    frm.ShowDialog();
                 }
             }
         }

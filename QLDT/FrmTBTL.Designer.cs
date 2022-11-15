@@ -34,20 +34,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbboxchonlop = new System.Windows.Forms.ComboBox();
             this.cbboxChonkhoa = new System.Windows.Forms.ComboBox();
-            this.cbboxNamHoc = new System.Windows.Forms.ComboBox();
-            this.btnNhapSuaDiem = new System.Windows.Forms.Button();
-            this.btnXemDiem = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lblThongBao = new System.Windows.Forms.Label();
-            this.btnCanCel = new System.Windows.Forms.Button();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lblDuongDanFile = new System.Windows.Forms.Label();
             this.lblDuongDan = new System.Windows.Forms.Label();
@@ -55,9 +45,6 @@
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,17 +91,15 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.simpleButton1);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbboxchonlop);
             this.groupBox1.Controls.Add(this.cbboxChonkhoa);
-            this.groupBox1.Controls.Add(this.cbboxNamHoc);
-            this.groupBox1.Location = new System.Drawing.Point(218, 39);
+            this.groupBox1.Location = new System.Drawing.Point(42, 39);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(427, 199);
+            this.groupBox1.Size = new System.Drawing.Size(895, 199);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             // 
@@ -128,16 +113,6 @@
             this.simpleButton1.TabIndex = 19;
             this.simpleButton1.Text = "...";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(10, 113);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 20);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "NĂM HỌC-HK :";
             // 
             // label2
             // 
@@ -169,7 +144,7 @@
             this.cbboxchonlop.Name = "cbboxchonlop";
             this.cbboxchonlop.Size = new System.Drawing.Size(117, 28);
             this.cbboxchonlop.TabIndex = 15;
-            this.cbboxchonlop.SelectedIndexChanged += new System.EventHandler(this.cbboxchonlop_SelectedIndexChanged);
+            this.cbboxchonlop.SelectedValueChanged += new System.EventHandler(this.cbboxchonlop_SelectedValueChanged);
             // 
             // cbboxChonkhoa
             // 
@@ -181,126 +156,7 @@
             this.cbboxChonkhoa.Name = "cbboxChonkhoa";
             this.cbboxChonkhoa.Size = new System.Drawing.Size(253, 28);
             this.cbboxChonkhoa.TabIndex = 14;
-            this.cbboxChonkhoa.SelectedIndexChanged += new System.EventHandler(this.cbboxChonkhoa_SelectedIndexChanged);
-            // 
-            // cbboxNamHoc
-            // 
-            this.cbboxNamHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbboxNamHoc.FormattingEnabled = true;
-            this.cbboxNamHoc.Location = new System.Drawing.Point(127, 107);
-            this.cbboxNamHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbboxNamHoc.Name = "cbboxNamHoc";
-            this.cbboxNamHoc.Size = new System.Drawing.Size(163, 28);
-            this.cbboxNamHoc.TabIndex = 13;
-            this.cbboxNamHoc.SelectedIndexChanged += new System.EventHandler(this.cbboxNamHoc_SelectedIndexChanged);
-            // 
-            // btnNhapSuaDiem
-            // 
-            this.btnNhapSuaDiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btnNhapSuaDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhapSuaDiem.Image = global::QLDT.Properties.Resources.icons8_pencil_drawing_30;
-            this.btnNhapSuaDiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhapSuaDiem.Location = new System.Drawing.Point(24, 112);
-            this.btnNhapSuaDiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnNhapSuaDiem.Name = "btnNhapSuaDiem";
-            this.btnNhapSuaDiem.Size = new System.Drawing.Size(145, 62);
-            this.btnNhapSuaDiem.TabIndex = 27;
-            this.btnNhapSuaDiem.Text = "NHẬP/SỬA";
-            this.btnNhapSuaDiem.UseVisualStyleBackColor = false;
-            this.btnNhapSuaDiem.Click += new System.EventHandler(this.btnNhapSuaDiem_Click);
-            // 
-            // btnXemDiem
-            // 
-            this.btnXemDiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXemDiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btnXemDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXemDiem.Image = global::QLDT.Properties.Resources.icons8_opera_glasses_30;
-            this.btnXemDiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXemDiem.Location = new System.Drawing.Point(24, 28);
-            this.btnXemDiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnXemDiem.Name = "btnXemDiem";
-            this.btnXemDiem.Size = new System.Drawing.Size(145, 62);
-            this.btnXemDiem.TabIndex = 127;
-            this.btnXemDiem.Text = "XEM ĐIỂM";
-            this.btnXemDiem.UseVisualStyleBackColor = false;
-            this.btnXemDiem.Click += new System.EventHandler(this.btnXemDiem_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Controls.Add(this.btnCanCel);
-            this.groupBox3.Controls.Add(this.btnOK);
-            this.groupBox3.Location = new System.Drawing.Point(651, 44);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Size = new System.Drawing.Size(429, 194);
-            this.groupBox3.TabIndex = 132;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "MESS";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.lblThongBao);
-            this.groupBox4.Location = new System.Drawing.Point(6, 26);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(417, 58);
-            this.groupBox4.TabIndex = 124;
-            this.groupBox4.TabStop = false;
-            // 
-            // lblThongBao
-            // 
-            this.lblThongBao.AutoSize = true;
-            this.lblThongBao.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblThongBao.Location = new System.Drawing.Point(15, 21);
-            this.lblThongBao.Name = "lblThongBao";
-            this.lblThongBao.Size = new System.Drawing.Size(41, 20);
-            this.lblThongBao.TabIndex = 22;
-            this.lblThongBao.Text = "Here";
-            // 
-            // btnCanCel
-            // 
-            this.btnCanCel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btnCanCel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCanCel.Image = global::QLDT.Properties.Resources.icons8_cancel_20;
-            this.btnCanCel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCanCel.Location = new System.Drawing.Point(223, 118);
-            this.btnCanCel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCanCel.Name = "btnCanCel";
-            this.btnCanCel.Size = new System.Drawing.Size(154, 41);
-            this.btnCanCel.TabIndex = 123;
-            this.btnCanCel.Text = "CANCEL";
-            this.btnCanCel.UseVisualStyleBackColor = false;
-            this.btnCanCel.Click += new System.EventHandler(this.btnCanCel_Click);
-            // 
-            // btnOK
-            // 
-            this.btnOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
-            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOK.Image = global::QLDT.Properties.Resources.icons8_ok_20;
-            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOK.Location = new System.Drawing.Point(63, 118);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(154, 41);
-            this.btnOK.TabIndex = 120;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = false;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnNhapSuaDiem);
-            this.groupBox2.Controls.Add(this.btnXemDiem);
-            this.groupBox2.Location = new System.Drawing.Point(26, 39);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(186, 199);
-            this.groupBox2.TabIndex = 133;
-            this.groupBox2.TabStop = false;
+            this.cbboxChonkhoa.SelectedValueChanged += new System.EventHandler(this.cbboxChonkhoa_SelectedValueChanged);
             // 
             // groupBox5
             // 
@@ -308,11 +164,11 @@
             this.groupBox5.Controls.Add(this.lblDuongDan);
             this.groupBox5.Controls.Add(this.btnChonDuongDan);
             this.groupBox5.Controls.Add(this.button1);
-            this.groupBox5.Location = new System.Drawing.Point(1086, 44);
+            this.groupBox5.Location = new System.Drawing.Point(1011, 44);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(393, 194);
+            this.groupBox5.Size = new System.Drawing.Size(468, 194);
             this.groupBox5.TabIndex = 134;
             this.groupBox5.TabStop = false;
             // 
@@ -352,7 +208,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(90)))), ((int)(((byte)(200)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(213, 57);
+            this.button1.Location = new System.Drawing.Point(251, 57);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(159, 37);
@@ -368,8 +224,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.ClientSize = new System.Drawing.Size(1532, 1022);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -380,10 +234,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
@@ -399,15 +249,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbboxchonlop;
         private System.Windows.Forms.ComboBox cbboxChonkhoa;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbboxNamHoc;
         private System.Windows.Forms.Button btnNhapSuaDiem;
         private System.Windows.Forms.Button btnXemDiem;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label lblThongBao;
-        private System.Windows.Forms.Button btnCanCel;
-        private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label lblDuongDanFile;

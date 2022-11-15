@@ -40,7 +40,6 @@ D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmNhapDiemRL.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmQLDiem.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmQLTaiKhoan.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmSinhVienDangKyHoc.resources
-D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmSuaDiemRL.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmTaoLopDangKyHoc.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmTBTL.resources
 D:\code\QLDT\QLDT\obj\Debug\net6.0-windows\QLDT.FrmThemSV.resources

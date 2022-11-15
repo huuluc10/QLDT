@@ -35,32 +35,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.MSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LanHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Malop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamNhapHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiemThi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiemTK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiemChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DanhGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.lblhienthithongtinsinhvien = new System.Windows.Forms.Label();
             this.radioButtonTatCa = new System.Windows.Forms.RadioButton();
             this.radioTheoNHHK = new System.Windows.Forms.RadioButton();
             this.cbboxNamHoc = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoTCTLTK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -82,17 +70,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MSV,
-            this.HoTen,
-            this.SoTC,
-            this.LanHoc,
-            this.Malop,
-            this.NamNhapHoc,
-            this.DiemThi,
-            this.DiemTK,
-            this.DiemChu,
-            this.DanhGia});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -120,97 +97,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1422, 659);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
-            // 
-            // MSV
-            // 
-            this.MSV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MSV.DataPropertyName = "MaMonHoc";
-            this.MSV.HeaderText = "Mã Môn Học";
-            this.MSV.MinimumWidth = 6;
-            this.MSV.Name = "MSV";
-            this.MSV.ReadOnly = true;
-            // 
-            // HoTen
-            // 
-            this.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.HoTen.DataPropertyName = "TenMonHoc";
-            this.HoTen.HeaderText = "Tên Học Phần";
-            this.HoTen.MinimumWidth = 6;
-            this.HoTen.Name = "HoTen";
-            this.HoTen.ReadOnly = true;
-            this.HoTen.Width = 122;
-            // 
-            // SoTC
-            // 
-            this.SoTC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SoTC.DataPropertyName = "SoTC";
-            this.SoTC.HeaderText = "Số TC";
-            this.SoTC.MinimumWidth = 6;
-            this.SoTC.Name = "SoTC";
-            this.SoTC.ReadOnly = true;
-            // 
-            // LanHoc
-            // 
-            this.LanHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.LanHoc.DataPropertyName = "LanHoc";
-            this.LanHoc.HeaderText = "Lần Học";
-            this.LanHoc.MinimumWidth = 6;
-            this.LanHoc.Name = "LanHoc";
-            this.LanHoc.ReadOnly = true;
-            // 
-            // Malop
-            // 
-            this.Malop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Malop.DataPropertyName = "Diem1";
-            this.Malop.HeaderText = "Điểm KT1";
-            this.Malop.MinimumWidth = 6;
-            this.Malop.Name = "Malop";
-            this.Malop.ReadOnly = true;
-            // 
-            // NamNhapHoc
-            // 
-            this.NamNhapHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NamNhapHoc.DataPropertyName = "Diem2";
-            this.NamNhapHoc.HeaderText = "Điểm KT2";
-            this.NamNhapHoc.MinimumWidth = 6;
-            this.NamNhapHoc.Name = "NamNhapHoc";
-            this.NamNhapHoc.ReadOnly = true;
-            // 
-            // DiemThi
-            // 
-            this.DiemThi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiemThi.DataPropertyName = "DiemThi";
-            this.DiemThi.HeaderText = "Điểm Thi";
-            this.DiemThi.MinimumWidth = 6;
-            this.DiemThi.Name = "DiemThi";
-            this.DiemThi.ReadOnly = true;
-            // 
-            // DiemTK
-            // 
-            this.DiemTK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiemTK.DataPropertyName = "DiemTongKet";
-            this.DiemTK.HeaderText = "Điểm Tổng Kết";
-            this.DiemTK.MinimumWidth = 6;
-            this.DiemTK.Name = "DiemTK";
-            this.DiemTK.ReadOnly = true;
-            // 
-            // DiemChu
-            // 
-            this.DiemChu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiemChu.DataPropertyName = "DiemChu";
-            this.DiemChu.HeaderText = "Điểm Chữ";
-            this.DiemChu.MinimumWidth = 6;
-            this.DiemChu.Name = "DiemChu";
-            this.DiemChu.ReadOnly = true;
-            // 
-            // DanhGia
-            // 
-            this.DanhGia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DanhGia.DataPropertyName = "DanhGia";
-            this.DanhGia.HeaderText = "Đánh Giá";
-            this.DanhGia.MinimumWidth = 6;
-            this.DanhGia.Name = "DanhGia";
-            this.DanhGia.ReadOnly = true;
             // 
             // label1
             // 
@@ -271,6 +157,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Controls.Add(this.simpleButton2);
             this.groupBox1.Controls.Add(this.cbboxNamHoc);
             this.groupBox1.Controls.Add(this.radioTheoNHHK);
@@ -282,6 +170,41 @@
             this.groupBox1.Size = new System.Drawing.Size(302, 264);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(61, 167);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 20);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "HỌC KỲ";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(141, 160);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(88, 27);
+            this.numericUpDown1.TabIndex = 19;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(48, 196);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(193, 34);
+            this.simpleButton2.TabIndex = 17;
+            this.simpleButton2.Text = "XEM ĐIỂM";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // groupBox2
             // 
@@ -310,12 +233,6 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.SoTCTLTK});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -344,54 +261,6 @@
             this.dataGridView2.TabIndex = 16;
             this.dataGridView2.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView2_DataBindingComplete);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "NamHoc";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Năm Học";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "DiemTBCHe10";
-            this.dataGridViewTextBoxColumn6.HeaderText = "TBC Hệ 10 N1";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "TBCHe4";
-            this.dataGridViewTextBoxColumn7.HeaderText = "TBC Hệ4 N1";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "SoTCTL";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Số TC N1";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // SoTCTLTK
-            // 
-            this.SoTCTLTK.DataPropertyName = "SoTCTLTK";
-            this.SoTCTLTK.HeaderText = "Số TCTL";
-            this.SoTCTLTK.MinimumWidth = 6;
-            this.SoTCTLTK.Name = "SoTCTLTK";
-            this.SoTCTLTK.ReadOnly = true;
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Location = new System.Drawing.Point(48, 160);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(193, 34);
-            this.simpleButton2.TabIndex = 17;
-            this.simpleButton2.Text = "XEM ĐIỂM";
-            // 
             // FrmXemDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -411,6 +280,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -430,21 +300,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MSV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoTC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LanHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Malop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NamNhapHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiemThi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiemTK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiemChu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DanhGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoTCTLTK;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private Label label2;
+        private NumericUpDown numericUpDown1;
     }
 }
