@@ -36,12 +36,12 @@ namespace QLDT
             if (month <= 6)
             {
                 namHoc = year - 1 + " - " + year;
-                hocKy = "2";
+                hocKy = "1";
             }
             else if (month > 6)
             {
-                namHoc = year + " - " + (year + 1);
-                hocKy = "1";
+                namHoc = year - 1 + " - " + year;
+                hocKy = "2";
             }
             txtNamHocHienTai.Text = namHoc;
             txtHocKy.Text = hocKy;
@@ -271,7 +271,7 @@ namespace QLDT
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "DSSV_DE_XETHB";
                     cmd.Parameters.Add(new SqlParameter("@TENKHOA", cbboxChonkhoa.SelectedItem.ToString()));
-                    cmd.Parameters.Add(new SqlParameter("@NAM", namHoc));
+                    cmd.Parameters.Add(new SqlParameter("@NAMHOC", namHoc));
                     cmd.Parameters.Add(new SqlParameter("@HOCKY", hocKy));
                     cmd.Parameters.Add(new SqlParameter("@MUCDIEMXET", txtMucDiemXet.Text));
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -380,7 +380,7 @@ namespace QLDT
                         i = i - 1;
                     }
                 }
-                MessageBox.Show("Đã loại tất cả sinh viên có môn học thi điểm dưỡi 5");
+                MessageBox.Show("Đã loại tất cả sinh viên có môn học thi điểm dưới 5.5");
                 simpleButton2.Enabled = false;
                 checkBox2.Checked = true;
             }
@@ -401,13 +401,10 @@ namespace QLDT
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    if (rdr["DIEMCUOIKY"].ToString() != "")
+                    int xet = Int32.Parse(rdr["XET"].ToString());
+                    if (xet >= 1)
                     {
-                        double? diemthi = (double)rdr["DIEMCUOIKY"];
-                        if (diemthi < 5.0)
-                        {
-                            return false;
-                        }
+                        return false;
                     }
                 }
                 con.Close();
@@ -434,7 +431,7 @@ namespace QLDT
                     {
                         int TONGTC = (int)rdr["TONGTC"];
                         int Diem = (int)rdr["DIEM"];
-                        if (TONGTC < 18)
+                        if (TONGTC < 15)
                         {
                             return false;
                         }
@@ -465,8 +462,8 @@ namespace QLDT
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    var xet = rdr["XET"].ToString();
-                    if (xet.ToString() != "0")
+                    float xet = float.Parse(rdr["XET"].ToString());
+                    if (xet < 5)
                     {
                         return false;
                     }
@@ -488,15 +485,15 @@ namespace QLDT
             {
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    String MSV = dataGridView1.Rows[i].Cells["MSV"].Value.ToString();
-                    String NamHoc = dataGridView1.Rows[i].Cells["NamHoc"].Value.ToString();
+                    String MSV = dataGridView1.Rows[i].Cells["MSSV"].Value.ToString();
+                    String NamHoc = dataGridView1.Rows[i].Cells["NAM"].Value.ToString();
                     if (loaisvdiemduoi5TCQP(MSV, NamHoc) == false)
                     {
                         dataGridView1.Rows.RemoveAt(i);
                         i = i - 1;
                     }
                 }
-                MessageBox.Show("Đã loại tất cả sinh viên có học phần Quốc Phòng hoặc thể chất thi điểm dưới 5");
+                MessageBox.Show("Đã loại tất cả sinh viên có số tín chỉ < 15 và DRL < 70");
                 simpleButton3.Enabled = false;
                 checkBox3.Checked = true;
             }
@@ -512,8 +509,8 @@ namespace QLDT
             {
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    String MSV = dataGridView1.Rows[i].Cells["MSV"].Value.ToString();
-                    String NamHoc = dataGridView1.Rows[i].Cells["NamHoc"].Value.ToString();
+                    String MSV = dataGridView1.Rows[i].Cells["MSSV"].Value.ToString();
+                    String NamHoc = dataGridView1.Rows[i].Cells["NAM"].Value.ToString();
                     if (loaisvhoclai(MSV, NamHoc) == false)
                     {
                         dataGridView1.Rows.RemoveAt(i);

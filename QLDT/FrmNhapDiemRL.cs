@@ -27,14 +27,6 @@ namespace QLDT
         }
 
         public Boolean click = false;
-
-        private string HocKy(string msv)
-        {
-            string mk;
-            var r = new Database().Select(String.Format("SELECT MAX(HOCKY) + 1  as HOCKY FROM DIEMRENLUYEN\r\nWHERE MSSV = '" + msv + "'"));
-            mk = r["HOCKY"].ToString();
-            return mk;
-        }
         private void FrmNhapDiemRL_Load(object sender, EventArgs e)
         {
             txtTongDiemRL.MaxLength = 3;
@@ -112,10 +104,8 @@ namespace QLDT
                 {
                     
                     txtMSV.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    string hk = HocKy(txtMSV.Text);
                     txtHoten.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                     txtLop.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                    txtHocKy.Text = hk;
                 }
             }
         }
@@ -206,13 +196,15 @@ namespace QLDT
                         using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
                         {
                             con.Open();
-                            String sql = "NHAPDRL @MSSV, @HOCKY, @DIEM";
+                            String sql = "NHAPDRL @MSSV, @HOCKY, @NAMHOC, @DIEM";
                             SqlCommand cmd = new SqlCommand(sql, con);
                             cmd.Parameters.Add("@MSSV", SqlDbType.Char, 8);
                             cmd.Parameters.Add("@HOCKY", SqlDbType.Char, 1);
+                            cmd.Parameters.Add("@NAMHOC", SqlDbType.Char, 12);
                             cmd.Parameters.Add("@DIEM", SqlDbType.TinyInt);
                             cmd.Parameters["@MSSV"].Value = txtMSV.Text;
                             cmd.Parameters["@HOCKY"].Value = txtHocKy.Text;
+                            cmd.Parameters["@NAMHOC"].Value = txtNamHocHienTai.Text;
                             cmd.Parameters["@DIEM"].Value = txtTongDiemRL.Text;
                             cmd.ExecuteNonQuery();
                             con.Close();

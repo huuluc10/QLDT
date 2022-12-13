@@ -88,12 +88,14 @@ namespace QLDT
                 button1.Enabled = true;
                 button2.Enabled = true;
                 button3.Enabled = true;
+                label3.Visible = false;
             }
             else
             {
                 button1.Enabled = false;
                 button2.Enabled = false;
                 button3.Enabled = false;
+                label3.Visible = true;
             }
             MMH = null;
             string mk = Makhoa(msvien);
@@ -344,6 +346,7 @@ namespace QLDT
                             MessageBox.Show("Hủy Thành Công");
                             dataGridView2.DataSource = KetQUADANGKY();
                             dataGridView3.DataSource = TongCong(dataGridView2);
+                            button2_Click(null, null);
                         }
                     }
                 }

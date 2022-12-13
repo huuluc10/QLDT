@@ -389,7 +389,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmQLTaiKhoan";
-            this.Text = "QL Tài Khoản";
+            this.Text = "Quản Lý Tài Khoản";
             this.Load += new System.EventHandler(this.FrmQLTaiKhoan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -130,7 +130,6 @@ namespace QLDT
                     cmd.Parameters.Add(new SqlParameter("@TENMONHOC", cbboxMonHoc.SelectedItem.ToString()));
                     cmd.Parameters.Add(new SqlParameter("@HOCKY", hocKy));
                     cmd.Parameters.Add(new SqlParameter("@NAM", namHoc));
-                    MessageBox.Show(cbboxGiangVien.SelectedItem.ToString());
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }

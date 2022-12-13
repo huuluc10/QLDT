@@ -59,6 +59,18 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MSGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HOTEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuocGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOCCCD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dantoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TonGiao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Khoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btXoaGV = new System.Windows.Forms.Button();
             this.btThemSV = new System.Windows.Forms.Button();
             this.btLoadGV = new System.Windows.Forms.Button();
@@ -76,18 +88,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.MSGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HOTEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuocGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SOCCCD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dantoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TonGiao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Khoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -486,6 +486,102 @@
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
+            // MSGV
+            // 
+            this.MSGV.DataPropertyName = "MSGV";
+            this.MSGV.HeaderText = "MSGV";
+            this.MSGV.MinimumWidth = 6;
+            this.MSGV.Name = "MSGV";
+            this.MSGV.ReadOnly = true;
+            // 
+            // HOTEN
+            // 
+            this.HOTEN.DataPropertyName = "HOTEN";
+            this.HOTEN.HeaderText = "Họ Tên";
+            this.HOTEN.MinimumWidth = 6;
+            this.HOTEN.Name = "HOTEN";
+            this.HOTEN.ReadOnly = true;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.DataPropertyName = "NGAYSINH";
+            this.NgaySinh.HeaderText = "Ngày Sinh";
+            this.NgaySinh.MinimumWidth = 6;
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.DataPropertyName = "GIOITINH";
+            this.GioiTinh.HeaderText = "Giới Tính";
+            this.GioiTinh.MinimumWidth = 6;
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            // 
+            // QuocGia
+            // 
+            this.QuocGia.DataPropertyName = "QUOCGIA";
+            this.QuocGia.HeaderText = "Quốc Gia";
+            this.QuocGia.MinimumWidth = 6;
+            this.QuocGia.Name = "QuocGia";
+            this.QuocGia.ReadOnly = true;
+            // 
+            // SOCCCD
+            // 
+            this.SOCCCD.DataPropertyName = "SOCCCD";
+            this.SOCCCD.HeaderText = "CCCD";
+            this.SOCCCD.MinimumWidth = 6;
+            this.SOCCCD.Name = "SOCCCD";
+            this.SOCCCD.ReadOnly = true;
+            // 
+            // Dantoc
+            // 
+            this.Dantoc.DataPropertyName = "DANTOC";
+            this.Dantoc.HeaderText = "Dân Tộc";
+            this.Dantoc.MinimumWidth = 6;
+            this.Dantoc.Name = "Dantoc";
+            this.Dantoc.ReadOnly = true;
+            // 
+            // TonGiao
+            // 
+            this.TonGiao.DataPropertyName = "TONGIAO";
+            this.TonGiao.HeaderText = "Tôn Giáo";
+            this.TonGiao.MinimumWidth = 6;
+            this.TonGiao.Name = "TonGiao";
+            this.TonGiao.ReadOnly = true;
+            // 
+            // Khoa
+            // 
+            this.Khoa.DataPropertyName = "TENKHOA";
+            this.Khoa.HeaderText = "Khoa";
+            this.Khoa.MinimumWidth = 6;
+            this.Khoa.Name = "Khoa";
+            this.Khoa.ReadOnly = true;
+            // 
+            // SDT
+            // 
+            this.SDT.DataPropertyName = "DIENTHOAI";
+            this.SDT.HeaderText = "SDT";
+            this.SDT.MinimumWidth = 6;
+            this.SDT.Name = "SDT";
+            this.SDT.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "EMAIL";
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.DataPropertyName = "DIACHI";
+            this.DiaChi.HeaderText = "Địa Chỉ";
+            this.DiaChi.MinimumWidth = 6;
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            // 
             // btXoaGV
             // 
             this.btXoaGV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -747,102 +843,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "CẬP NHẬT";
             // 
-            // MSGV
-            // 
-            this.MSGV.DataPropertyName = "MSGV";
-            this.MSGV.HeaderText = "MSGV";
-            this.MSGV.MinimumWidth = 6;
-            this.MSGV.Name = "MSGV";
-            this.MSGV.ReadOnly = true;
-            // 
-            // HOTEN
-            // 
-            this.HOTEN.DataPropertyName = "HOTEN";
-            this.HOTEN.HeaderText = "Họ Tên";
-            this.HOTEN.MinimumWidth = 6;
-            this.HOTEN.Name = "HOTEN";
-            this.HOTEN.ReadOnly = true;
-            // 
-            // NgaySinh
-            // 
-            this.NgaySinh.DataPropertyName = "NGAYSINH";
-            this.NgaySinh.HeaderText = "Ngày Sinh";
-            this.NgaySinh.MinimumWidth = 6;
-            this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
-            // 
-            // GioiTinh
-            // 
-            this.GioiTinh.DataPropertyName = "GIOITINH";
-            this.GioiTinh.HeaderText = "Giới Tính";
-            this.GioiTinh.MinimumWidth = 6;
-            this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
-            // 
-            // QuocGia
-            // 
-            this.QuocGia.DataPropertyName = "QUOCGIA";
-            this.QuocGia.HeaderText = "Quốc Gia";
-            this.QuocGia.MinimumWidth = 6;
-            this.QuocGia.Name = "QuocGia";
-            this.QuocGia.ReadOnly = true;
-            // 
-            // SOCCCD
-            // 
-            this.SOCCCD.DataPropertyName = "SOCCCD";
-            this.SOCCCD.HeaderText = "CCCD";
-            this.SOCCCD.MinimumWidth = 6;
-            this.SOCCCD.Name = "SOCCCD";
-            this.SOCCCD.ReadOnly = true;
-            // 
-            // Dantoc
-            // 
-            this.Dantoc.DataPropertyName = "DANTOC";
-            this.Dantoc.HeaderText = "Dân Tộc";
-            this.Dantoc.MinimumWidth = 6;
-            this.Dantoc.Name = "Dantoc";
-            this.Dantoc.ReadOnly = true;
-            // 
-            // TonGiao
-            // 
-            this.TonGiao.DataPropertyName = "TONGIAO";
-            this.TonGiao.HeaderText = "Tôn Giáo";
-            this.TonGiao.MinimumWidth = 6;
-            this.TonGiao.Name = "TonGiao";
-            this.TonGiao.ReadOnly = true;
-            // 
-            // Khoa
-            // 
-            this.Khoa.DataPropertyName = "TENKHOA";
-            this.Khoa.HeaderText = "Khoa";
-            this.Khoa.MinimumWidth = 6;
-            this.Khoa.Name = "Khoa";
-            this.Khoa.ReadOnly = true;
-            // 
-            // SDT
-            // 
-            this.SDT.DataPropertyName = "DIENTHOAI";
-            this.SDT.HeaderText = "SDT";
-            this.SDT.MinimumWidth = 6;
-            this.SDT.Name = "SDT";
-            this.SDT.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "EMAIL";
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.DataPropertyName = "DIACHI";
-            this.DiaChi.HeaderText = "Địa Chỉ";
-            this.DiaChi.MinimumWidth = 6;
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            // 
             // FrmHoSoGiaoVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -859,7 +859,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmHoSoGiaoVien";
-            this.Text = "Hồ Sơ Sinh Viên";
+            this.Text = "Hồ Sơ Giáo Viên";
             this.Load += new System.EventHandler(this.HoSoSinhVien_Load_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

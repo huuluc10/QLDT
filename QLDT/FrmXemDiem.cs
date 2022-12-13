@@ -139,7 +139,6 @@ namespace QLDT
                 }
                 else
                 {
-                    MessageBox.Show("1");
                     DataTable data = new DataTable();
                     using (SqlConnection con = new SqlConnection(ConnectionString.connectionString))
                     {
@@ -154,12 +153,25 @@ namespace QLDT
                         con.Close();
                     }
                     dataGridView1.DataSource = data;
-                    MessageBox.Show("2");
                 }
             }
             else
             {
                 MessageBox.Show("Bạn Chưa Chọn");
+            }
+        }
+
+        private void radioButtonTatCa_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radioButtonTatCa.Checked)
+            {
+                cbboxNamHoc.Enabled = false;
+                numericUpDown1.Enabled = false;
+            }
+            else
+            {
+                cbboxNamHoc.Enabled = true;
+                numericUpDown1.Enabled = true;
             }
         }
     }

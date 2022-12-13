@@ -144,7 +144,6 @@ namespace QLDT
             }
             else
             {
-                
                 MMH = cbboxLopHocDangDay.SelectedItem.ToString();
                 dataGridView1.DataSource = LoadSVTRONGLOP(MMH);
             }
@@ -208,7 +207,7 @@ namespace QLDT
                     lstPara.Add(new CustomParameter()
                     {
                         key = "@DIEMGIUAKY",
-                        value = (dataGridView1.Rows[i].Cells["DiemKT3"].Value.ToString()).Replace(",", ".")
+                        value = (dataGridView1.Rows[i].Cells["DiemKT2"].Value.ToString()).Replace(",", ".")
                     });
                     lstPara.Add(new CustomParameter()
                     {

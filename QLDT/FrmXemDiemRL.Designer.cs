@@ -353,7 +353,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmXemDiemRL";
-            this.Text = "Xem Điểm RL";
+            this.Text = "Xem Điểm Rèn Luyện";
             this.Load += new System.EventHandler(this.FrmXemDiemRL_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

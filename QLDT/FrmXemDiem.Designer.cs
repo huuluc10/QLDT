@@ -131,6 +131,7 @@
             this.radioButtonTatCa.TabStop = true;
             this.radioButtonTatCa.Text = "TẤT CẢ HỌC PHẦN";
             this.radioButtonTatCa.UseVisualStyleBackColor = true;
+            this.radioButtonTatCa.CheckedChanged += new System.EventHandler(this.radioButtonTatCa_CheckedChanged);
             // 
             // radioTheoNHHK
             // 

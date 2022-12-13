@@ -390,7 +390,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmThemGV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thêm Sinh Viên";
+            this.Text = "Thêm Giáo Viên";
             this.Load += new System.EventHandler(this.FrmThemGV_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

@@ -2,6 +2,6 @@
 {
     public class ConnectionString
     {
-        public static String connectionString = @"Data Source=DESKTOP-5MM4CTB;Initial Catalog=QLDT;User ID=sa;Password=sa;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public static String connectionString = @"Data Source=DESKTOP-5MM4CTB\SQLEXPRESS;Initial Catalog = QLDT; Trusted_Connection=True";
     }
 }

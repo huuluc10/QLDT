@@ -67,6 +67,7 @@
             this.Tong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongSoTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongHocPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -479,12 +480,25 @@
             this.TongHocPhi.ReadOnly = true;
             this.TongHocPhi.Width = 114;
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(398, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(392, 25);
+            this.label3.TabIndex = 75;
+            this.label3.Text = "THỜI GIAN ĐĂNG KÝ KHÔNG HỢP LỆ";
+            // 
             // FrmSinhVienDangKyHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(55)))), ((int)(((byte)(103)))));
             this.ClientSize = new System.Drawing.Size(1258, 1050);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -498,7 +512,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmSinhVienDangKyHoc";
-            this.Text = "FrmSinhVienDangKyHoc";
+            this.Text = "ĐĂNG KÝ HỌC PHẦN";
             this.Load += new System.EventHandler(this.FrmSinhVienDangKyHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -547,5 +561,6 @@
         private DataGridViewTextBoxColumn Tong;
         private DataGridViewTextBoxColumn TongSoTC;
         private DataGridViewTextBoxColumn TongHocPhi;
+        private Label label3;
     }
 }

@@ -11,7 +11,7 @@ namespace QLDT
 {
     public class Database
     {
-        private string connectionString = @"Data Source=DESKTOP-5MM4CTB;Initial Catalog = QLDT; Trusted_Connection=True";   //khai báo chuỗi kết nối
+        private string connectionString = @"Data Source=DESKTOP-5MM4CTB\SQLEXPRESS;Initial Catalog = QLDT; Trusted_Connection=True";   //khai báo chuỗi kết nối
         private SqlConnection conn;
         private DataTable dt;
         private SqlCommand cmd;

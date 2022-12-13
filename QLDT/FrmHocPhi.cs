@@ -128,7 +128,7 @@ namespace QLDT
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = con;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "XEMDRL";
+                        cmd.CommandText = "XEMHOCPHICANAM";
                         cmd.Parameters.Add(new SqlParameter("@TENKHOA", cbboxChonkhoa.SelectedItem.ToString()));
                         cmd.Parameters.Add(new SqlParameter("@MALOP", cbboxChonlop.SelectedItem.ToString()));
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
